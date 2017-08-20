@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Player\Feet.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerArt.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\UI\Typewriter.cs" />
      <None Include="Assets\Shaders\ShadowSprite.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity 2017.1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -77,10 +78,6 @@
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity 2017.1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{995A92EF-7716-385C-A926-DFF3B3C916A6}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

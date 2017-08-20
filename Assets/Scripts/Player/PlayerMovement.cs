@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour {
 	public custom_inputs inputManager;
 	public Feet feet;
 	public PlayerArt art;
+	public ParticleSystem particles;
 	public bool allowMovement;
 	private bool grounded;
 
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (allowMovement) {
 			doMovement ();
 			updateArt ();
+			updateParticleSystem ();
 		}
 	}
 
@@ -62,7 +64,7 @@ public class PlayerMovement : MonoBehaviour {
 			rigidbody.velocity += new Vector3 (moveSpeed,0f,0f);
 		}
 
-		if (inputManager.isInput [4] && feet.CheckGroundStatus()) {
+		if (inputManager.isInput [4] && feet.CheckGroundStatus ()) {
 			rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
 		}
 	}
@@ -74,6 +76,18 @@ public class PlayerMovement : MonoBehaviour {
 			art.Walk (getFacing ());
 		} else if (rigidbody.velocity.y > 0.1f || rigidbody.velocity.y < -0.1f) {
 			art.Jump (getFacing ());
+		}
+	}
+
+	void updateParticleSystem(){
+		if (rigidbody.velocity.y == 0 && (Mathf.Abs (rigidbody.velocity.x) > 0.1f || Mathf.Abs (rigidbody.velocity.z) > 0.1f)) {
+			if (!particles.isEmitting) {
+				particles.Play ();
+			}
+		} else {
+			if (particles.isEmitting) {
+				particles.Stop ();
+			}
 		}
 	}
 
