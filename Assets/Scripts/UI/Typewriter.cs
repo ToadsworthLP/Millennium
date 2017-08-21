@@ -7,7 +7,6 @@ public class Typewriter : MonoBehaviour {
 	[TextArea]
 	public string[] inputText;
 	public float defaultSpeed;
-    public float speedModifier;
 	public Text textComponent;
 	public custom_inputs inputManager;
 

@@ -158,9 +158,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputText:
-  - Test
-  defaultSpeed: 0.05
-  speedModifier: 2
+  - 'Fifi''s Story, #1
+
+    Fifi is a poodle.'
+  defaultSpeed: 0.04
   textComponent: {fileID: 114318078601470620}
   inputManager: {fileID: 0}
 --- !u!114 &114376095654040238
