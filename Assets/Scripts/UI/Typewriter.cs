@@ -1,38 +1,74 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Typewriter : MonoBehaviour {
 
 	[TextArea]
-	public string inputText;
+	public string[] inputText;
+	public float defaultSpeed;
+    public float speedModifier;
+	public Text textComponent;
+	public custom_inputs inputManager;
 
-	public float speed;
+    private Animator animator;
 
-	private Text textComponent;
-	private char[] textArray;
-	private int textLength;
-	private int progress;
+    private float speed;
+	private bool isPageFinished;
 
-	void Start () {
-		progress = 0;
-		textArray = inputText.ToCharArray ();
-		textLength = inputText.Length;
-		textComponent = GetComponent<Text> ();
-		printPage ();
+	private int pageCount;
+	private int pageProgress;
+
+	void Start() {
+		pageCount = inputText.Length;
+		isPageFinished = true;
+        speed = defaultSpeed;
+        animator = GetComponent<Animator>();
+        StartCoroutine(playInAnimation());
+    }
+
+	void Update(){
+        if (inputManager.isInputDown[4] && isPageFinished) {
+            if (pageProgress < pageCount-1){
+                pageProgress++;
+                printPage(pageProgress);
+            }else{
+                StartCoroutine(playOutAnimation());
+            }
+        }
 	}
 	
-	void printPage () {
-		StartCoroutine (printText ());
+	void printPage (int pageNumber) {
+        animator.SetBool("Printing", true);
+        StartCoroutine(printText (inputText[pageNumber]));
 	}
 
-	IEnumerator printText(){
-		yield return new WaitForSeconds (3.0f);
+	IEnumerator printText(string text){
+		char[] textArray = text.ToCharArray();
+		int textLength = text.Length;
+        int progress = 0;
+
+        isPageFinished = false;
+		textComponent.text = "";
+
 		while (progress < textLength) {
 			textComponent.text += textArray [progress];
 			progress++;
 			yield return new WaitForSeconds (speed);
 		}
-	}
+
+		isPageFinished = true;
+        animator.SetBool("Printing", false);
+    }
+
+    IEnumerator playInAnimation(){
+        yield return new WaitForSeconds(0.05f);
+        printPage(0);
+    }
+
+    IEnumerator playOutAnimation() {
+        animator.SetTrigger("Close");
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
+    }
 }
