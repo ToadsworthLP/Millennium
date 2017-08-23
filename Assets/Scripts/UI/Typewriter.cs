@@ -8,8 +8,9 @@ public class Typewriter : MonoBehaviour {
 	public string[] inputText;
 	public float defaultSpeed;
 	public Text textComponent;
-	public custom_inputs inputManager;
 
+	private custom_inputs inputManager;
+    private PlayerMovement player;
     private Animator animator;
 
     private float speed;
@@ -18,15 +19,20 @@ public class Typewriter : MonoBehaviour {
 	private int pageCount;
 	private int pageProgress;
 
-	void Start() {
+	void Awake() {
 		pageCount = inputText.Length;
 		isPageFinished = true;
         speed = defaultSpeed;
         animator = GetComponent<Animator>();
         StartCoroutine(playInAnimation());
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        inputManager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<custom_inputs>();
+
+        player.allowMovement = false;
     }
 
-	void Update(){
+    void Update(){
         if (inputManager.isInputDown[4] && isPageFinished) {
             if (pageProgress < pageCount-1){
                 pageProgress++;
@@ -67,6 +73,7 @@ public class Typewriter : MonoBehaviour {
 
     IEnumerator playOutAnimation() {
         animator.SetTrigger("Close");
+        player.allowMovement = true;
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }

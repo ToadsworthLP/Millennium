@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
 	public PlayerArt art;
 	public ParticleSystem particles;
 	public bool allowMovement;
+    public bool allowJumping;
 	private bool grounded;
 
 	private EnumFacing facing;
@@ -36,15 +37,16 @@ public class PlayerMovement : MonoBehaviour {
 		facing = EnumFacing.RIGHT;
 		prevFacing = EnumFacing.RIGHT;
 		grounded = true;
+        allowJumping = true;
 		rigidbody = gameObject.GetComponent<Rigidbody> ();
 	}
 		
 	void FixedUpdate () {
 		if (allowMovement) {
 			doMovement ();
+        }
 			updateArt ();
 			updateParticleSystem ();
-		}
 	}
 
 	void doMovement(){
@@ -64,7 +66,7 @@ public class PlayerMovement : MonoBehaviour {
 			rigidbody.velocity += new Vector3 (moveSpeed,0f,0f);
 		}
 
-		if (inputManager.isInput [4] && feet.CheckGroundStatus ()) {
+		if (inputManager.isInput [4] && feet.CheckGroundStatus () && allowJumping) {
 			rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
 		}
 	}
