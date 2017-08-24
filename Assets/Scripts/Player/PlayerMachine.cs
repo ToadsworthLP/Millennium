@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMachine : MonoBehaviour {
 
 	public enum EnumFacing
 	{
@@ -17,15 +17,20 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
-	public custom_inputs inputManager;
+    public custom_inputs inputManager;
 	public Feet feet;
 	public PlayerArt art;
 	public ParticleSystem particles;
-	public bool allowMovement;
+    public AudioSource audioSource;
+
+    public AudioClip jumpSound;
+    public AudioClip walkSound;
+
+    public bool allowMovement;
     public bool allowJumping;
 	private bool grounded;
 
-	private EnumFacing facing;
+    private EnumFacing facing;
 	private EnumFacing prevFacing;
 
 	public float moveSpeed;
@@ -45,29 +50,30 @@ public class PlayerMovement : MonoBehaviour {
 		if (allowMovement) {
 			doMovement ();
         }
-			updateArt ();
-			updateParticleSystem ();
+		updateArt ();
+		updateParticleSystem ();
 	}
 
 	void doMovement(){
 		if (inputManager.isInput [0]) {
-			rigidbody.velocity += new Vector3 (0f,0f,moveSpeed);
+            rigidbody.velocity += new Vector3 (0f,0f,moveSpeed);
 		}
 
 		if(inputManager.isInput [1]){
-			rigidbody.velocity -= new Vector3 (0f,0f,moveSpeed);
+            rigidbody.velocity -= new Vector3 (0f,0f,moveSpeed);
 		}
 
 		if (inputManager.isInput [2]) {
-			rigidbody.velocity -= new Vector3 (moveSpeed,0f,0f);
+            rigidbody.velocity -= new Vector3 (moveSpeed,0f,0f);
 		}
 
 		if(inputManager.isInput [3]) {
-			rigidbody.velocity += new Vector3 (moveSpeed,0f,0f);
+            rigidbody.velocity += new Vector3 (moveSpeed,0f,0f);
 		}
 
 		if (inputManager.isInput [4] && feet.CheckGroundStatus () && allowJumping) {
 			rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
+            audioSource.PlayOneShot(jumpSound);
 		}
 	}
 
@@ -104,4 +110,12 @@ public class PlayerMovement : MonoBehaviour {
 			return prevFacing;
 		}
 	}
+
+    public void playWalkSound(){
+        audioSource.PlayOneShot(walkSound);
+    }
+
+    public AudioSource getAudioSource(){
+        return this.audioSource;
+    }
 }

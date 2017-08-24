@@ -8,15 +8,19 @@ public class NPCTalker : MonoBehaviour {
     public string[] text;
     public GameObject talkIcon;
     public GameObject speechBubble;
-    public RectTransform hudParent;
 
+    public AudioClip talkSound;
+    public AudioClip skipSound;
+
+    private RectTransform uiParent;
     private custom_inputs inputManager;
-    private PlayerMovement player;
+    private PlayerMachine player;
     private GameObject currentBubble;
 
     // Use this for initialization
     void Start () {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        uiParent = GameObject.FindGameObjectWithTag("UIParent").GetComponent<RectTransform>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
         inputManager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<custom_inputs>();
     }
 
@@ -36,8 +40,11 @@ public class NPCTalker : MonoBehaviour {
 
     void OnTriggerStay(Collider other) {
         if (other.gameObject.CompareTag("Player") && inputManager.isInput[4] && currentBubble == null) {
-            GameObject bubble = Instantiate(speechBubble, hudParent);
-            bubble.GetComponent<Typewriter>().inputText = text;
+            GameObject bubble = Instantiate(speechBubble, uiParent);
+            Typewriter writer = bubble.GetComponent<Typewriter>();
+            writer.inputText = text;
+            writer.talkSound = this.talkSound;
+            writer.skipSound = this.skipSound;
             bubble.active = true;
             currentBubble = bubble;
         }

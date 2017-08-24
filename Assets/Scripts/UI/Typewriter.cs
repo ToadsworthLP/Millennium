@@ -10,8 +10,11 @@ public class Typewriter : MonoBehaviour {
 	public Text textComponent;
 
 	private custom_inputs inputManager;
-    private PlayerMovement player;
+    private PlayerMachine player;
     private Animator animator;
+
+    public AudioClip talkSound;
+    public AudioClip skipSound;
 
     private float speed;
 	private bool isPageFinished;
@@ -26,7 +29,7 @@ public class Typewriter : MonoBehaviour {
         animator = GetComponent<Animator>();
         StartCoroutine(playInAnimation());
 
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
         inputManager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<custom_inputs>();
 
         player.allowMovement = false;
@@ -34,6 +37,7 @@ public class Typewriter : MonoBehaviour {
 
     void Update(){
         if (inputManager.isInputDown[4] && isPageFinished) {
+            player.getAudioSource().PlayOneShot(skipSound);
             if (pageProgress < pageCount-1){
                 pageProgress++;
                 printPage(pageProgress);
@@ -57,7 +61,8 @@ public class Typewriter : MonoBehaviour {
 		textComponent.text = "";
 
 		while (progress < textLength) {
-			textComponent.text += textArray [progress];
+            player.getAudioSource().PlayOneShot(talkSound);
+            textComponent.text += textArray [progress];
 			progress++;
 			yield return new WaitForSeconds (speed);
 		}
