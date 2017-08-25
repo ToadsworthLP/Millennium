@@ -6,7 +6,7 @@ public class NPCTalker : MonoBehaviour {
 
     [TextArea]
     public string[] text;
-    public GameObject talkIcon;
+    public TalkIcon talkIcon;
     public GameObject speechBubble;
 
     public AudioClip talkSound;
@@ -26,15 +26,14 @@ public class NPCTalker : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.CompareTag("Player")){
-            talkIcon.active = true;
+            talkIcon.gameObject.SetActive(true);
             player.allowJumping = false;
         }
     }
 
     void OnTriggerExit(Collider other) {
         if (other.gameObject.CompareTag("Player")) {
-            talkIcon.active = false;
-            player.allowJumping = true;
+            talkIcon.playOutAnimation();
         }
     }
 
@@ -45,7 +44,7 @@ public class NPCTalker : MonoBehaviour {
             writer.inputText = text;
             writer.talkSound = this.talkSound;
             writer.skipSound = this.skipSound;
-            bubble.active = true;
+            bubble.SetActive(true);
             currentBubble = bubble;
         }
     }

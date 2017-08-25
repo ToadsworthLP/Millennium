@@ -54,6 +54,7 @@ public class Typewriter : MonoBehaviour {
 
 	IEnumerator printText(string text){
 		char[] textArray = text.ToCharArray();
+        char spaceChar = " ".ToCharArray()[0];
 		int textLength = text.Length;
         int progress = 0;
 
@@ -61,7 +62,9 @@ public class Typewriter : MonoBehaviour {
 		textComponent.text = "";
 
 		while (progress < textLength) {
-            player.getAudioSource().PlayOneShot(talkSound);
+            if(textArray[progress]!=spaceChar) {
+                player.getAudioSource().PlayOneShot(talkSound);
+            }
             textComponent.text += textArray [progress];
 			progress++;
 			yield return new WaitForSeconds (speed);
