@@ -1,0 +1,3 @@
+crystal-cave:11.571:56.572
+forest-maze:4.989:61.161
+castle-showdown:8.007:83.998
