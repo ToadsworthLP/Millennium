@@ -34,6 +34,7 @@ public class NPCTalker : MonoBehaviour {
     void OnTriggerExit(Collider other) {
         if (other.gameObject.CompareTag("Player")) {
             talkIcon.playOutAnimation();
+            player.allowJumping = true;
         }
     }
 
