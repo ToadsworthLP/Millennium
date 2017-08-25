@@ -88,6 +88,8 @@
     <Compile Include="Assets\Scripts\Triggers\ExampleTrigger.cs" />
     <Compile Include="Assets\Scripts\Triggers\ExampleTriggeredObject.cs" />
     <Compile Include="Assets\Scripts\Triggers\ITriggerable.cs" />
+    <Compile Include="Assets\Scripts\UI\FancyNumberHandler.cs" />
+    <Compile Include="Assets\Scripts\UI\ImageToNumber.cs" />
     <Compile Include="Assets\Scripts\UI\Typewriter.cs" />
   </ItemGroup>
   <ItemGroup>
