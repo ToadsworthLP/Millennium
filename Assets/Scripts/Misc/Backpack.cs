@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Backpack : MonoBehaviour {
 
@@ -17,6 +18,12 @@ public class Backpack : MonoBehaviour {
 
     void Start() {
         DontDestroyOnLoad(gameObject);
+        StartCoroutine(initializeHUD());
+    }
+
+    IEnumerator initializeHUD(){
+        yield return new WaitForEndOfFrame();
+        loadData();
     }
 
     //Getters and setters
@@ -39,7 +46,7 @@ public class Backpack : MonoBehaviour {
 
         set {
             _maxHp = Mathf.Clamp(value, 0, 99);
-            hudController.setHP(_maxHp);
+            hudController.setMaxHP(_maxHp);
         }
     }
     public int fp
@@ -49,7 +56,7 @@ public class Backpack : MonoBehaviour {
         }
 
         set {
-            _fp = value;
+            _fp = Mathf.Clamp(value, 0, maxFp);
             hudController.setFP(_fp);
         }
     }
@@ -106,7 +113,6 @@ public class Backpack : MonoBehaviour {
             _bp = Mathf.Clamp(value, 0, 99);
         }
     }
-
     public string progress
     {
         get {
@@ -133,15 +139,15 @@ public class Backpack : MonoBehaviour {
     }
 
     public void loadData() {
-        _hp = PlayerPrefs.GetInt("hp", 10);
-        _maxHp = PlayerPrefs.GetInt("maxHp", 10);
-        _fp = PlayerPrefs.GetInt("fp", 5);
-        _maxFp = PlayerPrefs.GetInt("maxFp", 5);
-        _coins = PlayerPrefs.GetInt("coins", 0);
-        _starPoints = PlayerPrefs.GetInt("starPoints", 0);
-        _level = PlayerPrefs.GetInt("level", 1);
-        _bp = PlayerPrefs.GetInt("bp", 1);
-        _progress = PlayerPrefs.GetString("progress", startSceneName+",0");
+        hp = PlayerPrefs.GetInt("hp", 5);
+        maxHp = PlayerPrefs.GetInt("maxHp", 10);
+        fp = PlayerPrefs.GetInt("fp", 0);
+        maxFp = PlayerPrefs.GetInt("maxFp", 5);
+        coins = PlayerPrefs.GetInt("coins", 0);
+        starPoints = PlayerPrefs.GetInt("starPoints", 0);
+        level = PlayerPrefs.GetInt("level", 1);
+        bp = PlayerPrefs.GetInt("bp", 1);
+        progress = PlayerPrefs.GetString("progress", startSceneName+",0");
     }
 
 }
