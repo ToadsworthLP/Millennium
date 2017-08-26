@@ -109,6 +109,12 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &53210322 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114206397538137614, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+    type: 2}
+  m_PrefabInternal: {fileID: 1212457997}
+  m_Script: {fileID: 11500000, guid: ee3065c32cea23e44ba3db9c54b76ccc, type: 3}
 --- !u!1001 &303932808
 Prefab:
   m_ObjectHideFlags: 0
@@ -653,6 +659,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114674252849662988, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: DescriptionString.Array.data[5]
+      value: Cancel/HUD toggle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
   m_IsPrefabParent: 0
@@ -1001,6 +1012,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1488111742}
+--- !u!1 &1967333309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1967333311}
+  - component: {fileID: 1967333310}
+  m_Layer: 0
+  m_Name: Backpack
+  m_TagString: Backpack
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1967333310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1967333309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47fad22e602b6fc4cbafb277f08dcb94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudController: {fileID: 53210322}
+  startSceneName: 
+--- !u!4 &1967333311
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1967333309}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 316.433, y: 343.36154, z: -452.0781}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1982048696
 GameObject:
   m_ObjectHideFlags: 0

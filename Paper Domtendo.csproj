@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Custom Input Manager v1.4\Scripts\custom_inputs.cs" />
+    <Compile Include="Assets\Scripts\Misc\Backpack.cs" />
     <Compile Include="Assets\Scripts\Misc\MusicManager.cs" />
     <Compile Include="Assets\Scripts\NPCs\NPCTalker.cs" />
     <Compile Include="Assets\Scripts\NPCs\TalkIcon.cs" />
