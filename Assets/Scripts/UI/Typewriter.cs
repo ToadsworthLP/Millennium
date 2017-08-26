@@ -15,6 +15,8 @@ public class Typewriter : MonoBehaviour {
 
     public AudioClip talkSound;
     public AudioClip skipSound;
+    public Image bubbleImage;
+    public Text bubbleText;
 
     private float speed;
 	private bool isPageFinished;

@@ -163,6 +163,10 @@ MonoBehaviour:
     Fifi is a poodle.'
   defaultSpeed: 0.04
   textComponent: {fileID: 114318078601470620}
+  talkSound: {fileID: 0}
+  skipSound: {fileID: 0}
+  bubbleImage: {fileID: 114439436857893026}
+  bubbleText: {fileID: 114318078601470620}
 --- !u!114 &114376095654040238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3897059, g: 0.3897059, b: 0.3897059, a: 1}
+  m_Color: {r: 0.2205882, g: 0.2205882, b: 0.2205882, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

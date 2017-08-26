@@ -12,6 +12,9 @@ public class NPCTalker : MonoBehaviour {
     public AudioClip talkSound;
     public AudioClip skipSound;
 
+    public Color bubbleTint;
+    public Color textTint;
+
     private RectTransform uiParent;
     private custom_inputs inputManager;
     private PlayerMachine player;
@@ -45,6 +48,8 @@ public class NPCTalker : MonoBehaviour {
             writer.inputText = text;
             writer.talkSound = this.talkSound;
             writer.skipSound = this.skipSound;
+            writer.bubbleImage.color = bubbleTint;
+            writer.bubbleText.color = textTint;
             bubble.SetActive(true);
             currentBubble = bubble;
         }

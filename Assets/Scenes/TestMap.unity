@@ -290,21 +290,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 212137486849201008, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
         type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 212137486849201008, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
-        type: 2}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
+      propertyPath: textTint.r
+      value: 0.16911763
       objectReference: {fileID: 0}
     - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
         type: 2}
-      propertyPath: talkIcon
-      value: 
-      objectReference: {fileID: 1355961954}
+      propertyPath: textTint.g
+      value: 0.16911763
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: textTint.b
+      value: 0.16911763
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: bubbleTint.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: bubbleTint.g
+      value: 0.9391481
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: bubbleTint.b
+      value: 0.44852942
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38d1fcbfdd6561048a8a6fee82d3f751, type: 2}
   m_IsPrefabParent: 0
@@ -1201,23 +1216,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4031374581751058, guid: b49edacc724848648845b51f31a325a1,
     type: 2}
   m_PrefabInternal: {fileID: 1343697265}
---- !u!1 &1355961950 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1101152315506494, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
-    type: 2}
-  m_PrefabInternal: {fileID: 303932808}
---- !u!114 &1355961954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1355961950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5b477bd785334f4e9a15b2108f3067d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 191499f80dc67554e9e316d7a70bccf2, type: 3}
 --- !u!1 &1378401271
 GameObject:
   m_ObjectHideFlags: 0
