@@ -8,10 +8,8 @@ public class FancyNumberHandler : MonoBehaviour {
     public ImageToNumber second;
     public ImageToNumber third;
 
-    public int testValue;
-
-    void Update() {
-        UpdateValue(testValue);
+    void Start() {
+        UpdateValue(0);
     }
 
     //This is so lame, copied from SM64 HD remake thing because I'm lazy
