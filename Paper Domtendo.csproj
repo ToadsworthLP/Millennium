@@ -99,7 +99,9 @@
     <Compile Include="Assets\Scripts\UI\Typewriter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Shaders\Rainbow.shader" />
     <None Include="Assets\Shaders\ShadowSprite.shader" />
+    <None Include="Assets\Shaders\Shared\ShaderTools.cginc" />
     <None Include="Assets\Sound\Music\loopdata.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
