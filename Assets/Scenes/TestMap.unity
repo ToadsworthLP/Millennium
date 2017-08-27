@@ -292,33 +292,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
         type: 2}
-      propertyPath: textTint.r
-      value: 0.16911763
-      objectReference: {fileID: 0}
-    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
-        type: 2}
-      propertyPath: textTint.g
-      value: 0.16911763
-      objectReference: {fileID: 0}
-    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
-        type: 2}
-      propertyPath: textTint.b
-      value: 0.16911763
-      objectReference: {fileID: 0}
-    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
-        type: 2}
       propertyPath: bubbleTint.r
-      value: 1
+      value: 0.9852941
       objectReference: {fileID: 0}
     - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
         type: 2}
       propertyPath: bubbleTint.g
-      value: 0.9391481
+      value: 0.9509188
       objectReference: {fileID: 0}
     - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
         type: 2}
       propertyPath: bubbleTint.b
-      value: 0.44852942
+      value: 0.67376727
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38d1fcbfdd6561048a8a6fee82d3f751, type: 2}
@@ -1088,6 +1073,14 @@ Prefab:
       propertyPath: inputManager
       value: 
       objectReference: {fileID: 1295660193}
+    - target: {fileID: 4066662619982166, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -2.415
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066662619982166, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.961
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
   m_IsPrefabParent: 0
