@@ -10,6 +10,15 @@ public class HUDController : MonoBehaviour {
     public FancyNumberHandler coins;
     public FancyNumberHandler starPoints;
 
+    public void setData(PlayerData data){
+        setHP(data.hp);
+        setMaxHP(data.maxHp);
+        setFP(data.fp);
+        setMaxFP(data.fp);
+        setCoins(data.coins);
+        setStarPoints(data.starPoints);
+    }
+
     public void setHP(int amount) {
         hp.UpdateValue(amount);
         hp.GetComponentInParent<Animator>().SetTrigger("Updated");

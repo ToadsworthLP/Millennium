@@ -1,153 +1,191 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class Backpack : MonoBehaviour {
 
     public HUDController hudController;
     public string startSceneName;
+    public string savefileName;
 
-    private int _hp;
-    private int _maxHp;
-    private int _fp;
-    private int _maxFp;
-    private int _coins;
-    private int _starPoints;
-    private int _level;
-    private int _bp;
-    private string _progress;
+    private PlayerData data;
 
     void Start() {
         DontDestroyOnLoad(gameObject);
+        loadData();
         StartCoroutine(initializeHUD());
     }
 
     IEnumerator initializeHUD(){
         yield return new WaitForEndOfFrame();
-        loadData();
+        hudController.setData(data);
     }
 
     //Getters and setters
     public int hp
     {
         get {
-            return _hp;
+            return data.hp;
         }
 
         set {
-            _hp = Mathf.Clamp(value, 0, maxHp);
-            hudController.setHP(_hp);
+            data.hp = Mathf.Clamp(value, 0, maxHp);
+            hudController.setHP(data.hp);
         }
     }
     public int maxHp
     {
         get {
-            return _maxHp;
+            return data.maxHp;
         }
 
         set {
-            _maxHp = Mathf.Clamp(value, 0, 99);
-            hudController.setMaxHP(_maxHp);
+            data.maxHp = Mathf.Clamp(value, 0, 99);
+            hudController.setMaxHP(data.maxHp);
         }
     }
     public int fp
     {
         get {
-            return _fp;
+            return data.fp;
         }
 
         set {
-            _fp = Mathf.Clamp(value, 0, maxFp);
-            hudController.setFP(_fp);
+            data.fp = Mathf.Clamp(value, 0, maxFp);
+            hudController.setFP(data.fp);
         }
     }
     public int maxFp
     {
         get {
-            return _maxFp;
+            return data.maxFp;
         }
 
         set {
-            _maxFp = Mathf.Clamp(value, 0, 99);
-            hudController.setMaxFP(_maxFp);
+            data.maxFp = Mathf.Clamp(value, 0, 99);
+            hudController.setMaxFP(data.maxFp);
         }
     }
     public int coins
     {
         get {
-            return _coins;
+            return data.coins;
         }
 
         set {
-            _coins = Mathf.Clamp(value, 0, 999);
-            hudController.setCoins(_coins);
+            data.coins = Mathf.Clamp(value, 0, 999);
+            hudController.setCoins(data.coins);
         }
     }
     public int starPoints
     {
         get {
-            return _starPoints;
+            return data.starPoints;
         }
 
         set {
-            _starPoints = Mathf.Clamp(value, 0, 99);
-            hudController.setStarPoints(_starPoints);
+            data.starPoints = Mathf.Clamp(value, 0, 99);
+            hudController.setStarPoints(data.starPoints);
         }
     }
     public int level
     {
         get {
-            return _level;
+            return data.level;
         }
 
         set {
-            _level = Mathf.Clamp(value, 0, 99);
+            data.level = Mathf.Clamp(value, 0, 99);
         }
     }
     public int bp
     {
         get {
-            return _bp;
+            return data.bp;
         }
 
         set {
-            _bp = Mathf.Clamp(value, 0, 99);
+            data.bp = Mathf.Clamp(value, 0, 99);
         }
     }
     public string progress
     {
         get {
-            return _progress;
+            return data.progress;
         }
 
         set {
-            _progress = value;
+            data.progress = value;
         }
     }
 
     //Save system stuff
-    public void saveData(){
-        PlayerPrefs.SetInt("hp",_hp);
-        PlayerPrefs.SetInt("maxHp", _maxHp);
-        PlayerPrefs.SetInt("fp", _fp);
-        PlayerPrefs.SetInt("maxFp", _maxFp);
-        PlayerPrefs.SetInt("coins", _coins);
-        PlayerPrefs.SetInt("starPoints", _starPoints);
-        PlayerPrefs.SetInt("level", _level);
-        PlayerPrefs.SetInt("bp", _bp);
-        PlayerPrefs.SetString("progress", _progress);
-        PlayerPrefs.Save();
+    public bool loadData() {
+        if (File.Exists(Application.persistentDataPath + "/"+ savefileName)) {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/" + savefileName, FileMode.Open);
+
+            data = (PlayerData)formatter.Deserialize(file);
+            file.Close();
+
+            if (data == null){
+                data = new PlayerData().getDefaults();
+                return false;
+            }
+
+            return true;
+        }else{
+            data = new PlayerData().getDefaults();
+            return false;
+        }
     }
 
-    public void loadData() {
-        hp = PlayerPrefs.GetInt("hp", 5);
-        maxHp = PlayerPrefs.GetInt("maxHp", 10);
-        fp = PlayerPrefs.GetInt("fp", 0);
-        maxFp = PlayerPrefs.GetInt("maxFp", 5);
-        coins = PlayerPrefs.GetInt("coins", 0);
-        starPoints = PlayerPrefs.GetInt("starPoints", 0);
-        level = PlayerPrefs.GetInt("level", 1);
-        bp = PlayerPrefs.GetInt("bp", 1);
-        progress = PlayerPrefs.GetString("progress", startSceneName+",0");
+    public bool saveData(){
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream file = File.Open(Application.persistentDataPath+ "/" + savefileName, FileMode.OpenOrCreate);
+
+        formatter.Serialize(file, data);
+        file.Close();
+
+        return true;
     }
 
+    public bool deleteData(){
+        if (File.Exists(Application.persistentDataPath + "/" + savefileName)) {
+            File.Delete(Application.persistentDataPath + "/" + savefileName);
+            data = new PlayerData().getDefaults();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+}
+
+[Serializable]
+public class PlayerData{
+    public int maxHp;
+    public int hp;
+    public int maxFp;
+    public int fp;
+    public int coins;
+    public int starPoints;
+    public int level;
+    public int bp;
+    public string progress;
+
+    public PlayerData getDefaults(){
+        maxHp = 10;
+        hp = 10;
+        maxFp = 5;
+        fp = 5;
+        coins = 0;
+        starPoints = 0;
+        level = 1;
+        bp = 3;
+        progress = "";
+        return this;
+    }
 }
