@@ -9,14 +9,20 @@ public class Typewriter : MonoBehaviour {
 	public float defaultSpeed;
 	public Text textComponent;
 
-	private custom_inputs inputManager;
-    private PlayerMachine player;
-    private Animator animator;
-
     public AudioClip talkSound;
     public AudioClip skipSound;
     public Image bubbleImage;
     public Text bubbleText;
+
+    public delegate void PageFinished(int page);
+    public PageFinished OnPageFinished;
+
+    public delegate void BubbleClosed();
+    public BubbleClosed OnBubbleClosed;
+
+    private custom_inputs inputManager;
+    private PlayerMachine player;
+    private Animator animator;
 
     private float speed;
 	private bool isPageFinished;
@@ -24,7 +30,7 @@ public class Typewriter : MonoBehaviour {
 	private int pageCount;
 	private int pageProgress;
 
-	void OnEnable() {
+	void Awake() {
 		isPageFinished = true;
         speed = defaultSpeed;
         animator = GetComponent<Animator>();
@@ -32,8 +38,6 @@ public class Typewriter : MonoBehaviour {
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
         inputManager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<custom_inputs>();
-
-        player.allowMovement = false;
     }
 
     void Update(){
@@ -79,6 +83,7 @@ public class Typewriter : MonoBehaviour {
 
 		isPageFinished = true;
         animator.SetBool("Printing", false);
+        if (OnPageFinished != null) { OnPageFinished(pageProgress); }
     }
 
     IEnumerator playInAnimation(){
@@ -88,7 +93,7 @@ public class Typewriter : MonoBehaviour {
 
     IEnumerator playOutAnimation() {
         animator.SetTrigger("Close");
-        player.allowMovement = true;
+        if (OnBubbleClosed != null) { OnBubbleClosed(); }
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }

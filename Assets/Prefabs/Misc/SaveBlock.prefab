@@ -38,7 +38,6 @@ GameObject:
   - component: {fileID: 4064405016521354}
   - component: {fileID: 33873752361631198}
   - component: {fileID: 23857734522729172}
-  - component: {fileID: 95413924645572350}
   m_Layer: 0
   m_Name: Art
   m_TagString: Untagged
@@ -55,6 +54,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4606966184371044}
   - component: {fileID: 65807646533032464}
+  - component: {fileID: 65876351790041442}
+  - component: {fileID: 95982185895833374}
+  - component: {fileID: 114609239512709902}
   m_Layer: 0
   m_Name: SaveBlock
   m_TagString: Untagged
@@ -293,16 +295,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1, y: 1.1, z: 1.1}
   m_Center: {x: -0.55, y: 0.55, z: 0.55}
---- !u!95 &95413924645572350
+--- !u!65 &65876351790041442
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407061162339004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 1.2, z: 1.1}
+  m_Center: {x: -0.55, y: 0.5, z: 0.55}
+--- !u!95 &95982185895833374
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1305022264779140}
+  m_GameObject: {fileID: 1407061162339004}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d5360310cedcc5042a9cd5075342fa14, type: 3}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73cd4c04c6a31a844b320d2c4a3e37bc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -310,3 +324,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114609239512709902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407061162339004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bdd7de044f4caa4a93cdc7804a24a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text:
+  - Do you want to save your progress? The current save will be overwritten!
+  speechBubble: {fileID: 1670699679095520, guid: 0a6a1b71beb4fbe40bc8fe3e2d7bf860,
+    type: 2}
+  saveMenu: {fileID: 1657148482218726, guid: d6eb4c19d84a9924ca1c532dc5569dcc, type: 2}
+  talkSound: {fileID: 8300000, guid: dd46416b2c4c01c4d9498826fecee5b8, type: 3}
+  skipSound: {fileID: 8300000, guid: f2a7d389ff526844c822b4dced166ac6, type: 3}
+  blockSound: {fileID: 0}
+  textTint: {r: 1, g: 1, b: 1, a: 1}
+  textDelay: 0.05
