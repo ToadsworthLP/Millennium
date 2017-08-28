@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -45,12 +46,11 @@ public class NPCTalker : MonoBehaviour {
         if (other.gameObject.CompareTag("Player") && inputManager.isInput[4] && currentBubble == null) {
             GameObject bubble = Instantiate(speechBubble, uiParent);
             Typewriter writer = bubble.GetComponent<Typewriter>();
-            writer.inputText = text;
             writer.talkSound = this.talkSound;
             writer.skipSound = this.skipSound;
             writer.bubbleImage.color = bubbleTint;
             writer.bubbleText.color = textTint;
-            bubble.SetActive(true);
+            writer.StartWriting(this.text);
             currentBubble = bubble;
         }
     }

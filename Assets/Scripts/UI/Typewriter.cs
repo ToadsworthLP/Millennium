@@ -24,8 +24,7 @@ public class Typewriter : MonoBehaviour {
 	private int pageCount;
 	private int pageProgress;
 
-	void Awake() {
-		pageCount = inputText.Length;
+	void OnEnable() {
 		isPageFinished = true;
         speed = defaultSpeed;
         animator = GetComponent<Animator>();
@@ -48,6 +47,12 @@ public class Typewriter : MonoBehaviour {
             }
         }
 	}
+
+    public void StartWriting(string[] text){
+        inputText = text;
+        pageCount = inputText.Length;
+        gameObject.SetActive(true);
+    }
 	
 	void printPage (int pageNumber) {
         animator.SetBool("Printing", true);
