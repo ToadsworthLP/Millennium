@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Triggers\ExampleTrigger.cs" />
     <Compile Include="Assets\Scripts\Triggers\ExampleTriggeredObject.cs" />
     <Compile Include="Assets\Scripts\Triggers\ITriggerable.cs" />
+    <Compile Include="Assets\Scripts\UI\CancelOption.cs" />
     <Compile Include="Assets\Scripts\UI\Cursor.cs" />
     <Compile Include="Assets\Scripts\UI\FancyNumberHandler.cs" />
     <Compile Include="Assets\Scripts\UI\HUDController.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Assets\Scripts\UI\ImageToNumber.cs" />
     <Compile Include="Assets\Scripts\UI\ISelectable.cs" />
     <Compile Include="Assets\Scripts\UI\SaveMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\SelectableHelper.cs" />
     <Compile Include="Assets\Scripts\UI\TestSelectable.cs" />
     <Compile Include="Assets\Scripts\UI\Typewriter.cs" />
   </ItemGroup>

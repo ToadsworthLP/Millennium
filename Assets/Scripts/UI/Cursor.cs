@@ -33,7 +33,7 @@ public class Cursor : MonoBehaviour {
     }
 
     void Update() {
-        if(inputManager.isInputDown[4]){
+        if(inputManager.isInputDown[4] && selectedOption.getActive() == true){
             selectedOption.onOKPressed();
         } else if (inputManager.isInputDown[5]) {
             selectedOption.onCancelPressed();

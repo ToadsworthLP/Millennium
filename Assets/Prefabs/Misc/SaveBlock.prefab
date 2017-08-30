@@ -305,8 +305,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 1.2, z: 1.1}
-  m_Center: {x: -0.55, y: 0.5, z: 0.55}
+  m_Size: {x: 1, y: 1.2, z: 1}
+  m_Center: {x: -0.525, y: 0.5, z: 0.525}
 --- !u!95 &95982185895833374
 Animator:
   serializedVersion: 3
@@ -335,8 +335,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bdd7de044f4caa4a93cdc7804a24a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text:
-  - Do you want to save your progress? The current save will be overwritten!
+  genText:
+  - Do you want to save your progress? Your current save will be overwritten!
+  saveText:
+  - Your progress was saved!
   speechBubble: {fileID: 1670699679095520, guid: 0a6a1b71beb4fbe40bc8fe3e2d7bf860,
     type: 2}
   saveMenu: {fileID: 1657148482218726, guid: d6eb4c19d84a9924ca1c532dc5569dcc, type: 2}
@@ -344,4 +346,4 @@ MonoBehaviour:
   skipSound: {fileID: 8300000, guid: f2a7d389ff526844c822b4dced166ac6, type: 3}
   blockSound: {fileID: 0}
   textTint: {r: 1, g: 1, b: 1, a: 1}
-  textDelay: 0.05
+  textDelay: 0.02

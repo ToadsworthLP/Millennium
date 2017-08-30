@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class TestSelectable : MonoBehaviour, ISelectable {
 
@@ -7,6 +8,10 @@ public class TestSelectable : MonoBehaviour, ISelectable {
 
     public Vector3 getGrabPoint() {
         return grabPoint.position;
+    }
+
+    public bool getActive() {
+        return true;
     }
 
     public void onCancelPressed() {

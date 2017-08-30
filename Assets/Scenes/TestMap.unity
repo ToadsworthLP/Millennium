@@ -1133,24 +1133,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114674252849662988, guid: c3e442d8bcfc1d3479c6ee1170b28502,
-        type: 2}
-      propertyPath: DescriptionString.Array.data[5]
-      value: Cancel/HUD toggle
-      objectReference: {fileID: 0}
-    - target: {fileID: 114206397538137614, guid: c3e442d8bcfc1d3479c6ee1170b28502,
-        type: 2}
-      propertyPath: inputManager
-      value: 
-      objectReference: {fileID: 1295660193}
-    - target: {fileID: 4066662619982166, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -2.415
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066662619982166, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.961
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
   m_IsPrefabParent: 0
@@ -1205,12 +1187,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4031106425700256, guid: a7e33d8d69a04054e8ea5b47f2dccff0,
     type: 2}
   m_PrefabInternal: {fileID: 1228372106}
---- !u!114 &1295660193 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114674252849662988, guid: c3e442d8bcfc1d3479c6ee1170b28502,
-    type: 2}
-  m_PrefabInternal: {fileID: 1212457997}
-  m_Script: {fileID: 11500000, guid: 5951c0c1f3624434a8696df5139cde33, type: 3}
 --- !u!1001 &1343697265
 Prefab:
   m_ObjectHideFlags: 0

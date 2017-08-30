@@ -71,7 +71,7 @@ public class PlayerMachine : MonoBehaviour {
             rigidbody.velocity += new Vector3 (moveSpeed,0f,0f);
 		}
 
-		if (inputManager.isInputDown [4] && feet.CheckGroundStatus () && allowJumping) {
+		if (inputManager.isInput [4] && feet.CheckGroundStatus () && allowJumping) {
 			rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
             audioSource.PlayOneShot(jumpSound);
 		}

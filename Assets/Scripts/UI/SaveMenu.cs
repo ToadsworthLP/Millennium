@@ -1,50 +1,64 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
 
-public class SaveMenu : MonoBehaviour, ISelectable {
+public class SaveMenu : SelectableHelper {
 
     [TextArea]
-    public string[] yesText;
-    [TextArea]
-    public string[] noText;
+    public string[] saveText;
 
-    public RectTransform grabPoint;
     public GameObject speechBubble;
     public GameObject menuParent;
-    public bool saveOption;
+    public float fadeoutConstant;
+    public float jumpDelay;
 
     private Transform uiParent;
+    private PlayerMachine player;
 
-    public Vector3 getGrabPoint() {
-        return grabPoint.position;
+    private bool active;
+
+    private void Awake() {
+        active = true;
+        textComponent.canvasRenderer.SetColor(defaultColor);
     }
-
-    public void onCancelPressed() {}
-
-    public void onCursorLeave() {}
-
-    public void onCursorSelect() {}
 
     private void bubbleClose(){
-        PlayerMachine player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
+        player.allowJumping = false;
         player.allowMovement = true;
+        StartCoroutine(waitAndDestroy());
     }
 
-    public void onOKPressed() {
+    public override void onOKPressed() {
         uiParent = GameObject.FindGameObjectWithTag("UIParent").GetComponent<RectTransform>();
-        if (saveOption){
-            Backpack backpack = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>();
-            backpack.saveData();
-            GameObject bubble = Instantiate(speechBubble, uiParent);
-            Typewriter writer = bubble.GetComponent<Typewriter>();
-            writer.OnBubbleClosed += bubbleClose;
-            writer.StartWriting(yesText);
-        } else{
-            GameObject bubble = Instantiate(speechBubble, uiParent);
-            Typewriter writer = bubble.GetComponent<Typewriter>();
-            writer.OnBubbleClosed += bubbleClose;
-            writer.StartWriting(noText);
-        }
+        Backpack backpack = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>();
+        backpack.saveData();
+        GameObject bubble = Instantiate(speechBubble, uiParent);
+        Typewriter writer = bubble.GetComponent<Typewriter>();
+        writer.OnBubbleClosed += bubbleClose;
+        writer.StartWriting(saveText);
+        active = false;
+        StartCoroutine(fadeOut());
+    }
+
+    IEnumerator waitAndDestroy(){
+        yield return new WaitForSeconds(jumpDelay);
+        player.allowJumping = true;
         Destroy(menuParent);
     }
 
+    IEnumerator fadeOut() {
+        CanvasRenderer[] canvasRenderers = menuParent.GetComponentsInChildren<CanvasRenderer>();
+
+        while (canvasRenderers[0].GetAlpha() > 0) {
+            foreach (CanvasRenderer i in canvasRenderers) {
+                i.SetAlpha(i.GetAlpha() - fadeoutConstant);
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    public override bool getActive() {
+        return active;
+    }
 }

@@ -4,6 +4,8 @@ public interface ISelectable {
 
     Vector3 getGrabPoint();
 
+    bool getActive();
+
     void onCursorSelect();
 
     void onCursorLeave();

@@ -4,7 +4,10 @@ using UnityEngine;
 public class SaveBlock : MonoBehaviour {
 
     [TextArea]
-    public string[] text;
+    public string[] genText;
+    [TextArea]
+    public string[] saveText;
+
     public GameObject speechBubble;
     public GameObject saveMenu;
 
@@ -28,7 +31,8 @@ public class SaveBlock : MonoBehaviour {
     }
 
     private void pageFinished(int page){
-        Instantiate(saveMenu, uiParent);
+        SaveMenu saveMenuObject = Instantiate(saveMenu, uiParent).GetComponentInChildren<SaveMenu>();
+        saveMenuObject.saveText = saveText;
     }
 
     void OnTriggerEnter(Collider other) {
@@ -47,7 +51,7 @@ public class SaveBlock : MonoBehaviour {
         writer.skipSound = skipSound;
         writer.bubbleText.color = textTint;
         writer.OnPageFinished += pageFinished;
-        writer.StartWriting(text);
+        writer.StartWriting(genText);
         currentBubble = bubble;
     }
 }
