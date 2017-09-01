@@ -5,6 +5,7 @@ public class Cursor : MonoBehaviour {
     public CursorMode mode;
     public GameObject[] options;
     public float movementTime;
+    public bool enableIdleAnimation;
 
     private custom_inputs inputManager;
 
@@ -51,7 +52,12 @@ public class Cursor : MonoBehaviour {
             cursorMoved();
         }
 
-        if(transform.position != targetPosition){
+        if(enableIdleAnimation){
+            float offset = Mathf.Sin(Time.fixedTime * 10)*2;
+            targetPosition = new Vector3(selectedOption.getGrabPoint().x + offset, selectedOption.getGrabPoint().y, selectedOption.getGrabPoint().z);
+        }
+
+        if (transform.position != targetPosition){
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref animVelocity, movementTime);
         }
     }
@@ -60,8 +66,10 @@ public class Cursor : MonoBehaviour {
         prevOption = selectedOption;
         selectedOption = options[selectedIndex].GetComponent<ISelectable>();
 
-        targetPosition = selectedOption.getGrabPoint();
-
+        if(!enableIdleAnimation){
+            targetPosition = selectedOption.getGrabPoint();
+        }
+        
         prevOption.onCursorLeave();
         selectedOption.onCursorSelect();
     }
