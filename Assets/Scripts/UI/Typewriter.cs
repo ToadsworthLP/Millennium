@@ -7,6 +7,7 @@ public class Typewriter : MonoBehaviour {
 	[TextArea]
 	public string[] inputText;
 	public float defaultSpeed;
+    public float waitDelay;
 	public Text textComponent;
 
     public AudioClip talkSound;
@@ -49,6 +50,12 @@ public class Typewriter : MonoBehaviour {
             }else{
                 StartCoroutine(playOutAnimation());
             }
+        }else if(inputManager.isInputDown[4] && !isPageFinished) {
+            StopAllCoroutines();
+            textComponent.text = inputText[pageProgress].Replace("|", string.Empty);
+            isPageFinished = true;
+            animator.SetBool("Printing", false);
+            if (OnPageFinished != null) { OnPageFinished(pageProgress); }
         }
 	}
 
@@ -66,19 +73,26 @@ public class Typewriter : MonoBehaviour {
 	IEnumerator printText(string text){
 		char[] textArray = text.ToCharArray();
         char spaceChar = " ".ToCharArray()[0];
-		int textLength = text.Length;
+        char waitChar = "|".ToCharArray()[0];
+
+        int textLength = text.Length;
         int progress = 0;
 
         isPageFinished = false;
 		textComponent.text = "";
 
 		while (progress < textLength) {
-            if(textArray[progress]!=spaceChar) {
-                player.audioSource.PlayOneShot(talkSound);
+            if (textArray[progress] != waitChar) {
+                if (textArray[progress] != spaceChar) {
+                    player.audioSource.PlayOneShot(talkSound);
+                }
+                textComponent.text += textArray[progress];
+                progress++;
+                yield return new WaitForSeconds(speed);
+            }else{
+                progress++;
+                yield return new WaitForSeconds(waitDelay);
             }
-            textComponent.text += textArray [progress];
-			progress++;
-			yield return new WaitForSeconds (speed);
 		}
 
 		isPageFinished = true;
