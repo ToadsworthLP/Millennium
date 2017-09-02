@@ -20,7 +20,7 @@ public class Coin : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player")){
             backpack.coins += value;
-            other.gameObject.GetComponent<PlayerMachine>().getAudioSource().PlayOneShot(collectSound);
+            other.gameObject.GetComponent<PlayerMachine>().audioSource.PlayOneShot(collectSound);
             Destroy(gameObject);
         }
     }

@@ -114,8 +114,4 @@ public class PlayerMachine : MonoBehaviour {
     public void playWalkSound(){
         audioSource.PlayOneShot(walkSound);
     }
-
-    public AudioSource getAudioSource(){
-        return this.audioSource;
-    }
 }

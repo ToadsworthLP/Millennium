@@ -42,7 +42,7 @@ public class Typewriter : MonoBehaviour {
 
     void Update(){
         if (inputManager.isInputDown[4] && isPageFinished) {
-            player.getAudioSource().PlayOneShot(skipSound);
+            player.audioSource.PlayOneShot(skipSound);
             if (pageProgress < pageCount-1){
                 pageProgress++;
                 printPage(pageProgress);
@@ -74,7 +74,7 @@ public class Typewriter : MonoBehaviour {
 
 		while (progress < textLength) {
             if(textArray[progress]!=spaceChar) {
-                player.getAudioSource().PlayOneShot(talkSound);
+                player.audioSource.PlayOneShot(talkSound);
             }
             textComponent.text += textArray [progress];
 			progress++;
@@ -94,7 +94,7 @@ public class Typewriter : MonoBehaviour {
     IEnumerator playOutAnimation() {
         animator.SetTrigger("Close");
         if (OnBubbleClosed != null) { OnBubbleClosed(); }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         Destroy(gameObject);
     }
 }
