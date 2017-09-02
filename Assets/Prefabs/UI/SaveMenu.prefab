@@ -244,6 +244,7 @@ MonoBehaviour:
   - {fileID: 1893350289168080}
   - {fileID: 1838387009212242}
   movementTime: 0.1
+  enableIdleAnimation: 1
 --- !u!114 &114875649871631942
 MonoBehaviour:
   m_ObjectHideFlags: 1
