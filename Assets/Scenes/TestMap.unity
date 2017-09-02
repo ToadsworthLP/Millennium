@@ -1732,7 +1732,32 @@ Prefab:
     - target: {fileID: 114437312234605082, guid: c3e442d8bcfc1d3479c6ee1170b28502,
         type: 2}
       propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114437312234605082, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: m_ReferenceResolution.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 114437312234605082, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: m_ReferenceResolution.y
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 114437312234605082, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: m_ScreenMatchMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114437312234605082, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114437312234605082, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: m_PhysicalUnit
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
