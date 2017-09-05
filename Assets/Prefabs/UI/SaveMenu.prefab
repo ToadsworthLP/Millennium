@@ -140,7 +140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 0
   oneUse: 1
-  options:
+  moveCooldown: 0
+  optionObjects:
   - {fileID: 1893350289168080}
   - {fileID: 1838387009212242}
   moveSound: {fileID: 8300000, guid: 428eeeaa275bf0d4baac7a58c8e16e80, type: 3}
@@ -148,6 +149,7 @@ MonoBehaviour:
   cancelPressSound: {fileID: 0}
   movementTime: 0.1
   enableIdleAnimation: 1
+  timeSinceLastMove: 0
 --- !u!114 &114239746731639968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,8 +223,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be792ab7fcb894a418e1ad3afe7219ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useColorHighlight: 1
   defaultColor: {r: 0, g: 0, b: 0, a: 1}
   highlightColor: {r: 0.051318526, g: 0.6764706, b: 0, a: 1}
+  useGameObjectHighlight: 0
+  highlightObject: {fileID: 0}
   handle: {fileID: 224736662400592030}
   textComponent: {fileID: 0}
   saveText: []
@@ -242,8 +247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42aaa23f4cde449468fad5705094920c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useColorHighlight: 1
   defaultColor: {r: 0, g: 0, b: 0, a: 1}
   highlightColor: {r: 0.71323526, g: 0.3394016, b: 0, a: 1}
+  useGameObjectHighlight: 0
+  highlightObject: {fileID: 0}
   handle: {fileID: 224839151948067820}
   textComponent: {fileID: 0}
   menuParent: {fileID: 1657148482218726}

@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Cursor : MonoBehaviour {
 
     public CursorMode mode;
     public bool oneUse;
-    public GameObject[] options;
+    public float moveCooldown;
+    public GameObject[] optionObjects;
 
     public AudioClip moveSound;
     public AudioClip okPressSound;
@@ -13,12 +15,15 @@ public class Cursor : MonoBehaviour {
     public float movementTime;
     public bool enableIdleAnimation;
 
+    private ISelectable[] options;
+
     private custom_inputs inputManager;
     private AudioSource audioSource;
 
     private bool active;
+    public float timeSinceLastMove;
+
     private int selectedIndex;
-    private ISelectable selectedOption;
     private ISelectable prevOption;
 
     private Vector3 animVelocity = Vector3.zero;
@@ -26,7 +31,7 @@ public class Cursor : MonoBehaviour {
     private Vector3 targetPosition;
 
     void Awake(){
-        if(options.Length > 1) {
+        if(optionObjects.Length > 1) {
             selectedIndex = 0;
         }else{
             Debug.LogWarning("A cursor without at least two valid options was enabled! Disabling!");
@@ -35,63 +40,83 @@ public class Cursor : MonoBehaviour {
         PlayerMachine player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
         audioSource = player.audioSource;
         inputManager = player.inputManager;
-        selectedOption = options[selectedIndex].GetComponent<ISelectable>();
 
-        RectTransform targetTransform = options[selectedIndex].GetComponent<RectTransform>();
-        targetPosition = selectedOption.getGrabPoint();
+        options = new ISelectable[optionObjects.Length];
+        for (int i = 0; i < optionObjects.Length; i++) {
+            options[i] = optionObjects[i].GetComponent<ISelectable>();
+            options[i].onCursorInit();
+        }
+
+        RectTransform targetTransform = optionObjects[selectedIndex].GetComponent<RectTransform>();
+        targetPosition = options[selectedIndex].getGrabPoint();
         transform.position = targetPosition;
-        selectedOption.onCursorSelect();
+
+        options[selectedIndex].onCursorSelect();
 
         active = true;
     }
 
     void Update() {
-        if(active){
-            if (inputManager.isInputDown[4] && selectedOption.getActive()) {
+        if (active && isDelayOver()) {
+            if (inputManager.isInputDown[4] && options[selectedIndex].getActive()) {
                 audioSource.PlayOneShot(okPressSound);
-                selectedOption.onOKPressed();
-                if(oneUse){ active = false; }
-            } else if (inputManager.isInputDown[5] && selectedOption.getActive()) {
-                audioSource.PlayOneShot(cancelPressSound);
-                selectedOption.onCancelPressed();
+                options[selectedIndex].onOKPressed();
                 if (oneUse) { active = false; }
-            } else if(mode == CursorMode.VERTICAL && inputManager.isInputDown[0] && selectedIndex > 0){
-                selectedIndex--;
-                cursorMoved();
-            }else if (mode == CursorMode.VERTICAL && inputManager.isInputDown[1] && selectedIndex < options.Length-1){
-                selectedIndex++;
-                cursorMoved();
-            } else if(mode == CursorMode.HORIZONTAL && inputManager.isInputDown[2] && selectedIndex > 0){
-                selectedIndex--;
-                cursorMoved();
-            }else if (mode == CursorMode.HORIZONTAL && inputManager.isInputDown[3] && selectedIndex<options.Length-1){
-                selectedIndex++;
-                cursorMoved();
-            }
-
-            if(enableIdleAnimation){
-                float offset = Mathf.Sin(Time.fixedTime * 10)*2;
-                targetPosition = new Vector3(selectedOption.getGrabPoint().x + offset, selectedOption.getGrabPoint().y, selectedOption.getGrabPoint().z);
-            }
-
-            if (transform.position != targetPosition){
-                transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref animVelocity, movementTime);
+            } else if (inputManager.isInputDown[5] && options[selectedIndex].getActive()) {
+                audioSource.PlayOneShot(cancelPressSound);
+                options[selectedIndex].onCancelPressed();
+                if (oneUse) { active = false; }
+            } else if (mode == CursorMode.VERTICAL && inputManager.isInputDown[0] && selectedIndex > 0) {
+                cursorMoved(-1);
+            } else if (mode == CursorMode.VERTICAL && inputManager.isInputDown[1] && selectedIndex < optionObjects.Length - 1) {
+                cursorMoved(1);
+            } else if (mode == CursorMode.HORIZONTAL && inputManager.isInputDown[2] && selectedIndex > 0) {
+                cursorMoved(-1);
+            } else if (mode == CursorMode.HORIZONTAL && inputManager.isInputDown[3] && selectedIndex < optionObjects.Length - 1) {
+                cursorMoved(1);
             }
         }
-        
+
+        if (enableIdleAnimation) {
+            float offset = Mathf.Sin(Time.fixedTime * 10) * 2;
+            targetPosition = new Vector3(options[selectedIndex].getGrabPoint().x + offset, options[selectedIndex].getGrabPoint().y, options[selectedIndex].getGrabPoint().z);
+        }
+
+        if (transform.position != targetPosition) {
+            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref animVelocity, movementTime);
+        }
+
+        if (moveCooldown > 0) {
+            timeSinceLastMove += Time.deltaTime;
+        }
+
     }
 
-    void cursorMoved(){
-        prevOption = selectedOption;
-        selectedOption = options[selectedIndex].GetComponent<ISelectable>();
+    void cursorMoved(int amount) {
+        prevOption = options[selectedIndex];
 
-        if(!enableIdleAnimation){
-            targetPosition = selectedOption.getGrabPoint();
+        selectedIndex += amount;
+        options[selectedIndex] = options[selectedIndex];
+
+        if (!enableIdleAnimation) {
+            targetPosition = options[selectedIndex].getGrabPoint();
         }
 
         audioSource.PlayOneShot(moveSound);
         prevOption.onCursorLeave();
-        selectedOption.onCursorSelect();
+        options[selectedIndex].onCursorSelect();
+
+        if (moveCooldown > 0) {
+            timeSinceLastMove = 0;
+        }
+    }
+
+    bool isDelayOver() {
+        if (timeSinceLastMove >= moveCooldown) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 

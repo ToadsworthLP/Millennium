@@ -29,4 +29,8 @@ public class TestSelectable : MonoBehaviour, ISelectable {
     public void onOKPressed() {
         print("OK pressed on " + id);
     }
+
+    public void onCursorInit() {
+
+    }
 }

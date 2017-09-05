@@ -128,6 +128,7 @@ MonoBehaviour:
   inputText:
   - I AM ERROR
   defaultSpeed: 0.03
+  waitDelay: 0
   textComponent: {fileID: 114847344111693476}
   talkSound: {fileID: 8300000, guid: dd46416b2c4c01c4d9498826fecee5b8, type: 3}
   skipSound: {fileID: 8300000, guid: f2a7d389ff526844c822b4dced166ac6, type: 3}

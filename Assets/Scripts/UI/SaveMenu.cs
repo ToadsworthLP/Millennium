@@ -16,7 +16,8 @@ public class SaveMenu : SelectableHelper {
 
     private bool active;
 
-    private void Awake() {
+    public override void onCursorInit() {
+        base.onCursorInit();
         active = true;
         textComponent.canvasRenderer.SetColor(defaultColor);
     }
