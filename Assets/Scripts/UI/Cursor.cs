@@ -14,17 +14,17 @@ public class Cursor : MonoBehaviour {
 
     public float movementTime;
     public bool enableIdleAnimation;
+    [HideInInspector]
+    public custom_inputs inputManager;
 
     private ISelectable[] options;
-
-    private custom_inputs inputManager;
     private AudioSource audioSource;
 
     private bool active;
     public float timeSinceLastMove;
 
     private int selectedIndex;
-    private ISelectable prevOption;
+    private int previousSelectedIndex;
 
     private Vector3 animVelocity = Vector3.zero;
 
@@ -44,7 +44,7 @@ public class Cursor : MonoBehaviour {
         options = new ISelectable[optionObjects.Length];
         for (int i = 0; i < optionObjects.Length; i++) {
             options[i] = optionObjects[i].GetComponent<ISelectable>();
-            options[i].onCursorInit();
+            options[i].onCursorInit(this);
         }
 
         RectTransform targetTransform = optionObjects[selectedIndex].GetComponent<RectTransform>();
@@ -66,13 +66,13 @@ public class Cursor : MonoBehaviour {
                 audioSource.PlayOneShot(cancelPressSound);
                 options[selectedIndex].onCancelPressed();
                 if (oneUse) { active = false; }
-            } else if (mode == CursorMode.VERTICAL && inputManager.isInputDown[0] && selectedIndex > 0) {
+            } else if (mode == CursorMode.VERTICAL && inputManager.isInput[0] && selectedIndex > 0) {
                 cursorMoved(-1);
-            } else if (mode == CursorMode.VERTICAL && inputManager.isInputDown[1] && selectedIndex < optionObjects.Length - 1) {
+            } else if (mode == CursorMode.VERTICAL && inputManager.isInput[1] && selectedIndex < optionObjects.Length - 1) {
                 cursorMoved(1);
-            } else if (mode == CursorMode.HORIZONTAL && inputManager.isInputDown[2] && selectedIndex > 0) {
+            } else if (mode == CursorMode.HORIZONTAL && inputManager.isInput[2] && selectedIndex > 0) {
                 cursorMoved(-1);
-            } else if (mode == CursorMode.HORIZONTAL && inputManager.isInputDown[3] && selectedIndex < optionObjects.Length - 1) {
+            } else if (mode == CursorMode.HORIZONTAL && inputManager.isInput[3] && selectedIndex < optionObjects.Length - 1) {
                 cursorMoved(1);
             }
         }
@@ -93,7 +93,7 @@ public class Cursor : MonoBehaviour {
     }
 
     void cursorMoved(int amount) {
-        prevOption = options[selectedIndex];
+        previousSelectedIndex = selectedIndex;
 
         selectedIndex += amount;
         options[selectedIndex] = options[selectedIndex];
@@ -103,7 +103,7 @@ public class Cursor : MonoBehaviour {
         }
 
         audioSource.PlayOneShot(moveSound);
-        prevOption.onCursorLeave();
+        options[previousSelectedIndex].onCursorLeave();
         options[selectedIndex].onCursorSelect();
 
         if (moveCooldown > 0) {
@@ -117,6 +117,14 @@ public class Cursor : MonoBehaviour {
         } else {
             return false;
         }
+    }
+
+    public int getSelectedOptionIndex(){
+        return selectedIndex;
+    }
+
+    public int getPreviousOptionIndex() {
+        return previousSelectedIndex;
     }
 }
 

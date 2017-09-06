@@ -30,7 +30,7 @@ public class TestSelectable : MonoBehaviour, ISelectable {
         print("OK pressed on " + id);
     }
 
-    public void onCursorInit() {
+    public void onCursorInit(Cursor cursor) {
 
     }
 }

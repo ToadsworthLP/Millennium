@@ -7,25 +7,25 @@ public class PlayerArt : MonoBehaviour {
 	public Animator animator;
 
     private PlayerMachine player;
-    private PlayerMachine.EnumFacing prevFacing;
+    private Utils.EnumDirection prevFacing;
 
 	void Start(){
-		prevFacing = PlayerMachine.EnumFacing.RIGHT;
+		prevFacing = Utils.EnumDirection.RIGHT;
         player = gameObject.GetComponentInParent<PlayerMachine>();
 	}
 
     //Sprite
 
-    public void Walk(PlayerMachine.EnumFacing facing){
-		if (prevFacing == PlayerMachine.getOpposite(facing)) {
-			if (facing == PlayerMachine.EnumFacing.LEFT) {
+    public void Walk(Utils.EnumDirection facing){
+		if (prevFacing == Utils.getOpposite(facing)) {
+			if (facing == Utils.EnumDirection.LEFT) {
 				playIfNotPlaying ("Turn_Left");
 			} else {
 				playIfNotPlaying ("Turn_Right");
 			}
 			prevFacing = facing;
 		} else {
-			if (facing == PlayerMachine.EnumFacing.LEFT) {
+			if (facing == Utils.EnumDirection.LEFT) {
 				playIfNotPlaying ("Walk_Left", "Turn_Left");
 			} else {
 				playIfNotPlaying ("Walk_Right", "Turn_Right");
@@ -33,9 +33,9 @@ public class PlayerArt : MonoBehaviour {
 		}
 	}
 
-	public void Idle(PlayerMachine.EnumFacing facing){
+	public void Idle(Utils.EnumDirection facing){
 		if (!animator.GetCurrentAnimatorStateInfo (0).IsName ("Idle_Left") || !animator.GetCurrentAnimatorStateInfo (0).IsName ("Idle_Right")) {
-			if (facing == PlayerMachine.EnumFacing.LEFT) {
+			if (facing == Utils.EnumDirection.LEFT) {
 				animator.Play ("Idle_Left");
 			} else {
 				animator.Play ("Idle_Right");
@@ -43,8 +43,8 @@ public class PlayerArt : MonoBehaviour {
 		}
 	}
 
-	public void Jump(PlayerMachine.EnumFacing facing){
-		if (facing == PlayerMachine.EnumFacing.LEFT) {
+	public void Jump(Utils.EnumDirection facing){
+		if (facing == Utils.EnumDirection.LEFT) {
 			playIfNotPlaying("Jump_Left_In", "Jump_Left");
 		} else {
 			playIfNotPlaying("Jump_Right_In", "Jump_Right");

@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\Interfaces\ISelectable.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ITriggerable.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\Menu\MenuPage.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuPageOption.cs" />
     <Compile Include="Assets\Scripts\Misc\Backpack.cs" />
     <Compile Include="Assets\Scripts\Misc\Coin.cs" />

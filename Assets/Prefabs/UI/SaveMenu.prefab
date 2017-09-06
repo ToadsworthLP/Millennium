@@ -140,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 0
   oneUse: 1
-  moveCooldown: 0
+  moveCooldown: 0.1
   optionObjects:
   - {fileID: 1893350289168080}
   - {fileID: 1838387009212242}
@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useColorHighlight: 1
+  colorFadeTime: 0.2
   defaultColor: {r: 0, g: 0, b: 0, a: 1}
   highlightColor: {r: 0.051318526, g: 0.6764706, b: 0, a: 1}
   useGameObjectHighlight: 0
@@ -248,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useColorHighlight: 1
+  colorFadeTime: 0.2
   defaultColor: {r: 0, g: 0, b: 0, a: 1}
   highlightColor: {r: 0.71323526, g: 0.3394016, b: 0, a: 1}
   useGameObjectHighlight: 0

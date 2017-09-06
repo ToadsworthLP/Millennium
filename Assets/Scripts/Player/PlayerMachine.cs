@@ -4,19 +4,6 @@ using UnityEngine;
 
 public class PlayerMachine : MonoBehaviour {
 
-	public enum EnumFacing
-	{
-		LEFT,RIGHT
-	}
-
-	public static EnumFacing getOpposite(EnumFacing facing){
-		if (facing == EnumFacing.LEFT) {
-			return EnumFacing.RIGHT;
-		} else {
-			return EnumFacing.LEFT;
-		}
-	}
-
     public custom_inputs inputManager;
 	public Feet feet;
 	public PlayerArt art;
@@ -30,8 +17,7 @@ public class PlayerMachine : MonoBehaviour {
     public bool allowJumping;
 	private bool grounded;
 
-    private EnumFacing facing;
-	private EnumFacing prevFacing;
+    public Utils.EnumDirection facing;
 
 	public float moveSpeed;
 	public float jumpSpeed;
@@ -39,8 +25,7 @@ public class PlayerMachine : MonoBehaviour {
 	private Rigidbody rigidbody;
 
 	void Start () {
-		facing = EnumFacing.RIGHT;
-		prevFacing = EnumFacing.RIGHT;
+		facing = Utils.EnumDirection.RIGHT;
 		grounded = true;
         allowJumping = true;
 		rigidbody = gameObject.GetComponent<Rigidbody> ();
@@ -57,9 +42,9 @@ public class PlayerMachine : MonoBehaviour {
 	void doMovement(){
 		if (inputManager.isInput [0]) {
             rigidbody.velocity += new Vector3 (0f,0f,moveSpeed);
-		}
+        }
 
-		if(inputManager.isInput [1]){
+        if (inputManager.isInput [1]){
             rigidbody.velocity -= new Vector3 (0f,0f,moveSpeed);
 		}
 
@@ -99,15 +84,15 @@ public class PlayerMachine : MonoBehaviour {
 		}
 	}
 
-	public EnumFacing getFacing(){
+	public Utils.EnumDirection getFacing(){
 		if (rigidbody.velocity.x > 0) {
-			prevFacing = EnumFacing.RIGHT;
-			return EnumFacing.RIGHT;
+            facing = Utils.EnumDirection.RIGHT;
+			return Utils.EnumDirection.RIGHT;
 		} else if (rigidbody.velocity.x < 0) {
-			prevFacing = EnumFacing.LEFT;
-			return EnumFacing.LEFT;
+            facing = Utils.EnumDirection.LEFT;
+            return Utils.EnumDirection.LEFT;
 		} else {
-			return prevFacing;
+			return facing;
 		}
 	}
 

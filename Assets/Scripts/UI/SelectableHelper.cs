@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class SelectableHelper : MonoBehaviour, ISelectable {
 
     public bool useColorHighlight;
+    public float colorFadeTime;
     public Color defaultColor;
     public Color highlightColor;
 
@@ -20,7 +21,7 @@ public class SelectableHelper : MonoBehaviour, ISelectable {
         return true;
     }
 
-    public virtual void onCursorInit() {
+    public virtual void onCursorInit(Cursor cursor) {
         if (useColorHighlight) {
             textComponent = gameObject.GetComponent<Text>();
             textComponent.canvasRenderer.SetColor(defaultColor);
@@ -35,7 +36,7 @@ public class SelectableHelper : MonoBehaviour, ISelectable {
 
     public virtual void onCursorLeave() {
         if(useColorHighlight){
-            textComponent.CrossFadeColor(defaultColor, 0.2f, false, false);
+            textComponent.CrossFadeColor(defaultColor, colorFadeTime, false, false);
         }
 
         if(useGameObjectHighlight){
@@ -45,7 +46,7 @@ public class SelectableHelper : MonoBehaviour, ISelectable {
 
     public virtual void onCursorSelect() {
         if (useColorHighlight) {
-            textComponent.CrossFadeColor(highlightColor, 0.2f, false, false);
+            textComponent.CrossFadeColor(highlightColor, colorFadeTime, false, false);
         }
 
         if (useGameObjectHighlight && highlightObject != null) {

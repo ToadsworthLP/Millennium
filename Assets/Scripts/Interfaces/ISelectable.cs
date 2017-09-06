@@ -6,7 +6,7 @@ public interface ISelectable {
 
     bool getActive();
 
-    void onCursorInit();
+    void onCursorInit(Cursor cursor);
 
     void onCursorSelect();
 
