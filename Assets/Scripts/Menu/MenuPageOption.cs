@@ -25,7 +25,7 @@ public class MenuPageOption : SelectableHelper {
     public override void onCursorSelect() {
         base.onCursorSelect();
 
-        int selectedIndex = cursor.getSelectedOptionIndex();
+        int selectedIndex = cursor.selectedIndex;
         MenuPage selectedPage = menuManager.getPageOfIndex(selectedIndex);
 
         menuManager.descriptionBox.text = descriptionText;
@@ -33,9 +33,9 @@ public class MenuPageOption : SelectableHelper {
         selectedPage.gameObject.SetActive(true);
         selectedPage.focusPage();
         selectedPage.transform.SetSiblingIndex(menuManager.pages.Length);
-        if(cursor.getPreviousOptionIndex() > cursor.getSelectedOptionIndex()){
+        if(cursor.previousSelectedIndex > cursor.selectedIndex){
             selectedPage.animator.SetTrigger("TurnRight");
-        }else if(cursor.getPreviousOptionIndex() < cursor.getSelectedOptionIndex()) {
+        }else if(cursor.previousSelectedIndex < cursor.selectedIndex) {
             selectedPage.animator.SetTrigger("TurnLeft");
         }
     }
@@ -43,13 +43,17 @@ public class MenuPageOption : SelectableHelper {
     public override void onCursorLeave() {
         base.onCursorLeave();
         canvasRenderer.SetColor(overlayColor);
-        menuManager.getPageOfIndex(cursor.getPreviousOptionIndex()).unfocusPage(menuManager.animationLength);
+        menuManager.getPageOfIndex(cursor.previousSelectedIndex).unfocusPage(menuManager.animationLength);
     }
 
     public override void onOKPressed() {
         base.onOKPressed();
+    }
 
-
+    public override void onCancelPressed() {
+        base.onCancelPressed();
+        
+        menuManager.closeMenu();
     }
 
 }

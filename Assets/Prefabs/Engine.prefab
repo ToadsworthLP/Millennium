@@ -580,6 +580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224108861052922778}
   - component: {fileID: 114894514434070478}
+  - component: {fileID: 95140246407766948}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -2213,6 +2214,23 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1136740510735492}
   m_Enabled: 1
+--- !u!95 &95140246407766948
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390253274390098}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 28550089ace233d4a8e593a222396a78, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95158566618111530
 Animator:
   serializedVersion: 3
@@ -3626,9 +3644,10 @@ MonoBehaviour:
   - Left
   - Right
   - Action
-  - Cancel/HUD toggle
-  default_inputKeys: 770000007300000061000000640000002000000008000000
-  alt_default_inputKeys: 110100001201000014010000130100000d0000000c000000
+  - Cancel
+  - Menu
+  default_inputKeys: 7700000073000000610000006400000020000000080000000d000000
+  alt_default_inputKeys: 11010000120100001401000013010000000000000000000000000000
   Boxes_Y: 100
   BoxesMargin_Y: 30
   DescriptionSize: 200
@@ -4082,6 +4101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 114674252849662988}
+  menuManager: {fileID: 114894514434070478}
   feet: {fileID: 114785910542032214}
   art: {fileID: 114439773787633156}
   particles: {fileID: 198855574230571022}

@@ -17,23 +17,26 @@ public class Cursor : MonoBehaviour {
     [HideInInspector]
     public custom_inputs inputManager;
 
+    [HideInInspector]
+    public int selectedIndex;
+    [HideInInspector]
+    public int previousSelectedIndex;
+
     private ISelectable[] options;
     private AudioSource audioSource;
 
     private bool active;
     public float timeSinceLastMove;
 
-    private int selectedIndex;
-    private int previousSelectedIndex;
-
     private Vector3 animVelocity = Vector3.zero;
 
     private Vector3 targetPosition;
 
-    void Awake(){
-        if(optionObjects.Length > 1) {
+    void OnEnable() {
+        if (optionObjects.Length > 1) {
             selectedIndex = 0;
-        }else{
+            previousSelectedIndex = 0;
+        } else {
             Debug.LogWarning("A cursor without at least two valid options was enabled! Disabling!");
             gameObject.SetActive(false);
         }
@@ -119,13 +122,6 @@ public class Cursor : MonoBehaviour {
         }
     }
 
-    public int getSelectedOptionIndex(){
-        return selectedIndex;
-    }
-
-    public int getPreviousOptionIndex() {
-        return previousSelectedIndex;
-    }
 }
 
 public enum CursorMode{

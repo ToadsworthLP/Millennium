@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMachine : MonoBehaviour {
 
     public custom_inputs inputManager;
+    public MenuManager menuManager;
 	public Feet feet;
 	public PlayerArt art;
 	public ParticleSystem particles;
@@ -33,11 +34,18 @@ public class PlayerMachine : MonoBehaviour {
 		
 	void FixedUpdate () {
 		if (allowMovement) {
+            doMenu();
 			doMovement ();
         }
 		updateArt ();
 		updateParticleSystem ();
 	}
+
+    void doMenu(){
+        if(inputManager.isInputDown[6]){
+            menuManager.openMenu();
+        }
+    }
 
 	void doMovement(){
 		if (inputManager.isInput [0]) {
