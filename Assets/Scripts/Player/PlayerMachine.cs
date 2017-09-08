@@ -14,6 +14,8 @@ public class PlayerMachine : MonoBehaviour {
     public AudioClip jumpSound;
     public AudioClip walkSound;
 
+    public AudioClip menuOpenSound;
+
     public bool allowMovement;
     public bool allowJumping;
 	private bool grounded;
@@ -44,6 +46,7 @@ public class PlayerMachine : MonoBehaviour {
     void doMenu(){
         if(inputManager.isInputDown[6]){
             menuManager.openMenu();
+            audioSource.PlayOneShot(menuOpenSound);
         }
     }
 

@@ -587,7 +587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1406230047107550
 GameObject:
   m_ObjectHideFlags: 1
@@ -622,7 +622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1421353737048840
 GameObject:
   m_ObjectHideFlags: 1
@@ -4108,6 +4108,7 @@ MonoBehaviour:
   audioSource: {fileID: 82720803624801236}
   jumpSound: {fileID: 8300000, guid: d2e5f6884924c6c46ac61a4b9898f08f, type: 3}
   walkSound: {fileID: 8300000, guid: d289297c6042a6d41ad66bfbf405e2c9, type: 3}
+  menuOpenSound: {fileID: 8300000, guid: a6e219711969439488d10942906f4a69, type: 3}
   allowMovement: 1
   allowJumping: 0
   facing: 0
@@ -4125,7 +4126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   descriptionBox: {fileID: 114012774768230894}
-  animationLength: 0.4
+  tabCursor: {fileID: 1417307207160178}
+  animationLength: 0.35
   pages:
   - {fileID: 114737946420243636}
   - {fileID: 114602177291098310}
@@ -4242,19 +4244,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 1
   oneUse: 0
-  moveCooldown: 0.5
+  moveCooldown: 0.4
   optionObjects:
   - {fileID: 1627408543239458}
   - {fileID: 1421353737048840}
   - {fileID: 1728115706936724}
   - {fileID: 1156993521846482}
   - {fileID: 1381668865736590}
-  moveSound: {fileID: 0}
-  okPressSound: {fileID: 0}
-  cancelPressSound: {fileID: 0}
+  moveSound: {fileID: 8300000, guid: 428eeeaa275bf0d4baac7a58c8e16e80, type: 3}
+  okPressSound: {fileID: 8300000, guid: a6e219711969439488d10942906f4a69, type: 3}
+  cancelPressSound: {fileID: 8300000, guid: cdfcffb9b4285b5418a793590675be22, type: 3}
   movementTime: 0.1
   enableIdleAnimation: 1
   inputManager: {fileID: 0}
+  selectedIndex: 0
+  previousSelectedIndex: 0
   timeSinceLastMove: 0
 --- !u!114 &114989159404733566
 MonoBehaviour:
