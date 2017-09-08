@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Menu\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuPage.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuPageOption.cs" />
+    <Compile Include="Assets\Scripts\Menu\PlayerPage.cs" />
     <Compile Include="Assets\Scripts\Misc\Backpack.cs" />
     <Compile Include="Assets\Scripts\Misc\Coin.cs" />
     <Compile Include="Assets\Scripts\Misc\Flower.cs" />

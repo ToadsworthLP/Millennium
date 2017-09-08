@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
@@ -11,10 +12,12 @@ public class Backpack : MonoBehaviour {
     public string savefileName;
 
     private PlayerData data;
+    private Stopwatch deltaPlaytime;
 
     void Start() {
         DontDestroyOnLoad(gameObject);
         loadData();
+        deltaPlaytime = Stopwatch.StartNew();
         StartCoroutine(initializeHUD());
     }
 
@@ -110,6 +113,38 @@ public class Backpack : MonoBehaviour {
             data.bp = Mathf.Clamp(value, 0, 99);
         }
     }
+    public int shineSprites
+    {
+        get {
+            return data.shineSprites;
+        }
+
+        set {
+            data.shineSprites = Mathf.Clamp(value, 0, 99);
+        }
+    }
+    public int starPieces
+    {
+        get {
+            return data.starPieces;
+        }
+
+        set {
+            data.starPieces = Mathf.Clamp(value, 0, 99);
+        }
+    }
+
+    public DateTime playtime
+    {
+        get {
+            deltaPlaytime.Stop();
+            data.playtime = data.playtime.AddTicks(deltaPlaytime.ElapsedTicks);
+            deltaPlaytime.Reset();
+            deltaPlaytime.Start();
+            return data.playtime;
+        }
+    }
+
     public string progress
     {
         get {
@@ -146,6 +181,8 @@ public class Backpack : MonoBehaviour {
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream file = File.Open(Application.persistentDataPath+ "/" + savefileName, FileMode.OpenOrCreate);
 
+        data.playtime = playtime;
+
         formatter.Serialize(file, data);
         file.Close();
 
@@ -174,6 +211,9 @@ public class PlayerData{
     public int starPoints;
     public int level;
     public int bp;
+    public int shineSprites;
+    public int starPieces;
+    public DateTime playtime;
     public string progress;
 
     public PlayerData getDefaults(){
@@ -185,6 +225,9 @@ public class PlayerData{
         starPoints = 0;
         level = 1;
         bp = 3;
+        shineSprites = 0;
+        starPieces = 0;
+        playtime = new DateTime(0);
         progress = "";
         return this;
     }

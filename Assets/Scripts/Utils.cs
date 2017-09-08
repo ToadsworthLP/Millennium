@@ -38,4 +38,10 @@ public static class Utils {
         return (Arr.Length == j) ? Arr[0] : Arr[j];
     }
 
+    //Utility methods
+
+    public static string newLine(){
+        return "\r\n";
+    }
+
 }
