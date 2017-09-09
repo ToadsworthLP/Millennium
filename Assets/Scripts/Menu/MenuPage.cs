@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class MenuPage : MonoBehaviour {
 
-    public GameObject pageCursor;
-
     [HideInInspector]
     public Animator animator;
 

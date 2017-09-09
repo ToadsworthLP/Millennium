@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cursor : MonoBehaviour {
 
@@ -130,6 +131,12 @@ public class Cursor : MonoBehaviour {
         } else {
             return false;
         }
+    }
+
+    public void setActivityStatus(bool active){
+        this.active = active;
+        GetComponent<Image>().enabled = active;
+        enableIdleAnimation = active;
     }
 
 }

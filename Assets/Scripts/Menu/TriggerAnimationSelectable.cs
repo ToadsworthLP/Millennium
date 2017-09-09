@@ -16,4 +16,9 @@ public class TriggerAnimationSelectable : DescriptionSelectable {
         animator.SetTrigger(leaveTriggerName);
     }
 
+    public override void onCancelPressed() {
+        base.onCancelPressed();
+        animator.SetTrigger(leaveTriggerName);
+    }
+
 }

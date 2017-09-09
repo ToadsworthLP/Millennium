@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class DescriptionSelectable : SelectableHelper {
 
-    public GameObject pageSelectionCursor;
+    public Cursor pageSelectionCursor;
     public Text descriptionTextBox;
 
     [TextArea]
@@ -19,7 +19,7 @@ public class DescriptionSelectable : SelectableHelper {
     public override void onCancelPressed() {
         base.onCancelPressed();
         pageCursor.SetActive(false);
-        pageSelectionCursor.SetActive(true);
+        pageSelectionCursor.setActivityStatus(true);
     }
 
     public override void onCursorSelect() {
