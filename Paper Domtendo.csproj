@@ -81,16 +81,19 @@
     <Compile Include="Assets\Custom Input Manager v1.4\Scripts\custom_inputs.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISelectable.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ITriggerable.cs" />
+    <Compile Include="Assets\Scripts\Menu\DescriptionSelectable.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuPage.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuPageOption.cs" />
     <Compile Include="Assets\Scripts\Menu\PlayerPage.cs" />
+    <Compile Include="Assets\Scripts\Menu\TriggerAnimationSelectable.cs" />
     <Compile Include="Assets\Scripts\Misc\Backpack.cs" />
     <Compile Include="Assets\Scripts\Misc\Coin.cs" />
     <Compile Include="Assets\Scripts\Misc\Flower.cs" />
     <Compile Include="Assets\Scripts\Misc\Heart.cs" />
     <Compile Include="Assets\Scripts\Misc\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Misc\SaveBlock.cs" />
+    <Compile Include="Assets\Scripts\Misc\StarRank.cs" />
     <Compile Include="Assets\Scripts\Misc\UIImageScroller.cs" />
     <Compile Include="Assets\Scripts\NPCs\NPCTalker.cs" />
     <Compile Include="Assets\Scripts\NPCs\TalkIcon.cs" />
@@ -108,6 +111,7 @@
     <Compile Include="Assets\Scripts\UI\SaveMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SelectableHelper.cs" />
     <Compile Include="Assets\Scripts\UI\TestSelectable.cs" />
+    <Compile Include="Assets\Scripts\UI\TextWithShadow.cs" />
     <Compile Include="Assets\Scripts\UI\Typewriter.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
   </ItemGroup>

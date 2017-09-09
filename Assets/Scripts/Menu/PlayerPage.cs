@@ -4,6 +4,12 @@ using UnityEngine.UI;
 
 public class PlayerPage : MonoBehaviour {
 
+    public Animator playerModelAnimator;
+
+    public TextWithShadow playerNameText;
+    public TextWithShadow levelText;
+    public Text rankText;
+
     public Text hpText;
     public Text fpText;
     public Text bpText;
@@ -18,6 +24,10 @@ public class PlayerPage : MonoBehaviour {
 
     void OnEnable() {
         DateTime playtime = backpack.playtime;
+
+        playerNameText.updateText(backpack.playerName);
+        levelText.updateText("Lvl.  " + backpack.level);
+        rankText.text = backpack.starRank.getName();
 
         hpText.text = backpack.hp + " / " + backpack.maxHp;
         fpText.text = backpack.fp + " / " + backpack.maxFp;

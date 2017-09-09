@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class MenuPageOption : SelectableHelper {
+
+    public GameObject pageCursor;
 
     [TextArea]
     public string descriptionText;
@@ -43,16 +44,26 @@ public class MenuPageOption : SelectableHelper {
     public override void onCursorLeave() {
         base.onCursorLeave();
         canvasRenderer.SetColor(overlayColor);
+        if(pageCursor != null){
+            pageCursor.SetActive(false);
+        }
+        cursor.gameObject.SetActive(true);
         menuManager.getPageOfIndex(cursor.previousSelectedIndex).unfocusPage(menuManager.animationLength);
     }
 
     public override void onOKPressed() {
         base.onOKPressed();
+        cursor.gameObject.SetActive(false);
+        if (pageCursor != null) {
+            pageCursor.SetActive(true);
+        }
     }
 
     public override void onCancelPressed() {
         base.onCancelPressed();
-        
+        if (pageCursor != null) {
+            pageCursor.SetActive(false);
+        }
         menuManager.closeMenu();
     }
 

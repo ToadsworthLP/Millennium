@@ -1,10 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuPage : MonoBehaviour {
 
-    public GameObject defaultCursor;
+    public GameObject pageCursor;
+
     [HideInInspector]
     public Animator animator;
 
@@ -16,10 +16,6 @@ public class MenuPage : MonoBehaviour {
 
     public void unfocusPage(float disableDelay){
         StartCoroutine(deactivateAfterDelay(disableDelay));
-    }
-
-    public void enterPage(){
-        //TODO enable default cursor object
     }
 
     IEnumerator deactivateAfterDelay(float disableDelay){

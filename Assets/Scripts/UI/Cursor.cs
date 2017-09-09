@@ -13,6 +13,7 @@ public class Cursor : MonoBehaviour {
     public AudioClip cancelPressSound;
 
     public float movementTime;
+    public bool enableStartAnimation;
     public bool enableIdleAnimation;
     [HideInInspector]
     public custom_inputs inputManager;
@@ -26,7 +27,8 @@ public class Cursor : MonoBehaviour {
     private AudioSource audioSource;
 
     private bool active;
-    public float timeSinceLastMove;
+    private float timeSinceLastMove;
+    private Vector3 startPosition;
 
     private Vector3 animVelocity = Vector3.zero;
 
@@ -52,8 +54,16 @@ public class Cursor : MonoBehaviour {
 
         RectTransform targetTransform = optionObjects[selectedIndex].GetComponent<RectTransform>();
         targetPosition = options[selectedIndex].getGrabPoint();
-        transform.position = targetPosition;
 
+        if(enableStartAnimation){
+            if(startPosition == Vector3.zero){
+                startPosition = transform.position;
+            }
+            transform.position = startPosition;
+        } else {
+            transform.position = targetPosition;
+        }
+        
         options[selectedIndex].onCursorSelect();
 
         active = true;

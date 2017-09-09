@@ -27,6 +27,16 @@ public class Backpack : MonoBehaviour {
     }
 
     //Getters and setters
+    public string playerName
+    {
+        get {
+            return data.playerName;
+        }
+
+        set {
+            data.playerName = value;
+        }
+    }
     public int hp
     {
         get {
@@ -133,6 +143,21 @@ public class Backpack : MonoBehaviour {
             data.starPieces = Mathf.Clamp(value, 0, 99);
         }
     }
+    public StarRank starRank
+    {
+        get {
+            if(data.level < 10){
+                return StarRank.RISING_STAR;
+            }else if (data.level < 20){
+                return StarRank.B_LIST_STAR;
+            } else if (data.level < 30) {
+                return StarRank.A_LIST_STAR;
+            } else{
+                return StarRank.SUPERSTAR;
+            }
+        }
+    }
+
 
     public DateTime playtime
     {
@@ -203,6 +228,7 @@ public class Backpack : MonoBehaviour {
 
 [Serializable]
 public class PlayerData{
+    public string playerName;
     public int maxHp;
     public int hp;
     public int maxFp;
@@ -217,6 +243,7 @@ public class PlayerData{
     public string progress;
 
     public PlayerData getDefaults(){
+        playerName = "Mario";
         maxHp = 10;
         hp = 10;
         maxFp = 5;
