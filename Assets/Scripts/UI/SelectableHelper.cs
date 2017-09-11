@@ -55,4 +55,6 @@ public class SelectableHelper : MonoBehaviour, ISelectable {
     }
 
     public virtual void onOKPressed() { }
+
+    public virtual void onSideKeyPressed(Utils.EnumDirection direction) { }
 }

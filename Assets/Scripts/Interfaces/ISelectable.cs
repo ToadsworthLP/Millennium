@@ -16,4 +16,6 @@ public interface ISelectable {
 
     void onCancelPressed();
 
+    void onSideKeyPressed(Utils.EnumDirection direction);
+
 }

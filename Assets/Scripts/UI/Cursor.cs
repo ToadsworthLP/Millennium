@@ -6,6 +6,7 @@ public class Cursor : MonoBehaviour {
 
     public CursorMode mode;
     public bool oneUse;
+    public bool keepSelectedIndex;
     public float moveCooldown;
     public GameObject[] optionObjects;
 
@@ -37,8 +38,10 @@ public class Cursor : MonoBehaviour {
 
     void OnEnable() {
         if (optionObjects.Length > 1) {
-            selectedIndex = 0;
-            previousSelectedIndex = 0;
+            if(!keepSelectedIndex){
+                selectedIndex = 0;
+                previousSelectedIndex = 0;
+            }
         } else {
             Debug.LogWarning("A cursor without at least two valid options was enabled! Disabling!");
             gameObject.SetActive(false);
@@ -82,12 +85,16 @@ public class Cursor : MonoBehaviour {
                 if (oneUse) { active = false; }
             } else if (mode == CursorMode.VERTICAL && inputManager.isInput[0] && selectedIndex > 0) {
                 cursorMoved(-1);
+                options[selectedIndex].onSideKeyPressed(Utils.EnumDirection.UP);
             } else if (mode == CursorMode.VERTICAL && inputManager.isInput[1] && selectedIndex < optionObjects.Length - 1) {
                 cursorMoved(1);
+                options[selectedIndex].onSideKeyPressed(Utils.EnumDirection.DOWN);
             } else if (mode == CursorMode.HORIZONTAL && inputManager.isInput[2] && selectedIndex > 0) {
                 cursorMoved(-1);
+                options[selectedIndex].onSideKeyPressed(Utils.EnumDirection.LEFT);
             } else if (mode == CursorMode.HORIZONTAL && inputManager.isInput[3] && selectedIndex < optionObjects.Length - 1) {
                 cursorMoved(1);
+                options[selectedIndex].onSideKeyPressed(Utils.EnumDirection.RIGHT);
             }
         }
 

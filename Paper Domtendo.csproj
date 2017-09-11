@@ -82,10 +82,14 @@
     <Compile Include="Assets\Scripts\Interfaces\ISelectable.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ITriggerable.cs" />
     <Compile Include="Assets\Scripts\Menu\DescriptionSelectable.cs" />
+    <Compile Include="Assets\Scripts\Menu\GearPage.cs" />
+    <Compile Include="Assets\Scripts\Menu\ItemEntry.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuPage.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuPageOption.cs" />
+    <Compile Include="Assets\Scripts\Menu\PartyPage.cs" />
     <Compile Include="Assets\Scripts\Menu\PlayerPage.cs" />
+    <Compile Include="Assets\Scripts\Menu\TiledIconDisplay.cs" />
     <Compile Include="Assets\Scripts\Menu\TriggerAnimationSelectable.cs" />
     <Compile Include="Assets\Scripts\Misc\Backpack.cs" />
     <Compile Include="Assets\Scripts\Misc\Coin.cs" />
@@ -100,6 +104,7 @@
     <Compile Include="Assets\Scripts\Player\Feet.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerArt.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMachine.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\Triggers\ExampleTrigger.cs" />
     <Compile Include="Assets\Scripts\Triggers\ExampleTriggeredObject.cs" />
     <Compile Include="Assets\Scripts\UI\CancelOption.cs" />
@@ -108,9 +113,10 @@
     <Compile Include="Assets\Scripts\UI\HUDController.cs" />
     <Compile Include="Assets\Scripts\UI\HUDElementHelper.cs" />
     <Compile Include="Assets\Scripts\UI\ImageToNumber.cs" />
+    <Compile Include="Assets\Scripts\UI\ItemListManager.cs" />
+    <Compile Include="Assets\Scripts\UI\ItemListSwitch.cs" />
     <Compile Include="Assets\Scripts\UI\SaveMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SelectableHelper.cs" />
-    <Compile Include="Assets\Scripts\UI\TestSelectable.cs" />
     <Compile Include="Assets\Scripts\UI\TextWithShadow.cs" />
     <Compile Include="Assets\Scripts\UI\Typewriter.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />

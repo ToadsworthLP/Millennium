@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -157,8 +158,6 @@ public class Backpack : MonoBehaviour {
             }
         }
     }
-
-
     public DateTime playtime
     {
         get {
@@ -169,7 +168,6 @@ public class Backpack : MonoBehaviour {
             return data.playtime;
         }
     }
-
     public string progress
     {
         get {
@@ -178,6 +176,15 @@ public class Backpack : MonoBehaviour {
 
         set {
             data.progress = value;
+        }
+    }
+
+    public List<InventoryItem> debugItemsList;
+    public List<InventoryItem> items
+    {
+        get {
+            //return data.items;
+            return debugItemsList;
         }
     }
 
@@ -241,6 +248,7 @@ public class PlayerData{
     public int starPieces;
     public DateTime playtime;
     public string progress;
+    public List<InventoryItem> items;
 
     public PlayerData getDefaults(){
         playerName = "Mario";
@@ -256,6 +264,7 @@ public class PlayerData{
         starPieces = 0;
         playtime = new DateTime(0);
         progress = "";
+        items = new List<InventoryItem>();
         return this;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 public static class Utils {
 
@@ -39,9 +40,15 @@ public static class Utils {
     }
 
     //Utility methods
-
     public static string newLine(){
         return "\r\n";
+    }
+
+    public static Transform ClearChildren(this Transform transform) {
+        foreach (Transform child in transform) {
+            GameObject.Destroy(child.gameObject);
+        }
+        return transform;
     }
 
 }
