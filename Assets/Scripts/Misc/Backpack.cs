@@ -183,10 +183,30 @@ public class Backpack : MonoBehaviour {
     public List<InventoryItem> items
     {
         get {
-            //return data.items;
-            return debugItemsList;
+            return data.items;
         }
     }
+    public List<InventoryItem> normalItems
+    {
+        get {
+            if(items.Count > 0){
+                return items.FindAll(isNormal);
+            }else{
+                return new List<InventoryItem>();
+            }
+        }
+    }
+    public List<InventoryItem> importantItems
+    {
+        get {
+            if (items.Count > 0) {
+                return items.FindAll(isImportant);
+            } else {
+                return new List<InventoryItem>();
+            }
+        }
+    }
+
 
     //Save system stuff
     public bool loadData() {
@@ -228,6 +248,23 @@ public class Backpack : MonoBehaviour {
             return true;
         }else{
             return false;
+        }
+    }
+
+    //Sorting funtions
+    private static bool isImportant(InventoryItem item) {
+        if (item.isImportantItem) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private static bool isNormal(InventoryItem item) {
+        if (item.isImportantItem) {
+            return false;
+        } else {
+            return true;
         }
     }
 

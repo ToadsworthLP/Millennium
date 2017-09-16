@@ -9,17 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48f017ec16697b2488900abac6302367, type: 3}
-  m_Name: Mushroom
+  m_Name: GoldenKey
   m_EditorClassIdentifier: 
-  itemName: Mushroom
-  itemDescription: 'A feel-good mushroom.
-
-    Replenishes 5 HP.'
-  icon: {fileID: 21300000, guid: 854163d86bad9954ca6f8f365e1cbfd4, type: 3}
-  usableOnOverworld: 1
-  usableInBattle: 1
-  statModifiers:
-  - statToModify: 0
-    value: 5
+  itemName: Golden Key
+  itemDescription: Use this key to open a locked door.
+  icon: {fileID: 21300000, guid: f19fcc6a30b93a746bbb2184e6ece4c0, type: 3}
+  isImportantItem: 1
+  usableOnOverworld: 0
+  usableInBattle: 0
+  statModifiers: []
   spawnOnOverworldUse: {fileID: 0}
   spawnOnBattleUse: {fileID: 0}

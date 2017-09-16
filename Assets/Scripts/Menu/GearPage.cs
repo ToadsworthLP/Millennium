@@ -6,7 +6,8 @@ public class GearPage : MonoBehaviour {
 
     void OnEnable() {
         Backpack backpack = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>();
-        itemListManager.showItems(ItemListManager.EnumItemKind.NORMAL, backpack);
+        itemListManager.setBackpack(backpack);
+        itemListManager.showItems(ItemListManager.EnumItemKind.NORMAL);
     }
 
 }

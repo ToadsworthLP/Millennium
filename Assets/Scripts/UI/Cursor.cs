@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ public class Cursor : MonoBehaviour {
     public bool oneUse;
     public bool keepSelectedIndex;
     public float moveCooldown;
-    public GameObject[] optionObjects;
+    public List<GameObject> optionObjects;
 
     public AudioClip moveSound;
     public AudioClip okPressSound;
@@ -25,7 +26,7 @@ public class Cursor : MonoBehaviour {
     [HideInInspector]
     public int previousSelectedIndex;
 
-    private ISelectable[] options;
+    private List<ISelectable> options;
     private AudioSource audioSource;
 
     private bool active;
@@ -37,23 +38,24 @@ public class Cursor : MonoBehaviour {
     private Vector3 targetPosition;
 
     void OnEnable() {
-        if (optionObjects.Length > 1) {
+        if (optionObjects.Count > 0) {
             if(!keepSelectedIndex){
                 selectedIndex = 0;
                 previousSelectedIndex = 0;
             }
         } else {
-            Debug.LogWarning("A cursor without at least two valid options was enabled! Disabling!");
+            Debug.LogWarning("A cursor without at least one valid option was enabled! Disabling!");
             gameObject.SetActive(false);
         }
         PlayerMachine player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
         audioSource = player.audioSource;
         inputManager = player.inputManager;
 
-        options = new ISelectable[optionObjects.Length];
-        for (int i = 0; i < optionObjects.Length; i++) {
-            options[i] = optionObjects[i].GetComponent<ISelectable>();
-            options[i].onCursorInit(this);
+        options = new List<ISelectable>();
+        foreach(GameObject obj in optionObjects){
+            ISelectable option = obj.GetComponent<ISelectable>();
+            options.Add(option);
+            option.onCursorInit(this);
         }
 
         RectTransform targetTransform = optionObjects[selectedIndex].GetComponent<RectTransform>();
@@ -83,17 +85,21 @@ public class Cursor : MonoBehaviour {
                 audioSource.PlayOneShot(cancelPressSound);
                 options[selectedIndex].onCancelPressed();
                 if (oneUse) { active = false; }
-            } else if (mode == CursorMode.VERTICAL && inputManager.isInput[0] && selectedIndex > 0) {
-                cursorMoved(-1);
+            } else if (inputManager.isInput[0]) {
+                if(mode == CursorMode.VERTICAL && selectedIndex > 0)
+                    cursorMoved(-1);
                 options[selectedIndex].onSideKeyPressed(Utils.EnumDirection.UP);
-            } else if (mode == CursorMode.VERTICAL && inputManager.isInput[1] && selectedIndex < optionObjects.Length - 1) {
-                cursorMoved(1);
+            } else if (inputManager.isInput[1]) {
+                if (mode == CursorMode.VERTICAL && selectedIndex < optionObjects.Count - 1)
+                    cursorMoved(1);
                 options[selectedIndex].onSideKeyPressed(Utils.EnumDirection.DOWN);
-            } else if (mode == CursorMode.HORIZONTAL && inputManager.isInput[2] && selectedIndex > 0) {
-                cursorMoved(-1);
+            } else if (inputManager.isInput[2]) {
+                if (mode == CursorMode.HORIZONTAL && selectedIndex > 0)
+                    cursorMoved(-1);
                 options[selectedIndex].onSideKeyPressed(Utils.EnumDirection.LEFT);
-            } else if (mode == CursorMode.HORIZONTAL && inputManager.isInput[3] && selectedIndex < optionObjects.Length - 1) {
-                cursorMoved(1);
+            } else if (inputManager.isInput[3]) {
+                if (mode == CursorMode.HORIZONTAL && selectedIndex < optionObjects.Count - 1)
+                    cursorMoved(1);
                 options[selectedIndex].onSideKeyPressed(Utils.EnumDirection.RIGHT);
             }
         }
@@ -113,7 +119,7 @@ public class Cursor : MonoBehaviour {
 
     }
 
-    void cursorMoved(int amount) {
+    public void cursorMoved(int amount) {
         previousSelectedIndex = selectedIndex;
 
         selectedIndex += amount;

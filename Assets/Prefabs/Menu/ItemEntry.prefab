@@ -35,6 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224719630670742594}
   - component: {fileID: 114871454386216606}
+  - component: {fileID: 225472188654802104}
   m_Layer: 0
   m_Name: ItemEntry
   m_TagString: Untagged
@@ -156,6 +157,7 @@ MonoBehaviour:
   handle: {fileID: 224123675088829066}
   textComponent: {fileID: 0}
   item: {fileID: 0}
+  listSwitchCursor: {fileID: 0}
 --- !u!222 &222065254875431346
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -243,3 +245,14 @@ RectTransform:
   m_AnchoredPosition: {x: 125, y: -30}
   m_SizeDelta: {x: 242.07, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225472188654802104
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1373045242950690}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

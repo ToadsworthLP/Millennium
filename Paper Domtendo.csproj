@@ -93,8 +93,10 @@
     <Compile Include="Assets\Scripts\Menu\TriggerAnimationSelectable.cs" />
     <Compile Include="Assets\Scripts\Misc\Backpack.cs" />
     <Compile Include="Assets\Scripts\Misc\Coin.cs" />
+    <Compile Include="Assets\Scripts\Misc\CollectibleItem.cs" />
     <Compile Include="Assets\Scripts\Misc\Flower.cs" />
     <Compile Include="Assets\Scripts\Misc\Heart.cs" />
+    <Compile Include="Assets\Scripts\Misc\ItemIconPopup.cs" />
     <Compile Include="Assets\Scripts\Misc\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Misc\SaveBlock.cs" />
     <Compile Include="Assets\Scripts\Misc\StarRank.cs" />
@@ -115,6 +117,7 @@
     <Compile Include="Assets\Scripts\UI\ImageToNumber.cs" />
     <Compile Include="Assets\Scripts\UI\ItemListManager.cs" />
     <Compile Include="Assets\Scripts\UI\ItemListSwitch.cs" />
+    <Compile Include="Assets\Scripts\UI\ItemPopup.cs" />
     <Compile Include="Assets\Scripts\UI\SaveMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SelectableHelper.cs" />
     <Compile Include="Assets\Scripts\UI\TextWithShadow.cs" />
