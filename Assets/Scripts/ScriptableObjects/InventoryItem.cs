@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory Item", order = 1)]
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory Item")]
 public class InventoryItem : ScriptableObject {
     public string itemName = "New Item";
     [TextArea]
@@ -17,7 +18,6 @@ public class InventoryItem : ScriptableObject {
     public GameObject spawnOnBattleUse;
 }
 
-[System.Serializable]
 public class StatModifier{
     public StatType statToModify;
     public int value;

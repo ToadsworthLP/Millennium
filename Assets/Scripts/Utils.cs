@@ -51,4 +51,13 @@ public static class Utils {
         return transform;
     }
 
+    //Save serialization utilities
+    public static string Serialize(object value) {
+        return JsonUtility.ToJson(value);
+    }
+
+    public static PlayerData Deserialize(string json) {
+        return JsonUtility.FromJson<PlayerData>(json);
+    }
+
 }

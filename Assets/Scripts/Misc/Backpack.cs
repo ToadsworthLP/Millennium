@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class Backpack : MonoBehaviour {
@@ -17,7 +16,9 @@ public class Backpack : MonoBehaviour {
 
     void Start() {
         DontDestroyOnLoad(gameObject);
-        loadData();
+        if(!loadData()){
+            data = new PlayerData().getDefaults();
+        }
         deltaPlaytime = Stopwatch.StartNew();
         StartCoroutine(initializeHUD());
     }
@@ -179,7 +180,6 @@ public class Backpack : MonoBehaviour {
         }
     }
 
-    public List<InventoryItem> debugItemsList;
     public List<InventoryItem> items
     {
         get {
@@ -210,35 +210,30 @@ public class Backpack : MonoBehaviour {
 
     //Save system stuff
     public bool loadData() {
-        if (File.Exists(Application.persistentDataPath + "/"+ savefileName)) {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/" + savefileName, FileMode.Open);
+        try{
+            StreamReader file = new StreamReader(Application.persistentDataPath + "/" + savefileName);
 
-            data = (PlayerData)formatter.Deserialize(file);
+            String dataString = file.ReadToEnd();
+            data = Utils.Deserialize(dataString);
             file.Close();
-
-            if (data == null){
-                data = new PlayerData().getDefaults();
-                return false;
-            }
-
             return true;
-        }else{
-            data = new PlayerData().getDefaults();
+        }catch(Exception e){
+            print("Failed to load data! "+e.Message);
             return false;
         }
     }
 
     public bool saveData(){
-        BinaryFormatter formatter = new BinaryFormatter();
-        FileStream file = File.Open(Application.persistentDataPath+ "/" + savefileName, FileMode.OpenOrCreate);
-
-        data.playtime = playtime;
-
-        formatter.Serialize(file, data);
-        file.Close();
-
-        return true;
+        try{
+            StreamWriter file = new StreamWriter(Application.persistentDataPath + "/" + savefileName);
+            data.playtime = playtime;
+            file.WriteLine(Utils.Serialize(data));
+            file.Close();
+            return true;
+        }catch(Exception e){
+            print("Failed to save data! " + e.Message);
+            return false;
+        }
     }
 
     public bool deleteData(){
@@ -270,7 +265,6 @@ public class Backpack : MonoBehaviour {
 
 }
 
-[Serializable]
 public class PlayerData{
     public string playerName;
     public int maxHp;
