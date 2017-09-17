@@ -25,7 +25,7 @@ public class Backpack : MonoBehaviour {
 
     IEnumerator initializeHUD(){
         yield return new WaitForEndOfFrame();
-        hudController.setData(data);
+        hudController.setData(data, true);
     }
 
     //Getters and setters

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMachine : MonoBehaviour {
 
@@ -39,6 +37,7 @@ public class PlayerMachine : MonoBehaviour {
             doMenu();
 			doMovement ();
         }
+        updateFacing();
 		updateArt ();
 		updateParticleSystem ();
 	}
@@ -61,11 +60,11 @@ public class PlayerMachine : MonoBehaviour {
 
 		if (inputManager.isInput [2]) {
             rigidbody.velocity -= new Vector3 (moveSpeed,0f,0f);
-		}
+        }
 
 		if(inputManager.isInput [3]) {
             rigidbody.velocity += new Vector3 (moveSpeed,0f,0f);
-		}
+        }
 
 		if (inputManager.isInput [4] && feet.CheckGroundStatus () && allowJumping) {
 			rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
@@ -75,11 +74,11 @@ public class PlayerMachine : MonoBehaviour {
 
 	void updateArt(){
 		if (rigidbody.velocity == Vector3.zero) {
-			art.Idle (getFacing ());
+			art.Idle (facing);
 		} else if (rigidbody.velocity.y == 0) {
-			art.Walk (getFacing ());
+			art.Walk (facing);
 		} else if (rigidbody.velocity.y > 0.1f || rigidbody.velocity.y < -0.1f) {
-			art.Jump (getFacing ());
+			art.Jump (facing);
 		}
 	}
 
@@ -95,15 +94,11 @@ public class PlayerMachine : MonoBehaviour {
 		}
 	}
 
-	public Utils.EnumDirection getFacing(){
+	public void updateFacing(){
 		if (rigidbody.velocity.x > 0) {
             facing = Utils.EnumDirection.RIGHT;
-			return Utils.EnumDirection.RIGHT;
 		} else if (rigidbody.velocity.x < 0) {
             facing = Utils.EnumDirection.LEFT;
-            return Utils.EnumDirection.LEFT;
-		} else {
-			return facing;
 		}
 	}
 

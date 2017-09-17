@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HUDController : MonoBehaviour {
 
@@ -10,42 +9,48 @@ public class HUDController : MonoBehaviour {
     public FancyNumberHandler coins;
     public FancyNumberHandler starPoints;
 
-    public void setData(PlayerData data){
-        setHP(data.hp);
-        setMaxHP(data.maxHp);
-        setFP(data.fp);
-        setMaxFP(data.fp);
-        setCoins(data.coins);
-        setStarPoints(data.starPoints);
+    public void setData(PlayerData data, bool suppressAnimation = false){
+        setHP(data.hp, suppressAnimation);
+        setMaxHP(data.maxHp, suppressAnimation);
+        setFP(data.fp, suppressAnimation);
+        setMaxFP(data.fp, suppressAnimation);
+        setCoins(data.coins, suppressAnimation);
+        setStarPoints(data.starPoints, suppressAnimation);
     }
 
-    public void setHP(int amount) {
+    public void setHP(int amount, bool suppressAnimation = false) {
         hp.UpdateValue(amount);
-        hp.GetComponentInParent<Animator>().SetTrigger("Updated");
+        if(!suppressAnimation)
+            hp.GetComponentInParent<Animator>().SetTrigger("Updated");
     }
 
-    public void setMaxHP(int amount) {
+    public void setMaxHP(int amount, bool suppressAnimation = false) {
         maxHp.UpdateValue(amount);
-        maxHp.GetComponentInParent<Animator>().SetTrigger("Updated");
+        if (!suppressAnimation)
+            maxHp.GetComponentInParent<Animator>().SetTrigger("Updated");
     }
 
-    public void setFP(int amount) {
+    public void setFP(int amount, bool suppressAnimation = false) {
         fp.UpdateValue(amount);
-        fp.GetComponentInParent<Animator>().SetTrigger("Updated");
+        if (!suppressAnimation)
+            fp.GetComponentInParent<Animator>().SetTrigger("Updated");
     }
 
-    public void setMaxFP(int amount) {
+    public void setMaxFP(int amount, bool suppressAnimation = false) {
         maxFp.UpdateValue(amount);
-        maxFp.GetComponentInParent<Animator>().SetTrigger("Updated");
+        if (!suppressAnimation)
+            maxFp.GetComponentInParent<Animator>().SetTrigger("Updated");
     }
 
-    public void setCoins(int amount) {
+    public void setCoins(int amount, bool suppressAnimation = false) {
         coins.UpdateValue(amount);
-        coins.GetComponentInParent<Animator>().SetTrigger("CoinsUpdated");
+        if (!suppressAnimation)
+            coins.GetComponentInParent<Animator>().SetTrigger("CoinsUpdated");
     }
 
-    public void setStarPoints(int amount) {
+    public void setStarPoints(int amount, bool suppressAnimation = false) {
         starPoints.UpdateValue(amount);
-        starPoints.GetComponentInParent<Animator>().SetTrigger("StarPointsUpdated");
+        if (!suppressAnimation)
+            starPoints.GetComponentInParent<Animator>().SetTrigger("StarPointsUpdated");
     }
 }
