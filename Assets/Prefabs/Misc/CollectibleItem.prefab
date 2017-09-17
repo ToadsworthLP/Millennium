@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: {fileID: 0}
+  collectSound: {fileID: 0}
   art: {fileID: 212168691788413982}
   itemPopup: {fileID: 1231317681307628, guid: e7f34ecd052e2b541ac81e858840e288, type: 2}
 --- !u!212 &212168691788413982
