@@ -108,7 +108,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 1
-  controlID: 125
+  controlID: 52
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 126
+  controlID: 53
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,15 +226,15 @@ MonoBehaviour:
     height: 460
   m_MinSize: {x: 204, y: 221}
   m_MaxSize: {x: 4004, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 14}
   - {fileID: 16}
   - {fileID: 19}
   - {fileID: 17}
   - {fileID: 18}
-  m_Selected: 0
-  m_LastSelected: 4
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -262,7 +262,7 @@ MonoBehaviour:
   - {fileID: 21}
   - {fileID: 22}
   m_Selected: 0
-  m_LastSelected: 3
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -329,18 +329,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Animations/UI
+    - Assets/Prefabs/Misc
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Animations/UI
+  - Assets/Prefabs/Misc
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Unity Projects\Paper Domtendo
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 191}
-    m_SelectedIDs: a8280000
-    m_LastClickedID: 10408
+    scrollPos: {x: 0, y: 167}
+    m_SelectedIDs: 2e270000
+    m_LastClickedID: 10030
     m_ExpandedIDs: 000000006a2600000027000034270000462700006427000034280000c02800005a2900006e29000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -470,7 +470,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoom: 0
     m_UniformScale: 1
     m_UpDirection: 1
@@ -528,9 +528,9 @@ MonoBehaviour:
     height: 439
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs: 10290000
     m_LastClickedID: 0
-    m_ExpandedIDs: 3ae2ffff12e3ffff28e4ffff1afcffff00000000
+    m_ExpandedIDs: 7494ffff4695ffff6a96ffff1afcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -585,9 +585,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.83393246, y: 1.0703971, z: 2.6576617}
+    m_Target: {x: -0.95164627, y: 2.6558988, z: -4.935541}
     speed: 2
-    m_Value: {x: 0.83393246, y: 1.0703971, z: 2.6576617}
+    m_Value: {x: -0.95164627, y: 2.6558988, z: -4.935541}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -610,9 +610,9 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.03765991, y: 0.019031493, z: -0.00071011245, w: 0.99910915}
+    m_Target: {x: -0.19664569, y: -0.048069183, z: 0.009645258, w: -0.97924817}
     speed: 2
-    m_Value: {x: -0.03765991, y: -0.019031493, z: 0.0007101125, w: -0.99910915}
+    m_Value: {x: -0.19664566, y: -0.048069175, z: 0.009645257, w: -0.97924805}
   m_Size:
     m_Target: 0.91407585
     speed: 2
@@ -747,7 +747,7 @@ MonoBehaviour:
     - {x: 744, y: 254.40002}
     - {x: 720, y: 170.40001}
     - {x: 607, y: 239.40002}
-    - {x: 366, y: 240.40002}
+    - {x: 322.2, y: 383.40002}
   m_PreviewAnimator: {fileID: 0}
   m_AnimatorController: {fileID: 9100000, guid: 42d34ef7fd7406f43b9f9006c74d2b13,
     type: 2}
