@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\Menu\TiledIconDisplay.cs" />
     <Compile Include="Assets\Scripts\Menu\TriggerAnimationSelectable.cs" />
     <Compile Include="Assets\Scripts\Misc\Backpack.cs" />
+    <Compile Include="Assets\Scripts\Misc\Billboarder.cs" />
     <Compile Include="Assets\Scripts\Misc\Coin.cs" />
     <Compile Include="Assets\Scripts\Misc\CollectibleItem.cs" />
     <Compile Include="Assets\Scripts\Misc\Flower.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Assets\Scripts\UI\TextWithShadow.cs" />
     <Compile Include="Assets\Scripts\UI\Typewriter.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
+    <Compile Include="Assets\Scripts\VirtualDPad.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\Rainbow.shader" />

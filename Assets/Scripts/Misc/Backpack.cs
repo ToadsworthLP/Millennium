@@ -207,6 +207,8 @@ public class Backpack : MonoBehaviour {
         }
     }
 
+    //public List<StatusEffect> statusEffects;
+
 
     //Save system stuff
     public bool loadData() {
@@ -299,3 +301,7 @@ public class PlayerData{
         return this;
     }
 }
+
+/*public enum StatusEffect{
+    POISONED, ELECRIFICATED, CHARGE, COMMAND_LOSS, DIZZY, DOUBLE_ATTACK, FROZEN, BIG, STOPWATCH, AGRESSIVE
+}*/

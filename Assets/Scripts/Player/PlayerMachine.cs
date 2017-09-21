@@ -3,14 +3,12 @@
 public class PlayerMachine : MonoBehaviour {
 
     public custom_inputs inputManager;
+    public VirtualDPad dpad;
     public MenuManager menuManager;
 	public Feet feet;
 	public PlayerArt art;
 	public ParticleSystem particles;
     public AudioSource audioSource;
-
-    public AudioClip jumpSound;
-    public AudioClip walkSound;
 
     public AudioClip menuOpenSound;
 
@@ -18,15 +16,12 @@ public class PlayerMachine : MonoBehaviour {
     public bool allowJumping;
 	private bool grounded;
 
-    public Utils.EnumDirection facing;
-
 	public float moveSpeed;
 	public float jumpSpeed;
 
 	private Rigidbody rigidbody;
 
 	void Start () {
-		facing = Utils.EnumDirection.RIGHT;
 		grounded = true;
         allowJumping = true;
 		rigidbody = gameObject.GetComponent<Rigidbody> ();
@@ -37,8 +32,8 @@ public class PlayerMachine : MonoBehaviour {
             doMenu();
 			doMovement ();
         }
-        updateFacing();
-		updateArt ();
+        grounded = feet.CheckGroundStatus();
+        updateArt();
 		updateParticleSystem ();
 	}
 
@@ -50,39 +45,35 @@ public class PlayerMachine : MonoBehaviour {
     }
 
 	void doMovement(){
-		if (inputManager.isInput [0]) {
-            rigidbody.velocity += new Vector3 (0f,0f,moveSpeed);
-        }
 
-        if (inputManager.isInput [1]){
-            rigidbody.velocity -= new Vector3 (0f,0f,moveSpeed);
-		}
-
-		if (inputManager.isInput [2]) {
-            rigidbody.velocity -= new Vector3 (moveSpeed,0f,0f);
-        }
-
-		if(inputManager.isInput [3]) {
-            rigidbody.velocity += new Vector3 (moveSpeed,0f,0f);
-        }
+        rigidbody.velocity += new Vector3(dpad.direction.x*moveSpeed, 0, dpad.direction.y*moveSpeed);
 
 		if (inputManager.isInput [4] && feet.CheckGroundStatus () && allowJumping) {
 			rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
-            audioSource.PlayOneShot(jumpSound);
+            art.playJumpSound();
 		}
 	}
 
 	void updateArt(){
-		if (rigidbody.velocity == Vector3.zero) {
-			art.Idle (facing);
-		} else if (rigidbody.velocity.y == 0) {
-			art.Walk (facing);
-		} else if (rigidbody.velocity.y > 0.1f || rigidbody.velocity.y < -0.1f) {
-			art.Jump (facing);
-		}
-	}
+        float side = 1;
 
-	void updateParticleSystem(){
+        art.animator.SetFloat("normalizedSpeed", Mathf.Clamp01(rigidbody.velocity.magnitude));
+        art.animator.SetBool("grounded", grounded);
+        
+        if (inputManager.isInput[0] || inputManager.isInput[1]) {
+            side = -dpad.direction.y;
+        }
+
+        if(dpad.direction.x > 0.0f){
+            art.billboarder.dir = 180;
+        }else if(dpad.direction.x < 0.0f){
+            art.billboarder.dir = 0;
+        }
+
+        art.animator.SetFloat("side", side);
+    }
+
+        void updateParticleSystem(){
 		if (rigidbody.velocity.y == 0 && (Mathf.Abs (rigidbody.velocity.x) > 0.1f || Mathf.Abs (rigidbody.velocity.z) > 0.1f)) {
 			if (!particles.isEmitting) {
 				particles.Play ();
@@ -93,16 +84,4 @@ public class PlayerMachine : MonoBehaviour {
 			}
 		}
 	}
-
-	public void updateFacing(){
-		if (rigidbody.velocity.x > 0) {
-            facing = Utils.EnumDirection.RIGHT;
-		} else if (rigidbody.velocity.x < 0) {
-            facing = Utils.EnumDirection.LEFT;
-		}
-	}
-
-    public void playWalkSound(){
-        audioSource.PlayOneShot(walkSound);
-    }
 }
