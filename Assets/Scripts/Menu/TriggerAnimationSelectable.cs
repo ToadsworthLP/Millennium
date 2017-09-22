@@ -3,22 +3,34 @@
 public class TriggerAnimationSelectable : DescriptionSelectable {
 
     public Animator animator;
-    public string selectTriggerName;
-    public string leaveTriggerName;
+    public FloatAnimationSetter[] selectTriggers;
+    public FloatAnimationSetter[] deselectTriggers;
 
     public override void onCursorSelect() {
         base.onCursorSelect();
-        animator.SetTrigger(selectTriggerName);
+        foreach (FloatAnimationSetter f in selectTriggers) {
+            animator.SetFloat(f.name, f.value);
+        }
     }
 
     public override void onCursorLeave() {
         base.onCursorLeave();
-        animator.SetTrigger(leaveTriggerName);
+        foreach (FloatAnimationSetter f in deselectTriggers) {
+            animator.SetFloat(f.name, f.value);
+        }
     }
 
     public override void onCancelPressed() {
         base.onCancelPressed();
-        animator.SetTrigger(leaveTriggerName);
+        foreach (FloatAnimationSetter f in deselectTriggers) {
+            animator.SetFloat(f.name, f.value);
+        }
+    }
+
+    [System.Serializable]
+    public class FloatAnimationSetter{
+        public string name;
+        public float value;
     }
 
 }

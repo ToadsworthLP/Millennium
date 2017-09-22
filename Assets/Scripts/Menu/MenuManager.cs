@@ -27,6 +27,8 @@ public class MenuManager : MonoBehaviour {
 
         gameObject.SetActive(true);
         player.allowMovement = false;
+        player.art.animator.SetFloat("normalizedSpeed", 0);
+        player.art.animator.SetFloat("side", 0);
     }
 
     public void closeMenu() {
@@ -37,6 +39,7 @@ public class MenuManager : MonoBehaviour {
             active = false;
             animator.SetTrigger("CloseMenu");
         }
+        player.allowArtUpdate = true;
     }
 
     public void closeAnimFinished(){

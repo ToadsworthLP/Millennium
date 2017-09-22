@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class PlayerPage : MonoBehaviour {
 
-    public Animator playerModelAnimator;
-
     public TextWithShadow playerNameText;
     public TextWithShadow levelText;
     public Text rankText;

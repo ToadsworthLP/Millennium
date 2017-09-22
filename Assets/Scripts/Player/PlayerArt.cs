@@ -3,18 +3,13 @@
 public class PlayerArt : MonoBehaviour {
 
 	public Animator animator;
+    public PlayerMachine player;
     public Billboarder billboarder;
 
     public AudioClip[] walkSounds;
     public AudioClip[] jumpSounds;
     public AudioClip hammerSwingSound;
     public AudioClip hammerHitSound;
-
-    private PlayerMachine player;
-
-	void Start(){
-        player = gameObject.GetComponentInParent<PlayerMachine>();
-	}
 
     public void playWalkSound(){
         player.audioSource.PlayOneShot(walkSounds[Random.Range(0, walkSounds.Length)]);

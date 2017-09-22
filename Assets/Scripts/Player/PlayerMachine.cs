@@ -14,6 +14,7 @@ public class PlayerMachine : MonoBehaviour {
 
     public bool allowMovement;
     public bool allowJumping;
+    public bool allowArtUpdate;
 	private bool grounded;
 
 	public float moveSpeed;
@@ -24,21 +25,25 @@ public class PlayerMachine : MonoBehaviour {
 	void Start () {
 		grounded = true;
         allowJumping = true;
+        allowArtUpdate = true;
 		rigidbody = gameObject.GetComponent<Rigidbody> ();
 	}
 		
 	void FixedUpdate () {
-		if (allowMovement) {
+        grounded = feet.CheckGroundStatus();
+        if (allowMovement) {
             doMenu();
 			doMovement ();
         }
-        grounded = feet.CheckGroundStatus();
-        updateArt();
-		updateParticleSystem ();
+        if (allowArtUpdate) {
+            updateArt();
+        }
+        updateParticleSystem ();
 	}
 
     void doMenu(){
-        if(inputManager.isInputDown[6]){
+        if(inputManager.isInputDown[6] && grounded){
+            allowArtUpdate = false;
             menuManager.openMenu();
             audioSource.PlayOneShot(menuOpenSound);
         }
@@ -64,9 +69,9 @@ public class PlayerMachine : MonoBehaviour {
             side = -dpad.direction.y;
         }
 
-        if(dpad.direction.x > 0.0f){
+        if (dpad.direction.x > 0.0f) {
             art.billboarder.dir = 180;
-        }else if(dpad.direction.x < 0.0f){
+        } else if (dpad.direction.x < 0.0f) {
             art.billboarder.dir = 0;
         }
 
