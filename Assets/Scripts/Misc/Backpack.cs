@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public class Backpack : MonoBehaviour {
@@ -256,6 +258,7 @@ public class Backpack : MonoBehaviour {
         }
     }
 
+#if UNITY_EDITOR
     [CustomEditor(typeof(Backpack))]
     public class BackpackEditor : Editor
     {
@@ -274,6 +277,7 @@ public class Backpack : MonoBehaviour {
             }
         }
     }
+#endif
 
 }
 

@@ -28,7 +28,7 @@ public class FancyNumberHandler : MonoBehaviour {
 
             first.SetValue((int)Char.GetNumericValue(stringValue[0]));
 
-            //This is uglier than everything on Pornhub together
+            //This is worse than everything on Pornhub together
             if (third != null){third.GetComponent<Image>().enabled = false; }
 
         } else if (stringValue.Length == 2) {

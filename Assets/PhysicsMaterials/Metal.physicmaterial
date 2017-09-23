@@ -6,14 +6,11 @@ PhysicMaterial:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Metal
-  dynamicFriction: .150000006
-  staticFriction: .150000006
+  dynamicFriction: 0.05
+  staticFriction: 0.05
   bounciness: 0
-  frictionCombine: 1
+  frictionCombine: 2
   bounceCombine: 0
-  frictionDirection2: {x: 0, y: 0, z: 0}
-  dynamicFriction2: 0
-  staticFriction2: 0
 --- !u!1002 &13400001
 EditorExtensionImpl:
   serializedVersion: 6
