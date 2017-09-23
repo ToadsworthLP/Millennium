@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class NPCTalker : MonoBehaviour {
 
@@ -14,8 +15,8 @@ public class NPCTalker : MonoBehaviour {
     public Color bubbleTint;
     public Color textTint;
 
-    public GameObject pageFinishedEventReciever;
-    public GameObject bubbleCloseEventReciever;
+    public MilleniumEvent pageFinishedEvent;
+    public MilleniumEvent bubbleClosedEvent;
 
     private RectTransform uiParent;
     private custom_inputs inputManager;
@@ -43,14 +44,14 @@ public class NPCTalker : MonoBehaviour {
     }
 
     void pageFinished(int page){
-        if(pageFinishedEventReciever != null && pageFinishedEventReciever.GetComponent<ITriggerable>() != null){
-            pageFinishedEventReciever.GetComponent<ITriggerable>().triggerObject(gameObject);
+        if(pageFinishedEvent != null){
+            pageFinishedEvent.Invoke(gameObject, page.ToString());
         }
     }
 
     void bubbleClosed() {
-        if (pageFinishedEventReciever != null && pageFinishedEventReciever.GetComponent<ITriggerable>() != null) {
-            pageFinishedEventReciever.GetComponent<ITriggerable>().triggerObject(gameObject);
+        if (bubbleClosedEvent != null) {
+            bubbleClosedEvent.Invoke(gameObject, null);
         }
         player.allowMovement = true;
     }

@@ -13377,18 +13377,18 @@ More information - https:msdn.microsoft.comen-uslibrary/dn584397(v=vs.110).aspx.
     </member>
     <member name="T:UnityEditor.Experimental.AssetImporters.ScriptedImporter">
       <summary>
-        <para>Abstract, root class, for all custom Asset Importers.</para>
+        <para>Abstract base class for custom Asset importers.</para>
       </summary>
     </member>
     <member name="M:UnityEditor.Experimental.AssetImporters.ScriptedImporter.OnImportAsset(UnityEditor.Experimental.AssetImporters.AssetImportContext)">
       <summary>
-        <para>This method must by overriden by the child class and is called by the Asset Pipeline to import/Convert a file into a Unity Asset.</para>
+        <para>This method must by overriden by the derived class and is called by the Asset pipeline to import files.</para>
       </summary>
       <param name="ctx">This argument contains all the contextual information needed to process the import event and is also used by the custom importer to store the resulting Unity Asset.</param>
     </member>
     <member name="T:UnityEditor.Experimental.AssetImporters.ScriptedImporterAttribute">
       <summary>
-        <para>Class attribute that is used to register a custom asset importer class with the asset importing pipeline of Unity.</para>
+        <para>Class attribute used to register a custom asset importer derived from ScriptedImporter with Unity's Asset import pipeline.</para>
       </summary>
     </member>
     <member name="P:UnityEditor.Experimental.AssetImporters.ScriptedImporterAttribute.fileExtensions">
@@ -13408,47 +13408,55 @@ More information - https:msdn.microsoft.comen-uslibrary/dn584397(v=vs.110).aspx.
     </member>
     <member name="M:UnityEditor.Experimental.AssetImporters.ScriptedImporterAttribute.#ctor(System.Int32,System.String[])">
       <summary>
-        <para>Notes:
- - Best pratice advice is to always increment to the version number of the scripted asset importers whenever the script gets edited.
- - If the Unity Editor setting "Auto-Update" is set to enabled, editing a script outside of the editor and saving it, will trigger both a re-import of the script and all assets of the corresponding type.</para>
+        <para>Use the ScriptedImporter attribute to register a custom importer derived from ScriptedImporter with Unity's Asset import pipeline.
+
+It is best practice to always increment a scripted importer's version number whenever the script is changed. This forces assets imported with lower version numbers to be re-imported.
+
+If the Unity Editor setting "Auto-Update" is set to enabled, editing a script outside of the editor and saving it will trigger both a re-import of the script and all assets of the corresponding type.</para>
       </summary>
-      <param name="version">A number that is used by the import pipeline to detect new versions of the importer scripts and trigger re-imports when such events occur, to apply latest changes made to the scripted imrpoter.</param>
-      <param name="exts">List of file extensions, without leading period character, that the scripted importer handles.</param>
-      <param name="ext">Single file extension, without leading period character, that the scripted importer handles.</param>
-      <param name="importQueueOffset">Gives control over ordering of asset import based on types. Positive values delay the processing of source asset files while Negative values place them earlier in the import process.</param>
+      <param name="version">A number that is used by the import pipeline to detect new versions of the importer script. Changing this number will trigger a re-import of all assets matching the listed extensions.</param>
+      <param name="exts">List of file extensions (without leading period character) that the scripted importer handles.</param>
+      <param name="ext">Single file extension (without leading period character) that the scripted importer handles.</param>
+      <param name="importQueueOffset">Gives control over ordering of asset import based on types. Positive values delay the processing of source asset files while negative values place them earlier in the import process.</param>
     </member>
     <member name="M:UnityEditor.Experimental.AssetImporters.ScriptedImporterAttribute.#ctor(System.Int32,System.String)">
       <summary>
-        <para>Notes:
- - Best pratice advice is to always increment to the version number of the scripted asset importers whenever the script gets edited.
- - If the Unity Editor setting "Auto-Update" is set to enabled, editing a script outside of the editor and saving it, will trigger both a re-import of the script and all assets of the corresponding type.</para>
+        <para>Use the ScriptedImporter attribute to register a custom importer derived from ScriptedImporter with Unity's Asset import pipeline.
+
+It is best practice to always increment a scripted importer's version number whenever the script is changed. This forces assets imported with lower version numbers to be re-imported.
+
+If the Unity Editor setting "Auto-Update" is set to enabled, editing a script outside of the editor and saving it will trigger both a re-import of the script and all assets of the corresponding type.</para>
       </summary>
-      <param name="version">A number that is used by the import pipeline to detect new versions of the importer scripts and trigger re-imports when such events occur, to apply latest changes made to the scripted imrpoter.</param>
-      <param name="exts">List of file extensions, without leading period character, that the scripted importer handles.</param>
-      <param name="ext">Single file extension, without leading period character, that the scripted importer handles.</param>
-      <param name="importQueueOffset">Gives control over ordering of asset import based on types. Positive values delay the processing of source asset files while Negative values place them earlier in the import process.</param>
+      <param name="version">A number that is used by the import pipeline to detect new versions of the importer script. Changing this number will trigger a re-import of all assets matching the listed extensions.</param>
+      <param name="exts">List of file extensions (without leading period character) that the scripted importer handles.</param>
+      <param name="ext">Single file extension (without leading period character) that the scripted importer handles.</param>
+      <param name="importQueueOffset">Gives control over ordering of asset import based on types. Positive values delay the processing of source asset files while negative values place them earlier in the import process.</param>
     </member>
     <member name="M:UnityEditor.Experimental.AssetImporters.ScriptedImporterAttribute.#ctor(System.Int32,System.String[],System.Int32)">
       <summary>
-        <para>Notes:
- - Best pratice advice is to always increment to the version number of the scripted asset importers whenever the script gets edited.
- - If the Unity Editor setting "Auto-Update" is set to enabled, editing a script outside of the editor and saving it, will trigger both a re-import of the script and all assets of the corresponding type.</para>
+        <para>Use the ScriptedImporter attribute to register a custom importer derived from ScriptedImporter with Unity's Asset import pipeline.
+
+It is best practice to always increment a scripted importer's version number whenever the script is changed. This forces assets imported with lower version numbers to be re-imported.
+
+If the Unity Editor setting "Auto-Update" is set to enabled, editing a script outside of the editor and saving it will trigger both a re-import of the script and all assets of the corresponding type.</para>
       </summary>
-      <param name="version">A number that is used by the import pipeline to detect new versions of the importer scripts and trigger re-imports when such events occur, to apply latest changes made to the scripted imrpoter.</param>
-      <param name="exts">List of file extensions, without leading period character, that the scripted importer handles.</param>
-      <param name="ext">Single file extension, without leading period character, that the scripted importer handles.</param>
-      <param name="importQueueOffset">Gives control over ordering of asset import based on types. Positive values delay the processing of source asset files while Negative values place them earlier in the import process.</param>
+      <param name="version">A number that is used by the import pipeline to detect new versions of the importer script. Changing this number will trigger a re-import of all assets matching the listed extensions.</param>
+      <param name="exts">List of file extensions (without leading period character) that the scripted importer handles.</param>
+      <param name="ext">Single file extension (without leading period character) that the scripted importer handles.</param>
+      <param name="importQueueOffset">Gives control over ordering of asset import based on types. Positive values delay the processing of source asset files while negative values place them earlier in the import process.</param>
     </member>
     <member name="M:UnityEditor.Experimental.AssetImporters.ScriptedImporterAttribute.#ctor(System.Int32,System.String,System.Int32)">
       <summary>
-        <para>Notes:
- - Best pratice advice is to always increment to the version number of the scripted asset importers whenever the script gets edited.
- - If the Unity Editor setting "Auto-Update" is set to enabled, editing a script outside of the editor and saving it, will trigger both a re-import of the script and all assets of the corresponding type.</para>
+        <para>Use the ScriptedImporter attribute to register a custom importer derived from ScriptedImporter with Unity's Asset import pipeline.
+
+It is best practice to always increment a scripted importer's version number whenever the script is changed. This forces assets imported with lower version numbers to be re-imported.
+
+If the Unity Editor setting "Auto-Update" is set to enabled, editing a script outside of the editor and saving it will trigger both a re-import of the script and all assets of the corresponding type.</para>
       </summary>
-      <param name="version">A number that is used by the import pipeline to detect new versions of the importer scripts and trigger re-imports when such events occur, to apply latest changes made to the scripted imrpoter.</param>
-      <param name="exts">List of file extensions, without leading period character, that the scripted importer handles.</param>
-      <param name="ext">Single file extension, without leading period character, that the scripted importer handles.</param>
-      <param name="importQueueOffset">Gives control over ordering of asset import based on types. Positive values delay the processing of source asset files while Negative values place them earlier in the import process.</param>
+      <param name="version">A number that is used by the import pipeline to detect new versions of the importer script. Changing this number will trigger a re-import of all assets matching the listed extensions.</param>
+      <param name="exts">List of file extensions (without leading period character) that the scripted importer handles.</param>
+      <param name="ext">Single file extension (without leading period character) that the scripted importer handles.</param>
+      <param name="importQueueOffset">Gives control over ordering of asset import based on types. Positive values delay the processing of source asset files while negative values place them earlier in the import process.</param>
     </member>
     <member name="T:UnityEditor.Experimental.AssetImporters.ScriptedImporterEditor">
       <summary>
@@ -13457,7 +13465,7 @@ More information - https:msdn.microsoft.comen-uslibrary/dn584397(v=vs.110).aspx.
     </member>
     <member name="M:UnityEditor.Experimental.AssetImporters.ScriptedImporterEditor.OnInspectorGUI">
       <summary>
-        <para>Base implementation provides one field (including children) for each top level property.</para>
+        <para>Implement this method to customize how Unity's Asset inspector is drawn for an Asset managed by a ScriptedImporter.</para>
       </summary>
     </member>
     <member name="T:UnityEditor.ExportPackageOptions">
@@ -13913,13 +13921,6 @@ More information - https:msdn.microsoft.comen-uslibrary/dn584397(v=vs.110).aspx.
       <summary>
         <para>Begin a 2D GUI block inside the 3D handle GUI.</para>
       </summary>
-      <param name="position">The position and size of the 2D GUI area.</param>
-    </member>
-    <member name="M:UnityEditor.Handles.BeginGUI(UnityEngine.Rect)">
-      <summary>
-        <para>Begin a 2D GUI block inside the 3D handle GUI.</para>
-      </summary>
-      <param name="position">The position and size of the 2D GUI area.</param>
     </member>
     <member name="M:UnityEditor.Handles.Button(UnityEngine.Vector3,UnityEngine.Quaternion,System.Single,System.Single,UnityEditor.Handles/CapFunction)">
       <summary>
@@ -14987,6 +14988,36 @@ Note: Use HandleUtility.GetHandleSize where you might want to have constant scre
     <member name="F:UnityEditor.HighlightSearchMode.PrefixLabel">
       <summary>
         <para>Highlights an entire editor control using its label text as identifier.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.IconKind">
+      <summary>
+        <para>Icon kind.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IconKind.Any">
+      <summary>
+        <para>This icon can be used for any purpose in an application.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IconKind.Application">
+      <summary>
+        <para>This icon is used for the main application icons.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IconKind.Notification">
+      <summary>
+        <para>This icon is used for push notifications.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IconKind.Settings">
+      <summary>
+        <para>This icon is used for settings.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IconKind.Spotlight">
+      <summary>
+        <para>This icon is used for Spotlight searches. (iOS only).</para>
       </summary>
     </member>
     <member name="T:UnityEditor.IHVImageFormatImporter">
@@ -21728,8 +21759,8 @@ See Also: PhysicsVisualizationSettings.</para>
       <summary>
         <para>Set user-specified symbols for script compilation for the given build target group.</para>
       </summary>
-      <param name="targetGroup"></param>
-      <param name="defines"></param>
+      <param name="targetGroup">The name of the group of devices.</param>
+      <param name="defines">Symbols for this group separated by semicolons.</param>
     </member>
     <member name="M:UnityEditor.PlayerSettings.SetStackTraceLogType(UnityEngine.LogType,UnityEngine.StackTraceLogType)">
       <summary>

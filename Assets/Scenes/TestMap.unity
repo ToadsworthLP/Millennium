@@ -3103,6 +3103,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1378401272}
     m_Modifications:
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: pageFinishedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: bubbleClosedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4888567951189922, guid: 38d1fcbfdd6561048a8a6fee82d3f751, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3167,6 +3177,51 @@ Prefab:
       value: 
       objectReference: {fileID: 1240988254441112, guid: d80110504e6f7614fb4a425f1e996739,
         type: 2}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: bubbleCloseEventReciever
+      value: 
+      objectReference: {fileID: 1488111742}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: pageFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: pageFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: pageFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1026480727}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: bubbleClosedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: bubbleClosedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: bubbleClosedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1488111747}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: bubbleClosedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581126573178662, guid: 38d1fcbfdd6561048a8a6fee82d3f751,
+        type: 2}
+      propertyPath: bubbleClosedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38d1fcbfdd6561048a8a6fee82d3f751, type: 2}
   m_IsPrefabParent: 0
@@ -8118,20 +8173,6 @@ Light:
   m_Lightmapping: 1
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -11906,8 +11947,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df543cd6f2e2f7478c0322b0bbf86ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1488111742}
-  message: It's-a-me, Example Trigger!
+  testEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1488111747}
+        m_MethodName: trigger
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: MilleniumEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1540793016
 GameObject:
   m_ObjectHideFlags: 0

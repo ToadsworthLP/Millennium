@@ -1,4 +1,4 @@
-2017.1.0f3:3.1.0.0
+2017.1.1f1:3.1.0.0
 StandaloneWindows64
 C:/Program Files/Unity 2017.1/Editor/Data/Managed/UnityEditor.dll
 C:/Program Files/Unity 2017.1/Editor/Data/Managed/UnityEngine.dll

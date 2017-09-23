@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class ExampleTrigger : MonoBehaviour {
 
     [SerializeField]
-    public GameObject target;
-    public string message;
+    public MilleniumEvent testEvent;
 
     void OnTriggerEnter(Collider other) {
-        if(other.CompareTag("Player") && target != null){
-            target.GetComponent<ITriggerable>().triggerObject(message);
+        if(testEvent != null){
+            testEvent.Invoke(gameObject, "Test");
         }
     }
 

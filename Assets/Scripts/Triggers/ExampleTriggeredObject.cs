@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 
-public class ExampleTriggeredObject : MonoBehaviour, ITriggerable {
+public class ExampleTriggeredObject : MonoBehaviour {
 
-    public void triggerObject<T>(T args) {
-        if(args.GetType() == typeof(string)){
-            print("Trigger activated with message "+args);
-            GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>().coins += 10;
-            Destroy(gameObject);
-        }
+    [SerializeField]
+    public void trigger(GameObject sender, string args) {
+        print("Trigger activated with message " + args);
+        GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>().coins += 10;
+        Destroy(gameObject);
     }
 
 }

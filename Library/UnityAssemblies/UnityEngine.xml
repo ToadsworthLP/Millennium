@@ -8804,7 +8804,7 @@ See Also: WWW.assetBundle, WWW.LoadFromCacheOrDownload.</param>
     </member>
     <member name="P:UnityEngine.Caching.currentCacheForWriting">
       <summary>
-        <para>Returns the current cache in which AssetBundles should be cached.</para>
+        <para>Gets or sets the current cache in which AssetBundles should be cached.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Caching.defaultCache">
@@ -8819,7 +8819,7 @@ See Also: WWW.assetBundle, WWW.LoadFromCacheOrDownload.</param>
     </member>
     <member name="P:UnityEngine.Caching.ready">
       <summary>
-        <para>Is caching ready?</para>
+        <para>Returns true if Caching system is ready for use.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.Caching.AddCache(System.String)">
@@ -8852,7 +8852,7 @@ See Also: WWW.assetBundle, WWW.LoadFromCacheOrDownload.</param>
       <param name="assetBundleName">The AssetBundle name.</param>
       <param name="hash">Version needs to be cleaned.</param>
       <returns>
-        <para>Returns true when cache clearing succeeded.</para>
+        <para>Returns true when cache clearing succeeded.  Can return false if any cached bundle is in use.</para>
       </returns>
     </member>
     <member name="M:UnityEngine.Caching.ClearOtherCachedVersions(System.String,UnityEngine.Hash128)">
@@ -8900,10 +8900,20 @@ See Also: WWW.assetBundle, WWW.LoadFromCacheOrDownload.</param>
       <summary>
         <para>Checks if an AssetBundle is cached.</para>
       </summary>
-      <param name="string">Url The filename of the AssetBundle. Domain and path information are stripped from this string automatically.</param>
-      <param name="int">Version The version number of the AssetBundle to check for. Negative values are not allowed.</param>
-      <param name="url"></param>
-      <param name="version"></param>
+      <param name="url">The filename of the AssetBundle. Domain and path information are stripped from this string automatically.</param>
+      <param name="version">The version number of the AssetBundle to check for. Negative values are not allowed.</param>
+      <param name="hash">Hash128 which is used as the version of the AssetBundle.</param>
+      <returns>
+        <para>True if an AssetBundle matching the url and version parameters has previously been loaded using WWW.LoadFromCacheOrDownload() and is currently stored in the cache. Returns false if the AssetBundle is not in cache, either because it has been flushed from the cache or was never loaded using the Caching API.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Caching.IsVersionCached(System.String,UnityEngine.Hash128)">
+      <summary>
+        <para>Checks if an AssetBundle is cached.</para>
+      </summary>
+      <param name="url">The filename of the AssetBundle. Domain and path information are stripped from this string automatically.</param>
+      <param name="version">The version number of the AssetBundle to check for. Negative values are not allowed.</param>
+      <param name="hash">Hash128 which is used as the version of the AssetBundle.</param>
       <returns>
         <para>True if an AssetBundle matching the url and version parameters has previously been loaded using WWW.LoadFromCacheOrDownload() and is currently stored in the cache. Returns false if the AssetBundle is not in cache, either because it has been flushed from the cache or was never loaded using the Caching API.</para>
       </returns>
@@ -17161,7 +17171,7 @@ Changing this value affects any subsequently loaded shaders. Initially this valu
         <para>Copies source texture into destination render texture with a shader.</para>
       </summary>
       <param name="source">Source texture.</param>
-      <param name="dest">Destination RenderTexture, or null to blit directly to screen.</param>
+      <param name="dest">The destination RenderTexture. Set this to null to blit directly to screen. See description for more information.</param>
       <param name="mat">Material to use. Material's shader could do some post-processing effect, for example.</param>
       <param name="pass">If -1 (default), draws all passes in the material. Otherwise, draws given pass only.</param>
       <param name="offset">Offset applied to the source texture coordinate.</param>
@@ -17172,7 +17182,7 @@ Changing this value affects any subsequently loaded shaders. Initially this valu
         <para>Copies source texture into destination render texture with a shader.</para>
       </summary>
       <param name="source">Source texture.</param>
-      <param name="dest">Destination RenderTexture, or null to blit directly to screen.</param>
+      <param name="dest">The destination RenderTexture. Set this to null to blit directly to screen. See description for more information.</param>
       <param name="mat">Material to use. Material's shader could do some post-processing effect, for example.</param>
       <param name="pass">If -1 (default), draws all passes in the material. Otherwise, draws given pass only.</param>
       <param name="offset">Offset applied to the source texture coordinate.</param>
@@ -17183,7 +17193,7 @@ Changing this value affects any subsequently loaded shaders. Initially this valu
         <para>Copies source texture into destination render texture with a shader.</para>
       </summary>
       <param name="source">Source texture.</param>
-      <param name="dest">Destination RenderTexture, or null to blit directly to screen.</param>
+      <param name="dest">The destination RenderTexture. Set this to null to blit directly to screen. See description for more information.</param>
       <param name="mat">Material to use. Material's shader could do some post-processing effect, for example.</param>
       <param name="pass">If -1 (default), draws all passes in the material. Otherwise, draws given pass only.</param>
       <param name="offset">Offset applied to the source texture coordinate.</param>
@@ -17194,7 +17204,7 @@ Changing this value affects any subsequently loaded shaders. Initially this valu
         <para>Copies source texture into destination render texture with a shader.</para>
       </summary>
       <param name="source">Source texture.</param>
-      <param name="dest">Destination RenderTexture, or null to blit directly to screen.</param>
+      <param name="dest">The destination RenderTexture. Set this to null to blit directly to screen. See description for more information.</param>
       <param name="mat">Material to use. Material's shader could do some post-processing effect, for example.</param>
       <param name="pass">If -1 (default), draws all passes in the material. Otherwise, draws given pass only.</param>
       <param name="offset">Offset applied to the source texture coordinate.</param>
@@ -24070,9 +24080,19 @@ Only usable on Android, Windows Phone or Windows Tablets.</para>
         <para>iPad Pro 9.7", first generation.</para>
       </summary>
     </member>
+    <member name="F:UnityEngine.iOS.DeviceGeneration.iPadPro10Inch2Gen">
+      <summary>
+        <para>iPad Pro 10.5", second generation 10" iPad.</para>
+      </summary>
+    </member>
     <member name="F:UnityEngine.iOS.DeviceGeneration.iPadPro1Gen">
       <summary>
-        <para>iPad Pro, first generation.</para>
+        <para>iPad Pro 12.9", first generation.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.iOS.DeviceGeneration.iPadPro2Gen">
+      <summary>
+        <para>iPad Pro 12.9", second generation.</para>
       </summary>
     </member>
     <member name="F:UnityEngine.iOS.DeviceGeneration.iPadUnknown">
@@ -38417,9 +38437,11 @@ To get the current particle age, simply multiply X by Y.</para>
       <summary>
         <para>Makes the collision detection system ignore all collisions between collider1 and collider2.</para>
       </summary>
+      <param name="start">Start point.</param>
+      <param name="end">End point.</param>
+      <param name="ignore">Ignore collision.</param>
       <param name="collider1"></param>
       <param name="collider2"></param>
-      <param name="ignore"></param>
     </member>
     <member name="M:UnityEngine.Physics.IgnoreLayerCollision(System.Int32,System.Int32,System.Boolean)">
       <summary>
@@ -46688,6 +46710,11 @@ Updating a probe's cubemap is a costly operation. Unity needs to render the enti
         <para>Volume extent of a 3D render texture or number of slices of array texture.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.RenderTexture.vrUsage">
+      <summary>
+        <para>If this RenderTexture is a VR eye texture used in stereoscopic rendering, this property decides what special rendering occurs, if any.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.RenderTexture.width">
       <summary>
         <para>The width of the render texture in pixels.</para>
@@ -46798,6 +46825,7 @@ Updating a probe's cubemap is a costly operation. Unity needs to render the enti
       <param name="memorylessMode">Render texture memoryless mode.</param>
       <param name="desc">Use this RenderTextureDesc for the settings when creating the temporary RenderTexture.</param>
       <param name="antiAliasing"></param>
+      <param name="vrUsage"></param>
     </member>
     <member name="M:UnityEngine.RenderTexture.GetTemporary(System.Int32,System.Int32,System.Int32,UnityEngine.RenderTextureFormat,UnityEngine.RenderTextureReadWrite,System.Int32)">
       <summary>
@@ -46812,6 +46840,7 @@ Updating a probe's cubemap is a costly operation. Unity needs to render the enti
       <param name="memorylessMode">Render texture memoryless mode.</param>
       <param name="desc">Use this RenderTextureDesc for the settings when creating the temporary RenderTexture.</param>
       <param name="antiAliasing"></param>
+      <param name="vrUsage"></param>
     </member>
     <member name="M:UnityEngine.RenderTexture.IsCreated">
       <summary>
@@ -48738,7 +48767,7 @@ A scene may be invalid if, for example, you tried to open a scene that does not 
     </member>
     <member name="?:UnityEngine.SceneManagement.SceneManager.sceneLoaded(UnityEngine.Events.UnityAction`2&lt;UnityEngine.SceneManagement.Scene,UnityEngine.SceneManagement.LoadSceneMode&gt;)">
       <summary>
-        <para>Add a delegate to this to get notifications when a scene has loaded</para>
+        <para>Add a delegate to this to get notifications when a scene has loaded.</para>
       </summary>
       <param name="value"></param>
     </member>
@@ -55449,14 +55478,9 @@ Rotation of the tree on X-Z plane (in radians).</para>
     </member>
     <member name="M:UnityEngine.Vector3.Normalize(UnityEngine.Vector3)">
       <summary>
-        <para></para>
-      </summary>
-      <param name="value"></param>
-    </member>
-    <member name="M:UnityEngine.Vector3.Normalize">
-      <summary>
         <para>Makes this vector have a magnitude of 1.</para>
       </summary>
+      <param name="value"></param>
     </member>
     <member name="?:UnityEngine.Vector3.op_Divide(UnityEngine.Vector3,System.Single)">
       <summary>
@@ -58841,6 +58865,16 @@ This function calls &lt;a href=" https:msdn.microsoft.comen-uslibrarywindowsdesk
         <para>Gets the motor torque of the joint given the specified timestep.</para>
       </summary>
       <param name="timeStep">The time to calculate the motor torque for.</param>
+    </member>
+    <member name="T:UnityEngine.Windows.CrashReporting">
+      <summary>
+        <para>Exposes useful information related to crash reporting on Windows platforms.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Windows.CrashReporting.crashReportFolder">
+      <summary>
+        <para>Returns the path to the crash report folder on Windows.</para>
+      </summary>
     </member>
     <member name="T:UnityEngine.Windows.Speech.ConfidenceLevel">
       <summary>

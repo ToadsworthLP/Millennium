@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 public class Backpack : MonoBehaviour {
 
     public HUDController hudController;
     public string startSceneName;
-    public string savefileName;
+    public static string savefileName;
 
     private PlayerData data;
     private Stopwatch deltaPlaytime;
@@ -189,7 +190,7 @@ public class Backpack : MonoBehaviour {
     public List<InventoryItem> normalItems
     {
         get {
-            if(items.Count > 0){
+            if(items != null && items.Count > 0){
                 return items.FindAll(isNormal);
             }else{
                 return new List<InventoryItem>();
@@ -199,7 +200,7 @@ public class Backpack : MonoBehaviour {
     public List<InventoryItem> importantItems
     {
         get {
-            if (items.Count > 0) {
+            if (items != null && items.Count > 0) {
                 return items.FindAll(isImportant);
             } else {
                 return new List<InventoryItem>();
@@ -238,16 +239,6 @@ public class Backpack : MonoBehaviour {
         }
     }
 
-    public bool deleteData(){
-        if (File.Exists(Application.persistentDataPath + "/" + savefileName)) {
-            File.Delete(Application.persistentDataPath + "/" + savefileName);
-            data = new PlayerData().getDefaults();
-            return true;
-        }else{
-            return false;
-        }
-    }
-
     //Sorting funtions
     private static bool isImportant(InventoryItem item) {
         if (item.isImportantItem) {
@@ -262,6 +253,25 @@ public class Backpack : MonoBehaviour {
             return false;
         } else {
             return true;
+        }
+    }
+
+    [CustomEditor(typeof(Backpack))]
+    public class BackpackEditor : Editor
+    {
+        public override void OnInspectorGUI() {
+            DrawDefaultInspector();
+
+            if (GUILayout.Button("Reset save data")) {
+                try {
+                    StreamWriter file = new StreamWriter(Application.persistentDataPath + "/" + savefileName);
+                    PlayerData data = new PlayerData().getDefaults();
+                    file.WriteLine(Utils.Serialize(data));
+                    file.Close();
+                } catch (Exception e) {
+                    print("Failed to reset data! " + e.Message);
+                }
+            }
         }
     }
 
