@@ -9,19 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48f017ec16697b2488900abac6302367, type: 3}
-  m_Name: Mushroom
+  m_Name: PoisonMushroom
   m_EditorClassIdentifier: 
-  itemName: Mushroom
-  itemDescription: 'A feel-good mushroom.
-
-    Replenishes 5 HP.'
+  itemName: Poison Mushroom
+  itemDescription: Regularly deals damage.
   icon: {fileID: 21300000, guid: 854163d86bad9954ca6f8f365e1cbfd4, type: 3}
   isImportantItem: 0
   usableOnOverworld: 1
   usableInBattle: 1
-  statModifiers:
-  - statToModify: 0
-    value: 5
-  callFunctionOnUse: 0
-  functionName: 
-  functionArgs: []
+  statModifiers: []
+  callFunctionOnUse: 1
+  functionName: poison
+  functionArgs:
+  - 1
+  - 5

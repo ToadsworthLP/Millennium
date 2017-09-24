@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory Item")]
 public class InventoryItem : ScriptableObject {
+    [Header("Properties")]
     public string itemName = "New Item";
     [TextArea]
     public string itemDescription = null;
@@ -12,18 +12,22 @@ public class InventoryItem : ScriptableObject {
     public bool usableOnOverworld = true;
     public bool usableInBattle = true;
 
+    [Header("Stat Modifiers")]
     public StatModifier[] statModifiers;
 
-    public GameObject spawnOnOverworldUse;
-    public GameObject spawnOnBattleUse;
+    [Header("Custom Function")]
+    public bool callFunctionOnUse;
+    public string functionName;
+    public string[] functionArgs;
 }
 
+[System.Serializable]
 public class StatModifier{
     public StatType statToModify;
     public int value;
 }
 
-public enum StatType
-{
+[System.Serializable]
+public enum StatType{
     HP, FP, SP, ATTACK, DEFENSE
 }

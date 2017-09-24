@@ -26,6 +26,7 @@ public class MenuManager : MonoBehaviour {
         pages[0].gameObject.SetActive(true);
 
         gameObject.SetActive(true);
+        tabCursor.GetComponent<Cursor>().setActivityStatus(true);
         player.setCutsceneMode(true);
         player.art.animator.SetFloat("normalizedSpeed", 0);
         player.art.animator.SetFloat("side", 0);

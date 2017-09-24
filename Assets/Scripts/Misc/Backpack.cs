@@ -86,6 +86,26 @@ public class Backpack : MonoBehaviour {
             hudController.setMaxFP(data.maxFp);
         }
     }
+    public int sp
+    {
+        get {
+            return data.sp;
+        }
+
+        set {
+            data.sp = Mathf.Clamp(value, 0, maxSp);
+        }
+    }
+    public int maxSp
+    {
+        get {
+            return data.maxSp;
+        }
+
+        set {
+            data.maxSp = Mathf.Clamp(value, 0, 99);
+        }
+    }
     public int coins
     {
         get {
@@ -210,7 +230,7 @@ public class Backpack : MonoBehaviour {
         }
     }
 
-    //public List<StatusEffect> statusEffects;
+    public List<StatusEffect> statusEffects;
 
 
     //Save system stuff
@@ -287,6 +307,8 @@ public class PlayerData{
     public int hp;
     public int maxFp;
     public int fp;
+    public int maxSp;
+    public int sp;
     public int coins;
     public int starPoints;
     public int level;
@@ -316,6 +338,11 @@ public class PlayerData{
     }
 }
 
-/*public enum StatusEffect{
-    POISONED, ELECRIFICATED, CHARGE, COMMAND_LOSS, DIZZY, DOUBLE_ATTACK, FROZEN, BIG, STOPWATCH, AGRESSIVE
-}*/
+public enum StatusEffect{
+    POISONED, ELECRIFICATED, CHARGED, COMMAND_LOSS, DIZZY, FROZEN, BIG, STOPWATCH, AGRESSIVE
+}
+
+[Serializable]
+public enum GameMode{
+    FIELD, BATTLE, UNKNOWN
+}

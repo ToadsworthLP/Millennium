@@ -9,6 +9,7 @@ public class ItemListManager : MonoBehaviour {
     public Cursor itemCursor;
     public Cursor listSwitchCursor;
     public Text descriptionBox;
+    public MenuPageOption pageOption;
 
     [HideInInspector]
     public Backpack backpack;
@@ -42,7 +43,7 @@ public class ItemListManager : MonoBehaviour {
                 entry.item = item;
                 entry.listSwitchCursor = listSwitchCursor;
                 itemCursor.optionObjects.Add(entryObj);
-                entry.setupEntry(descriptionBox);
+                entry.setupEntry(descriptionBox, pageOption);
 
                 counter++;
             }

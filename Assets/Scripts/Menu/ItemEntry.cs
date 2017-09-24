@@ -10,13 +10,15 @@ public class ItemEntry : SelectableHelper {
     private Image itemIcon;
     private Text itemName;
     private Text descriptionBox;
+    private MenuPageOption pageOption;
 
     private Cursor itemCursor;
 
-    public void setupEntry(Text descBox) {
+    public void setupEntry(Text descBox, MenuPageOption pageOption) {
         itemIcon = GetComponentInChildren<Image>();
         itemName = GetComponentInChildren<Text>();
         descriptionBox = descBox;
+        this.pageOption = pageOption;
 
         itemIcon.sprite = item.icon;
         itemName.text = item.itemName;
@@ -43,6 +45,15 @@ public class ItemEntry : SelectableHelper {
     public override void onCursorSelect() {
         base.onCursorSelect();
         descriptionBox.text = item.itemDescription;
+    }
+
+    public override void onOKPressed() {
+        base.onOKPressed();
+        if(item.usableOnOverworld){
+            FindObjectOfType<ItemManager>().useItem(GameMode.FIELD, item);
+            onCancelPressed();
+            pageOption.onCancelPressed();
+        }
     }
 
     public override void onCancelPressed() {

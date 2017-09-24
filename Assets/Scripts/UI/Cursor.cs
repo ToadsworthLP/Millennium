@@ -58,7 +58,6 @@ public class Cursor : MonoBehaviour {
             option.onCursorInit(this);
         }
 
-        RectTransform targetTransform = optionObjects[selectedIndex].GetComponent<RectTransform>();
         targetPosition = options[selectedIndex].getGrabPoint();
 
         if(enableStartAnimation){

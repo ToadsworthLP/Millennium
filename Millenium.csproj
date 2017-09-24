@@ -82,6 +82,8 @@
   <ItemGroup>
     <Compile Include="Assets\Custom Input Manager v1.4\Scripts\custom_inputs.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISelectable.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemParameter.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemManager.cs" />
     <Compile Include="Assets\Scripts\Menu\DescriptionSelectable.cs" />
     <Compile Include="Assets\Scripts\Menu\GearPage.cs" />
     <Compile Include="Assets\Scripts\Menu\ItemEntry.cs" />
@@ -92,7 +94,6 @@
     <Compile Include="Assets\Scripts\Menu\PlayerPage.cs" />
     <Compile Include="Assets\Scripts\Menu\TiledIconDisplay.cs" />
     <Compile Include="Assets\Scripts\Menu\TriggerAnimationSelectable.cs" />
-    <Compile Include="Assets\Scripts\Triggers\MilleniumEvent.cs" />
     <Compile Include="Assets\Scripts\Misc\Backpack.cs" />
     <Compile Include="Assets\Scripts\Misc\Billboarder.cs" />
     <Compile Include="Assets\Scripts\Misc\Coin.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Assets\Scripts\ScriptableObjects\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\Triggers\ExampleTrigger.cs" />
     <Compile Include="Assets\Scripts\Triggers\ExampleTriggeredObject.cs" />
+    <Compile Include="Assets\Scripts\Triggers\MilleniumEvent.cs" />
     <Compile Include="Assets\Scripts\UI\CancelOption.cs" />
     <Compile Include="Assets\Scripts\UI\Cursor.cs" />
     <Compile Include="Assets\Scripts\UI\FancyNumberHandler.cs" />
