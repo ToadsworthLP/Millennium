@@ -26,7 +26,7 @@ public class MenuManager : MonoBehaviour {
         pages[0].gameObject.SetActive(true);
 
         gameObject.SetActive(true);
-        player.allowMovement = false;
+        player.setCutsceneMode(true);
         player.art.animator.SetFloat("normalizedSpeed", 0);
         player.art.animator.SetFloat("side", 0);
     }
@@ -38,12 +38,13 @@ public class MenuManager : MonoBehaviour {
             }
             active = false;
             animator.SetTrigger("CloseMenu");
+            player.setCutsceneMode(false);
+            player.toggleFrozenStatus();
         }
-        player.allowArtUpdate = true;
     }
 
     public void closeAnimFinished(){
-        player.allowMovement = true;
+        player.setCutsceneMode(false);
         gameObject.SetActive(false);
     }
 

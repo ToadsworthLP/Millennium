@@ -53,7 +53,7 @@ public class NPCTalker : MonoBehaviour {
         if (bubbleClosedEvent != null) {
             bubbleClosedEvent.Invoke(gameObject, null);
         }
-        player.allowMovement = true;
+        player.setCutsceneMode(false);
     }
 
     void OnTriggerStay(Collider other) {
@@ -68,7 +68,7 @@ public class NPCTalker : MonoBehaviour {
             writer.bubbleText.color = textTint;
             writer.StartWriting(text);
             currentBubble = bubble;
-            player.allowMovement = false;
+            player.setCutsceneMode(true);
         }
     }
 }

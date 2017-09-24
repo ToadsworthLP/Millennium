@@ -28,9 +28,8 @@ public class CancelOption : SelectableHelper {
             yield return new WaitForEndOfFrame();
         }
 
-        if(enablePlayerMovement) {
-            player.allowMovement = true;
-        }
+        player.setCutsceneMode(false);
+        player.toggleFrozenStatus();
         Destroy(menuParent);
     }
 

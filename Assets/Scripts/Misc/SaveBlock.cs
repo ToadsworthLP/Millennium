@@ -7,6 +7,8 @@ public class SaveBlock : MonoBehaviour {
     public string[] genText;
     [TextArea]
     public string[] saveText;
+    [TextArea]
+    public string[] errorText;
 
     public GameObject speechBubble;
     public GameObject saveMenu;
@@ -19,7 +21,6 @@ public class SaveBlock : MonoBehaviour {
     public float textDelay;
 
     private RectTransform uiParent;
-    private custom_inputs inputManager;
     private PlayerMachine player;
     private GameObject currentBubble;
     private Animator animator;
@@ -33,11 +34,13 @@ public class SaveBlock : MonoBehaviour {
     private void pageFinished(int page){
         SaveMenu saveMenuObject = Instantiate(saveMenu, uiParent).GetComponentInChildren<SaveMenu>();
         saveMenuObject.saveText = saveText;
+        saveMenuObject.errorText = errorText;
     }
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Player") && currentBubble == null) {
-            player.allowMovement = false;
+            player.setCutsceneMode(true);
+            player.toggleFrozenStatus();
             StartCoroutine(waitForBlockAnimation());
         }
     }

@@ -2,6 +2,7 @@
 
 public class PlayerMachine : MonoBehaviour {
 
+    [Header("References")]
     public custom_inputs inputManager;
     public VirtualDPad dpad;
     public MenuManager menuManager;
@@ -12,28 +13,45 @@ public class PlayerMachine : MonoBehaviour {
 
     public AudioClip menuOpenSound;
 
+    [Header("Behaviour control")]
     public bool allowMovement;
     public bool allowJumping;
     public bool allowArtUpdate;
-	private bool grounded;
+    public bool allowMenuOpen;
 
-	public float moveSpeed;
+    [Header("Speed control")]
+    public float moveSpeed;
 	public float jumpSpeed;
 
-	private Rigidbody rigidbody;
+    private bool grounded;
+    private Rigidbody rigidbody;
+
+    public void toggleFrozenStatus(){
+        if(rigidbody.constraints != RigidbodyConstraints.FreezeAll){
+            rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        }else{
+            rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        }
+    }
+
+    public void setCutsceneMode(bool enabled){
+        allowMovement = !enabled;
+        allowMenuOpen = !enabled;
+        allowArtUpdate = !enabled;
+    }
 
 	void Start () {
 		grounded = true;
-        allowJumping = true;
-        allowArtUpdate = true;
 		rigidbody = gameObject.GetComponent<Rigidbody> ();
 	}
 		
 	void FixedUpdate () {
         grounded = feet.CheckGroundStatus();
         if (allowMovement) {
-            doMenu();
 			doMovement ();
+        }
+        if(allowMenuOpen){
+            doMenu();
         }
         if (allowArtUpdate) {
             updateArt();
@@ -43,7 +61,8 @@ public class PlayerMachine : MonoBehaviour {
 
     void doMenu(){
         if(inputManager.isInputDown[6] && grounded){
-            allowArtUpdate = false;
+            setCutsceneMode(true);
+            toggleFrozenStatus();
             menuManager.openMenu();
             audioSource.PlayOneShot(menuOpenSound);
         }
@@ -53,7 +72,7 @@ public class PlayerMachine : MonoBehaviour {
 
         rigidbody.velocity += new Vector3(dpad.direction.x*moveSpeed, 0, dpad.direction.y*moveSpeed);
 
-		if (inputManager.isInput [4] && feet.CheckGroundStatus () && allowJumping) {
+		if (inputManager.isInputDown[4] && feet.CheckGroundStatus () && allowJumping) {
 			rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
             art.playJumpSound();
 		}
@@ -78,7 +97,7 @@ public class PlayerMachine : MonoBehaviour {
         art.animator.SetFloat("side", side);
     }
 
-        void updateParticleSystem(){
+    void updateParticleSystem(){
 		if (rigidbody.velocity.y == 0 && (Mathf.Abs (rigidbody.velocity.x) > 0.1f || Mathf.Abs (rigidbody.velocity.z) > 0.1f)) {
 			if (!particles.isEmitting) {
 				particles.Play ();

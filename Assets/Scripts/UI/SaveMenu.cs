@@ -5,6 +5,8 @@ public class SaveMenu : SelectableHelper {
 
     [TextArea]
     public string[] saveText;
+    [TextArea]
+    public string[] errorText;
 
     public GameObject speechBubble;
     public GameObject menuParent;
@@ -24,19 +26,26 @@ public class SaveMenu : SelectableHelper {
 
     private void bubbleClose(){
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
+        player.setCutsceneMode(false);
         player.allowJumping = false;
-        player.allowMovement = true;
+        player.toggleFrozenStatus();
         StartCoroutine(waitAndDestroy());
     }
 
     public override void onOKPressed() {
         uiParent = GameObject.FindGameObjectWithTag("UIParent").GetComponent<RectTransform>();
         Backpack backpack = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>();
-        backpack.saveData();
+        bool success = backpack.saveData();
         GameObject bubble = Instantiate(speechBubble, uiParent);
         Typewriter writer = bubble.GetComponent<Typewriter>();
         writer.OnBubbleClosed += bubbleClose;
-        writer.StartWriting(saveText);
+
+        if (success){
+            writer.StartWriting(saveText);
+        } else{
+            writer.StartWriting(errorText);
+        }
+        
         active = false;
         StartCoroutine(fadeOut());
     }

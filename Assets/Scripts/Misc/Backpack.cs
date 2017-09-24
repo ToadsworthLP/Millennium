@@ -223,7 +223,7 @@ public class Backpack : MonoBehaviour {
             file.Close();
             return true;
         }catch(Exception e){
-            print("Failed to load data! "+e.Message);
+            print("Failed to load data! " + e.ToString());
             return false;
         }
     }
@@ -236,7 +236,7 @@ public class Backpack : MonoBehaviour {
             file.Close();
             return true;
         }catch(Exception e){
-            print("Failed to save data! " + e.Message);
+            print("Failed to save data! " + e.ToString());
             return false;
         }
     }
@@ -272,7 +272,7 @@ public class Backpack : MonoBehaviour {
                     file.WriteLine(Utils.Serialize(data));
                     file.Close();
                 } catch (Exception e) {
-                    print("Failed to reset data! " + e.Message);
+                    print("Failed to reset data! " + e.ToString());
                 }
             }
         }

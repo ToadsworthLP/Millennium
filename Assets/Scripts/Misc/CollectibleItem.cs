@@ -22,6 +22,7 @@ public class CollectibleItem : MonoBehaviour {
             GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>().items.Add(itemType);
             ItemPopup popup = Instantiate(itemPopup, uiParent.transform).GetComponent<ItemPopup>();
             player.audioSource.PlayOneShot(collectSound);
+            player.art.animator.SetBool("ItemGet", true);
             popup.player = player;
             popup.item = itemType;
             popup.startPopup(itemType, player);

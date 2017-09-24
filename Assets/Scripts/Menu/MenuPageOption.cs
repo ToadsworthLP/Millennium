@@ -18,7 +18,7 @@ public class MenuPageOption : SelectableHelper {
         menuManager = GetComponentInParent<MenuManager>();
         canvasRenderer = GetComponent<CanvasRenderer>();
         oldColor = canvasRenderer.GetColor();
-        this.pageSelectCursor = cursor;
+        pageSelectCursor = cursor;
 
         canvasRenderer.SetColor(overlayColor);
     }
