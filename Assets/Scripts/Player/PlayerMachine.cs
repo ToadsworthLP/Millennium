@@ -35,9 +35,10 @@ public class PlayerMachine : MonoBehaviour {
     }
 
     public void setCutsceneMode(bool enabled){
-        allowMovement = !enabled;
+        allowJumping = !enabled;
         allowMenuOpen = !enabled;
-        allowArtUpdate = !enabled;
+        dpad.updateInput = !enabled;
+        dpad.direction = Vector2.zero;
     }
 
 	void Start () {
