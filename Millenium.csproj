@@ -128,7 +128,7 @@
     <Compile Include="Assets\Scripts\UI\TextWithShadow.cs" />
     <Compile Include="Assets\Scripts\UI\Typewriter.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
-    <Compile Include="Assets\Scripts\VirtualDPad.cs" />
+    <Compile Include="Assets\Scripts\VirtualController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\Rainbow.shader" />

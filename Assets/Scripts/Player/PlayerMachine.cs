@@ -4,7 +4,7 @@ public class PlayerMachine : MonoBehaviour {
 
     [Header("References")]
     public custom_inputs inputManager;
-    public VirtualDPad dpad;
+    public VirtualController controller;
     public MenuManager menuManager;
 	public Feet feet;
 	public PlayerArt art;
@@ -37,8 +37,10 @@ public class PlayerMachine : MonoBehaviour {
     public void setCutsceneMode(bool enabled){
         allowJumping = !enabled;
         allowMenuOpen = !enabled;
-        dpad.updateInput = !enabled;
-        dpad.direction = Vector2.zero;
+        controller.updateInput = !enabled;
+        controller.direction = Vector2.zero;
+        controller.jumpPressed = false;
+        controller.hammerPressed = false;
     }
 
 	void Start () {
@@ -71,9 +73,9 @@ public class PlayerMachine : MonoBehaviour {
 
 	void doMovement(){
 
-        rigidbody.velocity += new Vector3(dpad.direction.x*moveSpeed, 0, dpad.direction.y*moveSpeed);
+        rigidbody.velocity += new Vector3(controller.direction.x*moveSpeed, 0, controller.direction.y*moveSpeed);
 
-		if (inputManager.isInputDown[4] && feet.CheckGroundStatus () && allowJumping) {
+		if (controller.jumpPressed && feet.CheckGroundStatus () && allowJumping) {
 			rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
             art.playJumpSound();
 		}
@@ -86,12 +88,12 @@ public class PlayerMachine : MonoBehaviour {
         art.animator.SetBool("grounded", grounded);
         
         if (inputManager.isInput[0] || inputManager.isInput[1]) {
-            side = -dpad.direction.y;
+            side = -controller.direction.y;
         }
 
-        if (dpad.direction.x > 0.0f) {
+        if (controller.direction.x > 0.0f) {
             art.billboarder.dir = 180;
-        } else if (dpad.direction.x < 0.0f) {
+        } else if (controller.direction.x < 0.0f) {
             art.billboarder.dir = 0;
         }
 

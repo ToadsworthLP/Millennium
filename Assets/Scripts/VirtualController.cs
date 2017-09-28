@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class VirtualDPad : MonoBehaviour {
+public class VirtualController : MonoBehaviour {
 
     public bool updateInput;
 
@@ -8,6 +8,9 @@ public class VirtualDPad : MonoBehaviour {
     public bool didStateChange;
     public bool didXChange;
     public bool didYChange;
+
+    public bool jumpPressed;
+    public bool hammerPressed;
 
     private custom_inputs inputManager;
 
@@ -30,6 +33,9 @@ public class VirtualDPad : MonoBehaviour {
             didStateChange = (didXChange || didYChange);
 
             direction = dir;
+
+            jumpPressed = inputManager.isInputDown[4];
+            hammerPressed = inputManager.isInputDown[5];
         }
         
     }

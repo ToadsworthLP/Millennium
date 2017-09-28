@@ -7,12 +7,14 @@ using System.IO;
 using UnityEditor;
 #endif
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Backpack : MonoBehaviour {
 
     public HUDController hudController;
     public string startSceneName;
-    public static string savefileName;
+    public Vector3 startPosition;
+    public string savefileName;
 
     private PlayerData data;
     private Stopwatch deltaPlaytime;
@@ -22,6 +24,8 @@ public class Backpack : MonoBehaviour {
         if(!loadData()){
             data = new PlayerData().getDefaults();
         }
+        SceneManager.sceneLoaded += sceneLoaded;
+        sceneLoaded(SceneManager.GetSceneByName(data.currentScene), LoadSceneMode.Single);
         deltaPlaytime = Stopwatch.StartNew();
         StartCoroutine(initializeHUD());
     }
@@ -192,16 +196,6 @@ public class Backpack : MonoBehaviour {
             return data.playtime;
         }
     }
-    public string progress
-    {
-        get {
-            return data.progress;
-        }
-
-        set {
-            data.progress = value;
-        }
-    }
 
     public List<InventoryItem> items
     {
@@ -232,17 +226,21 @@ public class Backpack : MonoBehaviour {
 
     public List<StatusEffect> statusEffects;
 
+    public void sceneLoaded(Scene scene, LoadSceneMode mode){
+        if(SceneManager.GetSceneByName(data.currentScene).Equals(scene)){
+            FindObjectOfType<PlayerMachine>().transform.position = data.currentPosition;
+        }
+    }
 
     //Save system stuff
     public bool loadData() {
         try{
-            StreamReader file = new StreamReader(Application.persistentDataPath + "/" + savefileName);
-
-            String dataString = file.ReadToEnd();
-            data = Utils.Deserialize(dataString);
-            file.Close();
+            using (StreamReader file = new StreamReader(Application.persistentDataPath + "/" + savefileName)){
+                String dataString = file.ReadToEnd();
+                data = Utils.Deserialize(dataString);
+            }
             return true;
-        }catch(Exception e){
+        } catch(Exception e){
             print("Failed to load data! " + e.ToString());
             return false;
         }
@@ -250,10 +248,12 @@ public class Backpack : MonoBehaviour {
 
     public bool saveData(){
         try{
-            StreamWriter file = new StreamWriter(Application.persistentDataPath + "/" + savefileName);
-            data.playtime = playtime;
-            file.WriteLine(Utils.Serialize(data));
-            file.Close();
+            using (StreamWriter file = new StreamWriter(Application.persistentDataPath + "/" + savefileName)){
+                data.playtime = playtime;
+                data.currentScene = SceneManager.GetActiveScene().name;
+                data.currentPosition = FindObjectOfType<PlayerMachine>().transform.position + new Vector3(0,-0.5f,0);
+                file.WriteLine(Utils.Serialize(data));
+            }
             return true;
         }catch(Exception e){
             print("Failed to save data! " + e.ToString());
@@ -287,10 +287,10 @@ public class Backpack : MonoBehaviour {
 
             if (GUILayout.Button("Reset save data")) {
                 try {
-                    StreamWriter file = new StreamWriter(Application.persistentDataPath + "/" + savefileName);
-                    PlayerData data = new PlayerData().getDefaults();
-                    file.WriteLine(Utils.Serialize(data));
-                    file.Close();
+                    using (StreamWriter file = new StreamWriter(Application.persistentDataPath + "/save.dat")){
+                        PlayerData data = new PlayerData().getDefaults();
+                        file.WriteLine(Utils.Serialize(data));
+                    }
                 } catch (Exception e) {
                     print("Failed to reset data! " + e.ToString());
                 }
@@ -316,7 +316,8 @@ public class PlayerData{
     public int shineSprites;
     public int starPieces;
     public DateTime playtime;
-    public string progress;
+    public string currentScene;
+    public Vector3 currentPosition;
     public List<InventoryItem> items;
 
     public PlayerData getDefaults(){
@@ -332,7 +333,8 @@ public class PlayerData{
         shineSprites = 0;
         starPieces = 0;
         playtime = new DateTime(0);
-        progress = "";
+        currentScene = "TestMap";
+        currentPosition = Vector3.zero;
         items = new List<InventoryItem>();
         return this;
     }
