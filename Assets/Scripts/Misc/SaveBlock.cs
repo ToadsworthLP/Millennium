@@ -40,14 +40,14 @@ public class SaveBlock : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Player") && currentBubble == null) {
             player.setCutsceneMode(true);
-            player.toggleFrozenStatus();
             StartCoroutine(waitForBlockAnimation());
         }
     }
 
     IEnumerator waitForBlockAnimation(){
         animator.SetTrigger("Hit");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(textDelay);
+        player.toggleFrozenStatus();
         GameObject bubble = Instantiate(speechBubble, uiParent);
         Typewriter writer = bubble.GetComponent<Typewriter>();
         writer.talkSound = talkSound;
