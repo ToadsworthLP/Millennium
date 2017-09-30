@@ -10,9 +10,26 @@ public class ItemListManager : MonoBehaviour {
     public Cursor listSwitchCursor;
     public Text descriptionBox;
     public MenuPageOption pageOption;
+    public float animationLength;
+
+    private RectTransform rectTransform;
+    private Vector2 startPosition;
+    private Vector2 targetPosition;
 
     [HideInInspector]
     public Backpack backpack;
+    [HideInInspector]
+    public int pageCount;
+    [HideInInspector]
+    public int currentPage;
+
+    private Vector2 currentAnimVelocity;
+
+    void Update() {
+        if (rectTransform.anchoredPosition != targetPosition) {
+            rectTransform.anchoredPosition = Vector2.SmoothDamp(rectTransform.anchoredPosition, targetPosition, ref currentAnimVelocity, animationLength, 10000, Time.deltaTime);
+        }
+    }
 
     public void setBackpack(Backpack backpack){
         this.backpack = backpack;
@@ -21,6 +38,11 @@ public class ItemListManager : MonoBehaviour {
     public void showItems(EnumItemKind category){
         entryParent.transform.ClearChildren();
         itemCursor.optionObjects.Clear();
+        rectTransform = entryParent.GetComponent<RectTransform>();
+
+        if (startPosition == Vector2.zero)
+            startPosition = rectTransform.anchoredPosition;
+        resetPosition();
 
         List<InventoryItem> itemList = new List<InventoryItem>();
         if (category == EnumItemKind.IMPORTANT){
@@ -31,6 +53,7 @@ public class ItemListManager : MonoBehaviour {
 
         if(itemList.Count > 0){
             int counter = 0;
+            pageCount = (itemList.Count + 9) / 10;
             foreach (InventoryItem item in itemList) {
                 GameObject entryObj = Instantiate(itemEntryPrefab, entryParent.transform);
                 ItemEntry entry = entryObj.GetComponent<ItemEntry>();
@@ -43,12 +66,34 @@ public class ItemListManager : MonoBehaviour {
                 entry.item = item;
                 entry.listSwitchCursor = listSwitchCursor;
                 itemCursor.optionObjects.Add(entryObj);
-                entry.setupEntry(descriptionBox, pageOption);
+                entry.setupEntry(this);
 
                 counter++;
             }
         }
-    }    
+    }
+
+    public void scrollItemList(int targetIndex) {
+        print(targetIndex + " " + getPageOfIndex(targetIndex) + " " + currentPage);
+        
+        if (getPageOfIndex(targetIndex) - 1 > currentPage) {
+            targetPosition = rectTransform.anchoredPosition + new Vector2(0, 250);
+            currentPage++;
+        } else if (getPageOfIndex(targetIndex) - 1 < currentPage) {
+            targetPosition = rectTransform.anchoredPosition - new Vector2(0, 250);
+            currentPage--;
+        }
+
+    }
+
+    public void resetPosition(){
+        targetPosition = startPosition;
+        currentPage = 0;
+    }
+
+    public int getPageOfIndex(int index) {
+        return (index + 10) / 10;
+    }
 
     public enum EnumItemKind
     {

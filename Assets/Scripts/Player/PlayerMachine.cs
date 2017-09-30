@@ -25,6 +25,7 @@ public class PlayerMachine : MonoBehaviour {
 
     private bool grounded;
     private Rigidbody rigidbody;
+    private BoxCollider collider;
 
     public void toggleFrozenStatus(){
         if(rigidbody.constraints != RigidbodyConstraints.FreezeAll){
@@ -32,6 +33,7 @@ public class PlayerMachine : MonoBehaviour {
         }else{
             rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         }
+        collider.enabled = !collider.enabled;
     }
 
     public void setCutsceneMode(bool enabled){
@@ -46,6 +48,7 @@ public class PlayerMachine : MonoBehaviour {
 	void Start () {
 		grounded = true;
 		rigidbody = gameObject.GetComponent<Rigidbody> ();
+        collider = gameObject.GetComponent<BoxCollider>();
 	}
 		
 	void FixedUpdate () {
@@ -65,6 +68,7 @@ public class PlayerMachine : MonoBehaviour {
     void doMenu(){
         if(inputManager.isInputDown[6] && grounded){
             setCutsceneMode(true);
+            allowArtUpdate = false;
             toggleFrozenStatus();
             menuManager.openMenu();
             audioSource.PlayOneShot(menuOpenSound);

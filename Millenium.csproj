@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.1.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -82,11 +80,13 @@
   <ItemGroup>
     <Compile Include="Assets\Custom Input Manager v1.4\Scripts\custom_inputs.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISelectable.cs" />
-    <Compile Include="Assets\Scripts\Items\ItemParameter.cs" />
     <Compile Include="Assets\Scripts\Items\ItemManager.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemParameter.cs" />
     <Compile Include="Assets\Scripts\Menu\DescriptionSelectable.cs" />
     <Compile Include="Assets\Scripts\Menu\GearPage.cs" />
     <Compile Include="Assets\Scripts\Menu\ItemEntry.cs" />
+    <Compile Include="Assets\Scripts\Menu\ItemListManager.cs" />
+    <Compile Include="Assets\Scripts\Menu\ItemListSwitch.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuPage.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuPageOption.cs" />
@@ -120,8 +120,6 @@
     <Compile Include="Assets\Scripts\UI\HUDController.cs" />
     <Compile Include="Assets\Scripts\UI\HUDElementHelper.cs" />
     <Compile Include="Assets\Scripts\UI\ImageToNumber.cs" />
-    <Compile Include="Assets\Scripts\UI\ItemListManager.cs" />
-    <Compile Include="Assets\Scripts\UI\ItemListSwitch.cs" />
     <Compile Include="Assets\Scripts\UI\ItemPopup.cs" />
     <Compile Include="Assets\Scripts\UI\SaveMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SelectableHelper.cs" />

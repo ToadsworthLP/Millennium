@@ -7,18 +7,25 @@ public class ItemEntry : SelectableHelper {
     [HideInInspector]
     public Cursor listSwitchCursor;
 
+    private ItemListManager manager;
+
     private Image itemIcon;
     private Text itemName;
+
+    private GameObject entryParent;
     private Text descriptionBox;
     private MenuPageOption pageOption;
 
     private Cursor itemCursor;
 
-    public void setupEntry(Text descBox, MenuPageOption pageOption) {
+    public void setupEntry(ItemListManager manager) {
         itemIcon = GetComponentInChildren<Image>();
         itemName = GetComponentInChildren<Text>();
-        descriptionBox = descBox;
-        this.pageOption = pageOption;
+
+        this.manager = manager;
+        descriptionBox = manager.descriptionBox;
+        entryParent = manager.entryParent;
+        pageOption = manager.pageOption;
 
         itemIcon.sprite = item.icon;
         itemName.text = item.itemName;
@@ -35,10 +42,27 @@ public class ItemEntry : SelectableHelper {
 
     public override void onSideKeyPressed(Utils.EnumDirection direction) {
         base.onSideKeyPressed(direction);
-        if(direction == Utils.EnumDirection.DOWN && itemCursor.selectedIndex+2 < itemCursor.optionObjects.Count){
-            itemCursor.cursorMoved(2);
-        }else if(direction == Utils.EnumDirection.UP && itemCursor.selectedIndex - 2 >= 0) {
-            itemCursor.cursorMoved(-2);
+
+        switch (direction){
+            case Utils.EnumDirection.UP:
+                if (itemCursor.selectedIndex - 2 >= 0)
+                    itemCursor.cursorMoved(-2);
+                    manager.scrollItemList(itemCursor.selectedIndex);
+                break;
+
+            case Utils.EnumDirection.DOWN:
+                if (itemCursor.selectedIndex + 2 < itemCursor.optionObjects.Count)
+                    itemCursor.cursorMoved(2);
+                    manager.scrollItemList(itemCursor.selectedIndex);
+                break;
+
+            case Utils.EnumDirection.LEFT:
+                manager.scrollItemList(itemCursor.selectedIndex);
+                break;
+
+            case Utils.EnumDirection.RIGHT:
+                manager.scrollItemList(itemCursor.selectedIndex);
+                break;
         }
     }
 
@@ -58,6 +82,7 @@ public class ItemEntry : SelectableHelper {
 
     public override void onCancelPressed() {
         base.onCancelPressed();
+        manager.resetPosition();
         itemCursor.gameObject.SetActive(false);
         listSwitchCursor.setActivityStatus(true);
     }
