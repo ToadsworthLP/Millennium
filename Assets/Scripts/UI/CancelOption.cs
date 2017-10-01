@@ -29,7 +29,7 @@ public class CancelOption : SelectableHelper {
         }
 
         player.setCutsceneMode(false);
-        player.toggleFrozenStatus();
+        player.setFrozenStatus(false);
         Destroy(menuParent);
     }
 

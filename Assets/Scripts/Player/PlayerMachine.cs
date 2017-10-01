@@ -27,19 +27,19 @@ public class PlayerMachine : MonoBehaviour {
     private Rigidbody rigidbody;
     private BoxCollider collider;
 
-    public void toggleFrozenStatus(){
-        if(rigidbody.constraints != RigidbodyConstraints.FreezeAll){
+    public void setFrozenStatus(bool status){
+        if(status){
             rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         }else{
             rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         }
-        collider.enabled = !collider.enabled;
+        collider.enabled = !status;
     }
 
-    public void setCutsceneMode(bool enabled){
-        allowJumping = !enabled;
-        allowMenuOpen = !enabled;
-        controller.updateInput = !enabled;
+    public void setCutsceneMode(bool status){
+        allowJumping = !status;
+        allowMenuOpen = !status;
+        controller.updateInput = !status;
         controller.direction = Vector2.zero;
         controller.jumpPressed = false;
         controller.hammerPressed = false;
@@ -69,7 +69,7 @@ public class PlayerMachine : MonoBehaviour {
         if(inputManager.isInputDown[6] && grounded){
             setCutsceneMode(true);
             allowArtUpdate = false;
-            toggleFrozenStatus();
+            setFrozenStatus(true);
             menuManager.openMenu();
             audioSource.PlayOneShot(menuOpenSound);
         }

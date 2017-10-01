@@ -28,7 +28,7 @@ public class SaveMenu : SelectableHelper {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
         player.setCutsceneMode(false);
         player.allowJumping = false;
-        player.toggleFrozenStatus();
+        player.setFrozenStatus(false);
         StartCoroutine(waitAndDestroy());
     }
 

@@ -47,7 +47,7 @@ public class SaveBlock : MonoBehaviour {
     IEnumerator waitForBlockAnimation(){
         animator.SetTrigger("Hit");
         yield return new WaitForSeconds(textDelay);
-        player.toggleFrozenStatus();
+        player.setFrozenStatus(true);
         GameObject bubble = Instantiate(speechBubble, uiParent);
         Typewriter writer = bubble.GetComponent<Typewriter>();
         writer.talkSound = talkSound;

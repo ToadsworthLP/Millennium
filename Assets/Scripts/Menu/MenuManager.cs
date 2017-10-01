@@ -41,7 +41,7 @@ public class MenuManager : MonoBehaviour {
             animator.SetTrigger("CloseMenu");
             player.setCutsceneMode(false);
             player.allowArtUpdate = true;
-            player.toggleFrozenStatus();
+            player.setFrozenStatus(false);
         }
     }
 
