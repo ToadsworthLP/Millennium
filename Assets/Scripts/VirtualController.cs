@@ -32,7 +32,7 @@ public class VirtualController : MonoBehaviour {
             didYChange = !dir.y.Equals(direction.y);
             didStateChange = (didXChange || didYChange);
 
-            direction = dir;
+            direction = Vector2.ClampMagnitude(dir, 1);
 
             jumpPressed = inputManager.isInputDown[4];
             hammerPressed = inputManager.isInputDown[5];
