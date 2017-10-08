@@ -2,4 +2,4 @@
 using UnityEngine.Events;
 
 [System.Serializable]
-public class MilleniumEvent : UnityEvent<GameObject, string> {}
+public class MilleniumEvent : UnityEvent<GameObject, object> {}
