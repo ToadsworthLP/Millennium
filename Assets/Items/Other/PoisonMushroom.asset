@@ -18,8 +18,7 @@ MonoBehaviour:
   usableOnOverworld: 1
   usableInBattle: 1
   statModifiers: []
-  callFunctionOnUse: 1
-  functionName: poison
-  functionArgs:
-  - 1
+  callCoroutineOnUse: 1
+  coroutineName: poison
+  coroutineArgs:
   - 5

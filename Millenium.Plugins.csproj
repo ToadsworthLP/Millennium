@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9FBF962F-2315-A184-58E6-F5518ADC6E6A}</ProjectGuid>
+    <ProjectGuid>{9FED15EE-6148-9825-A08E-663E3EEE880B}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>GamePlugins:3</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.1.1f1</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -78,58 +78,81 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Custom Input Manager v1.4\Scripts\custom_inputs.cs" />
-    <Compile Include="Assets\Scripts\Interfaces\ISelectable.cs" />
-    <Compile Include="Assets\Scripts\Items\HealingCollectible.cs" />
-    <Compile Include="Assets\Scripts\Items\ItemCoroutines.cs" />
-    <Compile Include="Assets\Scripts\Items\ItemManager.cs" />
-    <Compile Include="Assets\Scripts\Items\ItemParameter.cs" />
-    <Compile Include="Assets\Scripts\Items\ItemUtils.cs" />
-    <Compile Include="Assets\Scripts\Menu\DescriptionSelectable.cs" />
-    <Compile Include="Assets\Scripts\Menu\GearPage.cs" />
-    <Compile Include="Assets\Scripts\Menu\ItemEntry.cs" />
-    <Compile Include="Assets\Scripts\Menu\ItemListManager.cs" />
-    <Compile Include="Assets\Scripts\Menu\ItemListSwitch.cs" />
-    <Compile Include="Assets\Scripts\Menu\MenuManager.cs" />
-    <Compile Include="Assets\Scripts\Menu\MenuPage.cs" />
-    <Compile Include="Assets\Scripts\Menu\MenuPageOption.cs" />
-    <Compile Include="Assets\Scripts\Menu\PartyPage.cs" />
-    <Compile Include="Assets\Scripts\Menu\PlayerPage.cs" />
-    <Compile Include="Assets\Scripts\Menu\TiledIconDisplay.cs" />
-    <Compile Include="Assets\Scripts\Menu\TriggerAnimationSelectable.cs" />
-    <Compile Include="Assets\Scripts\Misc\Backpack.cs" />
-    <Compile Include="Assets\Scripts\Misc\Billboarder.cs" />
-    <Compile Include="Assets\Scripts\Misc\Coin.cs" />
-    <Compile Include="Assets\Scripts\Misc\CollectibleItem.cs" />
-    <Compile Include="Assets\Scripts\Misc\ItemIconPopup.cs" />
-    <Compile Include="Assets\Scripts\Misc\MusicManager.cs" />
-    <Compile Include="Assets\Scripts\Misc\SaveBlock.cs" />
-    <Compile Include="Assets\Scripts\Misc\StarRank.cs" />
-    <Compile Include="Assets\Scripts\Misc\UIImageScroller.cs" />
-    <Compile Include="Assets\Scripts\NPCs\NPCTalker.cs" />
-    <Compile Include="Assets\Scripts\NPCs\TalkIcon.cs" />
-    <Compile Include="Assets\Scripts\Player\Feet.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerArt.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerMachine.cs" />
-    <Compile Include="Assets\Scripts\ScriptableObjects\InventoryItem.cs" />
-    <Compile Include="Assets\Scripts\Triggers\ExampleTrigger.cs" />
-    <Compile Include="Assets\Scripts\Triggers\ExampleTriggeredObject.cs" />
-    <Compile Include="Assets\Scripts\Triggers\MilleniumEvent.cs" />
-    <Compile Include="Assets\Scripts\UI\CancelOption.cs" />
-    <Compile Include="Assets\Scripts\UI\Cursor.cs" />
-    <Compile Include="Assets\Scripts\UI\FancyNumberHandler.cs" />
-    <Compile Include="Assets\Scripts\UI\HUDController.cs" />
-    <Compile Include="Assets\Scripts\UI\HUDElementHelper.cs" />
-    <Compile Include="Assets\Scripts\UI\ImageToNumber.cs" />
-    <Compile Include="Assets\Scripts\UI\ItemPopup.cs" />
-    <Compile Include="Assets\Scripts\UI\SaveMenu.cs" />
-    <Compile Include="Assets\Scripts\UI\SelectableHelper.cs" />
-    <Compile Include="Assets\Scripts\UI\TextWithShadow.cs" />
-    <Compile Include="Assets\Scripts\UI\Typewriter.cs" />
-    <Compile Include="Assets\Scripts\Utils.cs" />
-    <Compile Include="Assets\Scripts\VirtualController.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\AnimatorExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\ComponentExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\DelegateExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\FastReflection.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\Flags.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\GameObjectExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\GenericEnumerableExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\LayerMaskExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\MemberInfoExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\MethodInfoExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\OtherExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\PropertyInfoExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\RendererExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\RigidbodyExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\StringExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\SystemObjectExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\TransformExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\TypeExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\UnityObjectExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\VectorExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Helpers\ErrorHelper.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Helpers\EventsHelper.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Helpers\GizHelper.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Helpers\ReflectionHelper.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Helpers\RuntimeHelper.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\Categories\CategoryAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\Categories\CategoryDisplay.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\Categories\CategoryMemberType.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\Categories\CategorySetOp.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\Categories\DefineCategoriesAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\Categories\DefineCategoryAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\DisplayAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\DrawingAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\UsingAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\VisibilityAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\AnimVarAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\AssignableAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\BetterVectorAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\ButtonAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\ClampAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\CommentAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\ConstrainValueAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\DraggableAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\EnumMaskAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\FilterEnumAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\FilterTagsAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\InlineAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\InputAxisAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\IPAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\MaxAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\MinAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\OnChangedAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\ParagraphAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\PathAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\PopupAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\RandAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\RegexAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\ResourcePathAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\SelectEnumAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\SelectSceneAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\ShowTypeAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\SliderAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\TagsAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\WhiteSpaceAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Core\BaseBehaviour.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Core\BaseScriptableObject.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Others\DataRecord.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Others\ItemTuple.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Others\KVPList.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Others\SerializableDictionary.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Plugins\Editor\Vexe\LICENSE.txt" />
+    <None Include="Assets\Plugins\Vexe\HISTORY.txt" />
+    <None Include="Assets\Plugins\Vexe\LICENSE.txt" />
     <None Include="Assets\Shaders\Rainbow.shader" />
     <None Include="Assets\Shaders\ShadowSprite.shader" />
     <None Include="Assets\Shaders\Shared\ShaderTools.cginc" />

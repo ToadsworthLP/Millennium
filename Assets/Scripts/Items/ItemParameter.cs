@@ -1,10 +1,10 @@
 ﻿[System.Serializable]
 public class ItemParameter {
     public GameMode mode;
-    public string[] parameters;
+    public string[] args;
 
-    public ItemParameter(GameMode mode, string[] parameters){
+    public ItemParameter(GameMode mode, string[] args){
         this.mode = mode;
-        this.parameters = parameters;
+        this.args = args;
     }
 }

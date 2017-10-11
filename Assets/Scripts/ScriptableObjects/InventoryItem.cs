@@ -15,10 +15,10 @@ public class InventoryItem : ScriptableObject {
     [Header("Stat Modifiers")]
     public StatModifier[] statModifiers;
 
-    [Header("Custom Function")]
-    public bool callFunctionOnUse;
-    public string functionName;
-    public string[] functionArgs;
+    [Header("Custom Coroutine")]
+    public bool callCoroutineOnUse;
+    public string coroutineName;
+    public string[] coroutineArgs;
 }
 
 [System.Serializable]
