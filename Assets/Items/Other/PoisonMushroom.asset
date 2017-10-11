@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Poison Mushroom
   itemDescription: Regularly deals damage.
-  icon: {fileID: 21300000, guid: 854163d86bad9954ca6f8f365e1cbfd4, type: 3}
+  icon: {fileID: 21300000, guid: 6b6ecc23f1dadb04ba1ca1995ea6f2db, type: 3}
   isImportantItem: 0
   usableOnOverworld: 1
   usableInBattle: 1

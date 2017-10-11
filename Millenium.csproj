@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Assets\Custom Input Manager v1.4\Scripts\custom_inputs.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISelectable.cs" />
+    <Compile Include="Assets\Scripts\Items\HealingCollectible.cs" />
     <Compile Include="Assets\Scripts\Items\ItemManager.cs" />
     <Compile Include="Assets\Scripts\Items\ItemParameter.cs" />
     <Compile Include="Assets\Scripts\Menu\DescriptionSelectable.cs" />
@@ -98,8 +99,6 @@
     <Compile Include="Assets\Scripts\Misc\Billboarder.cs" />
     <Compile Include="Assets\Scripts\Misc\Coin.cs" />
     <Compile Include="Assets\Scripts\Misc\CollectibleItem.cs" />
-    <Compile Include="Assets\Scripts\Misc\Flower.cs" />
-    <Compile Include="Assets\Scripts\Misc\Heart.cs" />
     <Compile Include="Assets\Scripts\Misc\ItemIconPopup.cs" />
     <Compile Include="Assets\Scripts\Misc\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Misc\SaveBlock.cs" />
