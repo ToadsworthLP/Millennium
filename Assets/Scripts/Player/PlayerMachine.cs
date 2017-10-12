@@ -107,7 +107,7 @@ public class PlayerMachine : MonoBehaviour {
     }
 
     void updateParticleSystem(){
-		if (rigidbody.velocity.y == 0 && (Mathf.Abs (rigidbody.velocity.x) > 0.1f || Mathf.Abs (rigidbody.velocity.z) > 0.1f)) {
+		if (rigidbody.velocity.y == 0 && (Mathf.Abs (rigidbody.velocity.x) > 0.01f || Mathf.Abs (rigidbody.velocity.z) > 0.01f)) {
 			if (!particles.isEmitting) {
 				particles.Play ();
 			}

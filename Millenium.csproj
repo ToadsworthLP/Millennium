@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Misc\ItemIconPopup.cs" />
     <Compile Include="Assets\Scripts\Misc\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Misc\SaveBlock.cs" />
+    <Compile Include="Assets\Scripts\Misc\SmoothCameraMovement.cs" />
     <Compile Include="Assets\Scripts\Misc\StarRank.cs" />
     <Compile Include="Assets\Scripts\Misc\UIImageScroller.cs" />
     <Compile Include="Assets\Scripts\NPCs\NPCTalker.cs" />
