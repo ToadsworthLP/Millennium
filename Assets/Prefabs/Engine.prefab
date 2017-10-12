@@ -5381,7 +5381,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemListManager: {fileID: 114985140508956862}
-  backpack: {fileID: 0}
 --- !u!114 &114237483838113880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5563,7 +5562,6 @@ MonoBehaviour:
   fpText: {fileID: 114138350759931642}
   bpText: {fileID: 114313954574551558}
   advancedNumberText: {fileID: 114247359552464852}
-  backpack: {fileID: 0}
 --- !u!114 &114291995123640496
 MonoBehaviour:
   m_ObjectHideFlags: 1

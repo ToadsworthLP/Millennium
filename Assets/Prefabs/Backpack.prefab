@@ -65,5 +65,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hudController: {fileID: 0}
   startSceneName: TestMap
+  startPosition: {x: 0, y: 0, z: 0}
   savefileName: save.dat
   statusEffects: 

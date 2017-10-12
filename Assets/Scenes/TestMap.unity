@@ -932,12 +932,6 @@ Transform:
   m_Father: {fileID: 369410242}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &922065910 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114937874926363848, guid: 737439472db30434a86719a4c64278ed,
-    type: 2}
-  m_PrefabInternal: {fileID: 1015492632}
-  m_Script: {fileID: 11500000, guid: 47fad22e602b6fc4cbafb277f08dcb94, type: 3}
 --- !u!1 &922552067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,7 +2247,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1676689874}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.254, y: 1.152, z: -5.51}
+  m_LocalPosition: {x: -2.278, y: 1.152, z: -5.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 369410242}
@@ -2273,7 +2267,7 @@ ReflectionProbe:
   m_TimeSlicingMode: 0
   m_Resolution: 128
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 3, y: 2, z: 3}
+  m_BoxSize: {x: 1, y: 1, z: 2}
   m_BoxOffset: {x: 0, y: 0, z: 0}
   m_NearClip: 0.3
   m_FarClip: 1000
@@ -2748,16 +2742,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114233547348278770, guid: c3e442d8bcfc1d3479c6ee1170b28502,
-        type: 2}
-      propertyPath: backpack
-      value: 
-      objectReference: {fileID: 922065910}
-    - target: {fileID: 114291842637872620, guid: c3e442d8bcfc1d3479c6ee1170b28502,
-        type: 2}
-      propertyPath: backpack
-      value: 
-      objectReference: {fileID: 922065910}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
   m_IsPrefabParent: 0
