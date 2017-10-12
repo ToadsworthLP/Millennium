@@ -7,16 +7,14 @@ public class MenuPageOption : SelectableHelper {
     [TextArea]
     public string descriptionText;
     public Color overlayColor;
+    public CanvasRenderer canvasRenderer;
+    public MenuManager menuManager;
 
-    private MenuManager menuManager;
     private Cursor pageSelectCursor;
     private Color oldColor;
-    private CanvasRenderer canvasRenderer;
 
     public override void onCursorInit(Cursor cursor) {
         base.onCursorInit(cursor);
-        menuManager = GetComponentInParent<MenuManager>();
-        canvasRenderer = GetComponent<CanvasRenderer>();
         oldColor = canvasRenderer.GetColor();
         pageSelectCursor = cursor;
 

@@ -24,12 +24,12 @@ public class Billboarder : MonoBehaviour {
         
         angleBetween = Mathf.Abs(Mathf.DeltaAngle(camAngle, parentAngle));
 
-        angleBetween2 = PointsToAngle(Camera.main.transform.position, this.transform.position);
+        angleBetween2 = PointsToAngle(Camera.main.transform.position, transform.position);
 
         if (angleBetween<90)
             camSide = 1;
         else camSide = -1;
-        float zSA = Mathf.Repeat(angleBetween2 + this.transform.eulerAngles.y, 360) - 180;
+        float zSA = Mathf.Repeat(angleBetween2 + transform.eulerAngles.y, 360) - 180;
         if (zSA > 0 && zSA < 180)
         {
             zScale = -1;
@@ -43,7 +43,7 @@ public class Billboarder : MonoBehaviour {
         {
             transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(new Vector3(transform.localRotation.x, dir, transform.localRotation.z)), Time.fixedDeltaTime * 9);//0.15f
         }
-        this.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, spawnSide * zScale);
+        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, spawnSide * zScale);
     }
 
     public static float PointsToAngle(Vector3 v3a, Vector3 v3b) {

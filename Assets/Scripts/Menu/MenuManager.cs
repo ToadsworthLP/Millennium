@@ -7,19 +7,12 @@ public class MenuManager : MonoBehaviour {
     public GameObject tabCursor;
     public float animationLength;
     public MenuPage[] pages;
+    public PlayerMachine player;
+    public Animator animator;
 
     private bool active;
-    private PlayerMachine player;
-    private Animator animator;
 
     public void openMenu(){
-        if(animator == null){
-            animator = GetComponent<Animator>();
-        }
-        if (player == null) {
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
-        }
-
         foreach(MenuPage p in pages){
             p.gameObject.SetActive(false);
         }

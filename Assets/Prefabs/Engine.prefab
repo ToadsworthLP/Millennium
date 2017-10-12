@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 212014854803936900}
   m_Layer: 8
   m_Name: FootB
-  m_TagString: player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2466,7 +2466,7 @@ GameObject:
   - component: {fileID: 212761085839396866}
   m_Layer: 8
   m_Name: FootF
-  m_TagString: player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2582,7 +2582,7 @@ GameObject:
   - component: {fileID: 212172215835373036}
   m_Layer: 8
   m_Name: Body
-  m_TagString: player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2662,7 +2662,7 @@ GameObject:
   - component: {fileID: 212992065360039674}
   m_Layer: 8
   m_Name: Head
-  m_TagString: player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2779,7 +2779,7 @@ GameObject:
   - component: {fileID: 212958028090419158}
   m_Layer: 8
   m_Name: ArmB
-  m_TagString: player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3003,7 +3003,7 @@ GameObject:
   - component: {fileID: 114344153209356074}
   m_Layer: 8
   m_Name: KinematicMarioModel
-  m_TagString: player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3269,7 +3269,7 @@ GameObject:
   - component: {fileID: 212906662158656072}
   m_Layer: 8
   m_Name: ArmF
-  m_TagString: player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4556,6 +4556,7 @@ MonoBehaviour:
   overlayColor: {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 1}
   itemListManager: {fileID: 114985140508956862}
   itemType: 0
+  canvasRenderer: {fileID: 222925440073858008}
 --- !u!114 &114068165081388474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4681,6 +4682,8 @@ MonoBehaviour:
   pageCursor: {fileID: 114174785670999592}
   descriptionText: Check Mario's belongings here.
   overlayColor: {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 1}
+  canvasRenderer: {fileID: 222894030746370792}
+  menuManager: {fileID: 114889914597516588}
 --- !u!114 &114105473767922960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5378,6 +5381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemListManager: {fileID: 114985140508956862}
+  backpack: {fileID: 0}
 --- !u!114 &114237483838113880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5559,6 +5563,7 @@ MonoBehaviour:
   fpText: {fileID: 114138350759931642}
   bpText: {fileID: 114313954574551558}
   advancedNumberText: {fileID: 114247359552464852}
+  backpack: {fileID: 0}
 --- !u!114 &114291995123640496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6008,6 +6013,8 @@ MonoBehaviour:
   pageCursor: {fileID: 0}
   descriptionText: Check allies and their moves here.
   overlayColor: {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 1}
+  canvasRenderer: {fileID: 222536828965633154}
+  menuManager: {fileID: 114889914597516588}
 --- !u!114 &114397120236699940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7404,6 +7411,8 @@ MonoBehaviour:
   pageCursor: {fileID: 0}
   descriptionText: Equip and remove Mario's badges here.
   overlayColor: {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 1}
+  canvasRenderer: {fileID: 222556904118847606}
+  menuManager: {fileID: 114889914597516588}
 --- !u!114 &114639289070596538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7546,6 +7555,8 @@ MonoBehaviour:
   pageCursor: {fileID: 114151787775389492}
   descriptionText: Check Mario's abilities and stats here.
   overlayColor: {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 1}
+  canvasRenderer: {fileID: 222483921994071254}
+  menuManager: {fileID: 114889914597516588}
 --- !u!114 &114670272531068068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7855,6 +7866,8 @@ MonoBehaviour:
   pageCursor: {fileID: 0}
   descriptionText: Keep tabs on your adventure progression here.
   overlayColor: {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 1}
+  canvasRenderer: {fileID: 222723058598186508}
+  menuManager: {fileID: 114889914597516588}
 --- !u!114 &114750055989168106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8145,10 +8158,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce530167876643346b6750c342e384e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updateInput: 1
   direction: {x: 0, y: 0}
   didStateChange: 0
   didXChange: 0
   didYChange: 0
+  jumpPressed: 0
+  hammerPressed: 0
 --- !u!114 &114799163308797012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8412,12 +8428,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 114674252849662988}
-  dpad: {fileID: 114795575383925312}
+  controller: {fileID: 114795575383925312}
   menuManager: {fileID: 114889914597516588}
   feet: {fileID: 114785910542032214}
   art: {fileID: 114344153209356074}
   particles: {fileID: 198855574230571022}
   audioSource: {fileID: 82720803624801236}
+  backpack: {fileID: 0}
   menuOpenSound: {fileID: 8300000, guid: a6e219711969439488d10942906f4a69, type: 3}
   allowMovement: 1
   allowJumping: 1
@@ -8472,6 +8489,8 @@ MonoBehaviour:
   - {fileID: 114020581551866634}
   - {fileID: 114109304024163746}
   - {fileID: 114332396382005606}
+  player: {fileID: 114868371244616986}
+  animator: {fileID: 95861892881231344}
 --- !u!114 &114898508941902292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8593,6 +8612,7 @@ MonoBehaviour:
   overlayColor: {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 1}
   itemListManager: {fileID: 114985140508956862}
   itemType: 1
+  canvasRenderer: {fileID: 222886172674736972}
 --- !u!114 &114952290949322948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8773,7 +8793,11 @@ MonoBehaviour:
   itemCursor: {fileID: 114439536938395542}
   listSwitchCursor: {fileID: 114174785670999592}
   descriptionBox: {fileID: 114325029148998970}
+  pageOption: {fileID: 114094993724917832}
+  animationLength: 0.05
   backpack: {fileID: 0}
+  pageCount: 0
+  currentPage: 0
 --- !u!114 &114989159404733566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13914,7 +13938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: 0, y: -96}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!224 &224217842169745950

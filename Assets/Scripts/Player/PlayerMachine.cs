@@ -10,6 +10,7 @@ public class PlayerMachine : MonoBehaviour {
 	public PlayerArt art;
 	public ParticleSystem particles;
     public AudioSource audioSource;
+    public Backpack backpack;
 
     public AudioClip menuOpenSound;
 
@@ -45,10 +46,11 @@ public class PlayerMachine : MonoBehaviour {
         controller.hammerPressed = false;
     }
 
-	void Start () {
+	void Awake () {
 		grounded = true;
 		rigidbody = gameObject.GetComponent<Rigidbody> ();
         collider = gameObject.GetComponent<BoxCollider>();
+        backpack = FindObjectOfType<Backpack>();
 	}
 		
 	void FixedUpdate () {

@@ -11,7 +11,6 @@ public class PlayerPage : MonoBehaviour {
     public Text hpText;
     public Text fpText;
     public Text bpText;
-
     public Text advancedNumberText;
 
     private Backpack backpack;

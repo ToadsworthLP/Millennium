@@ -6,14 +6,12 @@ public class ItemListSwitch : DescriptionSelectable {
     public Color overlayColor;
     public ItemListManager itemListManager;
     public ItemListManager.EnumItemKind itemType;
+    public CanvasRenderer canvasRenderer;
 
     private Cursor switchCursor;
     private Color oldColor;
-    private CanvasRenderer canvasRenderer;
 
     public void OnEnable() {
-        canvasRenderer = GetComponent<CanvasRenderer>();
-
         if (oldColor == new Color())
             oldColor = canvasRenderer.GetColor();
 
