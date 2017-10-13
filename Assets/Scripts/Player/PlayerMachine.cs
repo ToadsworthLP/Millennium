@@ -109,7 +109,7 @@ public class PlayerMachine : MonoBehaviour {
             if(allowJumping && interaction == null){
                 rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
                 art.playJumpSound();
-            }else{
+            }else if (interaction != null){
                 interaction.interact(gameObject);
                 interactionIcon.hideIcon();
             }

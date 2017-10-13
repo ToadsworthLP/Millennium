@@ -54,7 +54,6 @@ GameObject:
   - component: {fileID: 114868371244616986}
   - component: {fileID: 54572239217137010}
   - component: {fileID: 65314275932673828}
-  - component: {fileID: 135172953067254212}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8932,18 +8931,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1136740510735492}
   m_Enabled: 1
---- !u!135 &135172953067254212
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1022675978837426}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198855574230571022
 ParticleSystem:
   m_ObjectHideFlags: 1
