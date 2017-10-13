@@ -83,7 +83,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6, y: 8, z: 0.6}
+  m_Size: {x: 5, y: 5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95797977675340074
 Animator:
@@ -125,16 +125,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97c492f4e3fbb14c97443224e11f81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionIcon: {fileID: 21300000, guid: 191499f80dc67554e9e316d7a70bccf2, type: 3}
   text:
-  - Test Test
-  - Test Test Test
-  talkIcon: {fileID: 114268400585752294}
+  - This is a test dialogue. | If there was a delay of 0.2 seconds there, it works.
+  - It's only purpose is to test the functionality of these speech bubbles.
   speechBubble: {fileID: 1240988254441112, guid: d80110504e6f7614fb4a425f1e996739,
     type: 2}
   talkSound: {fileID: 8300000, guid: dd46416b2c4c01c4d9498826fecee5b8, type: 3}
   skipSound: {fileID: 8300000, guid: f2a7d389ff526844c822b4dced166ac6, type: 3}
   bubbleTint: {r: 1, g: 1, b: 1, a: 1}
   textTint: {r: 0.2352941, g: 0.2352941, b: 0.2352941, a: 1}
+  pageFinishedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: MilleniumEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  bubbleClosedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: MilleniumEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!212 &212137486849201008
 SpriteRenderer:
   m_ObjectHideFlags: 1

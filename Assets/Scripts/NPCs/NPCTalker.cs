@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
-public class NPCTalker : MonoBehaviour {
+public class NPCTalker : InteractableHelper {
 
     [TextArea]
     public string[] text;
-    public bool autoTalk;
-    public TalkIcon talkIcon;
     public GameObject speechBubble;
 
     public AudioClip talkSound;
@@ -19,28 +16,11 @@ public class NPCTalker : MonoBehaviour {
     public MilleniumEvent bubbleClosedEvent;
 
     private RectTransform uiParent;
-    private custom_inputs inputManager;
     private PlayerMachine player;
     private GameObject currentBubble;
 
     void Start () {
         uiParent = GameObject.FindGameObjectWithTag("UIParent").GetComponent<RectTransform>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
-        inputManager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<custom_inputs>();
-    }
-
-    void OnTriggerEnter(Collider other) {
-        if(other.gameObject.CompareTag("Player")){
-            talkIcon.gameObject.SetActive(true);
-            player.allowJumping = false;
-        }
-    }
-
-    void OnTriggerExit(Collider other) {
-        if (other.gameObject.CompareTag("Player")) {
-            talkIcon.playOutAnimation();
-            player.allowJumping = true;
-        }
     }
 
     void pageFinished(int page){
@@ -56,10 +36,12 @@ public class NPCTalker : MonoBehaviour {
         player.setCutsceneMode(false);
     }
 
-    void OnTriggerStay(Collider other) {
-        if (other.gameObject.CompareTag("Player") && currentBubble == null && (inputManager.isInput[4]  || autoTalk)) {
+    public override void interact(GameObject playerObject) {
+        base.interact(playerObject);
+        if (currentBubble == null) {
             GameObject bubble = Instantiate(speechBubble, uiParent);
             Typewriter writer = bubble.GetComponent<Typewriter>();
+            player = playerObject.GetComponent<PlayerMachine>();
             writer.talkSound = talkSound;
             writer.skipSound = skipSound;
             writer.OnPageFinished += pageFinished;

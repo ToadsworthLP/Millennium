@@ -8,10 +8,10 @@ public class PlayerMachine : MonoBehaviour {
     public MenuManager menuManager;
 	public Feet feet;
 	public PlayerArt art;
+    public InteractionIcon interactionIcon;
 	public ParticleSystem particles;
     public AudioSource audioSource;
     public Backpack backpack;
-
     public AudioClip menuOpenSound;
 
     [Header("Behaviour control")]
@@ -23,6 +23,9 @@ public class PlayerMachine : MonoBehaviour {
     [Header("Speed control")]
     public float moveSpeed;
 	public float jumpSpeed;
+
+    [HideInInspector]
+    public IInteractable interaction;
 
     private bool grounded;
     private Rigidbody rigidbody;
@@ -67,6 +70,27 @@ public class PlayerMachine : MonoBehaviour {
         updateParticleSystem ();
 	}
 
+    void OnTriggerEnter(Collider other) {
+        IInteractable temp;
+        temp = other.GetComponent<IInteractable>();
+        if(temp != null){
+            interaction = temp;
+            interactionIcon.spriteRenderer.sprite = interaction.getIcon();
+            interactionIcon.showIcon();
+            allowJumping = false;
+        }
+    }
+
+    void OnTriggerExit(Collider other) {
+        IInteractable temp;
+        temp = other.GetComponent<IInteractable>();
+        if (temp == interaction) {
+            interaction = null;
+            allowJumping = true;
+            interactionIcon.hideIcon();
+        }
+    }
+
     void doMenu(){
         if(inputManager.isInputDown[6] && grounded){
             setCutsceneMode(true);
@@ -81,9 +105,15 @@ public class PlayerMachine : MonoBehaviour {
 
         rigidbody.velocity += new Vector3(controller.direction.x*moveSpeed, 0, controller.direction.y*moveSpeed);
 
-		if (controller.jumpPressed && feet.CheckGroundStatus () && allowJumping) {
-			rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
-            art.playJumpSound();
+		if (controller.jumpPressed && feet.CheckGroundStatus ()) {
+            if(allowJumping && interaction == null){
+                rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
+                art.playJumpSound();
+            }else{
+                interaction.interact(gameObject);
+                interactionIcon.hideIcon();
+            }
+			
 		}
 	}
 

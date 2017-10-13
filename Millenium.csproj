@@ -79,12 +79,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Custom Input Manager v1.4\Scripts\custom_inputs.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISelectable.cs" />
     <Compile Include="Assets\Scripts\Items\HealingCollectible.cs" />
     <Compile Include="Assets\Scripts\Items\ItemCoroutines.cs" />
     <Compile Include="Assets\Scripts\Items\ItemManager.cs" />
     <Compile Include="Assets\Scripts\Items\ItemParameter.cs" />
-    <Compile Include="Assets\Scripts\Items\ItemUtils.cs" />
     <Compile Include="Assets\Scripts\Menu\DescriptionSelectable.cs" />
     <Compile Include="Assets\Scripts\Menu\GearPage.cs" />
     <Compile Include="Assets\Scripts\Menu\ItemEntry.cs" />
@@ -110,11 +110,13 @@
     <Compile Include="Assets\Scripts\NPCs\NPCTalker.cs" />
     <Compile Include="Assets\Scripts\NPCs\TalkIcon.cs" />
     <Compile Include="Assets\Scripts\Player\Feet.cs" />
+    <Compile Include="Assets\Scripts\Player\InteractionIcon.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerArt.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMachine.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\Triggers\ExampleTrigger.cs" />
     <Compile Include="Assets\Scripts\Triggers\ExampleTriggeredObject.cs" />
+    <Compile Include="Assets\Scripts\Triggers\InteractionTrigger.cs" />
     <Compile Include="Assets\Scripts\Triggers\MilleniumEvent.cs" />
     <Compile Include="Assets\Scripts\UI\CancelOption.cs" />
     <Compile Include="Assets\Scripts\UI\Cursor.cs" />
@@ -127,7 +129,9 @@
     <Compile Include="Assets\Scripts\UI\SelectableHelper.cs" />
     <Compile Include="Assets\Scripts\UI\TextWithShadow.cs" />
     <Compile Include="Assets\Scripts\UI\Typewriter.cs" />
-    <Compile Include="Assets\Scripts\Utils.cs" />
+    <Compile Include="Assets\Scripts\Utils\InteractableHelper.cs" />
+    <Compile Include="Assets\Scripts\Utils\ItemUtils.cs" />
+    <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\Scripts\VirtualController.cs" />
   </ItemGroup>
   <ItemGroup>
