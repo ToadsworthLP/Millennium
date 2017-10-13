@@ -25,6 +25,8 @@ public class SaveBlock : MonoBehaviour {
     private GameObject currentBubble;
     private Animator animator;
 
+    private bool blockAnimPlaying;
+
     void Start() {
         uiParent = GameObject.FindGameObjectWithTag("UIParent").GetComponent<RectTransform>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
@@ -38,7 +40,8 @@ public class SaveBlock : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag("Player") && currentBubble == null) {
+        if (other.gameObject.CompareTag("Player") && currentBubble == null && !blockAnimPlaying) {
+            blockAnimPlaying = true;
             player.setCutsceneMode(true);
             StartCoroutine(waitForBlockAnimation());
         }
@@ -47,7 +50,6 @@ public class SaveBlock : MonoBehaviour {
     IEnumerator waitForBlockAnimation(){
         animator.SetTrigger("Hit");
         yield return new WaitForSeconds(textDelay);
-        player.setFrozenStatus(true);
         GameObject bubble = Instantiate(speechBubble, uiParent);
         Typewriter writer = bubble.GetComponent<Typewriter>();
         writer.talkSound = talkSound;
@@ -56,5 +58,6 @@ public class SaveBlock : MonoBehaviour {
         writer.OnPageFinished += pageFinished;
         writer.StartWriting(genText);
         currentBubble = bubble;
+        blockAnimPlaying = false;
     }
 }
