@@ -16,7 +16,7 @@
     <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
-    <UnityVersion>2017.1.0f3</UnityVersion>
+    <UnityVersion>2017.1.1f1</UnityVersion>
     <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
@@ -27,7 +27,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_1_0;UNITY_2017_1;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;CROSS_PLATFORM_INPUT</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_1_1;UNITY_2017_1;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;CROSS_PLATFORM_INPUT</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -37,7 +37,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_1_0;UNITY_2017_1;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;CROSS_PLATFORM_INPUT</DefineConstants>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_1_1;UNITY_2017_1;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;CROSS_PLATFORM_INPUT</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
@@ -124,27 +124,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets\Dev\NeatCrownImports\Demigiant\DOTween\DOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenEditor">
-      <HintPath>Assets\Dev\NeatCrownImports\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="DynamicText">
-      <HintPath>Assets\Dev\NeatCrownImports\DynamicText\DynamicText.dll</HintPath>
-    </Reference>
-    <Reference Include="TextMeshPro">
-      <HintPath>Assets\Dev\NeatCrownImports\TextMesh Pro\Plugins\TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="TextMeshPro-Editor">
-      <HintPath>Assets\Dev\NeatCrownImports\TextMesh Pro\Plugins\Editor\TextMeshPro-Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Assets\Dev\NeatCrownImports\UnityPackages\JsonNet-Lite\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-UnityScript">
-      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Millenium.csproj">
@@ -153,261 +132,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Dev\NeatCrownImports\DynamicText\Editor\DynamicTextDetectSceneSave.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\DynamicText\Editor\DynamicTextEditorExtensions.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\DynamicText\Editor\DynamicTextInspector.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\AnimationHierarchyEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\AntialiasingEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\BloomEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\CameraMotionBlurEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\ColorCorrectionCurvesEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\ColorCorrectionLookupEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\CreaseShadingEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\DepthOfFieldDeprecatedEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\DepthOfFieldEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\EdgeDetectionEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\NoiseAndGrainEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\SunShaftsEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\TonemappingEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ObjectExplorer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Editor\ReorderMyComponents.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\AudioBankCreatorGUI.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\AudioCreatorGUI.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\AudioEventCreatorGUI.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\BaseCreatorGUI.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\CreaterGUIHelper.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\DataDrawers\Audio\AudioDataDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\DataDrawers\Audio\DataDrawerHelper.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\DataDrawers\Audio\FolderDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\DataDrawers\Audio\MultiDataDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\DataDrawers\Audio\NodeTypeDataDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\DataDrawers\Audio\RandomDataDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\DataDrawers\Audio\SequenceDataDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\DataDrawers\Audio\TrackDataDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\DataDrawers\AudioBankLinkDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\DataDrawers\AudioEventDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\DataDrawers\Music\MusicFolderDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\DataDrawers\Music\MusicGroupDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\IntegrityGUI.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\InteractiveMusicCreatorGUI.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\MusicCreatorGUI.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\NodeWorkers\AudioBankWorker.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\NodeWorkers\AudioEventWorker.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\NodeWorkers\AudioNodeWorker.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\NodeWorkers\InteractiveMusicWorker.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\NodeWorkers\MusicWorker.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\NodeWorkers\NodeWorker.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\AudioParametersDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\AudioSourcePlayVisualizerDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\BankHookDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\CustomFalloffDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\DrawerHelper.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\EventHookCollisionDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\EventHookDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\EventTestDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\InAudioDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\InAudioEventDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\InAudioNodePropertyDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\InEventHookMusicControlDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\InHookMusicControlDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\InMusicGroupDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\InPlaylistDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\MecanimParameterDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\MecanimParameterListDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\PropertyDrawers\ReadOnlyAttributeDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\Element Adder Menu\ElementAdderMenuBuilder.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\Element Adder Menu\ElementAdderMenuCommandAttribute.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\Element Adder Menu\ElementAdderMeta.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\Element Adder Menu\GenericElementAdderMenu.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\Element Adder Menu\GenericElementAdderMenuBuilder.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\Element Adder Menu\IElementAdder.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\Element Adder Menu\IElementAdderMenu.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\Element Adder Menu\IElementAdderMenuBuilder.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\Element Adder Menu\IElementAdderMenuCommand.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\EventActionListAdapter.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\GenericListAdaptor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\Internal\GUIHelper.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\Internal\ReorderableListResources.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\IReorderableListAdaptor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\ReorderableListControl.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\ReorderableListFlags.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\ReorderableListGUI.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\ReorderableListStyles.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\ReorderableList\SerializedPropertyAdaptor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Scene Object\InSplineConnectionDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Scene Object\InSplineDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Scene Object\InSplineNodeDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\TreeView\EventDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\TreeView\GenericTreeNodeDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\TreeView\MusicDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\TreeView\TreeDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Utilities\ActionOrder.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Utilities\DataCleanup.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Utilities\DataLoading.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Utilities\EditorEventUtil.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Utilities\EditorGUIHelper.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Utilities\InAudioWindowOpener.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Utilities\InUndoHelper.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Utilities\MissingDataHelper.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Utilities\OnDragging.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Utilities\SearchHelper.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Utilities\SerializedParent.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Utilities\SystemFolderHelper.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Windows\AuxWindow.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Windows\ErrorDrawer.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Windows\EventWindow.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Windows\GuideWindow.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Windows\InAudioBaseWindow.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Windows\InAudioWindow.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Windows\InMusicWindow.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Windows\InteractiveMusicWindow.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Windows\PreviewWindow.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Scripts\Editor\InAudio\Windows\SplitDataWindow.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\QuickCutsceneCreator\Demo\Scripts\Editor\QCDebugLineEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\QuickCutsceneCreator\Scripts\Editor\QCAnimationAddonEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\QuickCutsceneCreator\Scripts\Editor\QCLegacyAnimationAddonEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\QuickCutsceneCreator\Scripts\Editor\QCNavigatorAddonEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\QuickCutsceneCreator\Scripts\Editor\QuickTakeCutsceneControllerEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\TagFrenzy\Scripts\Editor\MultiTagWindow.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\TagFrenzy\Scripts\Editor\TagFrenzyListEditor.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\VIDE\Editor\VIDE_AssignC.cs" />
-    <Compile Include="Assets\Dev\NeatCrownImports\VIDE\Editor\VIDE_Editor.cs" />
+    <Compile Include="Assets\Editor\BuiltInResourcesWindow.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Dev\NeatCrownImports\Demigiant\DOTween\DOTween.XML" />
-    <None Include="Assets\Dev\NeatCrownImports\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
-    <None Include="Assets\Dev\NeatCrownImports\Demigiant\DOTween\readme.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\DynamicText\Examples\ExampleHelpers\DroidSans-README.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\DynamicText\Examples\ExampleHelpers\vaikku-license.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\DynamicText\Examples\ExampleHelpers\vaikku-readme.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\Editor\ReorderMyComponents_ReadMe.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\LightShafts\ColorFilter.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\LightShafts\Coord.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\LightShafts\Depth.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\LightShafts\DepthBreaks.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\LightShafts\FinalInterpolation.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\LightShafts\InterpolateAlongRays.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\LightShafts\Raymarch.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\LightShafts\SamplePositions.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\LightShafts\Shared.cginc" />
-    <None Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Attribution.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\LeanTween\LeanTween-ReadMe.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\Plugins\InAudio\Quickstart.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\Shaders\Billboard Shader.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Shaders\Custom-PowerSprite.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Shaders\Sprite-Cutout.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Shaders\Sprite-Shadow.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Shaders\Sprites-Better.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Shaders\Sprites-Diffuse.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Shaders\Sprites-ZWrite.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionEffect.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Adaptation.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\MinMaxReduction.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\ConvertDepth.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\GrayscaleEffect.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\MotionBlur.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\MotionBlurClear.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrain.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceAmbientObscurance.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceRaytrace.cginc" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\SepiaToneEffect.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\TwirlEffect.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\VignettingShader.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\VortexEffect.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\NFAA.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\SSAA.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBloom.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\Projectors\Guidelines.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\Fonts\OpenSans\License!.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\TagFrenzy\Resources\Tags.xml" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Fonts\Anton OFL.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Fonts\Bangers - OFL.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Fonts\Oswald-Bold - OFL.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\Dev\NeatCrownImports\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Dev\NeatCrownImports\VIDE\Resources\ReadMe.txt" />
-    <None Include="Assets\Dev\NeatCrownImports\VIDE\license.txt" />
     <None Include="Assets\Shaders\Rainbow.shader" />
     <None Include="Assets\Shaders\ShadowSprite.shader" />
     <None Include="Assets\Shaders\Shared\ShaderTools.cginc" />
