@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public static class Utils {
@@ -23,20 +26,49 @@ public static class Utils {
         return EnumDirection.UNKNOWN;
     }
 
-    public static T NextEnum<T>(this T src) where T : struct {
-        if (!typeof(T).IsEnum) throw new ArgumentException(String.Format("Argumnent {0} is not an Enum", typeof(T).FullName));
+    //public static T NextEnum<T>(this T src) where T : struct {
+    //    if (!typeof(T).IsEnum) throw new ArgumentException(String.Format("Argumnent {0} is not an Enum", typeof(T).FullName));
 
-        T[] Arr = (T[])Enum.GetValues(src.GetType());
-        int j = Array.IndexOf<T>(Arr, src) + 1;
-        return (Arr.Length == j) ? Arr[0] : Arr[j];
+    //    T[] Arr = (T[])Enum.GetValues(src.GetType());
+    //    int j = Array.IndexOf<T>(Arr, src) + 1;
+    //    return (Arr.Length == j) ? Arr[0] : Arr[j];
+    //}
+
+    //public static T PreviousEnum<T>(this T src) where T : struct {
+    //    if (!typeof(T).IsEnum) throw new ArgumentException(String.Format("Argumnent {0} is not an Enum", typeof(T).FullName));
+
+    //    T[] Arr = (T[])Enum.GetValues(src.GetType());
+    //    int j = Array.IndexOf<T>(Arr, src) - 1;
+    //    return (Arr.Length == j) ? Arr[0] : Arr[j];
+    //}
+
+    //Dictionary serialization
+    public static byte[] SerializeDict(this Dictionary<string, object> obj) {
+        if (obj == null) {
+            return null;
+        }
+
+        using (var memoryStream = new MemoryStream()) {
+            var binaryFormatter = new BinaryFormatter();
+
+            binaryFormatter.Serialize(memoryStream, obj);
+
+            return memoryStream.ToArray();
+        }
     }
 
-    public static T PreviousEnum<T>(this T src) where T : struct {
-        if (!typeof(T).IsEnum) throw new ArgumentException(String.Format("Argumnent {0} is not an Enum", typeof(T).FullName));
+    public static Dictionary<string, object> DeSerializeDict(this byte[] arrBytes) {
+        if(arrBytes.Length > 0){
+            using (var memoryStream = new MemoryStream()) {
+                var binaryFormatter = new BinaryFormatter();
 
-        T[] Arr = (T[])Enum.GetValues(src.GetType());
-        int j = Array.IndexOf<T>(Arr, src) - 1;
-        return (Arr.Length == j) ? Arr[0] : Arr[j];
+                memoryStream.Write(arrBytes, 0, arrBytes.Length);
+                memoryStream.Seek(0, SeekOrigin.Begin);
+
+                return (Dictionary<string, object>)binaryFormatter.Deserialize(memoryStream);
+            }
+        }
+        return new Dictionary<string, object>();
     }
 
     //Utility methods
@@ -46,7 +78,7 @@ public static class Utils {
 
     public static Transform ClearChildren(this Transform transform) {
         foreach (Transform child in transform) {
-            GameObject.Destroy(child.gameObject);
+            UnityEngine.Object.Destroy(child.gameObject);
         }
         return transform;
     }
@@ -56,8 +88,8 @@ public static class Utils {
         return JsonUtility.ToJson(value);
     }
 
-    public static PlayerData Deserialize(string json) {
-        return JsonUtility.FromJson<PlayerData>(json);
+    public static T Deserialize<T>(string json) {
+        return JsonUtility.FromJson<T>(json);
     }
 
 }

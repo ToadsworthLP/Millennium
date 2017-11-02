@@ -18,7 +18,7 @@ public class CollectibleItem : MonoBehaviour {
         if(other.gameObject.CompareTag("Player")){
             player = other.gameObject.GetComponent<PlayerMachine>();
 
-            player.gameManager.backpack.items.Add(itemType);
+            player.gameManager.getBackpack().items.Add(itemType);
             ItemPopup popup = Instantiate(itemPopup, player.gameManager.uiParent.transform).GetComponent<ItemPopup>();
             player.audioSource.PlayOneShot(collectSound);
             player.art.animator.SetBool("ItemGet", true);

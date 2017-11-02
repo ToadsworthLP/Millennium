@@ -226,6 +226,10 @@ public class Backpack : MonoBehaviour {
 
     public List<StatusEffect> statusEffects;
 
+    public Dictionary<string, object> shelf{
+        get{ return data.shelf; }
+    }
+
     public void sceneLoaded(Scene scene, LoadSceneMode mode){
         if(SceneManager.GetSceneByName(data.currentScene).Equals(scene)){
             FindObjectOfType<PlayerMachine>().transform.position = data.currentPosition;
@@ -237,7 +241,8 @@ public class Backpack : MonoBehaviour {
         try{
             using (StreamReader file = new StreamReader(Application.persistentDataPath + "/" + savefileName)){
                 String dataString = file.ReadToEnd();
-                data = Utils.Deserialize(dataString);
+                data = Utils.Deserialize<PlayerData>(dataString);
+                data.shelf = data.shelfSerialized.DeSerializeDict();
             }
             return true;
         } catch(Exception e){
@@ -252,6 +257,7 @@ public class Backpack : MonoBehaviour {
                 data.playtime = playtime;
                 data.currentScene = SceneManager.GetActiveScene().name;
                 data.currentPosition = FindObjectOfType<PlayerMachine>().transform.position + new Vector3(0,-0.5f,0);
+                data.shelfSerialized = data.shelf.SerializeDict();
                 file.WriteLine(Utils.Serialize(data));
             }
             return true;
@@ -287,7 +293,7 @@ public class Backpack : MonoBehaviour {
 
             if (GUILayout.Button("Reset save data")) {
                 try {
-                    using (StreamWriter file = new StreamWriter(Application.persistentDataPath + "/save.dat")){
+                    using (StreamWriter file = new StreamWriter(Application.persistentDataPath + "/" + ((Backpack)target).savefileName)){
                         PlayerData data = new PlayerData().getDefaults();
                         file.WriteLine(Utils.Serialize(data));
                     }
@@ -319,6 +325,8 @@ public class PlayerData{
     public string currentScene;
     public Vector3 currentPosition;
     public List<InventoryItem> items;
+    public Dictionary<string, object> shelf;
+    public byte[] shelfSerialized;
 
     public PlayerData getDefaults(){
         playerName = "Mario";
@@ -336,6 +344,7 @@ public class PlayerData{
         currentScene = "TestMap";
         currentPosition = Vector3.zero;
         items = new List<InventoryItem>();
+        shelf = new Dictionary<string, object>();
         return this;
     }
 }

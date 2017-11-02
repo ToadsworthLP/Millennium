@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
@@ -7,12 +9,40 @@ public class GameManager : MonoBehaviour {
     public VirtualController controller;
 
     [Header("Player")]
-    public Backpack backpack;
     public MenuManager menuManager;
     public PlayerMachine playerMachine;
+    private Backpack backpack;
 
     [Header("Rendering")]
     public GameObject mainCamera;
     public RectTransform uiParent;
+
+    public Backpack getBackpack(){
+        if(backpack == null){
+            backpack = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>();
+        }
+        return backpack;
+    }
+
+    public T getShelfData<T>(string key, T defaultValue){
+        object data;
+        if(getBackpack().shelf.TryGetValue(key, out data)){
+            try {
+                return (T)data;
+            } catch (Exception e) {
+                Debug.LogError("Failed to cast entry " + key + " to requested type: " + e.Message + e.StackTrace);
+            }
+        };
+        return defaultValue;
+    }
+
+    public void setShelfData(string key, object value) {
+        object val;
+        if (backpack.shelf.TryGetValue(key, out val)) {
+            backpack.shelf[key] = value;
+        } else {
+            backpack.shelf.Add(key, value);
+        }
+    }
 
 }

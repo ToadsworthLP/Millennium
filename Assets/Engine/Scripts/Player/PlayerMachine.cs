@@ -50,7 +50,6 @@ public class PlayerMachine : MonoBehaviour {
 		grounded = true;
 		rigidbody = gameObject.GetComponent<Rigidbody> ();
         collider = gameObject.GetComponent<BoxCollider>();
-        gameManager.backpack = FindObjectOfType<Backpack>();
 	}
 		
 	void FixedUpdate () {
