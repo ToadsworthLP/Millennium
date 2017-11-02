@@ -1,10 +1,11 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Typewriter : MonoBehaviour {
 
-	[TextArea]
+    [TextArea]
 	public string[] inputText;
 	public float defaultSpeed;
     public float waitDelay;
@@ -31,7 +32,7 @@ public class Typewriter : MonoBehaviour {
 	private int pageCount;
 	private int pageProgress;
 
-	void Awake() {
+    void Awake() {
 		isPageFinished = true;
         speed = defaultSpeed;
         animator = GetComponent<Animator>();

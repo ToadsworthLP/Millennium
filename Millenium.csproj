@@ -78,16 +78,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Millenium.Plugins.csproj">
+      <Project>{9FED15EE-6148-9825-A08E-663E3EEE880B}</Project>
+      <Name>Millenium.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Custom Input Manager v1.4\Scripts\custom_inputs.cs" />
-    <Compile Include="Assets\NodeEditor\EditorConnection.cs" />
-    <Compile Include="Assets\NodeEditor\EditorConnectionPoint.cs" />
-    <Compile Include="Assets\NodeEditor\EditorNode.cs" />
-    <Compile Include="Assets\NodeEditor\MilleniumNodes\Cutscene\ShowTextboxNode.cs" />
-    <Compile Include="Assets\NodeEditor\MilleniumNodes\Generic\BranchNode.cs" />
-    <Compile Include="Assets\NodeEditor\MilleniumNodes\Generic\EndPointNode.cs" />
-    <Compile Include="Assets\NodeEditor\MilleniumNodes\Generic\EntryPointNode.cs" />
-    <Compile Include="Assets\NodeEditor\NodeBasedEditor.cs" />
-    <Compile Include="Assets\NodeEditor\NodeTypes.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISelectable.cs" />
     <Compile Include="Assets\Scripts\Items\HealingCollectible.cs" />
@@ -140,12 +137,15 @@
     <Compile Include="Assets\Scripts\UI\TextWithShadow.cs" />
     <Compile Include="Assets\Scripts\UI\Typewriter.cs" />
     <Compile Include="Assets\Scripts\Utils\CutsceneManager.cs" />
+    <Compile Include="Assets\Scripts\Utils\GameManager.cs" />
     <Compile Include="Assets\Scripts\Utils\InteractableHelper.cs" />
     <Compile Include="Assets\Scripts\Utils\ItemUtils.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\Scripts\VirtualController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Plugins\Node_Editor\Resources\LineShader.shader" />
+    <None Include="Assets\Plugins\Node_Editor\Utilities\link.xml" />
     <None Include="Assets\Shaders\Rainbow.shader" />
     <None Include="Assets\Shaders\ShadowSprite.shader" />
     <None Include="Assets\Shaders\Shared\ShaderTools.cginc" />

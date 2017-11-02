@@ -136,7 +136,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Plugins\Editor\Node_Editor\CanvasInspector.cs" />
     <Compile Include="Assets\Plugins\Editor\Node_Editor\NodeEditorWindow.cs" />
+    <Compile Include="Assets\Plugins\Editor\Node_Editor\NodeInspector.cs" />
     <Compile Include="Assets\Plugins\Editor\Node_Editor\RTCanvasCalculatorEditor.cs" />
     <Compile Include="Assets\Plugins\Editor\Node_Editor\RTNodeEditorInspector.cs" />
   </ItemGroup>

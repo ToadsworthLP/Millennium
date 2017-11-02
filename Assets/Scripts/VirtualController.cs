@@ -19,7 +19,7 @@ public class VirtualController : MonoBehaviour {
         direction = new Vector2();
 	}
 
-    void Update() {
+    void FixedUpdate() {
         if(updateInput){
             Vector2 dir = new Vector2();
 
