@@ -130,21 +130,11 @@
       <Project>{9FBF962F-2315-A184-58E6-F5518ADC6E6A}</Project>
       <Name>Millenium</Name>
     </ProjectReference>
-    <ProjectReference Include="Millenium.Plugins.csproj">
-      <Project>{9FED15EE-6148-9825-A08E-663E3EEE880B}</Project>
-      <Name>Millenium.Plugins</Name>
-    </ProjectReference>
-    <ProjectReference Include="Millenium.Editor.Plugins.csproj">
-      <Project>{F65DF64F-7FC7-7B4C-25AD-B2663AD165A3}</Project>
-      <Name>Millenium.Editor.Plugins</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\BuiltInResourcesWindow.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Plugins\Node_Editor\Resources\LineShader.shader" />
-    <None Include="Assets\Plugins\Node_Editor\Utilities\link.xml" />
     <None Include="Assets\Shaders\Rainbow.shader" />
     <None Include="Assets\Shaders\ShadowSprite.shader" />
     <None Include="Assets\Shaders\Shared\ShaderTools.cginc" />
