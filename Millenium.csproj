@@ -79,15 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Custom Input Manager v1.4\Scripts\custom_inputs.cs" />
-    <Compile Include="Assets\NodeEditor\EditorConnection.cs" />
-    <Compile Include="Assets\NodeEditor\EditorConnectionPoint.cs" />
-    <Compile Include="Assets\NodeEditor\EditorNode.cs" />
-    <Compile Include="Assets\NodeEditor\MilleniumNodes\Cutscene\ShowTextboxNode.cs" />
-    <Compile Include="Assets\NodeEditor\MilleniumNodes\Generic\BranchNode.cs" />
-    <Compile Include="Assets\NodeEditor\MilleniumNodes\Generic\EndPointNode.cs" />
-    <Compile Include="Assets\NodeEditor\MilleniumNodes\Generic\EntryPointNode.cs" />
-    <Compile Include="Assets\NodeEditor\NodeBasedEditor.cs" />
-    <Compile Include="Assets\NodeEditor\NodeTypes.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISelectable.cs" />
     <Compile Include="Assets\Scripts\Items\HealingCollectible.cs" />
@@ -123,7 +114,6 @@
     <Compile Include="Assets\Scripts\Player\PlayerArt.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMachine.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\InventoryItem.cs" />
-    <Compile Include="Assets\Scripts\ScriptableObjects\NodeMap.cs" />
     <Compile Include="Assets\Scripts\Triggers\ExampleTrigger.cs" />
     <Compile Include="Assets\Scripts\Triggers\ExampleTriggeredObject.cs" />
     <Compile Include="Assets\Scripts\Triggers\InteractionTrigger.cs" />
@@ -139,7 +129,6 @@
     <Compile Include="Assets\Scripts\UI\SelectableHelper.cs" />
     <Compile Include="Assets\Scripts\UI\TextWithShadow.cs" />
     <Compile Include="Assets\Scripts\UI\Typewriter.cs" />
-    <Compile Include="Assets\Scripts\Utils\CutsceneManager.cs" />
     <Compile Include="Assets\Scripts\Utils\InteractableHelper.cs" />
     <Compile Include="Assets\Scripts\Utils\ItemUtils.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />

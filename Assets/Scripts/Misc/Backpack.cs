@@ -237,7 +237,7 @@ public class Backpack : MonoBehaviour {
         try{
             using (StreamReader file = new StreamReader(Application.persistentDataPath + "/" + savefileName)){
                 String dataString = file.ReadToEnd();
-                data = Utils.Deserialize<PlayerData>(dataString);
+                data = Utils.Deserialize(dataString);
             }
             return true;
         } catch(Exception e){

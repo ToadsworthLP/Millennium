@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>GamePlugins:3</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.1.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -80,44 +78,81 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\MilleniumNodes\Cutscene\EndCutsceneNode.cs" />
-    <Compile Include="Assets\Plugins\MilleniumNodes\Cutscene\StartCutsceneNode.cs" />
-    <Compile Include="Assets\Plugins\MilleniumNodes\Cutscene\TextBoxNode.cs" />
-    <Compile Include="Assets\Plugins\MilleniumNodes\FlowConnection.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Example\RTCanvasCalculator.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Example\RTNodeEditor.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\ConnectionTypes.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\Node.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeCanvas.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeCanvasManager.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeCanvasSceneSave.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeEditor.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeEditorCallbackReceiver.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeEditorGUI.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeEditorInputControls.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeEditorInputSystem.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeEditorSaveManager.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeEditorState.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeEditorUserCache.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeInput.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeKnob.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeOutput.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Framework\NodeTypes.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Nodes\Example\AllAroundNode.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Nodes\Example\ExampleNode.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Nodes\Example\FlowNode.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Nodes\FloatCalc\CalcNode.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Nodes\FloatCalc\DisplayNode.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Nodes\FloatCalc\InputNode.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Utilities\EditorLoadingControl.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Utilities\GUI\GUIScaleUtility.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Utilities\GUI\OverlayGUI.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Utilities\GUI\RTEditorGUI.cs" />
-    <Compile Include="Assets\Plugins\Node_Editor\Utilities\ResourceManager.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\AnimatorExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\ComponentExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\DelegateExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\FastReflection.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\Flags.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\GameObjectExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\GenericEnumerableExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\LayerMaskExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\MemberInfoExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\MethodInfoExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\OtherExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\PropertyInfoExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\RendererExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\RigidbodyExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\StringExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\SystemObjectExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\TransformExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\TypeExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\UnityObjectExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Extensions\VectorExtensions.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Helpers\ErrorHelper.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Helpers\EventsHelper.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Helpers\GizHelper.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Helpers\ReflectionHelper.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Libs\Helpers\RuntimeHelper.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\Categories\CategoryAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\Categories\CategoryDisplay.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\Categories\CategoryMemberType.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\Categories\CategorySetOp.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\Categories\DefineCategoriesAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\Categories\DefineCategoryAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\DisplayAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\DrawingAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\UsingAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\API\VisibilityAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\AnimVarAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\AssignableAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\BetterVectorAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\ButtonAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\ClampAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\CommentAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\ConstrainValueAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\DraggableAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\EnumMaskAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\FilterEnumAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\FilterTagsAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\InlineAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\InputAxisAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\IPAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\MaxAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\MinAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\OnChangedAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\ParagraphAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\PathAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\PopupAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\RandAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\RegexAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\ResourcePathAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\SelectEnumAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\SelectSceneAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\ShowTypeAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\SliderAttributes.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\TagsAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Attributes\User\WhiteSpaceAttribute.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Core\BaseBehaviour.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Core\BaseScriptableObject.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Others\DataRecord.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Others\ItemTuple.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Others\KVPList.cs" />
+    <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Others\SerializableDictionary.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Plugins\Node_Editor\Resources\LineShader.shader" />
-    <None Include="Assets\Plugins\Node_Editor\Utilities\link.xml" />
+    <None Include="Assets\Plugins\Editor\Vexe\LICENSE.txt" />
+    <None Include="Assets\Plugins\Vexe\HISTORY.txt" />
+    <None Include="Assets\Plugins\Vexe\LICENSE.txt" />
     <None Include="Assets\Shaders\Rainbow.shader" />
     <None Include="Assets\Shaders\ShadowSprite.shader" />
     <None Include="Assets\Shaders\Shared\ShaderTools.cginc" />
