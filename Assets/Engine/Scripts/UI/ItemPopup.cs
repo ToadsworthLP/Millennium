@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ItemPopup : MonoBehaviour {
 
-    public InventoryItem item;
+    public BaseItem item;
     public GameObject iconPopup;
     public Text nameText;
     public Text descText;
@@ -15,7 +15,7 @@ public class ItemPopup : MonoBehaviour {
 
     private ItemIconPopup popup;
 
-    public void startPopup(InventoryItem itemType, PlayerMachine player){
+    public void startPopup(BaseItem itemType, PlayerMachine player){
         this.player = player;
         item = itemType;
 
@@ -28,7 +28,7 @@ public class ItemPopup : MonoBehaviour {
             nameText.text = "You got a <color=red>" + itemType.itemName + "</color>!";
         }
 
-        descText.text = itemType.itemDescription;
+        descText.text = itemType.description;
 
         popup = Instantiate(iconPopup, player.transform).GetComponent<ItemIconPopup>();
         animators.Add(popup.gameObject.GetComponent<Animator>());

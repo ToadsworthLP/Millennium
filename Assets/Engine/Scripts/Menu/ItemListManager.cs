@@ -44,7 +44,7 @@ public class ItemListManager : MonoBehaviour {
             startPosition = rectTransform.anchoredPosition;
         resetPosition();
 
-        List<InventoryItem> itemList = new List<InventoryItem>();
+        List<BaseItem> itemList = new List<BaseItem>();
         if (category == EnumItemKind.IMPORTANT){
             itemList = backpack.importantItems;
         }else{
@@ -54,7 +54,7 @@ public class ItemListManager : MonoBehaviour {
         if(itemList.Count > 0){
             int counter = 0;
             pageCount = (itemList.Count + 9) / 10;
-            foreach (InventoryItem item in itemList) {
+            foreach (BaseItem item in itemList) {
                 GameObject entryObj = Instantiate(itemEntryPrefab, entryParent.transform);
                 ItemEntry entry = entryObj.GetComponent<ItemEntry>();
 
@@ -63,7 +63,7 @@ public class ItemListManager : MonoBehaviour {
                 }else{
                     entryObj.GetComponent<RectTransform>().localPosition += new Vector3(235, -50 * (counter - 1) / 2, 0);
                 }
-                entry.item = item;
+                entry.item = (UsableItem)item;
                 entry.listSwitchCursor = listSwitchCursor;
                 itemCursor.optionObjects.Add(entryObj);
                 entry.setupEntry(this);
@@ -74,8 +74,6 @@ public class ItemListManager : MonoBehaviour {
     }
 
     public void scrollItemList(int targetIndex) {
-        print(targetIndex + " " + getPageOfIndex(targetIndex) + " " + currentPage);
-        
         if (getPageOfIndex(targetIndex) - 1 > currentPage) {
             targetPosition = rectTransform.anchoredPosition + new Vector2(0, 250);
             currentPage++;

@@ -7,7 +7,7 @@ public class HealingCollectible : MonoBehaviour {
     public Sprite[] blinkSprites;
     public float blinkAnimationLength;
     public SpriteRenderer art;
-    public StatModifier modifier;
+    public Utils.StatModifier modifier;
 
     private Backpack backpack;
     private Sprite defaultSprite;
@@ -33,15 +33,15 @@ public class HealingCollectible : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
             switch(modifier.statToModify){
-                case StatType.HP:
+                case Utils.StatType.HP:
                     backpack.hp += modifier.value;
                     break;
 
-                case StatType.FP:
+                case Utils.StatType.FP:
                     backpack.fp += modifier.value;
                     break;
 
-                case StatType.SP:
+                case Utils.StatType.SP:
                     backpack.sp += modifier.value;
                     break;
             }

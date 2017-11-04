@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ItemEntry : SelectableHelper {
 
-    public InventoryItem item;
+    public UsableItem item;
     [HideInInspector]
     public Cursor listSwitchCursor;
 
@@ -68,13 +68,13 @@ public class ItemEntry : SelectableHelper {
 
     public override void onCursorSelect() {
         base.onCursorSelect();
-        descriptionBox.text = item.itemDescription;
+        descriptionBox.text = item.description;
     }
 
     public override void onOKPressed() {
         base.onOKPressed();
         if(item.usableOnOverworld){
-            FindObjectOfType<ItemManager>().useItem(GameMode.FIELD, item);
+            FindObjectOfType<ItemManager>().useItemOnOverworld(item);
             onCancelPressed();
             pageOption.onCancelPressed();
         }

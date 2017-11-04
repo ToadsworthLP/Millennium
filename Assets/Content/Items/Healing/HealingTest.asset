@@ -9,15 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aebccc9d9ce2afa4181d88316ab267f5, type: 3}
-  m_Name: Mushroom
+  m_Name: HealingTest
   m_EditorClassIdentifier: 
-  itemName: Mushroom
-  description: Restores 5 HP.
-  icon: {fileID: 21300000, guid: 854163d86bad9954ca6f8f365e1cbfd4, type: 3}
+  itemName: Healing Test
+  description: Restores 3 HP and 3 FP.
+  icon: {fileID: 21300000, guid: 3cc40129dc6813b41986daab49ff1077, type: 3}
   isImportantItem: 0
   usableOnOverworld: 1
   usableOnBattle: 0
   statModifiers:
   - statToModify: 0
-    value: 5
-  statModificationDelay: 0
+    value: 3
+  - statToModify: 1
+    value: 3
+  statModificationDelay: 0.5

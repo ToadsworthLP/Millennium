@@ -1,32 +1,27 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class ItemManager : ItemCoroutines {
+public class ItemManager : MonoBehaviour {
 
-    public void useItem(GameMode mode, InventoryItem item){
-        Backpack backpack = getBackpack();
+    GameManager manager;
 
-        if(item.callCoroutineOnUse){
-            StartCoroutine(item.coroutineName, new ItemParameter(mode, item.coroutineArgs));
-        }
+    public void useItemOnOverworld(UsableItem item){
+        if(manager == null)
+            manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
 
-        if(item.statModifiers.Length > 0){
-            foreach (StatModifier mod in item.statModifiers) {
-                switch(mod.statToModify){
-                    case StatType.HP:
-                        backpack.hp += mod.value;
-                        break;
+        StartCoroutine(item.OnOverworldUse(manager));
 
-                    case StatType.FP:
-                        backpack.fp += mod.value;
-                        break;
+        Backpack backpack = manager.getBackpack();
+        backpack.items.Remove(item);
+    }
 
-                    case StatType.SP:
-                        backpack.sp += mod.value;
-                        break;
-                }
-            }
-        }
+    public void useItemInBattle(UsableItem item, Action<UsableItem> OnFinished) {
+        if (manager == null)
+            manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
 
+        StartCoroutine(item.OnBattleUse(manager, OnFinished));
+
+        Backpack backpack = manager.getBackpack();
         backpack.items.Remove(item);
     }
 }

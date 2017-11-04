@@ -13,7 +13,5 @@ public class InteractableHelper : MonoBehaviour, IInteractable {
         this.playerObject = playerObject;
     }
 
-    public virtual void interact(GameObject playerObject) {
-        
-    }
+    public virtual void interact(GameObject playerObject) {}
 }

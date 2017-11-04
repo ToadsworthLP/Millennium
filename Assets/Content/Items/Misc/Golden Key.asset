@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc1b18f0045d2b428a69322df92e485, type: 3}
+  m_Name: Golden Key
+  m_EditorClassIdentifier: 
+  itemName: Golden Key
+  description: This key serves as an example on how to make "important" items.
+  icon: {fileID: 21300000, guid: f19fcc6a30b93a746bbb2184e6ece4c0, type: 3}
+  isImportantItem: 1
+  usableOnOverworld: 0
+  usableOnBattle: 0

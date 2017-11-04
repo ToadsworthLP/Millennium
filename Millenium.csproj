@@ -78,9 +78,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Content\Items\Healing\HealingItem.cs" />
+    <Compile Include="Assets\Content\Items\Misc\PlainItem.cs" />
     <Compile Include="Assets\Engine\Custom Input Manager v1.4\Scripts\custom_inputs.cs" />
     <Compile Include="Assets\Engine\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Engine\Scripts\Interfaces\ISelectable.cs" />
+    <Compile Include="Assets\Engine\Scripts\Items\BaseItem.cs" />
+    <Compile Include="Assets\Engine\Scripts\Items\CollectibleItem.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\HealingCollectible.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\ItemCoroutines.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\ItemManager.cs" />
@@ -101,7 +105,6 @@
     <Compile Include="Assets\Engine\Scripts\Misc\Backpack.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\Billboarder.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\Coin.cs" />
-    <Compile Include="Assets\Engine\Scripts\Misc\CollectibleItem.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\ItemIconPopup.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\MusicManager.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\SaveBlock.cs" />
@@ -114,7 +117,6 @@
     <Compile Include="Assets\Engine\Scripts\Player\InteractionIcon.cs" />
     <Compile Include="Assets\Engine\Scripts\Player\PlayerArt.cs" />
     <Compile Include="Assets\Engine\Scripts\Player\PlayerMachine.cs" />
-    <Compile Include="Assets\Engine\Scripts\ScriptableObjects\InventoryItem.cs" />
     <Compile Include="Assets\Engine\Scripts\Triggers\ExampleTrigger.cs" />
     <Compile Include="Assets\Engine\Scripts\Triggers\ExampleTriggeredObject.cs" />
     <Compile Include="Assets\Engine\Scripts\Triggers\InteractionTrigger.cs" />

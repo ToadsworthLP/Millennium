@@ -197,29 +197,39 @@ public class Backpack : MonoBehaviour {
         }
     }
 
-    public List<InventoryItem> items
+    public List<BaseItem> items
     {
         get {
             return data.items;
         }
     }
-    public List<InventoryItem> normalItems
+    public List<BaseItem> normalItems
     {
         get {
             if(items != null && items.Count > 0){
                 return items.FindAll(isNormal);
             }else{
-                return new List<InventoryItem>();
+                return new List<BaseItem>();
             }
         }
     }
-    public List<InventoryItem> importantItems
+    public List<BaseItem> importantItems
     {
         get {
             if (items != null && items.Count > 0) {
                 return items.FindAll(isImportant);
             } else {
-                return new List<InventoryItem>();
+                return new List<BaseItem>();
+            }
+        }
+    }
+    public List<BaseItem> badgeItems
+    {
+        get {
+            if (items != null && items.Count > 0) {
+                return items.FindAll(isBadge);
+            } else {
+                return new List<BaseItem>();
             }
         }
     }
@@ -268,19 +278,26 @@ public class Backpack : MonoBehaviour {
     }
 
     //Sorting funtions
-    private static bool isImportant(InventoryItem item) {
-        if (item.isImportantItem) {
+    private static bool isImportant(BaseItem item) {
+        if (item is UsableItem && ((UsableItem)item).isImportantItem) {
             return true;
         } else {
             return false;
         }
     }
-
-    private static bool isNormal(InventoryItem item) {
-        if (item.isImportantItem) {
-            return false;
-        } else {
+    private static bool isNormal(BaseItem item) {
+        if (item is UsableItem && !((UsableItem)item).isImportantItem) {
+            
             return true;
+        } else {
+            return false;
+        }
+    }
+    private static bool isBadge(BaseItem item) {
+        if (item is BadgeItem) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -324,7 +341,7 @@ public class PlayerData{
     public DateTime playtime;
     public string currentScene;
     public Vector3 currentPosition;
-    public List<InventoryItem> items;
+    public List<BaseItem> items;
     public Dictionary<string, object> shelf;
     public byte[] shelfSerialized;
 
@@ -343,17 +360,18 @@ public class PlayerData{
         playtime = new DateTime(0);
         currentScene = "TestMap";
         currentPosition = Vector3.zero;
-        items = new List<InventoryItem>();
+        items = new List<BaseItem>();
         shelf = new Dictionary<string, object>();
         return this;
     }
 }
 
+[Serializable]
 public enum StatusEffect{
     POISONED, ELECRIFICATED, CHARGED, COMMAND_LOSS, DIZZY, FROZEN, BIG, STOPWATCH, AGRESSIVE
 }
 
 [Serializable]
 public enum GameMode{
-    FIELD, BATTLE, UNKNOWN
+    OVERWORLD, BATTLE, UNKNOWN
 }
