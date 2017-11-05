@@ -86,10 +86,7 @@
     <Compile Include="Assets\Engine\Scripts\Items\BaseItem.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\CollectibleItem.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\HealingCollectible.cs" />
-    <Compile Include="Assets\Engine\Scripts\Items\ItemCoroutines.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\ItemManager.cs" />
-    <Compile Include="Assets\Engine\Scripts\Items\ItemParameter.cs" />
-    <Compile Include="Assets\Engine\Scripts\Items\ItemUtils.cs" />
     <Compile Include="Assets\Engine\Scripts\Menu\DescriptionSelectable.cs" />
     <Compile Include="Assets\Engine\Scripts\Menu\GearPage.cs" />
     <Compile Include="Assets\Engine\Scripts\Menu\ItemEntry.cs" />
