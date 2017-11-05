@@ -106,6 +106,7 @@
     <Compile Include="Assets\Engine\Scripts\Misc\Billboarder.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\Coin.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\ItemIconPopup.cs" />
+    <Compile Include="Assets\Engine\Scripts\Misc\LoadingZone.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\MusicManager.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\SaveBlock.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\SmoothCameraMovement.cs" />

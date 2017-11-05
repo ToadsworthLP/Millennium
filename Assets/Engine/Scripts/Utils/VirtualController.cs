@@ -37,6 +37,5 @@ public class VirtualController : MonoBehaviour {
             jumpPressed = inputManager.isInputDown[4];
             hammerPressed = inputManager.isInputDown[5];
         }
-        
     }
 }

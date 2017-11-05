@@ -16,7 +16,6 @@ public class MusicManager : MonoBehaviour {
         audioSource.timeSamples = audioSource.clip.frequency;
         audioSource.timeSamples = 0;
 
-        StopAllCoroutines();
         audioSource.PlayDelayed(playDelay);
     }
 	

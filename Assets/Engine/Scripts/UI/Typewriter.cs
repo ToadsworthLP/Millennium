@@ -51,7 +51,6 @@ public class Typewriter : MonoBehaviour {
                 StartCoroutine(playOutAnimation());
             }
         }else if(inputManager.isInputDown[4] && !isPageFinished) {
-            StopAllCoroutines();
             textComponent.text = inputText[pageProgress].Replace("|", string.Empty);
             isPageFinished = true;
             animator.SetBool("Printing", false);
