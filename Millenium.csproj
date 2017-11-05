@@ -123,6 +123,7 @@
     <Compile Include="Assets\Engine\Scripts\Triggers\MilleniumEvent.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\CancelOption.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\Cursor.cs" />
+    <Compile Include="Assets\Engine\Scripts\UI\FadeUIImage.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\FancyNumberHandler.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\HUDController.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\HUDElementHelper.cs" />

@@ -13,9 +13,11 @@ public class GameManager : MonoBehaviour {
     public PlayerMachine playerMachine;
     private Backpack backpack;
 
-    [Header("Rendering")]
+    [Header("Rendering & UI")]
     public GameObject mainCamera;
     public RectTransform uiParent;
+    public HUDController hudController;
+    public FadeUIImage blackOverlay;
 
     public Backpack getBackpack(){
         if(backpack == null){

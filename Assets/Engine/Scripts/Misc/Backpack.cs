@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 
 public class Backpack : MonoBehaviour {
 
-    public HUDController hudController;
+    private GameManager gameManager;
     public string startSceneName;
     public Vector3 startPosition;
     public string savefileName;
@@ -27,12 +27,12 @@ public class Backpack : MonoBehaviour {
         SceneManager.sceneLoaded += sceneLoaded;
         sceneLoaded(SceneManager.GetSceneByName(data.currentScene), LoadSceneMode.Single);
         deltaPlaytime = Stopwatch.StartNew();
-        StartCoroutine(initializeHUD());
     }
 
     IEnumerator initializeHUD(){
         yield return new WaitForEndOfFrame();
-        hudController.setData(data, true);
+        gameManager.hudController.setData(data, true);
+        gameManager.blackOverlay.FadeOut();
     }
 
     //Getters and setters
@@ -54,7 +54,7 @@ public class Backpack : MonoBehaviour {
 
         set {
             data.hp = Mathf.Clamp(value, 0, maxHp);
-            hudController.setHP(data.hp);
+            gameManager.hudController.setHP(data.hp);
         }
     }
     public int maxHp
@@ -65,7 +65,7 @@ public class Backpack : MonoBehaviour {
 
         set {
             data.maxHp = Mathf.Clamp(value, 0, 99);
-            hudController.setMaxHP(data.maxHp);
+            gameManager.hudController.setMaxHP(data.maxHp);
         }
     }
     public int fp
@@ -76,7 +76,7 @@ public class Backpack : MonoBehaviour {
 
         set {
             data.fp = Mathf.Clamp(value, 0, maxFp);
-            hudController.setFP(data.fp);
+            gameManager.hudController.setFP(data.fp);
         }
     }
     public int maxFp
@@ -87,7 +87,7 @@ public class Backpack : MonoBehaviour {
 
         set {
             data.maxFp = Mathf.Clamp(value, 0, 99);
-            hudController.setMaxFP(data.maxFp);
+            gameManager.hudController.setMaxFP(data.maxFp);
         }
     }
     public int sp
@@ -118,7 +118,7 @@ public class Backpack : MonoBehaviour {
 
         set {
             data.coins = Mathf.Clamp(value, 0, 999);
-            hudController.setCoins(data.coins);
+            gameManager.hudController.setCoins(data.coins);
         }
     }
     public int starPoints
@@ -129,7 +129,7 @@ public class Backpack : MonoBehaviour {
 
         set {
             data.starPoints = Mathf.Clamp(value, 0, 99);
-            hudController.setStarPoints(data.starPoints);
+            gameManager.hudController.setStarPoints(data.starPoints);
         }
     }
     public int level
@@ -242,7 +242,9 @@ public class Backpack : MonoBehaviour {
 
     public void sceneLoaded(Scene scene, LoadSceneMode mode){
         if(SceneManager.GetSceneByName(data.currentScene).Equals(scene)){
-            FindObjectOfType<PlayerMachine>().transform.position = data.currentPosition;
+            gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+            gameManager.playerMachine.transform.position = data.currentPosition;
+            StartCoroutine(initializeHUD());
         }
     }
 

@@ -110,12 +110,6 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &53210322 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114206397538137614, guid: c3e442d8bcfc1d3479c6ee1170b28502,
-    type: 2}
-  m_PrefabInternal: {fileID: 1037233336}
-  m_Script: {fileID: 11500000, guid: ee3065c32cea23e44ba3db9c54b76ccc, type: 3}
 --- !u!1001 &117854693
 Prefab:
   m_ObjectHideFlags: 0
@@ -206,7 +200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47fad22e602b6fc4cbafb277f08dcb94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hudController: {fileID: 53210322}
   startSceneName: TestMap
   startPosition: {x: 0, y: 0, z: 0}
   savefileName: save.dat
@@ -1221,11 +1214,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114530183462655954, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+    - target: {fileID: 114716414487834012, guid: c3e442d8bcfc1d3479c6ee1170b28502,
         type: 2}
-      propertyPath: backpack
-      value: 
-      objectReference: {fileID: 151959843}
+      propertyPath: fadeDuration
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
   m_IsPrefabParent: 0
