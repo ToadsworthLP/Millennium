@@ -6911,7 +6911,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 114674252849662988}
   controller: {fileID: 114795575383925312}
-  backpack: {fileID: 0}
   menuManager: {fileID: 114889914597516588}
   playerMachine: {fileID: 114868371244616986}
   mainCamera: {fileID: 1136740510735492}
