@@ -31,6 +31,8 @@ public class Typewriter : MonoBehaviour {
 	private int pageCount;
 	private int pageProgress;
 
+    private Coroutine typewriterCoroutine;
+
 	void Awake() {
 		isPageFinished = true;
         speed = defaultSpeed;
@@ -51,7 +53,7 @@ public class Typewriter : MonoBehaviour {
                 StartCoroutine(playOutAnimation());
             }
         }else if(inputManager.isInputDown[4] && !isPageFinished) {
-            StopAllCoroutines();
+            StopCoroutine(typewriterCoroutine);
             textComponent.text = inputText[pageProgress].Replace("|", string.Empty);
             isPageFinished = true;
             animator.SetBool("Printing", false);
@@ -67,7 +69,7 @@ public class Typewriter : MonoBehaviour {
 	
 	void printPage (int pageNumber) {
         animator.SetBool("Printing", true);
-        StartCoroutine(printText (inputText[pageNumber]));
+        typewriterCoroutine = StartCoroutine(printText (inputText[pageNumber]));
 	}
 
 	IEnumerator printText(string text){
