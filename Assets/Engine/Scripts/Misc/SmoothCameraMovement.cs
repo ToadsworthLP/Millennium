@@ -8,6 +8,8 @@ public class SmoothCameraMovement : MonoBehaviour {
     public float distance = 10.0f;
     // the height we want the camera to be above the target
     public float height = 5.0f;
+    // the target angle on the X axis if lookAtTarget is disabled
+    public float xTargetAngle;
     // How much we want to damp
     public float heightDamping = 2.0f;
     public float rotationDamping = 3.0f;
@@ -22,17 +24,18 @@ public class SmoothCameraMovement : MonoBehaviour {
         // Calculate the current rotation angles
         float wantedRotationAngle = target.eulerAngles.y;
         float wantedHeight = target.position.y + height;
-        float currentRotationAngle = transform.eulerAngles.y;
+        float currentRotationAngleY = transform.eulerAngles.y;
+        float currentRotationAngleX = transform.eulerAngles.x;
         float currentHeight = transform.position.y;
 
         // Damp the rotation around the y-axis
-        currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
+        currentRotationAngleY = Mathf.LerpAngle(currentRotationAngleY, wantedRotationAngle, rotationDamping * Time.deltaTime);
 
         // Damp the height
         currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
 
         // Convert the angle into a rotation
-        Quaternion currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
+        Quaternion currentRotation = Quaternion.Euler(0, currentRotationAngleY, 0);
 
         // Set the position of the camera on the x-z plane to:
         // distance meters behind the target
@@ -42,7 +45,11 @@ public class SmoothCameraMovement : MonoBehaviour {
         // Set the height of the camera
         transform.position = new Vector3(transform.position.x, currentHeight, transform.position.z);
 
-        if(lookAtTarget)
+        if (lookAtTarget) {
             transform.LookAt(target);
+        }else{
+            float angle = Mathf.LerpAngle(currentRotationAngleX, xTargetAngle, rotationDamping * Time.deltaTime);
+            transform.eulerAngles = new Vector3(angle, transform.eulerAngles.y, transform.eulerAngles.z);
+        }
     }
 }

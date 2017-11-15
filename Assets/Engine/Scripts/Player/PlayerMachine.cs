@@ -16,6 +16,7 @@ public class PlayerMachine : MonoBehaviour {
     public bool allowJumping;
     public bool allowArtUpdate;
     public bool allowMenuOpen;
+    public bool disableAngledControls;
 
     [Header("Speed control")]
     public float moveSpeed;
@@ -99,11 +100,14 @@ public class PlayerMachine : MonoBehaviour {
 
 	void doMovement(){
 
-        rigidbody.velocity += new Vector3(gameManager.controller.direction.x*moveSpeed, 0, gameManager.controller.direction.y*moveSpeed);
+        if(disableAngledControls){
+            rigidbody.velocity += new Vector3(gameManager.controller.direction.x * moveSpeed, 0, gameManager.controller.direction.y * moveSpeed);
+        } else{
+            rigidbody.velocity += Quaternion.AngleAxis(transform.rotation.eulerAngles.y, transform.up) * new Vector3(gameManager.controller.direction.x * moveSpeed, 0, gameManager.controller.direction.y * moveSpeed);
+        }
 
 		if (gameManager.controller.jumpPressed && feet.CheckGroundStatus ()) {
             if(allowJumping && interaction == null){
-                //rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
                 rigidbody.AddRelativeForce(new Vector3(rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z));
                 art.playJumpSound();
             }else if (interaction != null){

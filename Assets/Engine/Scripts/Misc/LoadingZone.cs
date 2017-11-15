@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
@@ -28,6 +27,7 @@ public class LoadingZone : MonoBehaviour {
 
     IEnumerator handleLoadingZone() {
         gameManager.playerMachine.setCutsceneMode(true);
+        gameManager.playerMachine.disableAngledControls = true;
 
         Vector3 exitDirection = getExitDirection(this);
         gameManager.controller.direction = new Vector2(exitDirection.x, exitDirection.z);
@@ -46,6 +46,7 @@ public class LoadingZone : MonoBehaviour {
 
     IEnumerator delayPlayerControl(){
         yield return new WaitForSeconds(controlDelay);
+        gameManager.playerMachine.disableAngledControls = false;
         gameManager.playerMachine.setCutsceneMode(false);
         disabled = false;
     }

@@ -101,6 +101,7 @@
     <Compile Include="Assets\Engine\Scripts\Menu\TriggerAnimationSelectable.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\Backpack.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\Billboarder.cs" />
+    <Compile Include="Assets\Engine\Scripts\Misc\CameraTurn.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\Coin.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\ItemIconPopup.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\LoadingZone.cs" />

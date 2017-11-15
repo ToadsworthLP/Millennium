@@ -18,12 +18,20 @@ public class GameManager : MonoBehaviour {
     public RectTransform uiParent;
     public HUDController hudController;
     public FadeUIImage blackOverlay;
+    private SmoothCameraMovement cameraController;
 
     public Backpack getBackpack(){
         if(backpack == null){
             backpack = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>();
         }
         return backpack;
+    }
+
+    public SmoothCameraMovement getCameraController(){
+        if(cameraController == null){
+            cameraController = mainCamera.GetComponent<SmoothCameraMovement>();
+        }
+        return cameraController;
     }
 
     public T getShelfData<T>(string key, T defaultValue){
