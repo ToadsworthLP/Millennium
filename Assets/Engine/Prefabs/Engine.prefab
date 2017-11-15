@@ -3846,7 +3846,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022675978837426}
-  m_Material: {fileID: 13400000, guid: ba92fb44336020f40bdf294bb66bc9da, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -6984,6 +6984,7 @@ MonoBehaviour:
   height: 1.1
   heightDamping: 2
   rotationDamping: 3
+  lookAtTarget: 0
 --- !u!114 &114541190130093792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8594,7 +8595,7 @@ MonoBehaviour:
   allowArtUpdate: 1
   allowMenuOpen: 1
   moveSpeed: 0.45
-  jumpSpeed: 13
+  jumpSpeed: 650
 --- !u!114 &114889381702863066
 MonoBehaviour:
   m_ObjectHideFlags: 1

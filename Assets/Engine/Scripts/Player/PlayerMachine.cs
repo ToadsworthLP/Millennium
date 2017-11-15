@@ -103,7 +103,8 @@ public class PlayerMachine : MonoBehaviour {
 
 		if (gameManager.controller.jumpPressed && feet.CheckGroundStatus ()) {
             if(allowJumping && interaction == null){
-                rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
+                //rigidbody.velocity = new Vector3 (rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z);
+                rigidbody.AddRelativeForce(new Vector3(rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z));
                 art.playJumpSound();
             }else if (interaction != null){
                 interaction.interact(gameObject);

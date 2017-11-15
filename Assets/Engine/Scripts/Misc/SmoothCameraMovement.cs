@@ -11,6 +11,8 @@ public class SmoothCameraMovement : MonoBehaviour {
     // How much we want to damp
     public float heightDamping = 2.0f;
     public float rotationDamping = 3.0f;
+    // If we want to look at the target transform
+    public bool lookAtTarget = false;
 
     void LateUpdate() {
         // Early out if we don't have a target
@@ -39,5 +41,8 @@ public class SmoothCameraMovement : MonoBehaviour {
 
         // Set the height of the camera
         transform.position = new Vector3(transform.position.x, currentHeight, transform.position.z);
+
+        if(lookAtTarget)
+            transform.LookAt(target);
     }
 }
