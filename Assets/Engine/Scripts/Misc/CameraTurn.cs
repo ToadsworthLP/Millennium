@@ -18,10 +18,12 @@ public class CameraTurn : MonoBehaviour {
     private bool isTurning;
 
     void OnDisable() {
-        playerObject.eulerAngles = startRotation;
-        camera.lookAtTarget = false;
-        camera.transform.eulerAngles = new Vector3(camera.transform.eulerAngles.x, playerObject.eulerAngles.y, camera.transform.eulerAngles.z);
-        isTurning = false;
+        if(isTurning){
+            playerObject.eulerAngles = startRotation;
+            camera.lookAtTarget = false;
+            camera.transform.eulerAngles = new Vector3(camera.transform.eulerAngles.x, playerObject.eulerAngles.y, camera.transform.eulerAngles.z);
+            isTurning = false;
+        }
     }
 
     void OnTriggerEnter(Collider other) {
