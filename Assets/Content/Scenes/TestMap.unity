@@ -2249,6 +2249,36 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114606145289100448, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: boolSelectTriggers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114606145289100448, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: floatSelectTriggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961311119279912, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: floatSelectTriggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114606145289100448, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: boolDeselectTriggers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961311119279912, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: floatDeselectTriggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114606145289100448, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: floatDeselectTriggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4048294425252404, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2280,6 +2310,120 @@ Prefab:
     - target: {fileID: 4048294425252404, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20572612405332166, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: field of view
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 20572612405332166, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: m_CullingMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306479423351296, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 114606145289100448, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: boolSelectTriggers.Array.data[0].name
+      value: Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114606145289100448, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: boolSelectTriggers.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114606145289100448, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: boolDeselectTriggers.Array.data[0].name
+      value: Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114606145289100448, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: boolDeselectTriggers.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961311119279912, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: floatSelectTriggers.Array.data[0].name
+      value: normalizedSpeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961311119279912, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: floatSelectTriggers.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961311119279912, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: floatDeselectTriggers.Array.data[0].name
+      value: normalizedSpeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961311119279912, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: floatDeselectTriggers.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114868371244616986, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: hammerDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212958028090419158, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212906662158656072, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212906662158656072, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.166
+      objectReference: {fileID: 0}
+    - target: {fileID: 212906662158656072, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.169
+      objectReference: {fileID: 0}
+    - target: {fileID: 114344153209356074, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: hammerSwingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d7b2abce5adf1e5428e9f23d8c9f5cb5, type: 3}
+    - target: {fileID: 114344153209356074, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: hammerHitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bd7af74cfe12243428f05b3d7d64c934, type: 3}
+    - target: {fileID: 114606145289100448, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: floatSelectTriggers.Array.data[0].name
+      value: Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114606145289100448, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: floatSelectTriggers.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114606145289100448, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: floatDeselectTriggers.Array.data[0].name
+      value: Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114606145289100448, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: floatDeselectTriggers.Array.data[0].value
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114889914597516588, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: playerControlDelay
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}

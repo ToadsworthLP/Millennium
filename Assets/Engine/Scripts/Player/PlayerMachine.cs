@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerMachine : MonoBehaviour {
 
@@ -14,6 +15,7 @@ public class PlayerMachine : MonoBehaviour {
     [Header("Behaviour control")]
     public bool allowMovement;
     public bool allowJumping;
+    public bool allowHammering;
     public bool allowArtUpdate;
     public bool allowMenuOpen;
     public bool disableAngledControls;
@@ -21,11 +23,13 @@ public class PlayerMachine : MonoBehaviour {
     [Header("Speed control")]
     public float moveSpeed;
 	public float jumpSpeed;
+    public float hammerDuration;
 
     [HideInInspector]
     public IInteractable interaction;
 
     private bool grounded;
+    private bool hammering;
     private Rigidbody rigidbody;
     private BoxCollider collider;
 
@@ -40,6 +44,7 @@ public class PlayerMachine : MonoBehaviour {
 
     public void setCutsceneMode(bool status){
         allowJumping = !status;
+        allowHammering = !status;
         allowMenuOpen = !status;
         gameManager.controller.updateInput = !status;
         gameManager.controller.direction = Vector2.zero;
@@ -58,6 +63,7 @@ public class PlayerMachine : MonoBehaviour {
         if (allowMovement) {
 			doMovement ();
         }
+        doActions();
         if(allowMenuOpen){
             doMenu();
         }
@@ -99,24 +105,30 @@ public class PlayerMachine : MonoBehaviour {
     }
 
 	void doMovement(){
-
         if(disableAngledControls){
             rigidbody.velocity += new Vector3(gameManager.controller.direction.x * moveSpeed, 0, gameManager.controller.direction.y * moveSpeed);
         } else{
             rigidbody.velocity += Quaternion.AngleAxis(transform.rotation.eulerAngles.y, transform.up) * new Vector3(gameManager.controller.direction.x * moveSpeed, 0, gameManager.controller.direction.y * moveSpeed);
         }
-
-		if (gameManager.controller.jumpPressed && feet.CheckGroundStatus ()) {
-            if(allowJumping && interaction == null){
-                rigidbody.AddRelativeForce(new Vector3(rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z));
-                art.playJumpSound();
-            }else if (interaction != null){
-                interaction.interact(gameObject);
-                interactionIcon.hideIcon();
-            }
-			
-		}
 	}
+
+    void doActions(){
+        if (feet.CheckGroundStatus()) {
+            if (gameManager.controller.jumpPressed) {
+                if (allowJumping && interaction == null) {
+                    rigidbody.AddRelativeForce(new Vector3(rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z));
+                    art.playJumpSound();
+                } else if (interaction != null) {
+                    interaction.interact(gameObject);
+                    interactionIcon.hideIcon();
+                }
+            }
+
+            if (gameManager.controller.hammerPressed && !hammering) {
+                StartCoroutine(hammer());
+            }
+        }
+    }
 
 	void updateArt(){
         float side = 1;
@@ -148,4 +160,18 @@ public class PlayerMachine : MonoBehaviour {
 			}
 		}
 	}
+
+    IEnumerator hammer(){
+        hammering = true;
+
+        art.hammerSwing();
+        art.animator.SetFloat("Hammer", 1);
+        allowMovement = false;
+        yield return new WaitForSeconds(hammerDuration);
+        art.hammerHit();
+        art.animator.SetFloat("Hammer", -1);
+        allowMovement = true;
+
+        hammering = false;
+    }
 }

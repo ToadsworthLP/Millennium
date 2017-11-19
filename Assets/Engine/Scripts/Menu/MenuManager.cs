@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
@@ -6,6 +7,7 @@ public class MenuManager : MonoBehaviour {
     public Text descriptionBox;
     public GameObject tabCursor;
     public float animationLength;
+    public float playerControlDelay;
     public MenuPage[] pages;
     public PlayerMachine player;
     public Animator animator;
@@ -32,9 +34,7 @@ public class MenuManager : MonoBehaviour {
             }
             active = false;
             animator.SetTrigger("CloseMenu");
-            player.setCutsceneMode(false);
-            player.allowArtUpdate = true;
-            player.setFrozenStatus(false);
+            StartCoroutine(delayPlayerControl());
         }
     }
 
@@ -50,6 +50,13 @@ public class MenuManager : MonoBehaviour {
 
     public MenuPage getPageOfIndex(int index){
         return pages[index];
+    }
+
+    IEnumerator delayPlayerControl(){
+        yield return new WaitForSeconds(playerControlDelay);
+        player.setCutsceneMode(false);
+        player.allowArtUpdate = true;
+        player.setFrozenStatus(false);
     }
 
 }
