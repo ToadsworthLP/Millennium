@@ -13,10 +13,13 @@ public class PlayerPage : MonoBehaviour {
     public Text bpText;
     public Text advancedNumberText;
 
+    public Image hammerIcon;
+
+    public GameManager gameManager;
     private Backpack backpack;
 
     void Awake() {
-        backpack = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>();
+        backpack = gameManager.getBackpack();
     }
 
     void OnEnable() {
@@ -35,6 +38,13 @@ public class PlayerPage : MonoBehaviour {
             backpack.starPieces + Utils.newLine() +
             backpack.shineSprites + Utils.newLine() +
             playtime.Hour + " : " + playtime.Minute;
+
+        hammerIcon.sprite = backpack.currentHammer.hammerIcon;
+        gameManager.getPlayerRenderTexture();
+    }
+
+    void OnDisable() {
+        gameManager.releaseRenderTexture();
     }
 
 }

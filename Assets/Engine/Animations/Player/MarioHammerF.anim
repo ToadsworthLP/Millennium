@@ -215,8 +215,14 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.22222222
         value: {x: 0, y: 0.05, z: 0}
-        inSlope: {x: 0, y: 0.09000001, z: 0}
-        outSlope: {x: 0, y: 0.09000001, z: 0}
+        inSlope: {x: 0, y: 0.045000006, z: 0}
+        outSlope: {x: 0, y: 0.045000006, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.25
+        value: {x: 0, y: 0.05, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -536,6 +542,12 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 136
+      - serializedVersion: 2
+        time: 0.072222225
+        value: 0.166
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -549,6 +561,12 @@ AnimationClip:
       - serializedVersion: 2
         time: 0
         value: 0.247
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.072222225
+        value: 0.169
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -596,7 +614,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 21300018, guid: 72f12faa5c64a8d4bbd2183c1e5f966c, type: 3}
     - time: 0.072222225
-      value: {fileID: 0}
+      value: {fileID: 21300026, guid: 72f12faa5c64a8d4bbd2183c1e5f966c, type: 3}
     attribute: m_Sprite
     path: Body/ArmF
     classID: 212
@@ -759,6 +777,20 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 886207291
+      attribute: 4197328169
+      script: {fileID: 0}
+      typeID: 212
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 886207291
+      attribute: 2368279999
+      script: {fileID: 0}
+      typeID: 212
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 886207291
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -800,20 +832,6 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 886207291
-      attribute: 4197328169
-      script: {fileID: 0}
-      typeID: 212
-      customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 886207291
-      attribute: 2368279999
-      script: {fileID: 0}
-      typeID: 212
-      customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
       path: 263612589
       attribute: 4197328169
       script: {fileID: 0}
@@ -829,7 +847,7 @@ AnimationClip:
       isPPtrCurve: 0
     pptrCurveMapping:
     - {fileID: 21300018, guid: 72f12faa5c64a8d4bbd2183c1e5f966c, type: 3}
-    - {fileID: 0}
+    - {fileID: 21300026, guid: 72f12faa5c64a8d4bbd2183c1e5f966c, type: 3}
     - {fileID: 21300040, guid: 72f12faa5c64a8d4bbd2183c1e5f966c, type: 3}
     - {fileID: 21300018, guid: 72f12faa5c64a8d4bbd2183c1e5f966c, type: 3}
     - {fileID: 0}
@@ -838,7 +856,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.22222222
+    m_StopTime: 0.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -881,6 +899,12 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 34
+      - serializedVersion: 2
+        time: 0.25
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -912,8 +936,14 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.22222222
         value: 0.05
-        inSlope: 0.09000001
-        outSlope: 0.09000001
+        inSlope: 0.045000006
+        outSlope: 0.045000006
+        tangentMode: 34
+      - serializedVersion: 2
+        time: 0.25
+        value: 0.05
+        inSlope: 0
+        outSlope: 0
         tangentMode: 34
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -945,6 +975,12 @@ AnimationClip:
         tangentMode: 34
       - serializedVersion: 2
         time: 0.22222222
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+      - serializedVersion: 2
+        time: 0.25
         value: 0
         inSlope: 0
         outSlope: 0
@@ -2365,6 +2401,12 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 136
+      - serializedVersion: 2
+        time: 0.072222225
+        value: 0.166
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -2378,6 +2420,12 @@ AnimationClip:
       - serializedVersion: 2
         time: 0
         value: 0.247
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.072222225
+        value: 0.169
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2697,13 +2745,6 @@ AnimationClip:
   m_Events:
   - time: 0
     functionName: hammerSwing
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.11111111
-    functionName: hammerHit
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

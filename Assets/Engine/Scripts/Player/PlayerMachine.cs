@@ -7,6 +7,7 @@ public class PlayerMachine : MonoBehaviour {
     public GameManager gameManager;
 	public Feet feet;
 	public PlayerArt art;
+    public Hammer hammer;
     public InteractionIcon interactionIcon;
 	public ParticleSystem particles;
     public AudioSource audioSource;
@@ -19,6 +20,7 @@ public class PlayerMachine : MonoBehaviour {
     public bool allowArtUpdate;
     public bool allowMenuOpen;
     public bool disableAngledControls;
+    public bool hammering;
 
     [Header("Speed control")]
     public float moveSpeed;
@@ -29,7 +31,6 @@ public class PlayerMachine : MonoBehaviour {
     public IInteractable interaction;
 
     private bool grounded;
-    private bool hammering;
     private Rigidbody rigidbody;
     private BoxCollider collider;
 
@@ -76,7 +77,7 @@ public class PlayerMachine : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         IInteractable temp;
         temp = other.GetComponent<IInteractable>();
-        if(temp != null){
+        if(temp != null && !hammering){
             interaction = temp;
             interactionIcon.spriteRenderer.sprite = interaction.getIcon();
             interactionIcon.showIcon();
@@ -125,7 +126,7 @@ public class PlayerMachine : MonoBehaviour {
             }
 
             if (gameManager.controller.hammerPressed && !hammering) {
-                StartCoroutine(hammer());
+                hammer.swingHammer();
             }
         }
     }
@@ -160,18 +161,4 @@ public class PlayerMachine : MonoBehaviour {
 			}
 		}
 	}
-
-    IEnumerator hammer(){
-        hammering = true;
-
-        art.hammerSwing();
-        art.animator.SetFloat("Hammer", 1);
-        allowMovement = false;
-        yield return new WaitForSeconds(hammerDuration);
-        art.hammerHit();
-        art.animator.SetFloat("Hammer", -1);
-        allowMovement = true;
-
-        hammering = false;
-    }
 }

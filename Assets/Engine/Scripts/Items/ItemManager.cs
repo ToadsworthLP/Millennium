@@ -9,7 +9,7 @@ public class ItemManager : MonoBehaviour {
         if(manager == null)
             manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
 
-        StartCoroutine(item.OnOverworldUse(manager));
+        StartCoroutine(item.OnOverworldUse(manager, onFinishUse));
 
         Backpack backpack = manager.getBackpack();
         backpack.items.Remove(item);
@@ -23,5 +23,9 @@ public class ItemManager : MonoBehaviour {
 
         Backpack backpack = manager.getBackpack();
         backpack.items.Remove(item);
+    }
+
+    public void onFinishUse(UsableItem item){
+
     }
 }

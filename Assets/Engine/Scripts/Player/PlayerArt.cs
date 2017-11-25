@@ -28,7 +28,11 @@ public class PlayerArt : MonoBehaviour {
     }
 
     public void endHammer(){
-        //Stub
+        if(player.hammering){
+            animator.SetFloat("Hammer", -1);
+            player.allowMovement = true;
+            player.hammering = false;
+        }
     }
 
 }

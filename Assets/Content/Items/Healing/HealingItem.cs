@@ -8,7 +8,7 @@ public class HealingItem : UsableItem {
     public Utils.StatModifier[] statModifiers;
     public float statModificationDelay;
 
-    public override IEnumerator OnOverworldUse(GameManager manager) {
+    public override IEnumerator OnOverworldUse(GameManager manager, Action<UsableItem> OnFinished) {
         foreach (Utils.StatModifier mod in statModifiers) {
             switch (mod.statToModify) {
                 case Utils.StatType.HP:

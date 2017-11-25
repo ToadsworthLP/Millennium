@@ -10,7 +10,7 @@ public class PlainItem : UsableItem {
         return null;
     }
 
-    public override IEnumerator OnOverworldUse(GameManager manager) {
+    public override IEnumerator OnOverworldUse(GameManager manager, Action<UsableItem> OnFinished) {
         return null;
     }
 

@@ -80,7 +80,11 @@
   <ItemGroup>
     <Compile Include="Assets\Content\Items\Healing\HealingItem.cs" />
     <Compile Include="Assets\Content\Items\Misc\PlainItem.cs" />
+    <Compile Include="Assets\Content\Scripts\Examples\ExampleHammerable.cs" />
+    <Compile Include="Assets\Content\Scripts\Examples\ExampleTrigger.cs" />
+    <Compile Include="Assets\Content\Scripts\Examples\ExampleTriggeredObject.cs" />
     <Compile Include="Assets\Engine\Custom Input Manager v1.4\Scripts\custom_inputs.cs" />
+    <Compile Include="Assets\Engine\Scripts\Interfaces\IHammerable.cs" />
     <Compile Include="Assets\Engine\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Engine\Scripts\Interfaces\ISelectable.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\BaseItem.cs" />
@@ -113,11 +117,10 @@
     <Compile Include="Assets\Engine\Scripts\NPCs\NPCTalker.cs" />
     <Compile Include="Assets\Engine\Scripts\NPCs\TalkIcon.cs" />
     <Compile Include="Assets\Engine\Scripts\Player\Feet.cs" />
+    <Compile Include="Assets\Engine\Scripts\Player\Hammer.cs" />
     <Compile Include="Assets\Engine\Scripts\Player\InteractionIcon.cs" />
     <Compile Include="Assets\Engine\Scripts\Player\PlayerArt.cs" />
     <Compile Include="Assets\Engine\Scripts\Player\PlayerMachine.cs" />
-    <Compile Include="Assets\Engine\Scripts\Triggers\ExampleTrigger.cs" />
-    <Compile Include="Assets\Engine\Scripts\Triggers\ExampleTriggeredObject.cs" />
     <Compile Include="Assets\Engine\Scripts\Triggers\InteractionTrigger.cs" />
     <Compile Include="Assets\Engine\Scripts\Triggers\MilleniumEvent.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\CancelOption.cs" />

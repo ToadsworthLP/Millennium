@@ -9,8 +9,8 @@ RenderTexture:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_Width: 540
-  m_Height: 540
+  m_Width: 550
+  m_Height: 550
   m_AntiAliasing: 1
   m_DepthFormat: 1
   m_ColorFormat: 2

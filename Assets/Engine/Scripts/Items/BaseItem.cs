@@ -19,7 +19,7 @@ public abstract class UsableItem : BaseItem {
     public bool usableOnOverworld;
     public bool usableOnBattle;
 
-    public abstract IEnumerator OnOverworldUse(GameManager manager);
+    public abstract IEnumerator OnOverworldUse(GameManager manager, Action<UsableItem> OnFinished);
     public abstract IEnumerator OnBattleUse(GameManager manager, Action<UsableItem> OnFinished);
 
 }

@@ -14,6 +14,7 @@ public class Backpack : MonoBehaviour {
     private GameManager gameManager;
     public string startSceneName;
     public Vector3 startPosition;
+    public HammerAsset defaultHammer;
     public string savefileName;
 
     private PlayerData data;
@@ -27,6 +28,14 @@ public class Backpack : MonoBehaviour {
         SceneManager.sceneLoaded += sceneLoaded;
         sceneLoaded(SceneManager.GetSceneByName(data.currentScene), LoadSceneMode.Single);
         deltaPlaytime = Stopwatch.StartNew();
+    }
+
+    public void sceneLoaded(Scene scene, LoadSceneMode mode) {
+        if (SceneManager.GetSceneByName(data.currentScene).Equals(scene)) {
+            gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+            gameManager.playerMachine.transform.position = data.currentPosition;
+            StartCoroutine(initializeHUD());
+        }
     }
 
     IEnumerator initializeHUD(){
@@ -233,19 +242,24 @@ public class Backpack : MonoBehaviour {
             }
         }
     }
+    public HammerAsset currentHammer{
+        get{
+            if(data.currentHammer == null){
+                return defaultHammer;
+            }else{
+                return data.currentHammer;
+            }
+        }
+
+        set{
+            data.currentHammer = value;
+        }
+    }
 
     public List<StatusEffect> statusEffects;
 
     public Dictionary<string, object> shelf{
         get{ return data.shelf; }
-    }
-
-    public void sceneLoaded(Scene scene, LoadSceneMode mode){
-        if(SceneManager.GetSceneByName(data.currentScene).Equals(scene)){
-            gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-            gameManager.playerMachine.transform.position = data.currentPosition;
-            StartCoroutine(initializeHUD());
-        }
     }
 
     //Save system stuff
@@ -344,6 +358,7 @@ public class PlayerData{
     public string currentScene;
     public Vector3 currentPosition;
     public List<BaseItem> items;
+    public HammerAsset currentHammer;
     public Dictionary<string, object> shelf;
     public byte[] shelfSerialized;
 
@@ -363,6 +378,7 @@ public class PlayerData{
         currentScene = "TestMap";
         currentPosition = Vector3.zero;
         items = new List<BaseItem>();
+        currentHammer = null;
         shelf = new Dictionary<string, object>();
         return this;
     }
