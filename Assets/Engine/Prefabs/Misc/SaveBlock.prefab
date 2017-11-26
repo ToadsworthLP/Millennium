@@ -343,9 +343,12 @@ MonoBehaviour:
   - Couldn't save your progress. See output_log.txt for details.
   speechBubble: {fileID: 1670699679095520, guid: 0a6a1b71beb4fbe40bc8fe3e2d7bf860,
     type: 2}
-  saveMenu: {fileID: 1657148482218726, guid: d6eb4c19d84a9924ca1c532dc5569dcc, type: 2}
+  menuPrefab: {fileID: 1657148482218726, guid: 3b929ce06b503d8489fe0decf4bdc52e, type: 2}
+  jumpDelay: 0.3
   talkSound: {fileID: 8300000, guid: dd46416b2c4c01c4d9498826fecee5b8, type: 3}
   skipSound: {fileID: 8300000, guid: f2a7d389ff526844c822b4dced166ac6, type: 3}
   blockSound: {fileID: 0}
   textTint: {r: 1, g: 1, b: 1, a: 1}
   textDelay: 0.02
+  yesHighlightColor: {r: 0, g: 0.7941176, b: 0.07119655, a: 1}
+  noHighlightColor: {r: 1, g: 0.43448272, b: 0, a: 1}

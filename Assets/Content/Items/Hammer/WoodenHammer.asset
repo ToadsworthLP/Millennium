@@ -8,9 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 5737813c9ee9c3d49a67f2df6d2747a1, type: 3}
   m_Name: WoodenHammer
-  m_EditorClassIdentifier: Assembly-CSharp::HammerAsset
+  m_EditorClassIdentifier: 
   hammerName: Wooden Hammer
   hammerIcon: {fileID: 21300000, guid: 03f2f33c42ab3ab47a094750740b0561, type: 3}
   hammerSprite: {fileID: 21300008, guid: 72f12faa5c64a8d4bbd2183c1e5f966c, type: 3}

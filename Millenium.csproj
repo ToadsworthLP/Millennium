@@ -89,6 +89,7 @@
     <Compile Include="Assets\Engine\Scripts\Interfaces\ISelectable.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\BaseItem.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\CollectibleItem.cs" />
+    <Compile Include="Assets\Engine\Scripts\Items\HammerAsset.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\HealingCollectible.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\ItemManager.cs" />
     <Compile Include="Assets\Engine\Scripts\Menu\DescriptionSelectable.cs" />
@@ -123,7 +124,6 @@
     <Compile Include="Assets\Engine\Scripts\Player\PlayerMachine.cs" />
     <Compile Include="Assets\Engine\Scripts\Triggers\InteractionTrigger.cs" />
     <Compile Include="Assets\Engine\Scripts\Triggers\MilleniumEvent.cs" />
-    <Compile Include="Assets\Engine\Scripts\UI\CancelOption.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\Cursor.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\FadeUIImage.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\FancyNumberHandler.cs" />
@@ -131,7 +131,8 @@
     <Compile Include="Assets\Engine\Scripts\UI\HUDElementHelper.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\ImageToNumber.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\ItemPopup.cs" />
-    <Compile Include="Assets\Engine\Scripts\UI\SaveMenu.cs" />
+    <Compile Include="Assets\Engine\Scripts\UI\PopupMenu.cs" />
+    <Compile Include="Assets\Engine\Scripts\UI\PopupMenuOption.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\SelectableHelper.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\TextWithShadow.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\Typewriter.cs" />

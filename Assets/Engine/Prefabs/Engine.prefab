@@ -5204,7 +5204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3ff9babebbb934595c2a56c4a820ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hammer: {fileID: 11400000, guid: 6d1c016d9e867c1488e7557363d7ced3, type: 2}
+  hammer: {fileID: 0}
   gameManager: {fileID: 114530183462655954}
   hammerSpriteRenderer: {fileID: 212548376020879512}
 --- !u!114 &114105210154758532
@@ -14341,7 +14341,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
