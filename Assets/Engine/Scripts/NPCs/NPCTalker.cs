@@ -44,7 +44,7 @@ public class NPCTalker : InteractableHelper {
             writer.OnPageFinished += pageFinished;
             writer.OnBubbleClosed += bubbleClosed;
             writer.bubbleImage.color = bubbleTint;
-            writer.bubbleText.color = textTint;
+            writer.textComponent.color = textTint;
             writer.StartWriting(text);
             currentBubble = bubble;
             player.setCutsceneMode(true);

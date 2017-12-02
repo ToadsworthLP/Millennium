@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ public class ItemListManager : MonoBehaviour {
     public GameObject itemEntryPrefab;
     public Cursor itemCursor;
     public Cursor listSwitchCursor;
-    public Text descriptionBox;
+    public TextMeshProUGUI descriptionBox;
     public MenuPageOption pageOption;
     public float animationLength;
 
@@ -61,7 +62,7 @@ public class ItemListManager : MonoBehaviour {
                 if (counter % 2 == 0){
                     entryObj.GetComponent<RectTransform>().localPosition += new Vector3(0, -50 * counter / 2, 0) ;
                 }else{
-                    entryObj.GetComponent<RectTransform>().localPosition += new Vector3(235, -50 * (counter - 1) / 2, 0);
+                    entryObj.GetComponent<RectTransform>().localPosition += new Vector3(220, -50 * (counter - 1) / 2, 0);
                 }
                 entry.item = (UsableItem)item;
                 entry.listSwitchCursor = listSwitchCursor;

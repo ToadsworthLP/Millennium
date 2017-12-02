@@ -1,17 +1,18 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerPage : MonoBehaviour {
 
-    public TextWithShadow playerNameText;
-    public TextWithShadow levelText;
-    public Text rankText;
+    public TextMeshProUGUI playerNameText;
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI rankText;
 
-    public Text hpText;
-    public Text fpText;
-    public Text bpText;
-    public Text advancedNumberText;
+    public TextMeshProUGUI hpText;
+    public TextMeshProUGUI fpText;
+    public TextMeshProUGUI bpText;
+    public TextMeshProUGUI advancedNumberText;
 
     public Image hammerIcon;
 
@@ -25,8 +26,8 @@ public class PlayerPage : MonoBehaviour {
     void OnEnable() {
         DateTime playtime = backpack.playtime;
 
-        playerNameText.updateText(backpack.playerName);
-        levelText.updateText("Lvl.  " + backpack.level);
+        playerNameText.text = backpack.playerName;
+        levelText.text = "Lvl.  " + backpack.level;
         rankText.text = backpack.starRank.getName();
 
         hpText.text = backpack.hp + " / " + backpack.maxHp;

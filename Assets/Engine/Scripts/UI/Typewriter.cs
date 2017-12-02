@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,12 +9,11 @@ public class Typewriter : MonoBehaviour {
 	public string[] inputText;
 	public float defaultSpeed;
     public float waitDelay;
-	public Text textComponent;
+	public TextMeshProUGUI textComponent;
 
     public AudioClip talkSound;
     public AudioClip skipSound;
     public Image bubbleImage;
-    public Text bubbleText;
 
     public delegate void PageFinished(int page);
     public PageFinished OnPageFinished;
@@ -54,7 +54,7 @@ public class Typewriter : MonoBehaviour {
             }
         }else if(inputManager.isInputDown[4] && !isPageFinished) {
             StopCoroutine(typewriterCoroutine);
-            textComponent.text = inputText[pageProgress].Replace("|", string.Empty);
+            textComponent.maxVisibleCharacters = textComponent.text.Length;
             isPageFinished = true;
             animator.SetBool("Printing", false);
             if (OnPageFinished != null) { OnPageFinished(pageProgress); }
@@ -69,7 +69,7 @@ public class Typewriter : MonoBehaviour {
 	
 	void printPage (int pageNumber) {
         animator.SetBool("Printing", true);
-        typewriterCoroutine = StartCoroutine(printText (inputText[pageNumber]));
+        typewriterCoroutine = StartCoroutine(printText(inputText[pageNumber]));
 	}
 
 	IEnumerator printText(string text){
@@ -81,14 +81,14 @@ public class Typewriter : MonoBehaviour {
         int progress = 0;
 
         isPageFinished = false;
-		textComponent.text = "";
+		textComponent.text = text.Replace("|", string.Empty);
 
 		while (progress < textLength) {
             if (textArray[progress] != waitChar) {
                 if (textArray[progress] != spaceChar) {
                     player.audioSource.PlayOneShot(talkSound);
                 }
-                textComponent.text += textArray[progress];
+                textComponent.maxVisibleCharacters = progress+1;
                 progress++;
                 yield return new WaitForSeconds(speed);
             }else{

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebccc9d9ce2afa4181d88316ab267f5, type: 3}
   m_Name: PoisonMushroom
   m_EditorClassIdentifier: 
-  itemName: Poison Mushroom
+  itemName: Poison Shroom
   description: This mushroom makes you lose 5 HP over time.
   icon: {fileID: 21300000, guid: 6b6ecc23f1dadb04ba1ca1995ea6f2db, type: 3}
   isImportantItem: 0

@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class DescriptionSelectable : SelectableHelper {
 
     public Cursor pageSelectionCursor;
-    public Text descriptionTextBox;
+    public TextMeshProUGUI descriptionTextBox;
 
     [TextArea]
     public string descriptionText;

@@ -99,7 +99,7 @@ public class SaveBlock : MonoBehaviour
         Typewriter writer = bubble.GetComponent<Typewriter>();
         writer.talkSound = talkSound;
         writer.skipSound = skipSound;
-        writer.bubbleText.color = textTint;
+        writer.textComponent.color = textTint;
         writer.OnPageFinished += pageFinished;
         writer.StartWriting(genText);
         currentBubble = bubble;

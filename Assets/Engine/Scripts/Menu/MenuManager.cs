@@ -1,10 +1,11 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
 
-    public Text descriptionBox;
+    public TextMeshProUGUI descriptionBox;
     public GameObject tabCursor;
     public float animationLength;
     public float playerControlDelay;

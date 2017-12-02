@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ public class SelectableHelper : MonoBehaviour, ISelectable {
     public RectTransform handle;
 
     [HideInInspector]
-    public Text textComponent;
+    public TextMeshProUGUI textComponent;
 
     public virtual bool getActive() {
         return true;
@@ -23,7 +24,7 @@ public class SelectableHelper : MonoBehaviour, ISelectable {
 
     public virtual void onCursorInit(Cursor cursor) {
         if (useColorHighlight) {
-            textComponent = gameObject.GetComponent<Text>();
+            textComponent = gameObject.GetComponent<TextMeshProUGUI>();
             textComponent.canvasRenderer.SetColor(defaultColor);
         }
     }

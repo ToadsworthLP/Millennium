@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemEntry : SelectableHelper {
@@ -10,17 +11,17 @@ public class ItemEntry : SelectableHelper {
     private ItemListManager manager;
 
     private Image itemIcon;
-    private Text itemName;
+    private TextMeshProUGUI itemName;
 
     private GameObject entryParent;
-    private Text descriptionBox;
+    private TextMeshProUGUI descriptionBox;
     private MenuPageOption pageOption;
 
     private Cursor itemCursor;
 
     public void setupEntry(ItemListManager manager) {
         itemIcon = GetComponentInChildren<Image>();
-        itemName = GetComponentInChildren<Text>();
+        itemName = GetComponentInChildren<TextMeshProUGUI>();
 
         this.manager = manager;
         descriptionBox = manager.descriptionBox;

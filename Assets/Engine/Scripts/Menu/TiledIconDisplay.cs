@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class TiledIconDisplay : MonoBehaviour {
 
-    public int test;
-
     private RectTransform rectTransform;
     private Image image;
 
