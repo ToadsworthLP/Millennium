@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -61,7 +62,7 @@ public class Typewriter : MonoBehaviour {
         }
 	}
 
-    public void StartWriting(string[] text){
+    public void startWriting(string[] text){
         inputText = text;
         pageCount = inputText.Length;
         gameObject.SetActive(true);
@@ -73,11 +74,11 @@ public class Typewriter : MonoBehaviour {
 	}
 
 	IEnumerator printText(string text){
-		char[] textArray = text.ToCharArray();
+		char[] textArray = Regex.Replace(text, "<.*?>", string.Empty).ToCharArray();
         char spaceChar = " ".ToCharArray()[0];
         char waitChar = "|".ToCharArray()[0];
 
-        int textLength = text.Length;
+        int textLength = textArray.Length;
         int progress = 0;
 
         isPageFinished = false;

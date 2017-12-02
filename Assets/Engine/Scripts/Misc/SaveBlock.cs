@@ -67,9 +67,9 @@ public class SaveBlock : MonoBehaviour
         writer.OnBubbleClosed += resultBubbleClose;
 
         if (success) {
-            writer.StartWriting(saveText);
+            writer.startWriting(saveText);
         } else {
-            writer.StartWriting(errorText);
+            writer.startWriting(errorText);
         }
     }
 
@@ -101,7 +101,7 @@ public class SaveBlock : MonoBehaviour
         writer.skipSound = skipSound;
         writer.textComponent.color = textTint;
         writer.OnPageFinished += pageFinished;
-        writer.StartWriting(genText);
+        writer.startWriting(genText);
         currentBubble = bubble;
         blockAnimPlaying = false;
     }
