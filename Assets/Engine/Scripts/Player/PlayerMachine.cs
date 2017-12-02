@@ -137,17 +137,17 @@ public class PlayerMachine : MonoBehaviour {
         art.animator.SetFloat("normalizedSpeed", Mathf.Clamp01(rigidbody.velocity.magnitude));
         art.animator.SetBool("grounded", grounded);
 
-        //if (gameManager.inputManager.isInput[0] || gameManager.inputManager.isInput[1]) {
-        //    side = -gameManager.controller.direction.y;
-        //    art.animator.SetFloat("side", side);
-        //}
-
-        if (gameManager.controller.direction.y > 0f) {
-            side = -1;
-            art.animator.SetFloat("side", side);
-        } else if (gameManager.controller.direction.y < 0f) {
+        if (gameManager.controller.direction.x != 0f) {
             side = 1;
             art.animator.SetFloat("side", side);
+        } else{
+            if (gameManager.controller.direction.y > 0f) {
+                side = -1;
+                art.animator.SetFloat("side", side);
+            } else if (gameManager.controller.direction.y < 0f) {
+                side = 1;
+                art.animator.SetFloat("side", side);
+            }
         }
 
         if (gameManager.controller.direction.x > 0f) {
