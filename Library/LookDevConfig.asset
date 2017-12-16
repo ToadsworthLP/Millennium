@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 13602, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LookDevContexts:
+  - m_Properties:
+    - floatValue: -0.90478873
+      intValue: 0
+    - floatValue: 0
+      intValue: 0
+    - floatValue: 0
+      intValue: 2
+    - floatValue: 11.035069
+      intValue: 0
+    - floatValue: 0
+      intValue: -1
+  - m_Properties:
+    - floatValue: 1.2405634
+      intValue: 0
+    - floatValue: 0
+      intValue: 0
+    - floatValue: 0
+      intValue: -1
+    - floatValue: 11.035069
+      intValue: 0
+    - floatValue: 0
+      intValue: -1
+  m_LookDevProperties:
+  - m_Linked: 0
+    m_PropertyType: 1
+  - m_Linked: 0
+    m_PropertyType: 0
+  - m_Linked: 0
+    m_PropertyType: 0
+  - m_Linked: 0
+    m_PropertyType: 1
+  - m_Linked: 0
+    m_PropertyType: 0
+  m_Gizmo:
+    m_Point1: {x: 0.0037036801, y: 0.10648147}
+    m_Point2: {x: 0.0018518401, y: -0.21944445}
+    m_Center: {x: 0.0027777601, y: -0.05648149}
+    m_Angle: 0.005673323
+    m_Length: 0.16296558
+    m_Plane: {x: -0.9999839, y: 0.0056732926, z: 0.0030981514, w: 0}
+    m_PlaneOrtho: {x: 0.0056733037, y: 0.9999839, z: 0.056464825, w: 0}
+  m_LookDevMode: 1
+  m_EnableToneMap: 1
+  m_EnableShadowCubemap: 1
+  m_ExposureRange: 8
+  m_ShadowDistance: 0
+  m_ShowBalls: 0
+  m_ShowControlWindows: 1
+  m_RotateObjectMode: 0
+  m_EnvRotationSpeed: 1
+  m_RotateEnvMode: 0
+  m_ObjRotationSpeed: 1
+  m_AllowDifferentObjects: 0
+  m_CurrentContextEdition: 1
+  m_CurrentEditionContextIndex: 1
+  m_DualViewBlendFactor: 0
+  m_OriginalGameObject:
+  - {fileID: 1407061162339004, guid: 9a4991710c63c2b4e9e38ee8d1b9ed76, type: 2}
+  - {fileID: 1407061162339004, guid: 9a4991710c63c2b4e9e38ee8d1b9ed76, type: 2}
+  m_CameraState:
+  - m_Pivot:
+      m_Target: {x: 0, y: 0, z: -0.00094488263}
+      speed: 2
+      m_Value: {x: 0, y: 0, z: -0.00094488263}
+    m_Rotation:
+      m_Target: {x: 0, y: 0, z: 0, w: 1}
+      speed: 2
+      m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_ViewSize:
+      m_Target: 0.6627628
+      speed: 2
+      m_Value: 0.6627628
+  - m_Pivot:
+      m_Target: {x: 0.2969556, y: 0.19558144, z: -0.13800788}
+      speed: 2
+      m_Value: {x: 0.2969556, y: 0.19558144, z: -0.13800788}
+    m_Rotation:
+      m_Target: {x: 0.003490867, y: -0.98620117, z: 0.16421632, w: 0.021006322}
+      speed: 2
+      m_Value: {x: 0.0034908443, y: -0.98619473, z: 0.16421525, w: 0.021006184}
+    m_ViewSize:
+      m_Target: 3.3627627
+      speed: 2
+      m_Value: 3.3627627
+  m_SideBySideCameraLinked: 0
+  m_CameraStateCommon:
+    m_Pivot:
+      m_Target: {x: 0.3192954, y: 0.30489144, z: 0.26574826}
+      speed: 2
+      m_Value: {x: 0.3192954, y: 0.30489144, z: 0.26574826}
+    m_Rotation:
+      m_Target: {x: 0.00021486286, y: -0.99743026, z: -0.002992337, w: -0.071642905}
+      speed: 2
+      m_Value: {x: 0.00021486191, y: -0.99742585, z: -0.0029923238, w: -0.07164259}
+    m_ViewSize:
+      m_Target: 2.429703
+      speed: 2
+      m_Value: 2.429703
+  m_CameraStateLeft:
+    m_Pivot:
+      m_Target: {x: 0, y: 0, z: -0.00094488263}
+      speed: 2
+      m_Value: {x: 0, y: 0, z: -0.00094488263}
+    m_Rotation:
+      m_Target: {x: 0, y: 0, z: 0, w: 1}
+      speed: 2
+      m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_ViewSize:
+      m_Target: 0.6627628
+      speed: 2
+      m_Value: 0.6627628
+  m_CameraStateRight:
+    m_Pivot:
+      m_Target: {x: 0.2969556, y: 0.19558144, z: -0.13800788}
+      speed: 2
+      m_Value: {x: 0.2969556, y: 0.19558144, z: -0.13800788}
+    m_Rotation:
+      m_Target: {x: 0.003490867, y: -0.98620117, z: 0.16421632, w: 0.021006322}
+      speed: 2
+      m_Value: {x: 0.0034908443, y: -0.98619473, z: 0.16421525, w: 0.021006184}
+    m_ViewSize:
+      m_Target: 3.3627627
+      speed: 2
+      m_Value: 3.3627627

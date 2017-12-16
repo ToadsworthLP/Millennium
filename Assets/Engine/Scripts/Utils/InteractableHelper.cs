@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class InteractableHelper : MonoBehaviour, IInteractable {
+public abstract class InteractableHelper : MonoBehaviour, IInteractable {
 
     public Sprite interactionIcon;
     private GameObject playerObject;
