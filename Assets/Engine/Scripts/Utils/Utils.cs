@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
@@ -74,6 +75,16 @@ public static class Utils {
 
     public static T Deserialize<T>(string json) {
         return JsonUtility.FromJson<T>(json);
+    }
+
+    //Reflection utilities
+    public static Type[] GetAllSubclasses(Type parentType){
+        var children = from assembly in AppDomain.CurrentDomain.GetAssemblies()
+                       from type in assembly.GetTypes()
+                       where type.IsSubclassOf(parentType)
+                       select type;
+
+        return children.ToArray();
     }
 
     //Stat utilities

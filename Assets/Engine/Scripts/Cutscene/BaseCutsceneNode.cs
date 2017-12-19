@@ -7,8 +7,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public abstract class BaseCutsceneNode : MonoBehaviour {
 
-    public abstract void callNode();
     public abstract void declareOutputSlots();
+    public abstract void callNode();
     [HideInInspector]
     public CutsceneManager cutsceneManager;
 
@@ -81,11 +81,12 @@ public abstract class BaseCutsceneNode : MonoBehaviour {
 
         resetOutputs();
 
-        for (int i = 0; i < outputNodeLabels.Count; i++) {
-            if (outputNodeLabels.Count > i && outputNodeLabelsBackup.Contains(outputNodeLabels[i])) {
-                int indexInBackup = outputNodeLabelsBackup.IndexOf(outputNodeLabels[i]);
-
-                outputNodes[i] = outputNodesBackup[indexInBackup];
+        if(outputNodeLabels != null && outputNodeLabelsBackup != null){
+            for (int i = 0; i < outputNodeLabels.Count; i++) {
+                if (outputNodeLabels.Count > i && outputNodeLabelsBackup.Contains(outputNodeLabels[i])) {
+                    int indexInBackup = outputNodeLabelsBackup.IndexOf(outputNodeLabels[i]);
+                    outputNodes[i] = outputNodesBackup[indexInBackup];
+                }
             }
         }
     }
@@ -100,7 +101,6 @@ public class BaseCutsceneNodeEditor : Editor
     bool showNodeProperties;
 
     BaseCutsceneNode node;
-    SerializedProperty[] outputNodeProperties;
 
     public void OnEnable() {
         node = (BaseCutsceneNode)target;
@@ -109,8 +109,17 @@ public class BaseCutsceneNodeEditor : Editor
     public override void OnInspectorGUI() {
 
         EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Options");
+        if (GUILayout.Button("Set as start node"))
+            node.cutsceneManager.startNode = node;
+        if (GUILayout.Button("Select cutscene manager"))
+            Selection.SetActiveObjectWithContext(node.cutsceneManager.gameObject, null);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.Separator();
+
+        EditorGUILayout.BeginHorizontal();
         showOutputs = EditorGUILayout.Foldout(showOutputs, "Outputs");
-        if (GUILayout.Button("Reload slots"))
+        if (GUILayout.Button("Refresh slots"))
             node.reloadOutputs();
         EditorGUILayout.EndHorizontal();
 

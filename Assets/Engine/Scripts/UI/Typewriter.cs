@@ -32,6 +32,8 @@ public class Typewriter : MonoBehaviour {
 	private int pageCount;
 	private int pageProgress;
 
+    private bool outAnimationPlaying;
+
     private Coroutine typewriterCoroutine;
 
 	void Awake() {
@@ -51,7 +53,8 @@ public class Typewriter : MonoBehaviour {
                 pageProgress++;
                 printPage(pageProgress);
             }else{
-                StartCoroutine(playOutAnimation());
+                if(!outAnimationPlaying)
+                    StartCoroutine(playOutAnimation());
             }
         }else if(inputManager.isInputDown[4] && !isPageFinished) {
             StopCoroutine(typewriterCoroutine);
@@ -109,6 +112,7 @@ public class Typewriter : MonoBehaviour {
     }
 
     IEnumerator playOutAnimation() {
+        outAnimationPlaying = true;
         animator.SetTrigger("Close");
         if (OnBubbleClosed != null) { OnBubbleClosed(); }
         yield return new WaitForSeconds(0.2f);

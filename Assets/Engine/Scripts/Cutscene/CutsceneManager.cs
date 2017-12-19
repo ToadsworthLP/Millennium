@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -12,8 +13,13 @@ public class CutsceneManager : MonoBehaviour {
     public List<BaseCutsceneNode> nodes;
     [HideInInspector]
     public BaseCutsceneNode startNode;
+    [HideInInspector]
     public bool isPlaying;
     public MilleniumEvent OnCutsceneFinished;
+
+    public void OnEnable() {
+        reloadNodes();
+    }
 
     public void OnTransformChildrenChanged() {
         reloadNodes();
@@ -25,12 +31,14 @@ public class CutsceneManager : MonoBehaviour {
     }
 
     public void play(){
-        isPlaying = true;
-        gameManager.playerMachine.setCutsceneMode(true);
-        if(startNode != null){
-            startNode.callNode();
-        }else{
-            Debug.LogError("No or invalid start node defined for cutscene "+gameObject.name);
+        if(!isPlaying){
+            isPlaying = true;
+            gameManager.playerMachine.setCutsceneMode(true);
+            if (startNode != null) {
+                startNode.callNode();
+            } else {
+                Debug.LogError("No or invalid start node defined for cutscene " + gameObject.name);
+            }
         }
     }
 
@@ -48,23 +56,58 @@ public class CutsceneManager : MonoBehaviour {
 [CustomEditor(typeof(CutsceneManager))]
 public class CutsceneManagerEditor : Editor {
 
+    [MenuItem("GameObject/Cutscene", false, 0)]
+    private static void createCutsceneGameObject() {
+        var selected = Selection.activeTransform;
+        GameObject gameObject = new GameObject();
+        gameObject.name = "New cutscene";
+        gameObject.AddComponent<CutsceneManager>();
+
+        if (selected != null)
+            gameObject.transform.SetParent(selected);
+
+        Selection.SetActiveObjectWithContext(gameObject, null);
+    }
+
     CutsceneManager cutsceneManager;
+    Type[] nodeTypes;
+    bool showNodeTypes;
 
     public void OnEnable() {
         cutsceneManager = (CutsceneManager)target;
     }
 
+    private void refreshNodeTypes(){
+        nodeTypes = Utils.GetAllSubclasses(typeof(BaseCutsceneNode));
+    }
+
     public override void OnInspectorGUI() {
         DrawDefaultInspector();
+
         GUILayout.BeginHorizontal();
         GUILayout.Label("Nodes in this cutscene: " + cutsceneManager.nodes.Count);
         GUILayout.EndHorizontal();
 
-        if(GUILayout.Button("Create new node")){
-            BaseCutsceneNode node = new GameObject().AddComponent(typeof(DialogueNode)).GetComponent<BaseCutsceneNode>();
-            node.cutsceneManager = cutsceneManager;
-            node.transform.SetParent(cutsceneManager.transform);
-            node.transform.position = cutsceneManager.transform.position;
+        EditorGUILayout.Separator();
+
+        if (nodeTypes == null)
+            refreshNodeTypes();
+
+        EditorGUILayout.BeginHorizontal();
+        showNodeTypes = EditorGUILayout.Foldout(showNodeTypes, "Create nodes");
+        if (GUILayout.Button("Refesh node types"))
+            refreshNodeTypes();
+        EditorGUILayout.EndHorizontal();
+
+        if(showNodeTypes){
+            foreach (Type type in nodeTypes) {
+                if (GUILayout.Button("Create new " + type.Name)) {
+                    BaseCutsceneNode node = new GameObject().AddComponent(type).GetComponent<BaseCutsceneNode>();
+                    node.cutsceneManager = cutsceneManager;
+                    node.transform.SetParent(cutsceneManager.transform);
+                    node.transform.position = cutsceneManager.transform.position;
+                }
+            }
         }
     }
 }
