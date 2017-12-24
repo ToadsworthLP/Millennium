@@ -1,30 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Feet : MonoBehaviour {
 
+    public float sphereCastRadius = 0.5f;
 	public float groundCheckDistance = 0.1f;
-	public float sideOffset = 0.2f;
+    public float yOffset;
 
-	public bool CheckGroundStatus()
-	{
-		RaycastHit hitInfo1;
-        RaycastHit hitInfo2;
+	public bool CheckGroundStatus(){
+        RaycastHit hitInfo;
 
-		#if UNITY_EDITOR
-		Debug.DrawLine(transform.position + (Vector3.up * 0.1f) + new Vector3(sideOffset,0,0), transform.position + (Vector3.up * 0.1f) + (Vector3.down * groundCheckDistance) + new Vector3(sideOffset,0,0));
-		Debug.DrawLine(transform.position + (Vector3.up * 0.1f) - new Vector3(sideOffset,0,0), transform.position + (Vector3.up * 0.1f) + (Vector3.down * groundCheckDistance) - new Vector3(sideOffset,0,0));
-        #endif
+        bool didSphereCastHit = Physics.SphereCast(transform.position + new Vector3(0f, yOffset, 0f), sphereCastRadius, Vector3.down, out hitInfo, groundCheckDistance);
 
-        bool didRay1Hit = Physics.Raycast(transform.position + (Vector3.up * 0.1f) + new Vector3(sideOffset, 0, 0), Vector3.down, out hitInfo1, groundCheckDistance);
-        bool didRay2Hit = Physics.Raycast(transform.position + (Vector3.up * 0.1f) - new Vector3(sideOffset, 0, 0), Vector3.down, out hitInfo2, groundCheckDistance);
+        if (didSphereCastHit && hitInfo.transform.CompareTag("Ground"))
+            return true;
 
-        if ((didRay1Hit && hitInfo1.transform.CompareTag("Ground") || (didRay2Hit && hitInfo2.transform.CompareTag("Ground")))){
-			return true;
-		}
-		else{
-			return false;
-		}
+        return false;
 	}
 }

@@ -158,13 +158,13 @@ public class PlayerMachine : MonoBehaviour {
     }
 
     void updateParticleSystem(){
-		if (rigidbody.velocity.y == 0 && (Mathf.Abs (rigidbody.velocity.x) > 0.01f || Mathf.Abs (rigidbody.velocity.z) > 0.01f)) {
+		if (grounded && (Mathf.Abs (rigidbody.velocity.x) > 0.01f || Mathf.Abs (rigidbody.velocity.z) > 0.01f)) {
 			if (!particles.isEmitting) {
-				particles.Play ();
+				particles.Play();
 			}
 		} else {
 			if (particles.isEmitting) {
-				particles.Stop ();
+				particles.Stop();
 			}
 		}
 	}

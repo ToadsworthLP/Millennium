@@ -68,8 +68,8 @@ public class CameraTurn : MonoBehaviour {
         while (Mathf.Round(playerObject.eulerAngles.y) != absoluteAngle) {
             /*First line: Uses smooth damp, second line: lerp
               Uncomment the one you like the most*/
-            float currentAngle = Mathf.SmoothDamp(playerObject.eulerAngles.y, absoluteAngle, ref turnVelocity, turnTime);
-            //float currentAngle = Mathf.Lerp(playerObject.eulerAngles.y, absoluteAngle, turnTime);
+            //float currentAngle = Mathf.SmoothDamp(playerObject.eulerAngles.y, absoluteAngle, ref turnVelocity, turnTime);
+            float currentAngle = Mathf.Lerp(playerObject.eulerAngles.y, absoluteAngle, turnTime);
 
             playerObject.eulerAngles = new Vector3(0, currentAngle);
             yield return new WaitForEndOfFrame();
