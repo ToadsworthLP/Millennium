@@ -114,7 +114,7 @@ public class BaseCutsceneNodeEditor : Editor
         if(outputLinkMode){
             node.outputNodes[linkableOutputSlotIndex] = linkableOutputSlotNodeBackup;
             outputLinkMode = false;
-            SceneView.onSceneGUIDelegate = null;
+            SceneView.onSceneGUIDelegate -= drawFloatingButtons;
         }
     }
 
@@ -172,7 +172,7 @@ public class BaseCutsceneNodeEditor : Editor
                 serializedObject.ApplyModifiedProperties();
             }
 
-
+            EditorGUILayout.Separator();
             DrawDefaultInspector();
         }
 
@@ -196,8 +196,11 @@ public class BaseCutsceneNodeEditor : Editor
                 Vector2 buttonPos = new Vector2(screenPoint.x - buttonSize.x * 0.5f, screenHeight - screenPoint.y - buttonSize.y);
                 if (GUI.Button(new Rect(buttonPos, buttonSize), " ")){
                     node.outputNodes[linkableOutputSlotIndex] = n;
-                    SceneView.onSceneGUIDelegate = null;
+                    SceneView.onSceneGUIDelegate -= drawFloatingButtons;
                     outputLinkMode = false;
+
+                    // this updates the editor view even if the node the output is linked to hasn't changed
+                    if (n == linkableOutputSlotNodeBackup) Repaint();
                 }
             }
         }
