@@ -509,7 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutsceneManager: {fileID: 1316395942}
   outputNodes:
-  - {fileID: 932158612}
+  - {fileID: 0}
   outputNodeLabels:
   - Next Node
   speechBubblePrefab: {fileID: 1240988254441112, guid: d80110504e6f7614fb4a425f1e996739,
@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 243395492}
   - component: {fileID: 243395493}
   m_Layer: 0
-  m_Name: New DialogueNode
+  m_Name: Textbox node 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

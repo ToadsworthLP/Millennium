@@ -120,7 +120,7 @@ public class BaseCutsceneNodeEditor : Editor
 
     public override void OnInspectorGUI() {
         if(outputLinkMode){
-            GUILayout.Label("Please press the button on the node in the scene view you want to link to " + node.outputNodeLabels[linkableOutputSlotIndex] + ".");
+            GUILayout.Label("Please press the button on the node in the scene view you want to link to " + node.outputNodeLabels[linkableOutputSlotIndex] + ".", EditorStyles.wordWrappedLabel);
         }else{
             EditorGUILayout.BeginHorizontal();
             GUILayout.Label("Options");
