@@ -154,7 +154,7 @@ MonoBehaviour:
   outputNodes:
   - {fileID: 1378055909}
   - {fileID: 138707758}
-  - {fileID: 1862189555}
+  - {fileID: 243395493}
   outputNodeLabels:
   - Love it!
   - Hate it!
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutsceneManager: {fileID: 1316395942}
   outputNodes:
-  - {fileID: 0}
+  - {fileID: 932158612}
   outputNodeLabels:
   - Next Node
   speechBubblePrefab: {fileID: 1240988254441112, guid: d80110504e6f7614fb4a425f1e996739,
@@ -663,6 +663,59 @@ Transform:
   m_PrefabParentObject: {fileID: 4780279633155530, guid: 391fe7aa98aa225428533d4a8dd93355,
     type: 2}
   m_PrefabInternal: {fileID: 706584559}
+--- !u!1 &243395491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 243395492}
+  - component: {fileID: 243395493}
+  m_Layer: 0
+  m_Name: New DialogueNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &243395492
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243395491}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.328, y: 2.23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1316395943}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &243395493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243395491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3846a7941cf45e6469059eeab71f0dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutsceneManager: {fileID: 1316395942}
+  outputNodes:
+  - {fileID: 0}
+  outputNodeLabels:
+  - Next Node
+  speechBubblePrefab: {fileID: 1240988254441112, guid: d80110504e6f7614fb4a425f1e996739,
+    type: 2}
+  text:
+  - Meh.
+  talkSound: {fileID: 8300000, guid: dd46416b2c4c01c4d9498826fecee5b8, type: 3}
+  skipSound: {fileID: 8300000, guid: f2a7d389ff526844c822b4dced166ac6, type: 3}
+  bubbleTint: {r: 1, g: 1, b: 1, a: 1}
+  textTint: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
 --- !u!1001 &302026599
 Prefab:
   m_ObjectHideFlags: 0
@@ -1214,17 +1267,17 @@ Prefab:
     - target: {fileID: 224230373654615560, guid: c3e442d8bcfc1d3479c6ee1170b28502,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 29.99997
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 224355526678019002, guid: c3e442d8bcfc1d3479c6ee1170b28502,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 29.99997
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 224423803684476216, guid: c3e442d8bcfc1d3479c6ee1170b28502,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 29.99997
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 20383054016728956, guid: c3e442d8bcfc1d3479c6ee1170b28502,
         type: 2}
@@ -3730,7 +3783,7 @@ MonoBehaviour:
   - {fileID: 3359338}
   - {fileID: 1378055909}
   - {fileID: 138707758}
-  - {fileID: 1862189555}
+  - {fileID: 243395493}
   startNode: {fileID: 932158612}
   isPlaying: 0
   OnCutsceneFinished:
@@ -3752,7 +3805,7 @@ Transform:
   - {fileID: 3359337}
   - {fileID: 1378055910}
   - {fileID: 138707759}
-  - {fileID: 1862189554}
+  - {fileID: 243395492}
   m_Father: {fileID: 1712934615}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5030,59 +5083,6 @@ Transform:
   m_Father: {fileID: 699939891}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1862189553
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1862189554}
-  - component: {fileID: 1862189555}
-  m_Layer: 0
-  m_Name: Textbox node 3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1862189554
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1862189553}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.428, y: 2.343, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1316395943}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1862189555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1862189553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3846a7941cf45e6469059eeab71f0dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cutsceneManager: {fileID: 1316395942}
-  outputNodes:
-  - {fileID: 0}
-  outputNodeLabels:
-  - Next Node
-  speechBubblePrefab: {fileID: 1240988254441112, guid: d80110504e6f7614fb4a425f1e996739,
-    type: 2}
-  text:
-  - Meh.
-  talkSound: {fileID: 8300000, guid: dd46416b2c4c01c4d9498826fecee5b8, type: 3}
-  skipSound: {fileID: 8300000, guid: f2a7d389ff526844c822b4dced166ac6, type: 3}
-  bubbleTint: {r: 1, g: 1, b: 1, a: 1}
-  textTint: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
 --- !u!1 &1894850193
 GameObject:
   m_ObjectHideFlags: 0

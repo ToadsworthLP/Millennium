@@ -31,6 +31,7 @@ public class PlayerMachine : MonoBehaviour {
     public IInteractable interaction;
 
     private bool grounded;
+    private float facingSide = 1;
     private Rigidbody rigidbody;
     private BoxCollider collider;
 
@@ -132,23 +133,20 @@ public class PlayerMachine : MonoBehaviour {
     }
 
 	void updateArt(){
-        float side = 1;
-
         art.animator.SetFloat("normalizedSpeed", Mathf.Clamp01(rigidbody.velocity.magnitude));
         art.animator.SetBool("grounded", grounded);
 
-        if (gameManager.controller.direction.x != 0f) {
-            side = 1;
-            art.animator.SetFloat("side", side);
-        } else{
+        //if (gameManager.controller.direction.x != 0f) {
+        //    art.animator.SetFloat("side", side);
+        //} else{
             if (gameManager.controller.direction.y > 0f) {
-                side = -1;
-                art.animator.SetFloat("side", side);
+                facingSide = -1;
+                art.animator.SetFloat("side", facingSide);
             } else if (gameManager.controller.direction.y < 0f) {
-                side = 1;
-                art.animator.SetFloat("side", side);
+                facingSide = 1;
+                art.animator.SetFloat("side", facingSide);
             }
-        }
+        //}
 
         if (gameManager.controller.direction.x > 0f) {
             art.billboarder.dir = 180;

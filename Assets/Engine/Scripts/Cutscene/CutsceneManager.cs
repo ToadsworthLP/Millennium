@@ -106,6 +106,7 @@ public class CutsceneManagerEditor : Editor {
                     node.cutsceneManager = cutsceneManager;
                     node.transform.SetParent(cutsceneManager.transform);
                     node.transform.position = cutsceneManager.transform.position;
+                    node.name = "New " + type.Name;
                 }
             }
         }

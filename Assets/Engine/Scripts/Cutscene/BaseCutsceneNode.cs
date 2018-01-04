@@ -97,61 +97,112 @@ public abstract class BaseCutsceneNode : MonoBehaviour {
 public class BaseCutsceneNodeEditor : Editor
 {
 
-    bool showOutputs;
-    bool showNodeProperties;
+    private bool showOutputs;
+    private bool outputLinkMode;
+    private bool showNodeProperties;
 
     BaseCutsceneNode node;
 
-    public void OnEnable() {
+    private int linkableOutputSlotIndex;
+    private BaseCutsceneNode linkableOutputSlotNodeBackup;
+
+    private void OnEnable() {
         node = (BaseCutsceneNode)target;
     }
 
+    private void OnDisable() {
+        if(outputLinkMode){
+            node.outputNodes[linkableOutputSlotIndex] = linkableOutputSlotNodeBackup;
+            outputLinkMode = false;
+            SceneView.onSceneGUIDelegate = null;
+        }
+    }
+
     public override void OnInspectorGUI() {
+        if(outputLinkMode){
+            GUILayout.Label("Please press the button on the node in the scene view you want to link to " + node.outputNodeLabels[linkableOutputSlotIndex] + ".");
+        }else{
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Options");
+            if (GUILayout.Button("Set as start node"))
+                node.cutsceneManager.startNode = node;
+            if (GUILayout.Button("Select cutscene manager"))
+                Selection.SetActiveObjectWithContext(node.cutsceneManager.gameObject, null);
+            EditorGUILayout.EndHorizontal();
+            EditorGUILayout.Separator();
 
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Options");
-        if (GUILayout.Button("Set as start node"))
-            node.cutsceneManager.startNode = node;
-        if (GUILayout.Button("Select cutscene manager"))
-            Selection.SetActiveObjectWithContext(node.cutsceneManager.gameObject, null);
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.Separator();
+            EditorGUILayout.BeginHorizontal();
+            showOutputs = EditorGUILayout.Foldout(showOutputs, "Outputs");
+            if (GUILayout.Button("Refresh slots"))
+                node.reloadOutputs();
+            EditorGUILayout.EndHorizontal();
 
-        EditorGUILayout.BeginHorizontal();
-        showOutputs = EditorGUILayout.Foldout(showOutputs, "Outputs");
-        if (GUILayout.Button("Refresh slots"))
-            node.reloadOutputs();
-        EditorGUILayout.EndHorizontal();
+            if (showOutputs) {
+                SerializedProperty sp = serializedObject.FindProperty("outputNodes");
 
-        if (showOutputs){
-            SerializedProperty sp = serializedObject.FindProperty("outputNodes");
+                if (sp.isArray) {
+                    int arrayLength = 0;
 
-            if (sp.isArray) {
-                int arrayLength = 0;
+                    sp.Next(true); // skip generic field
+                    sp.Next(true); // advance to array size field
 
-                sp.Next(true); // skip generic field
-                sp.Next(true); // advance to array size field
+                    arrayLength = sp.intValue;
 
-                arrayLength = sp.intValue;
+                    sp.Next(true);
 
-                sp.Next(true);
+                    // loop through all serialized properties and create a property field for each one
+                    int lastIndex = arrayLength - 1;
+                    for (int i = 0; i < arrayLength; i++) {
+                        EditorGUILayout.BeginHorizontal();
+                        EditorGUILayout.PropertyField(sp, new GUIContent(node.outputNodeLabels[i]), null);
 
-                // loop through all serialized properties and create a property field for each one
-                int lastIndex = arrayLength - 1;
-                for (int i = 0; i < arrayLength; i++) {
-                    EditorGUILayout.PropertyField(sp, new GUIContent(node.outputNodeLabels[i]), null);
-                    if (i < lastIndex) sp.Next(false); // advance without drilling into children
+                        if (GUILayout.Button("Link")) {
+                            outputLinkMode = true;
+                            linkableOutputSlotNodeBackup = node.outputNodes[i];
+                            SceneView.onSceneGUIDelegate += drawFloatingButtons;
+                            if (SceneView.lastActiveSceneView) SceneView.lastActiveSceneView.Repaint();
+                            linkableOutputSlotIndex = i;
+                        }
+
+                        EditorGUILayout.EndHorizontal();
+                        if (i < lastIndex) sp.Next(false); // advance without drilling into children
+                    }
                 }
+
+                serializedObject.ApplyModifiedProperties();
             }
 
-            serializedObject.ApplyModifiedProperties();
-        }
 
-        showNodeProperties = EditorGUILayout.Foldout(showNodeProperties, "Node properties");
-        if(showNodeProperties) {
             DrawDefaultInspector();
         }
 
+    }
+
+    private void drawFloatingButtons(SceneView scene) {
+        Handles.BeginGUI();
+
+        float screenHeight = SceneView.currentDrawingSceneView.position.size.y;
+        Vector2 buttonSize = new Vector2(20, 20);
+
+        List<BaseCutsceneNode> otherNodes = new List<BaseCutsceneNode>(node.cutsceneManager.nodes);
+        otherNodes.Remove(node);
+
+        foreach (BaseCutsceneNode n in otherNodes) {
+            Vector3 pos = n.gameObject.transform.position;
+            Vector3 screenPoint = SceneView.lastActiveSceneView.camera.WorldToScreenPoint(pos);
+
+            // this prevents the GUI control from being drawn if you aren't looking at it
+            if (screenPoint.z > 0) {
+                Vector2 buttonPos = new Vector2(screenPoint.x - buttonSize.x * 0.5f, screenHeight - screenPoint.y - buttonSize.y);
+                if (GUI.Button(new Rect(buttonPos, buttonSize), " ")){
+                    node.outputNodes[linkableOutputSlotIndex] = n;
+                    SceneView.onSceneGUIDelegate = null;
+                    outputLinkMode = false;
+                }
+            }
+        }
+
+        Handles.EndGUI();
     }
 }
 #endif
