@@ -25,6 +25,7 @@ public class PlayerMachine : MonoBehaviour {
     [Header("Speed control")]
     public float moveSpeed;
 	public float jumpSpeed;
+    public float fallGravityMultiplier;
     public float hammerDuration;
 
     [HideInInspector]
@@ -69,11 +70,14 @@ public class PlayerMachine : MonoBehaviour {
         if(allowMenuOpen){
             doMenu();
         }
+	}
+
+     void Update() {
         if (allowArtUpdate) {
             updateArt();
         }
-        updateParticleSystem ();
-	}
+        updateParticleSystem();
+     }
 
     void OnTriggerEnter(Collider other) {
         IInteractable temp;
@@ -112,7 +116,12 @@ public class PlayerMachine : MonoBehaviour {
         } else{
             rigidbody.velocity += Quaternion.AngleAxis(transform.rotation.eulerAngles.y, transform.up) * new Vector3(gameManager.controller.direction.x * moveSpeed, 0, gameManager.controller.direction.y * moveSpeed);
         }
-	}
+
+        //Physically inaccurate, but feels much better. Comment the following lines out if you want a physically accurate jump instead.
+        if (rigidbody.velocity.y < 0 && !grounded) {
+            rigidbody.velocity += transform.up * Physics.gravity.y * (fallGravityMultiplier - 1) * Time.deltaTime;
+        }
+    }
 
     void doActions(){
         if (feet.CheckGroundStatus()) {
@@ -136,17 +145,13 @@ public class PlayerMachine : MonoBehaviour {
         art.animator.SetFloat("normalizedSpeed", Mathf.Clamp01(rigidbody.velocity.magnitude));
         art.animator.SetBool("grounded", grounded);
 
-        //if (gameManager.controller.direction.x != 0f) {
-        //    art.animator.SetFloat("side", side);
-        //} else{
-            if (gameManager.controller.direction.y > 0f) {
-                facingSide = -1;
-                art.animator.SetFloat("side", facingSide);
-            } else if (gameManager.controller.direction.y < 0f) {
-                facingSide = 1;
-                art.animator.SetFloat("side", facingSide);
-            }
-        //}
+        if (gameManager.controller.direction.y > 0f) {
+            facingSide = -1;
+            art.animator.SetFloat("side", facingSide);
+        } else if (gameManager.controller.direction.y < 0f || (gameManager.controller.direction.y == 0 && gameManager.controller.direction.x != 0)) {
+            facingSide = 1;
+            art.animator.SetFloat("side", facingSide);
+        }
 
         if (gameManager.controller.direction.x > 0f) {
             art.billboarder.dir = 180;

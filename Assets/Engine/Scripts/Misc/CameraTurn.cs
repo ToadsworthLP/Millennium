@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+
+//PARTIALLY BROKEN. DO NOT USE.
 [RequireComponent(typeof(BoxCollider))]
 public class CameraTurn : MonoBehaviour {
 

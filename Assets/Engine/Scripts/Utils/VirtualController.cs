@@ -2,12 +2,10 @@
 
 public class VirtualController : MonoBehaviour {
 
-    public bool updateInput;
+    public bool updateInput = true;
 
     public Vector2 direction;
-    public bool didStateChange;
-    public bool didXChange;
-    public bool didYChange;
+    public bool didDirectionChange;
 
     public bool jumpPressed;
     public bool hammerPressed;
@@ -28,11 +26,10 @@ public class VirtualController : MonoBehaviour {
             if (inputManager.isInput[2]) { dir.x -= 1; }
             if (inputManager.isInput[3]) { dir.x += 1; }
 
-            didXChange = !dir.x.Equals(direction.x);
-            didYChange = !dir.y.Equals(direction.y);
-            didStateChange = (didXChange || didYChange);
+            dir = Vector2.ClampMagnitude(dir, 1);
+            didDirectionChange = !dir.Equals(direction);
 
-            direction = Vector2.ClampMagnitude(dir, 1);
+            direction = dir;
 
             jumpPressed = inputManager.isInputDown[4];
             hammerPressed = inputManager.isInputDown[5];

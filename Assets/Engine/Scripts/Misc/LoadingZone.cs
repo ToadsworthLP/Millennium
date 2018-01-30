@@ -13,6 +13,9 @@ public class LoadingZone : MonoBehaviour {
     public GameObject destinationZoneParent;
     public LoadingZone destinationLoadingZone;
 
+    //The exit direction is slightly rounded to counter floating point errors. Make this number higher to improve accuracy
+    private const int exitDirectionRoundingConstant = 100;
+
     void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player") && !disabled){
             StartCoroutine(handleLoadingZone());
@@ -30,7 +33,7 @@ public class LoadingZone : MonoBehaviour {
         gameManager.playerMachine.disableAngledControls = true;
 
         Vector3 exitDirection = getExitDirection(this);
-        gameManager.controller.direction = new Vector2(exitDirection.x, exitDirection.z);
+        gameManager.controller.direction = new Vector2(Mathf.Round(exitDirection.x * exitDirectionRoundingConstant) / exitDirectionRoundingConstant, Mathf.Round(exitDirection.z * exitDirectionRoundingConstant) / exitDirectionRoundingConstant);
         gameManager.blackOverlay.FadeIn();
 
         yield return new WaitForSeconds(loadingDelay);
@@ -40,18 +43,18 @@ public class LoadingZone : MonoBehaviour {
         gameManager.playerMachine.transform.position = destinationLoadingZone.transform.position;
 
         exitDirection = getExitDirection(destinationLoadingZone)*-1;
-        gameManager.controller.direction = new Vector2(exitDirection.x, exitDirection.z);
+        gameManager.controller.direction = new Vector2(Mathf.Round(exitDirection.x * exitDirectionRoundingConstant) / exitDirectionRoundingConstant, Mathf.Round(exitDirection.z * exitDirectionRoundingConstant) / exitDirectionRoundingConstant);
         gameManager.blackOverlay.FadeOut();
     }
 
-    IEnumerator delayPlayerControl(){
+    IEnumerator delayPlayerControl() {
         yield return new WaitForSeconds(controlDelay);
         gameManager.playerMachine.disableAngledControls = false;
         gameManager.playerMachine.setCutsceneMode(false);
         disabled = false;
     }
 
-    private Vector3 getExitDirection(LoadingZone zone){
+    private Vector3 getExitDirection(LoadingZone zone) {
         return Vector3.Normalize(zone.transform.forward);
     }
 

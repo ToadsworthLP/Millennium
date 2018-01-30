@@ -112,7 +112,7 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       tonemapping:
-        tonemapper: 1
+        tonemapper: 0
         neutralBlackIn: 0.02
         neutralWhiteIn: 10
         neutralBlackOut: 0
@@ -298,16 +298,16 @@ MonoBehaviour:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 1
+      intensity: 0.04
       smoothness: 1
-      roundness: 0
+      roundness: 1
       mask: {fileID: 0}
       opacity: 1
       rounded: 1
   dithering:
     m_Enabled: 0
   monitors:
-    currentMonitorID: 0
+    currentMonitorID: 3
     refreshOnPlay: 0
     histogramMode: 4
     waveformExposure: 0.12
