@@ -93,6 +93,11 @@ public class CutsceneManagerEditor : Editor {
         if (nodeTypes == null)
             refreshNodeTypes();
 
+        if (GUILayout.Button("Open in Sequence Editor", GUILayout.Width(255))) {
+            NodeBasedEditor window = (NodeBasedEditor)EditorWindow.GetWindow(typeof(NodeBasedEditor));
+            window.OpenWindow(cutsceneManager);
+        }
+
         EditorGUILayout.BeginHorizontal();
         showNodeTypes = EditorGUILayout.Foldout(showNodeTypes, "Create nodes");
         if (GUILayout.Button("Refesh node types"))
