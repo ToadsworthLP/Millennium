@@ -457,7 +457,7 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 0.46666667
-    functionName: openAnimFinished
+    functionName: OpenAnimFinished
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

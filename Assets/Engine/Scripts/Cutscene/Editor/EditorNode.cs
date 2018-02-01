@@ -37,10 +37,10 @@ public class EditorNode
         this.boxStyle = boxStyle;
     }
 
-    public void prepareConnections(GUIStyle inPointStyle, GUIStyle outPointStyle, Action<EditorConnectionPoint> OnClickInPoint, Action<EditorConnectionPoint> OnClickOutPoint) {
-        inPoints = new List<EditorConnectionPoint>();
-        inPoints.Add(new EditorConnectionPoint(this, ConnectionPointType.In, inPointStyle, OnClickInPoint, 0, ""));
-
+    public void PrepareConnections(GUIStyle inPointStyle, GUIStyle outPointStyle, Action<EditorConnectionPoint> OnClickInPoint, Action<EditorConnectionPoint> OnClickOutPoint) {
+        inPoints = new List<EditorConnectionPoint> {
+            new EditorConnectionPoint(this, ConnectionPointType.In, inPointStyle, OnClickInPoint, 0, "")
+        };
         this.outPointStyle = outPointStyle;
         this.OnClickOutPoint = OnClickOutPoint;
 
@@ -49,19 +49,19 @@ public class EditorNode
             outPoints.Add(new EditorConnectionPoint(this, ConnectionPointType.Out, outPointStyle, OnClickOutPoint, i, actualNode.outputNodeLabels[i - 1]));
         }
 
-        rect = new Rect(rect.x, rect.y, rect.width, getHeight());
+        rect = new Rect(rect.x, rect.y, rect.width, GetHeight());
     }
 
-    public void reloadOutConnections(GUIStyle outPointStyle, Action<EditorConnectionPoint> OnClickOutPoint) {
+    public void ReloadOutConnections(GUIStyle outPointStyle, Action<EditorConnectionPoint> OnClickOutPoint) {
         outPoints = new List<EditorConnectionPoint>();
         for (int i = 1; i <= actualNode.outputNodeLabels.Count; i++) {
             outPoints.Add(new EditorConnectionPoint(this, ConnectionPointType.Out, outPointStyle, OnClickOutPoint, i, actualNode.outputNodeLabels[i - 1]));
         }
 
-        rect = new Rect(rect.x, rect.y, rect.width, getHeight());
+        rect = new Rect(rect.x, rect.y, rect.width, GetHeight());
     }
 
-    public float getHeight(){
+    public float GetHeight(){
         return 10 + 25 * actualNode.outputNodeLabels.Count;
     }
 
@@ -106,7 +106,7 @@ public class EditorNode
             }
 
             if (actualNode.outputNodeLabels.Count != outPoints.Count) {
-                reloadOutConnections(outPointStyle, OnClickOutPoint);
+                ReloadOutConnections(outPointStyle, OnClickOutPoint);
             }
         }
     }

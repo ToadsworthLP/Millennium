@@ -8,23 +8,23 @@ public class CutsceneInteraction : InteractableHelper {
     public bool interactable = true;
     private Coroutine inputEnableCoroutine;
 
-    public override void interact(GameObject playerObject) {
-        base.interact(playerObject);
+    public override void Interact(GameObject playerObject) {
+        base.Interact(playerObject);
         if(interactable && !cutscene.isPlaying){
             interactable = false;
-            base.interact(playerObject);
-            cutscene.OnCutsceneFinished.AddListener(cutsceneFinished);
-            cutscene.play();
+            base.Interact(playerObject);
+            cutscene.OnCutsceneFinished.AddListener(CutsceneFinished);
+            cutscene.Play();
         }
     }
 
-    public void cutsceneFinished(GameObject src, object args){
+    public void CutsceneFinished(GameObject src, object args){
         if(inputEnableCoroutine == null){
-            inputEnableCoroutine = StartCoroutine(delayEnablingInteractions(interactionCooldown));
+            inputEnableCoroutine = StartCoroutine(DelayEnablingInteractions(interactionCooldown));
         }
     }
 
-    private IEnumerator delayEnablingInteractions(float delay){
+    private IEnumerator DelayEnablingInteractions(float delay){
         yield return new WaitForSeconds(delay);
         interactable = true;
         inputEnableCoroutine = null;

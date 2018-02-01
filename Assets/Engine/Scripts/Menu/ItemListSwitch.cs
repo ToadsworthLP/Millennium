@@ -18,34 +18,34 @@ public class ItemListSwitch : DescriptionSelectable {
         canvasRenderer.SetColor(overlayColor);
     }
 
-    public override void onCursorInit(Cursor cursor) {
-        base.onCursorInit(cursor);
+    public override void OnCursorInit(Cursor cursor) {
+        base.OnCursorInit(cursor);
         switchCursor = cursor;
     }
 
-    public override void onCursorSelect() {
-        base.onCursorSelect();
+    public override void OnCursorSelect() {
+        base.OnCursorSelect();
         canvasRenderer.SetColor(oldColor);
-        itemListManager.showItems(itemType);
+        itemListManager.ShowItems(itemType);
     }
 
-    public override void onCursorLeave() {
-        base.onCursorLeave();
+    public override void OnCursorLeave() {
+        base.OnCursorLeave();
         canvasRenderer.SetColor(overlayColor);
     }
 
-    public override void onOKPressed() {
-        base.onOKPressed();
+    public override void OnOKPressed() {
+        base.OnOKPressed();
         if((itemType == ItemListManager.EnumItemKind.NORMAL && itemListManager.backpack.normalItems.Count > 0)
             || (itemType == ItemListManager.EnumItemKind.IMPORTANT && itemListManager.backpack.importantItems.Count > 0)){
-            switchCursor.setActivityStatus(false);
+            switchCursor.SetActivityStatus(false);
             itemCursor.gameObject.SetActive(true);
         }
     }
 
-    public override void onCancelPressed() {
+    public override void OnCancelPressed() {
         canvasRenderer.SetColor(overlayColor);
-        base.onCancelPressed();
+        base.OnCancelPressed();
     }
 
 }

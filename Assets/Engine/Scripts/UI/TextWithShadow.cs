@@ -5,7 +5,7 @@ public class TextWithShadow : MonoBehaviour {
 
     private Text[] texts;
 
-    public void updateText(string text){
+    public void UpdateText(string text){
         if(texts == null){
             texts = GetComponentsInChildren<Text>();
         }

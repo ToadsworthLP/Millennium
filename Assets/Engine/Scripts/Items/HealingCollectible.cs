@@ -12,11 +12,11 @@ public class HealingCollectible : MonoBehaviour {
     private Backpack backpack;
     private Sprite defaultSprite;
 
-    public void blink() {
-        StartCoroutine(blinkingAnimation());
+    public void Blink() {
+        StartCoroutine(BlinkingAnimation());
     }
 
-    IEnumerator blinkingAnimation(){
+    IEnumerator BlinkingAnimation(){
         float frameLength = blinkAnimationLength / blinkSprites.Length;
         foreach(Sprite s in blinkSprites){
             art.sprite = s;

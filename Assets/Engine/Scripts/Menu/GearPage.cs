@@ -10,8 +10,8 @@ public class GearPage : MonoBehaviour {
     }
 
     void OnEnable() {
-        itemListManager.setBackpack(backpack);
-        itemListManager.showItems(ItemListManager.EnumItemKind.NORMAL);
+        itemListManager.SetBackpack(backpack);
+        itemListManager.ShowItems(ItemListManager.EnumItemKind.NORMAL);
     }
 
 }

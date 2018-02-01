@@ -18,13 +18,13 @@ public class CollectibleItem : MonoBehaviour {
         if(other.gameObject.CompareTag("Player")){
             player = other.gameObject.GetComponent<PlayerMachine>();
 
-            player.gameManager.getBackpack().items.Add(itemType);
+            player.gameManager.GetBackpack().items.Add(itemType);
             ItemPopup popup = Instantiate(itemPopup, player.gameManager.uiParent.transform).GetComponent<ItemPopup>();
             player.audioSource.PlayOneShot(collectSound);
             player.art.animator.SetBool("ItemGet", true);
             popup.player = player;
             popup.item = itemType;
-            popup.startPopup(itemType, player);
+            popup.StartPopup(itemType, player);
             Destroy(gameObject);
         }
     }

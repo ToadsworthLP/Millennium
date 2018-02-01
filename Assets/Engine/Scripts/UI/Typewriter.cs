@@ -40,7 +40,7 @@ public class Typewriter : MonoBehaviour {
 		isPageFinished = true;
         speed = defaultSpeed;
         animator = GetComponent<Animator>();
-        StartCoroutine(playInAnimation());
+        StartCoroutine(PlayInAnimation());
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
         inputManager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<custom_inputs>();
@@ -51,10 +51,10 @@ public class Typewriter : MonoBehaviour {
             player.audioSource.PlayOneShot(skipSound);
             if (pageProgress < pageCount-1){
                 pageProgress++;
-                printPage(pageProgress);
+                PrintPage(pageProgress);
             }else{
                 if(!outAnimationPlaying)
-                    StartCoroutine(playOutAnimation());
+                    StartCoroutine(PlayOutAnimation());
             }
         }else if(inputManager.isInputDown[4] && !isPageFinished) {
             StopCoroutine(typewriterCoroutine);
@@ -65,18 +65,18 @@ public class Typewriter : MonoBehaviour {
         }
 	}
 
-    public void startWriting(string[] text){
+    public void StartWriting(string[] text){
         inputText = text;
         pageCount = inputText.Length;
         gameObject.SetActive(true);
     }
 	
-	void printPage (int pageNumber) {
+	void PrintPage (int pageNumber) {
         animator.SetBool("Printing", true);
-        typewriterCoroutine = StartCoroutine(printText(inputText[pageNumber]));
+        typewriterCoroutine = StartCoroutine(PrintText(inputText[pageNumber]));
 	}
 
-	IEnumerator printText(string text){
+	IEnumerator PrintText(string text){
 		char[] textArray = Regex.Replace(text, "<.*?>", string.Empty).ToCharArray();
         char spaceChar = " ".ToCharArray()[0];
         char waitChar = "|".ToCharArray()[0];
@@ -106,12 +106,12 @@ public class Typewriter : MonoBehaviour {
         if (OnPageFinished != null) { OnPageFinished(pageProgress); }
     }
 
-    IEnumerator playInAnimation(){
+    IEnumerator PlayInAnimation(){
         yield return new WaitForSeconds(0.05f);
-        printPage(0);
+        PrintPage(0);
     }
 
-    IEnumerator playOutAnimation() {
+    IEnumerator PlayOutAnimation() {
         outAnimationPlaying = true;
         animator.SetTrigger("Close");
         if (OnBubbleClosed != null) { OnBubbleClosed(); }

@@ -172,6 +172,11 @@
     <Compile Include="Assets\Engine\PostProcessing\Editor\Utils\EditorResources.cs" />
     <Compile Include="Assets\Engine\PostProcessing\Editor\Utils\FxStyles.cs" />
     <Compile Include="Assets\Engine\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
+    <Compile Include="Assets\Engine\Scripts\Cutscene\Editor\CutsceneManagerEditor.cs" />
+    <Compile Include="Assets\Engine\Scripts\Cutscene\Editor\EditorConnection.cs" />
+    <Compile Include="Assets\Engine\Scripts\Cutscene\Editor\EditorConnectionPoint.cs" />
+    <Compile Include="Assets\Engine\Scripts\Cutscene\Editor\EditorNode.cs" />
+    <Compile Include="Assets\Engine\Scripts\Cutscene\Editor\NodeBasedEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Content\Sound\Music\loopdata.txt" />

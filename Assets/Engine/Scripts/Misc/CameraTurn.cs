@@ -37,19 +37,19 @@ public class CameraTurn : MonoBehaviour {
             startRotation = playerObject.rotation.eulerAngles;
 
             isTurning = true;
-            StartCoroutine(turnPlayer(targetRotation, false));
+            StartCoroutine(TurnPlayer(targetRotation, false));
         }
     }
 
     void OnTriggerExit(Collider other) {
         if (other.CompareTag("Player") && !isTurning) {
             isTurning = true;
-            StartCoroutine(turnPlayer(-targetRotation, true));
+            StartCoroutine(TurnPlayer(-targetRotation, true));
         }
     }
 
-    IEnumerator delayPlayerControl(){
-        player.setCutsceneMode(true);
+    IEnumerator DelayPlayerControl(){
+        player.SetCutsceneMode(true);
         player.disableAngledControls = true;
         Rigidbody playerRigidbody = playerObject.GetComponent<Rigidbody>();
 
@@ -58,14 +58,14 @@ public class CameraTurn : MonoBehaviour {
         yield return new WaitForSeconds(playerControlDelay);
 
         player.disableAngledControls = false;
-        player.setCutsceneMode(false);
+        player.SetCutsceneMode(false);
     }
 
-    IEnumerator turnPlayer(float targetAngle, bool turnBack){
+    IEnumerator TurnPlayer(float targetAngle, bool turnBack){
         float absoluteAngle = Mathf.Round(playerObject.eulerAngles.y + targetAngle);
         camera.lookAtTarget = true;
 
-        StartCoroutine(delayPlayerControl());
+        StartCoroutine(DelayPlayerControl());
 
         while (Mathf.Round(playerObject.eulerAngles.y) != absoluteAngle) {
             /*First line: Uses smooth damp, second line: lerp
@@ -83,11 +83,11 @@ public class CameraTurn : MonoBehaviour {
             playerObject.eulerAngles = startRotation + new Vector3(0, absoluteAngle, 0);
         }
 
-        StartCoroutine(waitForCamera(turnBack));
+        StartCoroutine(WaitForCamera(turnBack));
         isTurning = false;
     }
 
-    IEnumerator waitForCamera(bool turnBack){
+    IEnumerator WaitForCamera(bool turnBack){
         //Values multiplied by 100 before rounding to improve accuracy, make it higher to make it even more accurate, but exact comparison will always fail
         while (Mathf.Round(Mathf.Abs(camera.transform.rotation.eulerAngles.y) * 100) != Mathf.Round(Mathf.Abs(playerObject.eulerAngles.y) * 100)) {
             yield return new WaitForEndOfFrame();

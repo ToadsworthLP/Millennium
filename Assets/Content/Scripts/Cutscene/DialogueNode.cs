@@ -13,23 +13,23 @@ public class DialogueNode : BaseCutsceneNode{
     public Color bubbleTint;
     public Color textTint;
 
-    public override void callNode() {
+    public override void CallNode() {
         GameObject bubble = Instantiate(speechBubblePrefab, cutsceneManager.gameManager.uiParent);
         Typewriter writer = bubble.GetComponent<Typewriter>();
 
         writer.talkSound = talkSound;
         writer.skipSound = skipSound;
-        writer.OnBubbleClosed += finished;
+        writer.OnBubbleClosed += Finished;
         writer.bubbleImage.color = bubbleTint;
         writer.textComponent.color = textTint;
-        writer.startWriting(text);
+        writer.StartWriting(text);
     }
 
-    private void finished(){
-        callOutputSlot("Next Node");
+    private void Finished(){
+        CallOutputSlot("Next Node");
     }
 
-    public override void declareOutputSlots() {
-        setOutputSlot("Next Node");
+    public override void DeclareOutputSlots() {
+        SetOutputSlot("Next Node");
     }
 }

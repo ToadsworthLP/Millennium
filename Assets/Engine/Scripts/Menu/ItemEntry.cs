@@ -19,7 +19,7 @@ public class ItemEntry : SelectableHelper {
 
     private Cursor itemCursor;
 
-    public void setupEntry(ItemListManager manager) {
+    public void SetupEntry(ItemListManager manager) {
         itemIcon = GetComponentInChildren<Image>();
         itemName = GetComponentInChildren<TextMeshProUGUI>();
 
@@ -36,56 +36,56 @@ public class ItemEntry : SelectableHelper {
         }
     }
 
-    public override void onCursorInit(Cursor cursor) {
-        base.onCursorInit(cursor);
+    public override void OnCursorInit(Cursor cursor) {
+        base.OnCursorInit(cursor);
         itemCursor = cursor;
     }
 
-    public override void onSideKeyPressed(Utils.EnumDirection direction) {
-        base.onSideKeyPressed(direction);
+    public override void OnSideKeyPressed(Utils.EnumDirection direction) {
+        base.OnSideKeyPressed(direction);
 
         switch (direction){
             case Utils.EnumDirection.UP:
                 if (itemCursor.selectedIndex - 2 >= 0)
-                    itemCursor.cursorMoved(-2);
-                    manager.scrollItemList(itemCursor.selectedIndex);
+                    itemCursor.CursorMoved(-2);
+                    manager.ScrollItemList(itemCursor.selectedIndex);
                 break;
 
             case Utils.EnumDirection.DOWN:
                 if (itemCursor.selectedIndex + 2 < itemCursor.optionObjects.Count)
-                    itemCursor.cursorMoved(2);
-                    manager.scrollItemList(itemCursor.selectedIndex);
+                    itemCursor.CursorMoved(2);
+                    manager.ScrollItemList(itemCursor.selectedIndex);
                 break;
 
             case Utils.EnumDirection.LEFT:
-                manager.scrollItemList(itemCursor.selectedIndex);
+                manager.ScrollItemList(itemCursor.selectedIndex);
                 break;
 
             case Utils.EnumDirection.RIGHT:
-                manager.scrollItemList(itemCursor.selectedIndex);
+                manager.ScrollItemList(itemCursor.selectedIndex);
                 break;
         }
     }
 
-    public override void onCursorSelect() {
-        base.onCursorSelect();
+    public override void OnCursorSelect() {
+        base.OnCursorSelect();
         descriptionBox.text = item.description;
     }
 
-    public override void onOKPressed() {
-        base.onOKPressed();
+    public override void OnOKPressed() {
+        base.OnOKPressed();
         if(item.usableOnOverworld){
-            FindObjectOfType<ItemManager>().useItemOnOverworld(item);
-            onCancelPressed();
-            pageOption.onCancelPressed();
+            FindObjectOfType<ItemManager>().UseItemOnOverworld(item);
+            OnCancelPressed();
+            pageOption.OnCancelPressed();
         }
     }
 
-    public override void onCancelPressed() {
-        base.onCancelPressed();
-        manager.resetPosition();
+    public override void OnCancelPressed() {
+        base.OnCancelPressed();
+        manager.ResetPosition();
         itemCursor.gameObject.SetActive(false);
-        listSwitchCursor.setActivityStatus(true);
+        listSwitchCursor.SetActivityStatus(true);
     }
 
 }

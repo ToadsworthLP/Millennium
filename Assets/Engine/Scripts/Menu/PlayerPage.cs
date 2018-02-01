@@ -20,7 +20,7 @@ public class PlayerPage : MonoBehaviour {
     private Backpack backpack;
 
     void Awake() {
-        backpack = gameManager.getBackpack();
+        backpack = gameManager.GetBackpack();
     }
 
     void OnEnable() {
@@ -28,24 +28,24 @@ public class PlayerPage : MonoBehaviour {
 
         playerNameText.text = backpack.playerName;
         levelText.text = "Lvl.  " + backpack.level;
-        rankText.text = backpack.starRank.getName();
+        rankText.text = backpack.starRank.GetName();
 
         hpText.text = backpack.hp + " / " + backpack.maxHp;
         fpText.text = backpack.fp + " / " + backpack.maxFp;
         bpText.text = backpack.bp.ToString();
 
-        advancedNumberText.text = backpack.starPoints + Utils.newLine() +
-            backpack.coins + Utils.newLine() +
-            backpack.starPieces + Utils.newLine() +
-            backpack.shineSprites + Utils.newLine() +
+        advancedNumberText.text = backpack.starPoints + Utils.NewLine() +
+            backpack.coins + Utils.NewLine() +
+            backpack.starPieces + Utils.NewLine() +
+            backpack.shineSprites + Utils.NewLine() +
             playtime.Hour + " : " + playtime.Minute;
 
         hammerIcon.sprite = backpack.currentHammer.hammerIcon;
-        gameManager.getPlayerRenderTexture();
+        gameManager.GetPlayerRenderTexture();
     }
 
     void OnDisable() {
-        gameManager.releaseRenderTexture();
+        gameManager.ReleaseRenderTexture();
     }
 
 }

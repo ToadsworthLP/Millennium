@@ -7,8 +7,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public abstract class BaseCutsceneNode : MonoBehaviour {
 
-    public abstract void declareOutputSlots();
-    public abstract void callNode();
+    public abstract void DeclareOutputSlots();
+    public abstract void CallNode();
     [HideInInspector]
     public CutsceneManager cutsceneManager;
 
@@ -19,46 +19,47 @@ public abstract class BaseCutsceneNode : MonoBehaviour {
     public List<string> outputNodeLabels;
 
     public void Awake() {
-        reloadOutputs();
+        ReloadOutputs();
     }
 
+    #if UNITY_EDITOR
     public void OnDrawGizmos() {
         if(outputNodes != null && outputNodes.Count > 0){
-            float width = HandleUtility.GetHandleSize(Vector3.zero) * 0.1f;
             foreach (BaseCutsceneNode node in outputNodes) {
                 if(node != null)
                     Handles.DrawLine(transform.position, node.transform.position);
             }
         }
     }
+    #endif
 
     public void OnTransformParentChanged() {
         transform.parent = cutsceneManager.transform;
     }
 
-    public void callOutputSlot(string label){
+    public void CallOutputSlot(string label){
         BaseCutsceneNode node;
         if(outputNodeLabels.Contains(label)){
             int targetIndex = outputNodeLabels.IndexOf(label);
             if(outputNodes.Count > targetIndex){
                 node = outputNodes[targetIndex];
                 if(node != null){
-                    node.callNode();
+                    node.CallNode();
                     return;
                 }
             }
         }
-        cutsceneManager.stop();
+        cutsceneManager.Stop();
     }
 
-    public void setOutputSlot(string label) {
+    public void SetOutputSlot(string label) {
         if(!outputNodeLabels.Contains(label)){
             outputNodeLabels.Add(label);
             outputNodes.Add(null);
         }
     }
 
-    private BaseCutsceneNode getOutputSlot(string label) {
+    private BaseCutsceneNode GetOutputSlot(string label) {
         BaseCutsceneNode node = null;
         if (outputNodeLabels.Contains(label)) {
             int targetIndex = outputNodeLabels.IndexOf(label);
@@ -69,17 +70,17 @@ public abstract class BaseCutsceneNode : MonoBehaviour {
         return node;
     }
 
-    public void resetOutputs() {
+    public void ResetOutputs() {
         outputNodes = new List<BaseCutsceneNode>();
         outputNodeLabels = new List<string>();
-        declareOutputSlots();
+        DeclareOutputSlots();
     }
 
-    public void reloadOutputs() {
+    public void ReloadOutputs() {
         List<BaseCutsceneNode> outputNodesBackup = outputNodes;
         List<string> outputNodeLabelsBackup = outputNodeLabels;
 
-        resetOutputs();
+        ResetOutputs();
 
         if(outputNodeLabels != null && outputNodeLabelsBackup != null){
             for (int i = 0; i < outputNodeLabels.Count; i++) {
@@ -114,7 +115,7 @@ public class BaseCutsceneNodeEditor : Editor
         if(outputLinkMode){
             node.outputNodes[linkableOutputSlotIndex] = linkableOutputSlotNodeBackup;
             outputLinkMode = false;
-            SceneView.onSceneGUIDelegate -= drawFloatingButtons;
+            SceneView.onSceneGUIDelegate -= DrawFloatingButtons;
         }
     }
 
@@ -134,7 +135,7 @@ public class BaseCutsceneNodeEditor : Editor
             EditorGUILayout.BeginHorizontal();
             showOutputs = EditorGUILayout.Foldout(showOutputs, "Outputs");
             if (GUILayout.Button("Refresh slots"))
-                node.reloadOutputs();
+                node.ReloadOutputs();
             EditorGUILayout.EndHorizontal();
 
             if (showOutputs) {
@@ -159,7 +160,7 @@ public class BaseCutsceneNodeEditor : Editor
                         if (GUILayout.Button("Link")) {
                             outputLinkMode = true;
                             linkableOutputSlotNodeBackup = node.outputNodes[i];
-                            SceneView.onSceneGUIDelegate += drawFloatingButtons;
+                            SceneView.onSceneGUIDelegate += DrawFloatingButtons;
                             if (SceneView.lastActiveSceneView) SceneView.lastActiveSceneView.Repaint();
                             linkableOutputSlotIndex = i;
                         }
@@ -178,7 +179,7 @@ public class BaseCutsceneNodeEditor : Editor
 
     }
 
-    private void drawFloatingButtons(SceneView scene) {
+    private void DrawFloatingButtons(SceneView scene) {
         Handles.BeginGUI();
 
         float screenHeight = SceneView.currentDrawingSceneView.position.size.y;
@@ -196,7 +197,7 @@ public class BaseCutsceneNodeEditor : Editor
                 Vector2 buttonPos = new Vector2(screenPoint.x - buttonSize.x * 0.5f, screenHeight - screenPoint.y - buttonSize.y);
                 if (GUI.Button(new Rect(buttonPos, buttonSize), " ")){
                     node.outputNodes[linkableOutputSlotIndex] = n;
-                    SceneView.onSceneGUIDelegate -= drawFloatingButtons;
+                    SceneView.onSceneGUIDelegate -= DrawFloatingButtons;
                     outputLinkMode = false;
 
                     // this updates the editor view even if the node the output is linked to hasn't changed

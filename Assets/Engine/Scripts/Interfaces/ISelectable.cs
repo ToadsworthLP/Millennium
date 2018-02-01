@@ -2,20 +2,20 @@
 
 public interface ISelectable {
 
-    Vector3 getGrabPoint();
+    Vector3 GetGrabPoint();
 
-    bool getActive();
+    bool GetActive();
 
-    void onCursorInit(Cursor cursor);
+    void OnCursorInit(Cursor cursor);
 
-    void onCursorSelect();
+    void OnCursorSelect();
 
-    void onCursorLeave();
+    void OnCursorLeave();
 
-    void onOKPressed();
+    void OnOKPressed();
 
-    void onCancelPressed();
+    void OnCancelPressed();
 
-    void onSideKeyPressed(Utils.EnumDirection direction);
+    void OnSideKeyPressed(Utils.EnumDirection direction);
 
 }

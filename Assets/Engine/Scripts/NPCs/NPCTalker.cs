@@ -19,21 +19,21 @@ public class NPCTalker : InteractableHelper {
     private PlayerMachine player;
     private GameObject currentBubble;
 
-    void pageFinished(int page){
+    void PageFinished(int page){
         if(pageFinishedEvent != null){
             pageFinishedEvent.Invoke(gameObject, page.ToString());
         }
     }
 
-    void bubbleClosed() {
+    void BubbleClosed() {
         if (bubbleClosedEvent != null) {
             bubbleClosedEvent.Invoke(gameObject, null);
         }
-        player.setCutsceneMode(false);
+        player.SetCutsceneMode(false);
     }
 
-    public override void interact(GameObject playerObject) {
-        base.interact(playerObject);
+    public override void Interact(GameObject playerObject) {
+        base.Interact(playerObject);
         if (currentBubble == null) {
             player = playerObject.GetComponent<PlayerMachine>();
             GameObject bubble = Instantiate(speechBubble, player.gameManager.uiParent);
@@ -41,13 +41,13 @@ public class NPCTalker : InteractableHelper {
             
             writer.talkSound = talkSound;
             writer.skipSound = skipSound;
-            writer.OnPageFinished += pageFinished;
-            writer.OnBubbleClosed += bubbleClosed;
+            writer.OnPageFinished += PageFinished;
+            writer.OnBubbleClosed += BubbleClosed;
             writer.bubbleImage.color = bubbleTint;
             writer.textComponent.color = textTint;
-            writer.startWriting(text);
+            writer.StartWriting(text);
             currentBubble = bubble;
-            player.setCutsceneMode(true);
+            player.SetCutsceneMode(true);
         }
     }
 }

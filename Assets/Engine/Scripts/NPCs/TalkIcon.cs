@@ -13,12 +13,12 @@ public class TalkIcon : MonoBehaviour {
         animator = GetComponent<Animator>();
     }
 
-    public void playOutAnimation() {
+    public void PlayOutAnimation() {
         gameObject.SetActive(true);
-        StartCoroutine(outAnimation());
+        StartCoroutine(OutAnimation());
     }
 
-    IEnumerator outAnimation() {
+    IEnumerator OutAnimation() {
         animator.SetTrigger("Disappear");
         yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);

@@ -14,7 +14,7 @@ public static class Utils {
     }
 
     //Enum utility methods
-    public static EnumDirection getOpposite(this EnumDirection direction) {
+    public static EnumDirection GetOpposite(this EnumDirection direction) {
         if (direction == EnumDirection.LEFT) {
             return EnumDirection.RIGHT;
         } else if (direction == EnumDirection.RIGHT) {
@@ -57,7 +57,7 @@ public static class Utils {
     }
 
     //Utility methods
-    public static string newLine(){
+    public static string NewLine(){
         return "\r\n";
     }
 

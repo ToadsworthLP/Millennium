@@ -13,24 +13,24 @@ public class MenuPageOption : SelectableHelper {
     private Cursor pageSelectCursor;
     private Color oldColor;
 
-    public override void onCursorInit(Cursor cursor) {
-        base.onCursorInit(cursor);
+    public override void OnCursorInit(Cursor cursor) {
+        base.OnCursorInit(cursor);
         oldColor = canvasRenderer.GetColor();
         pageSelectCursor = cursor;
 
         canvasRenderer.SetColor(overlayColor);
     }
 
-    public override void onCursorSelect() {
-        base.onCursorSelect();
+    public override void OnCursorSelect() {
+        base.OnCursorSelect();
 
         int selectedIndex = pageSelectCursor.selectedIndex;
-        MenuPage selectedPage = menuManager.getPageOfIndex(selectedIndex);
+        MenuPage selectedPage = menuManager.GetPageOfIndex(selectedIndex);
 
         menuManager.descriptionBox.text = descriptionText;
         canvasRenderer.SetColor(oldColor);
         selectedPage.gameObject.SetActive(true);
-        selectedPage.focusPage();
+        selectedPage.FocusPage();
         selectedPage.transform.SetSiblingIndex(menuManager.pages.Length);
         if(pageSelectCursor.previousSelectedIndex > pageSelectCursor.selectedIndex){
             selectedPage.animator.SetTrigger("TurnRight");
@@ -39,29 +39,29 @@ public class MenuPageOption : SelectableHelper {
         }
     }
 
-    public override void onCursorLeave() {
-        base.onCursorLeave();
+    public override void OnCursorLeave() {
+        base.OnCursorLeave();
         canvasRenderer.SetColor(overlayColor);
         if(pageCursor != null){
             pageCursor.gameObject.SetActive(false);
         }
-        menuManager.getPageOfIndex(pageSelectCursor.previousSelectedIndex).unfocusPage(menuManager.animationLength);
+        menuManager.GetPageOfIndex(pageSelectCursor.previousSelectedIndex).UnfocusPage(menuManager.animationLength);
     }
 
-    public override void onOKPressed() {
-        base.onOKPressed();
+    public override void OnOKPressed() {
+        base.OnOKPressed();
         if (pageCursor != null) {
-            pageSelectCursor.setActivityStatus(false);
+            pageSelectCursor.SetActivityStatus(false);
             pageCursor.gameObject.SetActive(true);
         }
     }
 
-    public override void onCancelPressed() {
-        base.onCancelPressed();
+    public override void OnCancelPressed() {
+        base.OnCancelPressed();
         if (pageCursor != null) {
             pageCursor.gameObject.SetActive(false);
         }
-        menuManager.closeMenu();
+        menuManager.CloseMenu();
     }
 
 }

@@ -2782,21 +2782,21 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 0
-    functionName: hammerSwing
+    functionName: HammerSwing
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.11
-    functionName: hammerHit
+    functionName: HammerSwing
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.23
-    functionName: endHammer
+    functionName: EndHammer
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

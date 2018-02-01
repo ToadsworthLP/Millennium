@@ -36,7 +36,7 @@ public class PlayerMachine : MonoBehaviour {
     private Rigidbody rigidbody;
     private BoxCollider collider;
 
-    public void setFrozenStatus(bool status){
+    public void SetFrozenStatus(bool status){
         if(status){
             rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         }else{
@@ -45,7 +45,7 @@ public class PlayerMachine : MonoBehaviour {
         collider.enabled = !status;
     }
 
-    public void setCutsceneMode(bool status){
+    public void SetCutsceneMode(bool status){
         allowJumping = !status;
         allowHammering = !status;
         allowMenuOpen = !status;
@@ -55,28 +55,28 @@ public class PlayerMachine : MonoBehaviour {
         gameManager.controller.hammerPressed = false;
     }
 
-	void Awake () {
+	void Awake() {
 		grounded = true;
 		rigidbody = gameObject.GetComponent<Rigidbody> ();
         collider = gameObject.GetComponent<BoxCollider>();
 	}
 		
-	void FixedUpdate () {
+	void FixedUpdate() {
         grounded = feet.CheckGroundStatus();
         if (allowMovement) {
-			doMovement ();
+			DoMovement ();
         }
-        doActions();
+        DoActions();
         if(allowMenuOpen){
-            doMenu();
+            DoMenu();
         }
 	}
 
      void Update() {
         if (allowArtUpdate) {
-            updateArt();
+            UpdateArt();
         }
-        updateParticleSystem();
+        UpdateParticleSystem();
      }
 
     void OnTriggerEnter(Collider other) {
@@ -84,8 +84,8 @@ public class PlayerMachine : MonoBehaviour {
         temp = other.GetComponent<IInteractable>();
         if(temp != null && !hammering){
             interaction = temp;
-            interactionIcon.spriteRenderer.sprite = interaction.getIcon();
-            interactionIcon.showIcon();
+            interactionIcon.spriteRenderer.sprite = interaction.GetIcon();
+            interactionIcon.ShowIcon();
             allowJumping = false;
         }
     }
@@ -96,21 +96,21 @@ public class PlayerMachine : MonoBehaviour {
         if (temp == interaction) {
             interaction = null;
             allowJumping = true;
-            interactionIcon.hideIcon();
+            interactionIcon.HideIcon();
         }
     }
 
-    void doMenu(){
+    void DoMenu(){
         if(gameManager.inputManager.isInputDown[6] && grounded){
-            setCutsceneMode(true);
+            SetCutsceneMode(true);
             allowArtUpdate = false;
-            setFrozenStatus(true);
-            gameManager.menuManager.openMenu();
+            SetFrozenStatus(true);
+            gameManager.menuManager.OpenMenu();
             audioSource.PlayOneShot(menuOpenSound);
         }
     }
 
-	void doMovement(){
+	void DoMovement(){
         if(disableAngledControls){
             rigidbody.velocity += new Vector3(gameManager.controller.direction.x * moveSpeed, 0, gameManager.controller.direction.y * moveSpeed);
         } else{
@@ -123,25 +123,25 @@ public class PlayerMachine : MonoBehaviour {
         }
     }
 
-    void doActions(){
+    void DoActions(){
         if (feet.CheckGroundStatus()) {
             if (gameManager.controller.jumpPressed) {
                 if (allowJumping && interaction == null) {
                     rigidbody.AddRelativeForce(new Vector3(rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z));
-                    art.playJumpSound();
+                    art.PlayJumpSound();
                 } else if (interaction != null) {
-                    interaction.interact(gameObject);
-                    interactionIcon.hideIcon();
+                    interaction.Interact(gameObject);
+                    interactionIcon.HideIcon();
                 }
             }
 
             if (gameManager.controller.hammerPressed && !hammering) {
-                hammer.swingHammer();
+                hammer.SwingHammer();
             }
         }
     }
 
-	void updateArt(){
+	void UpdateArt(){
         art.animator.SetFloat("normalizedSpeed", Mathf.Clamp01(rigidbody.velocity.magnitude));
         art.animator.SetBool("grounded", grounded);
 
@@ -160,7 +160,7 @@ public class PlayerMachine : MonoBehaviour {
         }
     }
 
-    void updateParticleSystem(){
+    void UpdateParticleSystem(){
 		if (grounded && (Mathf.Abs (rigidbody.velocity.x) > 0.01f || Mathf.Abs (rigidbody.velocity.z) > 0.01f)) {
 			if (!particles.isEmitting) {
 				particles.Play();

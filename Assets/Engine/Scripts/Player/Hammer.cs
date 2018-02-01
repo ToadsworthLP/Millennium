@@ -12,31 +12,31 @@ public class Hammer : MonoBehaviour{
 
     private bool alreadyHit;
 
-    public void swingHammer(){
+    public void SwingHammer(){
         alreadyHit = false;
         playerMachine = gameManager.playerMachine;
         playerAnimator = gameManager.playerAnimator;
 
         playerMachine.hammering = true;
-        playerMachine.art.hammerSwing();
+        playerMachine.art.HammerSwing();
         playerMachine.art.animator.SetFloat("Hammer", 1);
         playerMachine.allowMovement = false;
     }
 
     void OnTriggerEnter(Collider other) {
         if(!other.CompareTag("Player") && gameObject.activeSelf && !other.isTrigger && !alreadyHit){
-            StartCoroutine(hammerHit(other.gameObject));
+            StartCoroutine(HammerHit(other.gameObject));
         }
     }
 
-    IEnumerator hammerHit(GameObject hitObject){
+    IEnumerator HammerHit(GameObject hitObject){
         alreadyHit = true;
         playerAnimator.SetFloat("Hammer", 0);
-        playerMachine.art.hammerHit();
+        playerMachine.art.HammerHit();
 
         IHammerable hammerable = hitObject.GetComponent<IHammerable>();
         if (hammerable != null)
-            hammerable.hammer();
+            hammerable.Hammer();
 
         yield return new WaitForSeconds(gameManager.playerMachine.hammerDuration);
 

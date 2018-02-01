@@ -9,7 +9,7 @@ public class TiledIconDisplay : MonoBehaviour {
     private RectTransform rectTransform;
     private Image image;
 
-    public void updateIcons(int amount){
+    public void UpdateIcons(int amount){
         if(rectTransform == null){
             rectTransform = GetComponent<RectTransform>();
             image = GetComponent<Image>();

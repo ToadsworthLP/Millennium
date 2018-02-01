@@ -22,25 +22,25 @@ public class Backpack : MonoBehaviour {
 
     void Start() {
         DontDestroyOnLoad(gameObject);
-        if(!loadData()){
-            data = new PlayerData().getDefaults();
+        if(!LoadData()){
+            data = new PlayerData().GetDefaults();
         }
-        SceneManager.sceneLoaded += sceneLoaded;
-        sceneLoaded(SceneManager.GetSceneByName(data.currentScene), LoadSceneMode.Single);
+        SceneManager.sceneLoaded += SceneLoaded;
+        SceneLoaded(SceneManager.GetSceneByName(data.currentScene), LoadSceneMode.Single);
         deltaPlaytime = Stopwatch.StartNew();
     }
 
-    public void sceneLoaded(Scene scene, LoadSceneMode mode) {
+    public void SceneLoaded(Scene scene, LoadSceneMode mode) {
         if (SceneManager.GetSceneByName(data.currentScene).Equals(scene)) {
             gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
             gameManager.playerMachine.transform.position = data.currentPosition;
-            StartCoroutine(initializeHUD());
+            StartCoroutine(InitializeHUD());
         }
     }
 
-    IEnumerator initializeHUD(){
+    IEnumerator InitializeHUD(){
         yield return new WaitForEndOfFrame();
-        gameManager.hudController.setData(data, true);
+        gameManager.hudController.SetData(data, true);
         gameManager.blackOverlay.FadeOut();
     }
 
@@ -63,7 +63,7 @@ public class Backpack : MonoBehaviour {
 
         set {
             data.hp = Mathf.Clamp(value, 0, maxHp);
-            gameManager.hudController.setHP(data.hp);
+            gameManager.hudController.SetHP(data.hp);
         }
     }
     public int maxHp
@@ -74,7 +74,7 @@ public class Backpack : MonoBehaviour {
 
         set {
             data.maxHp = Mathf.Clamp(value, 0, 99);
-            gameManager.hudController.setMaxHP(data.maxHp);
+            gameManager.hudController.SetMaxHP(data.maxHp);
         }
     }
     public int fp
@@ -85,7 +85,7 @@ public class Backpack : MonoBehaviour {
 
         set {
             data.fp = Mathf.Clamp(value, 0, maxFp);
-            gameManager.hudController.setFP(data.fp);
+            gameManager.hudController.SetFP(data.fp);
         }
     }
     public int maxFp
@@ -96,7 +96,7 @@ public class Backpack : MonoBehaviour {
 
         set {
             data.maxFp = Mathf.Clamp(value, 0, 99);
-            gameManager.hudController.setMaxFP(data.maxFp);
+            gameManager.hudController.SetMaxFP(data.maxFp);
         }
     }
     public int sp
@@ -127,7 +127,7 @@ public class Backpack : MonoBehaviour {
 
         set {
             data.coins = Mathf.Clamp(value, 0, 999);
-            gameManager.hudController.setCoins(data.coins);
+            gameManager.hudController.SetCoins(data.coins);
         }
     }
     public int starPoints
@@ -138,7 +138,7 @@ public class Backpack : MonoBehaviour {
 
         set {
             data.starPoints = Mathf.Clamp(value, 0, 99);
-            gameManager.hudController.setStarPoints(data.starPoints);
+            gameManager.hudController.SetStarPoints(data.starPoints);
         }
     }
     public int level
@@ -216,7 +216,7 @@ public class Backpack : MonoBehaviour {
     {
         get {
             if(items != null && items.Count > 0){
-                return items.FindAll(isNormal);
+                return items.FindAll(IsNormal);
             }else{
                 return new List<BaseItem>();
             }
@@ -226,7 +226,7 @@ public class Backpack : MonoBehaviour {
     {
         get {
             if (items != null && items.Count > 0) {
-                return items.FindAll(isImportant);
+                return items.FindAll(IsImportant);
             } else {
                 return new List<BaseItem>();
             }
@@ -236,7 +236,7 @@ public class Backpack : MonoBehaviour {
     {
         get {
             if (items != null && items.Count > 0) {
-                return items.FindAll(isBadge);
+                return items.FindAll(IsBadge);
             } else {
                 return new List<BaseItem>();
             }
@@ -263,7 +263,7 @@ public class Backpack : MonoBehaviour {
     }
 
     //Save system stuff
-    public bool loadData() {
+    public bool LoadData() {
         try{
             using (StreamReader file = new StreamReader(Application.persistentDataPath + "/" + savefileName)){
                 String dataString = file.ReadToEnd();
@@ -277,7 +277,7 @@ public class Backpack : MonoBehaviour {
         }
     }
 
-    public bool saveData(){
+    public bool SaveData(){
         try{
             using (StreamWriter file = new StreamWriter(Application.persistentDataPath + "/" + savefileName)){
                 data.playtime = playtime;
@@ -294,14 +294,14 @@ public class Backpack : MonoBehaviour {
     }
 
     //Sorting funtions
-    private static bool isImportant(BaseItem item) {
+    private static bool IsImportant(BaseItem item) {
         if (item is UsableItem && ((UsableItem)item).isImportantItem) {
             return true;
         } else {
             return false;
         }
     }
-    private static bool isNormal(BaseItem item) {
+    private static bool IsNormal(BaseItem item) {
         if (item is UsableItem && !((UsableItem)item).isImportantItem) {
             
             return true;
@@ -309,7 +309,7 @@ public class Backpack : MonoBehaviour {
             return false;
         }
     }
-    private static bool isBadge(BaseItem item) {
+    private static bool IsBadge(BaseItem item) {
         if (item is BadgeItem) {
             return true;
         } else {
@@ -327,7 +327,7 @@ public class Backpack : MonoBehaviour {
             if (GUILayout.Button("Reset save data")) {
                 try {
                     using (StreamWriter file = new StreamWriter(Application.persistentDataPath + "/" + ((Backpack)target).savefileName)){
-                        PlayerData data = new PlayerData().getDefaults();
+                        PlayerData data = new PlayerData().GetDefaults();
                         file.WriteLine(Utils.Serialize(data));
                     }
                 } catch (Exception e) {
@@ -362,7 +362,7 @@ public class PlayerData{
     public Dictionary<string, object> shelf;
     public byte[] shelfSerialized;
 
-    public PlayerData getDefaults(){
+    public PlayerData GetDefaults(){
         playerName = "Mario";
         maxHp = 10;
         hp = 10;

@@ -32,18 +32,18 @@ public class ItemListManager : MonoBehaviour {
         }
     }
 
-    public void setBackpack(Backpack backpack){
+    public void SetBackpack(Backpack backpack){
         this.backpack = backpack;
     }
 
-    public void showItems(EnumItemKind category){
+    public void ShowItems(EnumItemKind category){
         entryParent.transform.ClearChildren();
         itemCursor.optionObjects.Clear();
         rectTransform = entryParent.GetComponent<RectTransform>();
 
         if (startPosition == Vector2.zero)
             startPosition = rectTransform.anchoredPosition;
-        resetPosition();
+        ResetPosition();
 
         List<BaseItem> itemList = new List<BaseItem>();
         if (category == EnumItemKind.IMPORTANT){
@@ -67,30 +67,30 @@ public class ItemListManager : MonoBehaviour {
                 entry.item = (UsableItem)item;
                 entry.listSwitchCursor = listSwitchCursor;
                 itemCursor.optionObjects.Add(entryObj);
-                entry.setupEntry(this);
+                entry.SetupEntry(this);
 
                 counter++;
             }
         }
     }
 
-    public void scrollItemList(int targetIndex) {
-        if (getPageOfIndex(targetIndex) - 1 > currentPage) {
+    public void ScrollItemList(int targetIndex) {
+        if (GetPageOfIndex(targetIndex) - 1 > currentPage) {
             targetPosition = rectTransform.anchoredPosition + new Vector2(0, 250);
             currentPage++;
-        } else if (getPageOfIndex(targetIndex) - 1 < currentPage) {
+        } else if (GetPageOfIndex(targetIndex) - 1 < currentPage) {
             targetPosition = rectTransform.anchoredPosition - new Vector2(0, 250);
             currentPage--;
         }
 
     }
 
-    public void resetPosition(){
+    public void ResetPosition(){
         targetPosition = startPosition;
         currentPage = 0;
     }
 
-    public int getPageOfIndex(int index) {
+    public int GetPageOfIndex(int index) {
         return (index + 10) / 10;
     }
 

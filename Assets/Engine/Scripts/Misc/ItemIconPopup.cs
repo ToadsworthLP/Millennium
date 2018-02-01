@@ -4,7 +4,7 @@ public class ItemIconPopup : MonoBehaviour {
 
     public SpriteRenderer sprite;
 
-    public void show(Sprite icon){
+    public void Show(Sprite icon){
         sprite.sprite = icon;
     }
 

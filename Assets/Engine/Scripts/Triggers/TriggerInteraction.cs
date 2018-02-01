@@ -5,8 +5,8 @@ public class TriggerInteraction : InteractableHelper {
     [SerializeField]
     public MilleniumEvent testEvent;
 
-    public override void interact(GameObject playerObject) {
-        base.interact(playerObject);
+    public override void Interact(GameObject playerObject) {
+        base.Interact(playerObject);
         if (testEvent != null) {
             testEvent.Invoke(gameObject, "Test");
         }

@@ -15,49 +15,49 @@ public class MenuManager : MonoBehaviour {
 
     private bool active;
 
-    public void openMenu(){
+    public void OpenMenu(){
         foreach(MenuPage p in pages){
             p.gameObject.SetActive(false);
         }
         pages[0].gameObject.SetActive(true);
 
         gameObject.SetActive(true);
-        tabCursor.GetComponent<Cursor>().setActivityStatus(true);
-        player.setCutsceneMode(true);
+        tabCursor.GetComponent<Cursor>().SetActivityStatus(true);
+        player.SetCutsceneMode(true);
         player.art.animator.SetFloat("normalizedSpeed", 0);
         player.art.animator.SetFloat("side", 0);
     }
 
-    public void closeMenu() {
+    public void CloseMenu() {
         if(active){
             foreach (MenuPage p in pages) {
                 p.gameObject.SetActive(true);
             }
             active = false;
             animator.SetTrigger("CloseMenu");
-            StartCoroutine(delayPlayerControl());
+            StartCoroutine(DelayPlayerControl());
         }
     }
 
-    public void closeAnimFinished(){
-        player.setCutsceneMode(false);
+    public void CloseAnimFinished(){
+        player.SetCutsceneMode(false);
         gameObject.SetActive(false);
     }
 
-    public void openAnimFinished(){
+    public void OpenAnimFinished(){
         tabCursor.SetActive(true);
         active = true;
     }
 
-    public MenuPage getPageOfIndex(int index){
+    public MenuPage GetPageOfIndex(int index){
         return pages[index];
     }
 
-    IEnumerator delayPlayerControl(){
+    IEnumerator DelayPlayerControl(){
         yield return new WaitForSeconds(playerControlDelay);
-        player.setCutsceneMode(false);
+        player.SetCutsceneMode(false);
         player.allowArtUpdate = true;
-        player.setFrozenStatus(false);
+        player.SetFrozenStatus(false);
     }
 
 }

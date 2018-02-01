@@ -12,15 +12,15 @@ public class HealingItem : UsableItem {
         foreach (Utils.StatModifier mod in statModifiers) {
             switch (mod.statToModify) {
                 case Utils.StatType.HP:
-                    manager.getBackpack().hp += mod.value;
+                    manager.GetBackpack().hp += mod.value;
                     break;
 
                 case Utils.StatType.FP:
-                    manager.getBackpack().fp += mod.value;
+                    manager.GetBackpack().fp += mod.value;
                     break;
 
                 case Utils.StatType.SP:
-                    manager.getBackpack().sp += mod.value;
+                    manager.GetBackpack().sp += mod.value;
                     break;
             }
             yield return new WaitForSeconds(statModificationDelay);

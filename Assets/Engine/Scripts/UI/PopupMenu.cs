@@ -13,7 +13,7 @@ public class PopupMenu : MonoBehaviour {
     public Vector2 optionOrigin;
     private PopupMenuSettings[] options;
 
-    public void setupPopupMenu (List<PopupMenuSettings> options){
+    public void SetupPopupMenu (List<PopupMenuSettings> options){
         this.options = options.ToArray();
         CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
 

@@ -9,20 +9,20 @@ public class PopupMenuOption : SelectableHelper {
 
     private Cursor cursor;
 
-    public override void onOKPressed() {
-        base.onOKPressed();
+    public override void OnOKPressed() {
+        base.OnOKPressed();
         action.Invoke(this);
-        cursor.setActivityStatus(false);
-        StartCoroutine(fadeOut());
+        cursor.SetActivityStatus(false);
+        StartCoroutine(FadeOut());
     }
 
-    public override void onCursorInit(Cursor cursor) {
-        base.onCursorInit(cursor);
+    public override void OnCursorInit(Cursor cursor) {
+        base.OnCursorInit(cursor);
         this.cursor = cursor;
         textComponent.text = label;
     }
 
-    IEnumerator fadeOut() {
+    IEnumerator FadeOut() {
         while (parentCanvasRenderer.alpha > 0) {
             parentCanvasRenderer.alpha = parentCanvasRenderer.alpha - 0.1f;
             yield return new WaitForEndOfFrame();

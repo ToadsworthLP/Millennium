@@ -136,10 +136,6 @@
     <Compile Include="Assets\Engine\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Engine\Scripts\Cutscene\BaseCutsceneNode.cs" />
     <Compile Include="Assets\Engine\Scripts\Cutscene\CutsceneManager.cs" />
-    <Compile Include="Assets\Engine\Scripts\Cutscene\NodeEditor\EditorConnection.cs" />
-    <Compile Include="Assets\Engine\Scripts\Cutscene\NodeEditor\EditorConnectionPoint.cs" />
-    <Compile Include="Assets\Engine\Scripts\Cutscene\NodeEditor\EditorNode.cs" />
-    <Compile Include="Assets\Engine\Scripts\Cutscene\NodeEditor\NodeBasedEditor.cs" />
     <Compile Include="Assets\Engine\Scripts\Interfaces\IHammerable.cs" />
     <Compile Include="Assets\Engine\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Engine\Scripts\Interfaces\ISelectable.cs" />

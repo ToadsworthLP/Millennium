@@ -13,11 +13,11 @@
         this.audienceSize = audienceSize;
     }
 
-    public string getName(){
+    public string GetName(){
         return name;
     }
 
-    public int getAudienceSize(){
+    public int GetAudienceSize(){
         return audienceSize;
     }
 }

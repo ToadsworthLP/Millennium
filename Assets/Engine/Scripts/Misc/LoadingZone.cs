@@ -18,21 +18,21 @@ public class LoadingZone : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player") && !disabled){
-            StartCoroutine(handleLoadingZone());
+            StartCoroutine(HandleLoadingZone());
         }
     }
 
     void OnTriggerExit(Collider other) {
         if (other.CompareTag("Player") && disabled) {
-            StartCoroutine(delayPlayerControl());
+            StartCoroutine(DelayPlayerControl());
         }
     }
 
-    IEnumerator handleLoadingZone() {
-        gameManager.playerMachine.setCutsceneMode(true);
+    IEnumerator HandleLoadingZone() {
+        gameManager.playerMachine.SetCutsceneMode(true);
         gameManager.playerMachine.disableAngledControls = true;
 
-        Vector3 exitDirection = getExitDirection(this);
+        Vector3 exitDirection = GetExitDirection(this);
         gameManager.controller.direction = new Vector2(Mathf.Round(exitDirection.x * exitDirectionRoundingConstant) / exitDirectionRoundingConstant, Mathf.Round(exitDirection.z * exitDirectionRoundingConstant) / exitDirectionRoundingConstant);
         gameManager.blackOverlay.FadeIn();
 
@@ -42,24 +42,24 @@ public class LoadingZone : MonoBehaviour {
         destinationLoadingZone.disabled = true;
         gameManager.playerMachine.transform.position = destinationLoadingZone.transform.position;
 
-        exitDirection = getExitDirection(destinationLoadingZone)*-1;
+        exitDirection = GetExitDirection(destinationLoadingZone)*-1;
         gameManager.controller.direction = new Vector2(Mathf.Round(exitDirection.x * exitDirectionRoundingConstant) / exitDirectionRoundingConstant, Mathf.Round(exitDirection.z * exitDirectionRoundingConstant) / exitDirectionRoundingConstant);
         gameManager.blackOverlay.FadeOut();
     }
 
-    IEnumerator delayPlayerControl() {
+    IEnumerator DelayPlayerControl() {
         yield return new WaitForSeconds(controlDelay);
         gameManager.playerMachine.disableAngledControls = false;
-        gameManager.playerMachine.setCutsceneMode(false);
+        gameManager.playerMachine.SetCutsceneMode(false);
         disabled = false;
     }
 
-    private Vector3 getExitDirection(LoadingZone zone) {
+    private Vector3 GetExitDirection(LoadingZone zone) {
         return Vector3.Normalize(zone.transform.forward);
     }
 
     private void OnDrawGizmos() {
-        Debug.DrawRay(transform.position, getExitDirection(this), Color.blue);
+        Debug.DrawRay(transform.position, GetExitDirection(this), Color.blue);
     }
 
 }

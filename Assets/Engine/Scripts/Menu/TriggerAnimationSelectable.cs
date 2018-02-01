@@ -8,22 +8,22 @@ public class TriggerAnimationSelectable : DescriptionSelectable {
     public FloatAnimationSetter[] floatSelectTriggers;
     public FloatAnimationSetter[] floatDeselectTriggers;
 
-    public override void onCursorSelect() {
-        base.onCursorSelect();
+    public override void OnCursorSelect() {
+        base.OnCursorSelect();
         foreach (FloatAnimationSetter f in floatSelectTriggers) {
             animator.SetFloat(f.name, f.value);
         }
     }
 
-    public override void onCursorLeave() {
-        base.onCursorLeave();
+    public override void OnCursorLeave() {
+        base.OnCursorLeave();
         foreach (FloatAnimationSetter f in floatDeselectTriggers) {
             animator.SetFloat(f.name, f.value);
         }
     }
 
-    public override void onCancelPressed() {
-        base.onCancelPressed();
+    public override void OnCancelPressed() {
+        base.OnCancelPressed();
         foreach (FloatAnimationSetter f in floatDeselectTriggers) {
             animator.SetFloat(f.name, f.value);
         }

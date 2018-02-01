@@ -18,24 +18,24 @@ public class SelectableHelper : MonoBehaviour, ISelectable {
     [HideInInspector]
     public TextMeshProUGUI textComponent;
 
-    public virtual bool getActive() {
+    public virtual bool GetActive() {
         return true;
     }
 
-    public virtual void onCursorInit(Cursor cursor) {
+    public virtual void OnCursorInit(Cursor cursor) {
         if (useColorHighlight) {
             textComponent = gameObject.GetComponent<TextMeshProUGUI>();
             textComponent.canvasRenderer.SetColor(defaultColor);
         }
     }
 
-    public virtual Vector3 getGrabPoint() {
+    public virtual Vector3 GetGrabPoint() {
         return handle.position;
     }
 
-    public virtual void onCancelPressed() { }
+    public virtual void OnCancelPressed() { }
 
-    public virtual void onCursorLeave() {
+    public virtual void OnCursorLeave() {
         if(useColorHighlight){
             textComponent.CrossFadeColor(defaultColor, colorFadeTime, false, false);
         }
@@ -45,7 +45,7 @@ public class SelectableHelper : MonoBehaviour, ISelectable {
         }
     }
 
-    public virtual void onCursorSelect() {
+    public virtual void OnCursorSelect() {
         if (useColorHighlight) {
             textComponent.CrossFadeColor(highlightColor, colorFadeTime, false, false);
         }
@@ -55,7 +55,7 @@ public class SelectableHelper : MonoBehaviour, ISelectable {
         }
     }
 
-    public virtual void onOKPressed() { }
+    public virtual void OnOKPressed() { }
 
-    public virtual void onSideKeyPressed(Utils.EnumDirection direction) { }
+    public virtual void OnSideKeyPressed(Utils.EnumDirection direction) { }
 }

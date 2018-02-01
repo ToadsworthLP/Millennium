@@ -236,7 +236,7 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 0.13333334
-    functionName: disableIcon
+    functionName: DisableIcon
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

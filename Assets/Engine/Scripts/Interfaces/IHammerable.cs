@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface IHammerable{
-    void hammer();
+    void Hammer();
 }

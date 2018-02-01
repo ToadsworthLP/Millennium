@@ -6,17 +6,17 @@ public class MenuPage : MonoBehaviour {
     [HideInInspector]
     public Animator animator;
 
-    public void focusPage(){
+    public void FocusPage(){
         if(animator == null){
             animator = GetComponent<Animator>();
         }
     }
 
-    public void unfocusPage(float disableDelay){
-        StartCoroutine(deactivateAfterDelay(disableDelay));
+    public void UnfocusPage(float disableDelay){
+        StartCoroutine(DeactivateAfterDelay(disableDelay));
     }
 
-    IEnumerator deactivateAfterDelay(float disableDelay){
+    IEnumerator DeactivateAfterDelay(float disableDelay){
         yield return new WaitForSeconds(disableDelay);
         gameObject.SetActive(false);
     }

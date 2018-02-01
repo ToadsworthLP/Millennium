@@ -24,42 +24,42 @@ public class GameManager : MonoBehaviour {
     private int renderTextureUses;
     private SmoothCameraMovement cameraController;
 
-    public Backpack getBackpack(){
+    public Backpack GetBackpack(){
         if(backpack == null){
             backpack = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>();
         }
         return backpack;
     }
 
-    public SmoothCameraMovement getCameraController(){
+    public SmoothCameraMovement GetCameraController(){
         if(cameraController == null){
             cameraController = mainCamera.GetComponent<SmoothCameraMovement>();
         }
         return cameraController;
     }
 
-    public RenderTexture getPlayerRenderTexture(){
+    public RenderTexture GetPlayerRenderTexture(){
         renderTextureUses++;
         renderTextureParent.SetActive(true);
         return playerRenderTexture;
     }
 
-    public void updateHammer(HammerAsset hammerType){
+    public void UpdateHammer(HammerAsset hammerType){
         playerMachine.hammer.hammer = hammerType;
         playerMachine.hammer.hammerSpriteRenderer.sprite = hammerType.hammerSprite;
     }
 
     //Use this to tell the script that the render texture isn't needed anymore. If it isn't needed for anything, it won't be updated.
-    public void releaseRenderTexture(){
+    public void ReleaseRenderTexture(){
         renderTextureUses--;
         if(renderTextureUses <= 0){
             renderTextureParent.SetActive(false);
         }
     }
 
-    public T getShelfData<T>(string key, T defaultValue){
+    public T GetShelfData<T>(string key, T defaultValue){
         object data;
-        if(getBackpack().shelf.TryGetValue(key, out data)){
+        if(GetBackpack().shelf.TryGetValue(key, out data)){
             try {
                 return (T)data;
             } catch (Exception e) {
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour {
         return defaultValue;
     }
 
-    public void setShelfData(string key, object value) {
+    public void SetShelfData(string key, object value) {
         object val;
         if (backpack.shelf.TryGetValue(key, out val)) {
             backpack.shelf[key] = value;

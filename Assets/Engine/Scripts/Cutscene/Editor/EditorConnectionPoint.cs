@@ -11,7 +11,6 @@ public class EditorConnectionPoint
     public ConnectionPointType type;
     public EditorNode node;
     public GUIStyle style;
-    public GUIStyle textStyle;
 
     public int id;
 
@@ -23,7 +22,6 @@ public class EditorConnectionPoint
         this.node = node;
         this.type = type;
         this.style = style;
-        this.textStyle = textStyle;
         this.OnClickConnectionPoint = OnClickConnectionPoint;
         this.name = name;
         this.id = id;

@@ -55,10 +55,10 @@ public class Cursor : MonoBehaviour {
         foreach(GameObject obj in optionObjects){
             ISelectable option = obj.GetComponent<ISelectable>();
             options.Add(option);
-            option.onCursorInit(this);
+            option.OnCursorInit(this);
         }
 
-        targetPosition = options[selectedIndex].getGrabPoint();
+        targetPosition = options[selectedIndex].GetGrabPoint();
 
         if(enableStartAnimation){
             if(startPosition == Vector3.zero){
@@ -69,43 +69,43 @@ public class Cursor : MonoBehaviour {
             transform.position = targetPosition;
         }
         
-        options[selectedIndex].onCursorSelect();
+        options[selectedIndex].OnCursorSelect();
 
         active = true;
     }
 
     void Update() {
-        if (active && isDelayOver()) {
-            if (inputManager.isInputDown[4] && options[selectedIndex].getActive()) {
+        if (active && IsDelayOver()) {
+            if (inputManager.isInputDown[4] && options[selectedIndex].GetActive()) {
                 audioSource.PlayOneShot(okPressSound);
-                options[selectedIndex].onOKPressed();
+                options[selectedIndex].OnOKPressed();
                 if (oneUse) { active = false; }
-            } else if (inputManager.isInputDown[5] && options[selectedIndex].getActive()) {
+            } else if (inputManager.isInputDown[5] && options[selectedIndex].GetActive()) {
                 audioSource.PlayOneShot(cancelPressSound);
-                options[selectedIndex].onCancelPressed();
+                options[selectedIndex].OnCancelPressed();
                 if (oneUse) { active = false; }
             } else if (inputManager.isInput[0]) {
                 if(mode == CursorMode.VERTICAL && selectedIndex > 0)
-                    cursorMoved(-1);
-                options[selectedIndex].onSideKeyPressed(Utils.EnumDirection.UP);
+                    CursorMoved(-1);
+                options[selectedIndex].OnSideKeyPressed(Utils.EnumDirection.UP);
             } else if (inputManager.isInput[1]) {
                 if (mode == CursorMode.VERTICAL && selectedIndex < optionObjects.Count - 1)
-                    cursorMoved(1);
-                options[selectedIndex].onSideKeyPressed(Utils.EnumDirection.DOWN);
+                    CursorMoved(1);
+                options[selectedIndex].OnSideKeyPressed(Utils.EnumDirection.DOWN);
             } else if (inputManager.isInput[2]) {
                 if (mode == CursorMode.HORIZONTAL && selectedIndex > 0)
-                    cursorMoved(-1);
-                options[selectedIndex].onSideKeyPressed(Utils.EnumDirection.LEFT);
+                    CursorMoved(-1);
+                options[selectedIndex].OnSideKeyPressed(Utils.EnumDirection.LEFT);
             } else if (inputManager.isInput[3]) {
                 if (mode == CursorMode.HORIZONTAL && selectedIndex < optionObjects.Count - 1)
-                    cursorMoved(1);
-                options[selectedIndex].onSideKeyPressed(Utils.EnumDirection.RIGHT);
+                    CursorMoved(1);
+                options[selectedIndex].OnSideKeyPressed(Utils.EnumDirection.RIGHT);
             }
         }
 
         if (enableIdleAnimation) {
             float offset = Mathf.Sin(Time.fixedTime * 10) * 2;
-            targetPosition = new Vector3(options[selectedIndex].getGrabPoint().x + offset, options[selectedIndex].getGrabPoint().y, options[selectedIndex].getGrabPoint().z);
+            targetPosition = new Vector3(options[selectedIndex].GetGrabPoint().x + offset, options[selectedIndex].GetGrabPoint().y, options[selectedIndex].GetGrabPoint().z);
         }
 
         if (transform.position != targetPosition) {
@@ -118,26 +118,26 @@ public class Cursor : MonoBehaviour {
 
     }
 
-    public void cursorMoved(int amount) {
+    public void CursorMoved(int amount) {
         previousSelectedIndex = selectedIndex;
 
         selectedIndex += amount;
         options[selectedIndex] = options[selectedIndex];
 
         if (!enableIdleAnimation) {
-            targetPosition = options[selectedIndex].getGrabPoint();
+            targetPosition = options[selectedIndex].GetGrabPoint();
         }
 
         audioSource.PlayOneShot(moveSound);
-        options[previousSelectedIndex].onCursorLeave();
-        options[selectedIndex].onCursorSelect();
+        options[previousSelectedIndex].OnCursorLeave();
+        options[selectedIndex].OnCursorSelect();
 
         if (moveCooldown > 0) {
             timeSinceLastMove = 0;
         }
     }
 
-    bool isDelayOver() {
+    bool IsDelayOver() {
         if (timeSinceLastMove >= moveCooldown) {
             return true;
         } else {
@@ -145,7 +145,7 @@ public class Cursor : MonoBehaviour {
         }
     }
 
-    public void setActivityStatus(bool active){
+    public void SetActivityStatus(bool active){
         this.active = active;
         GetComponent<Image>().enabled = active;
         enableIdleAnimation = active;

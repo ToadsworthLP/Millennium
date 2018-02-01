@@ -40,59 +40,60 @@ public class SaveBlock : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         uiParent = gameManager.uiParent;
         player = gameManager.playerMachine;
-        backpack = gameManager.getBackpack();
+        backpack = gameManager.GetBackpack();
         animator = gameObject.GetComponent<Animator>();
     }
 
-    private void pageFinished(int page) {
+    private void PageFinished(int page) {
         PopupMenu saveMenuObject = Instantiate(menuPrefab, uiParent).GetComponentInChildren<PopupMenu>();
-        List<PopupMenuSettings> settings = new List<PopupMenuSettings>();
-        settings.Add(new PopupMenuSettings("Yes", yesHighlightColor, yesSelected));
-        settings.Add(new PopupMenuSettings("No", noHighlightColor, noSelected));
-        saveMenuObject.setupPopupMenu(settings);
+        List<PopupMenuSettings> settings = new List<PopupMenuSettings> {
+            new PopupMenuSettings("Yes", yesHighlightColor, YesSelected),
+            new PopupMenuSettings("No", noHighlightColor, NoSelected)
+        };
+        saveMenuObject.SetupPopupMenu(settings);
     }
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Player") && currentBubble == null && !blockAnimPlaying) {
             blockAnimPlaying = true;
-            player.setCutsceneMode(true);
-            StartCoroutine(waitForBlockAnimation());
+            player.SetCutsceneMode(true);
+            StartCoroutine(WaitForBlockAnimation());
         }
     }
 
-    private void yesSelected(PopupMenuOption option){
-        bool success = backpack.saveData();
+    private void YesSelected(PopupMenuOption option){
+        bool success = backpack.SaveData();
         GameObject bubble = Instantiate(speechBubble, uiParent);
         Typewriter writer = bubble.GetComponent<Typewriter>();
-        writer.OnBubbleClosed += resultBubbleClose;
+        writer.OnBubbleClosed += ResultBubbleClose;
 
         if (success) {
-            writer.startWriting(saveText);
+            writer.StartWriting(saveText);
         } else {
-            writer.startWriting(errorText);
+            writer.StartWriting(errorText);
         }
     }
 
-    private void noSelected(PopupMenuOption option) {
-        player.setCutsceneMode(false);
-        player.setFrozenStatus(false);
-        StartCoroutine(waitBeforeEnablingJump());
+    private void NoSelected(PopupMenuOption option) {
+        player.SetCutsceneMode(false);
+        player.SetFrozenStatus(false);
+        StartCoroutine(WaitBeforeEnablingJump());
     }
 
-    private void resultBubbleClose() {
+    private void ResultBubbleClose() {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
-        player.setCutsceneMode(false);
-        player.setFrozenStatus(false);
-        StartCoroutine(waitBeforeEnablingJump());
+        player.SetCutsceneMode(false);
+        player.SetFrozenStatus(false);
+        StartCoroutine(WaitBeforeEnablingJump());
     }
 
-    IEnumerator waitBeforeEnablingJump() {
+    IEnumerator WaitBeforeEnablingJump() {
         player.allowJumping = false;
         yield return new WaitForSeconds(jumpDelay);
         player.allowJumping = true;
     }
 
-    IEnumerator waitForBlockAnimation() {
+    IEnumerator WaitForBlockAnimation() {
         animator.SetTrigger("Hit");
         yield return new WaitForSeconds(textDelay);
         GameObject bubble = Instantiate(speechBubble, uiParent);
@@ -100,8 +101,8 @@ public class SaveBlock : MonoBehaviour
         writer.talkSound = talkSound;
         writer.skipSound = skipSound;
         writer.textComponent.color = textTint;
-        writer.OnPageFinished += pageFinished;
-        writer.startWriting(genText);
+        writer.OnPageFinished += PageFinished;
+        writer.StartWriting(genText);
         currentBubble = bubble;
         blockAnimPlaying = false;
     }

@@ -12,19 +12,19 @@ public class DescriptionSelectable : SelectableHelper {
 
     private GameObject pageCursor;
 
-    public override void onCursorInit(Cursor cursor) {
-        base.onCursorInit(cursor);
+    public override void OnCursorInit(Cursor cursor) {
+        base.OnCursorInit(cursor);
         pageCursor = cursor.gameObject;
     }
 
-    public override void onCancelPressed() {
-        base.onCancelPressed();
+    public override void OnCancelPressed() {
+        base.OnCancelPressed();
         pageCursor.SetActive(false);
-        pageSelectionCursor.setActivityStatus(true);
+        pageSelectionCursor.SetActivityStatus(true);
     }
 
-    public override void onCursorSelect() {
-        base.onCursorSelect();
+    public override void OnCursorSelect() {
+        base.OnCursorSelect();
         descriptionTextBox.text = descriptionText;
     }
 

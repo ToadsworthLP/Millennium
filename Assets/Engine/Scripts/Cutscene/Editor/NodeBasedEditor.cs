@@ -27,7 +27,7 @@ public class NodeBasedEditor : EditorWindow
     public enum ProjectionPlaneType{ XY, XZ, YZ }
     public ProjectionPlaneType projectionPlane = ProjectionPlaneType.XY;
 
-    public static float offsetScaleFactor = -150;
+    public static float offsetScaleFactor = -120;
 
     public void OpenWindow(CutsceneManager manager) {
         this.cutsceneManager = manager;
@@ -67,18 +67,24 @@ public class NodeBasedEditor : EditorWindow
     }
 
     private void OnGUI() {
-        DrawGrid(20, 0.2f, Color.gray);
-        DrawGrid(100, 0.4f, Color.gray);
+        if(cutsceneManager == null){
+            GUILayout.Label("The cutscene manager this editor is linked to has been deleted. Please close this window.");
+        }else{
 
-        DrawNodes();
-        DrawConnections();
+            DrawGrid(20, 0.2f, Color.gray);
+            DrawGrid(100, 0.4f, Color.gray);
 
-        DrawConnectionLine(Event.current);
+            DrawNodes();
+            DrawConnections();
 
-        DrawMenuBar();
+            DrawConnectionLine(Event.current);
 
-        ProcessNodeEvents(Event.current);
-        ProcessEvents(Event.current);
+            DrawMenuBar();
+
+            ProcessNodeEvents(Event.current);
+            ProcessEvents(Event.current);
+
+        }
 
         if (GUI.changed) Repaint();
     }
@@ -106,9 +112,10 @@ public class NodeBasedEditor : EditorWindow
                     break;
             }
 
-            EditorNode node = new EditorNode(this, actualNode, targetPosition, headerStyle, nodeStyle);
-            node.OnRemoveNode = OnClickRemoveNode;
-            node.prepareConnections(inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint);
+            EditorNode node = new EditorNode(this, actualNode, targetPosition, headerStyle, nodeStyle) {
+                OnRemoveNode = OnClickRemoveNode
+            };
+            node.PrepareConnections(inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint);
 
             nodes.Add(actualNode, node);
         }
@@ -160,8 +167,7 @@ public class NodeBasedEditor : EditorWindow
         GUILayout.BeginHorizontal();
 
         if(GUILayout.Button("Go to origin", EditorStyles.toolbarButton, GUILayout.Width(80))){
-            OnDrag(-offset);
-            offset = Vector2.zero;
+            ResetView();
         }
 
         GUILayout.Space(30);
@@ -180,23 +186,20 @@ public class NodeBasedEditor : EditorWindow
             UpdateProjectionPlane(ProjectionPlaneType.YZ);
         }
 
+        GUILayout.Space(30);
+        GUILayout.Label("Offset: "+offset, GUILayout.Width(200));
+
         GUILayout.EndHorizontal();
         GUILayout.EndArea();
     }
 
-    private void UpdateProjectionPlane(ProjectionPlaneType newPlane){
-        OnDrag(-offset);
-        offset = Vector2.zero;
-
-        projectionPlane = newPlane;
-        AddNodesFromCutscene();
-    }
-
     private void DrawNodes() {
         if (nodes != null) {
-            foreach (EditorNode node in nodes.Values) {
-                node.Draw();
-            }
+            try {
+                foreach (EditorNode node in nodes.Values) {
+                    node.Draw();
+                }
+            }catch(Exception){}
         }
     }
 
@@ -206,6 +209,20 @@ public class NodeBasedEditor : EditorWindow
                 connections[i].Draw();
             }
         }
+    }
+
+    private void UpdateProjectionPlane(ProjectionPlaneType newPlane) {
+        offset = Vector2.zero;
+        projectionPlane = newPlane;
+        AddNodesFromCutscene();
+
+        ResetView();
+    }
+
+    private void ResetView() {
+        OnDrag(-offset);
+        offset = new Vector2(position.width / 2, position.height / 2);
+        OnDrag(offset);
     }
 
     private void ProcessEvents(Event e) {
@@ -301,9 +318,10 @@ public class NodeBasedEditor : EditorWindow
         actualNode.transform.position = cutsceneManager.transform.position;
         actualNode.name = "New " + type.Name;
 
-        EditorNode node = new EditorNode(this, actualNode, mousePosition, headerStyle, nodeStyle);
-        node.OnRemoveNode = OnClickRemoveNode;
-        node.prepareConnections(inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint);
+        EditorNode node = new EditorNode(this, actualNode, mousePosition, headerStyle, nodeStyle) {
+            OnRemoveNode = OnClickRemoveNode
+        };
+        node.PrepareConnections(inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint);
 
         nodes.Add(actualNode, node);
     }

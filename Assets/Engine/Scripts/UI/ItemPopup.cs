@@ -15,12 +15,12 @@ public class ItemPopup : MonoBehaviour {
 
     private ItemIconPopup popup;
 
-    public void startPopup(BaseItem itemType, PlayerMachine player){
+    public void StartPopup(BaseItem itemType, PlayerMachine player){
         this.player = player;
         item = itemType;
 
-        player.setCutsceneMode(true);
-        player.setFrozenStatus(true);
+        player.SetCutsceneMode(true);
+        player.SetFrozenStatus(true);
 
         if (itemType.name.StartsWith("A") || itemType.name.StartsWith("E") || itemType.name.StartsWith("I") || itemType.name.StartsWith("O") || itemType.name.StartsWith("U")) {
             nameText.text = "You got an <color=red>" + itemType.itemName + "</color>!";
@@ -32,7 +32,7 @@ public class ItemPopup : MonoBehaviour {
 
         popup = Instantiate(iconPopup, player.transform).GetComponent<ItemIconPopup>();
         animators.Add(popup.gameObject.GetComponent<Animator>());
-        popup.show(item.icon);
+        popup.Show(item.icon);
     }
 
     void LateUpdate() {
@@ -40,8 +40,8 @@ public class ItemPopup : MonoBehaviour {
             foreach(Animator a in animators){
                 a.SetTrigger("Close");
             }
-            player.setCutsceneMode(false);
-            player.setFrozenStatus(false);
+            player.SetCutsceneMode(false);
+            player.SetFrozenStatus(false);
             player.art.animator.SetBool("ItemGet", false);
             Destroy(popup.gameObject, destructionDelay);
             Destroy(gameObject, destructionDelay);
