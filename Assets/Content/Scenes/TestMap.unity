@@ -736,7 +736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSceneName: TestMap
-  startPosition: {x: 0, y: 0, z: 0}
+  startPosition: {x: -24, y: 2, z: 0}
   defaultHammer: {fileID: 11400000, guid: ff18d9b04eea68741a3db8440a5f7f85, type: 2}
   savefileName: save.dat
   statusEffects: 

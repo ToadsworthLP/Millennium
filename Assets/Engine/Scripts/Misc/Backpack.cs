@@ -33,7 +33,11 @@ public class Backpack : MonoBehaviour {
     public void SceneLoaded(Scene scene, LoadSceneMode mode) {
         if (SceneManager.GetSceneByName(data.currentScene).Equals(scene)) {
             gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-            gameManager.playerMachine.transform.position = data.currentPosition;
+            if(data.currentPosition == Vector3.zero){
+                gameManager.playerMachine.transform.position = startPosition;
+            } else{
+                gameManager.playerMachine.transform.position = data.currentPosition;
+            }
             StartCoroutine(InitializeHUD());
         }
     }
