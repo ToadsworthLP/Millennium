@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueQuestionNode : BaseCutsceneNode {
@@ -14,8 +13,8 @@ public class DialogueQuestionNode : BaseCutsceneNode {
     public AudioClip talkSound;
     public AudioClip skipSound;
 
-    public Color bubbleTint;
-    public Color textTint;
+    public Color bubbleTint = Color.white;
+    public Color textTint = new Color32(60, 60, 60, 255);
 
     public override void CallNode() {
         GameObject bubble = Instantiate(speechBubblePrefab, cutsceneManager.gameManager.uiParent);
