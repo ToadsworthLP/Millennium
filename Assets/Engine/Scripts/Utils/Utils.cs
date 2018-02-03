@@ -78,11 +78,21 @@ public static class Utils {
     }
 
     //Reflection utilities
-    public static Type[] GetAllSubclasses(Type parentType){
-        var children = from assembly in AppDomain.CurrentDomain.GetAssemblies()
+    public static Type[] GetAllSubclasses(Type parentType, bool allowAbstractClasses = false){
+        IEnumerable<Type> children;
+
+        if(allowAbstractClasses){
+            children = from assembly in AppDomain.CurrentDomain.GetAssemblies()
                        from type in assembly.GetTypes()
                        where type.IsSubclassOf(parentType)
                        select type;
+        } else{
+            children = from assembly in AppDomain.CurrentDomain.GetAssemblies()
+              from type in assembly.GetTypes()
+              where type.IsSubclassOf(parentType)
+              where !type.IsAbstract
+              select type;
+        }
 
         return children.ToArray();
     }

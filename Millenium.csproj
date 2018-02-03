@@ -299,7 +299,10 @@
   <ItemGroup>
     <Compile Include="Assets\Content\Items\Healing\HealingItem.cs" />
     <Compile Include="Assets\Content\Items\Misc\PlainItem.cs" />
+    <Compile Include="Assets\Content\Scripts\Cutscene\CameraNodeTools.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\CameraPanNode.cs" />
+    <Compile Include="Assets\Content\Scripts\Cutscene\CameraResetNode.cs" />
+    <Compile Include="Assets\Content\Scripts\Cutscene\DelayNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\DialogueNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\DialogueQuestionNode.cs" />
     <Compile Include="Assets\Content\Scripts\Examples\ExampleHammerable.cs" />

@@ -387,7 +387,7 @@ public class NodeBasedEditor : EditorWindow
     }
 
     private void CreateConnection() {
-        if (selectedInPoint.connection == null && selectedOutPoint.connection == null) {
+        if (selectedOutPoint.connection == null) {
             if (connections == null) {
                 connections = new List<EditorConnection>();
             }

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-public class CameraPanNode : BaseCutsceneNode
+public class CameraPanNode : CameraNodeTools
 {
-
-    public Camera camera;
-
-    public float panSpeed;
-    public float panDuration;
+    public float stayDuration;
+    public bool goBack = true;
 
     private Vector3 cameraStartPos;
     private Quaternion cameraStartRot;
@@ -25,46 +21,23 @@ public class CameraPanNode : BaseCutsceneNode
         cameraStartPos = camTransform.position;
         cameraStartRot = camTransform.rotation;
 
-        StartCoroutine(MoveCamera(camTransform, transform.position, WaitForPanReached));
-        StartCoroutine(RotateCamera(camTransform, transform.rotation, WaitForPanReached));
+        if(goBack){
+            StartCoroutine(MoveCamera(camTransform, transform.position, WaitForPanReached));
+            StartCoroutine(RotateCamera(camTransform, transform.rotation, WaitForPanReached));
+        } else{
+            StartCoroutine(MoveCamera(camTransform, transform.position, WaitForPanFinished));
+            StartCoroutine(RotateCamera(camTransform, transform.rotation, WaitForPanFinished));
+        }
     }
 
     public override void DeclareOutputSlots() {
         SetOutputSlot("Next Node");
     }
 
-    private IEnumerator MoveCamera(Transform camTransform, Vector3 targetPosition, Action nextStep) {
-        var t = 0f;
-        Vector3 startPosition = camTransform.position;
-
-        while(camTransform.position != targetPosition){
-            t += Time.deltaTime / panSpeed;
-
-            camTransform.position = Vector3.Lerp(startPosition, targetPosition, t);
-            yield return new WaitForEndOfFrame();
-        }
-
-        nextStep.Invoke();
-    }
-
-    private IEnumerator RotateCamera(Transform camTransform, Quaternion targetRotation, Action nextStep) {
-        var t = 0f;
-        Quaternion startRotation = camTransform.rotation;
-
-        while (camTransform.rotation != targetRotation) {
-            t += Time.deltaTime / panSpeed;
-
-            camTransform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
-            yield return new WaitForEndOfFrame();
-        }
-
-        nextStep.Invoke();
-    }
-
     private void WaitForPanReached() {
         if(isOtherFinished){
             isOtherFinished = false;
-            StartCoroutine(WaitBeforeReturning(panDuration));
+            StartCoroutine(WaitBeforeReturning(stayDuration));
         }else{
             isOtherFinished = true;
         }
@@ -81,7 +54,10 @@ public class CameraPanNode : BaseCutsceneNode
     private void WaitForPanFinished() {
         if (isOtherFinished) {
             isOtherFinished = false;
-            camMovementScript.enabled = true;
+            
+            if(goBack)
+                camMovementScript.enabled = true;
+
             CallOutputSlot("Next Node");
         } else {
             isOtherFinished = true;

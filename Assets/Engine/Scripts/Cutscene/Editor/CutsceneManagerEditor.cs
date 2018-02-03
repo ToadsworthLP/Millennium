@@ -17,6 +17,7 @@ public class CutsceneManagerEditor : Editor
         if (selected != null)
             gameObject.transform.SetParent(selected);
 
+        gameObject.transform.localPosition = Vector3.zero;
         Selection.SetActiveObjectWithContext(gameObject, null);
     }
 

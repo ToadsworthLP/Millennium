@@ -29,12 +29,15 @@ public class EditorNode
     private GUIStyle outPointStyle;
     private Action<EditorConnectionPoint> OnClickOutPoint;
 
+    private Vector3 previousActualNodePosition;
+
     public EditorNode(NodeBasedEditor editor, BaseCutsceneNode actualNode, Vector2 position, GUIStyle headerStyle, GUIStyle boxStyle) {
         rect = new Rect(position.x, position.y, 140, 20);
         this.editor = editor;
         this.actualNode = actualNode;
         this.headerStyle = headerStyle;
         this.boxStyle = boxStyle;
+        previousActualNodePosition = actualNode.transform.position;
     }
 
     public void PrepareConnections(GUIStyle inPointStyle, GUIStyle outPointStyle, Action<EditorConnectionPoint> OnClickInPoint, Action<EditorConnectionPoint> OnClickOutPoint) {
@@ -74,6 +77,12 @@ public class EditorNode
         if(actualNode == null){
             OnClickRemoveNode();
         } else {
+            //Move the editor node to the correct place if the actual node moved
+            if(previousActualNodePosition != actualNode.transform.position)
+                MoveEditorNode();
+
+            previousActualNodePosition = actualNode.transform.position;
+
             //Draw the BG box
             GUI.Box(rect, "", boxStyle);
 
@@ -179,6 +188,29 @@ public class EditorNode
                 actualNode.transform.localPosition = new Vector3((rect.position.x - offset.x) / offsetScaleFactor, (rect.position.y - offset.y) / offsetScaleFactor, actualNode.transform.localPosition.z);
                 break;
         }
+    }
+
+    private void MoveEditorNode() {
+        float offsetScaleFactor = NodeBasedEditor.offsetScaleFactor;
+        Vector2 targetPosition;
+        Vector2 offset = editor.GetOffset();
+
+        switch (editor.projectionPlane) {
+            case NodeBasedEditor.ProjectionPlaneType.XY:
+                targetPosition = new Vector2(actualNode.transform.localPosition.x * offsetScaleFactor + offset.x, actualNode.transform.localPosition.y * offsetScaleFactor + offset.y);
+                break;
+            case NodeBasedEditor.ProjectionPlaneType.XZ:
+                targetPosition = new Vector2(actualNode.transform.localPosition.x * offsetScaleFactor + offset.x, actualNode.transform.localPosition.y * offsetScaleFactor + offset.y);
+                break;
+            case NodeBasedEditor.ProjectionPlaneType.YZ:
+                targetPosition = new Vector2(actualNode.transform.localPosition.x * offsetScaleFactor + offset.x, actualNode.transform.localPosition.y * offsetScaleFactor + offset.y);
+                break;
+            default:
+                targetPosition = new Vector2(actualNode.transform.localPosition.x * offsetScaleFactor + offset.x, actualNode.transform.localPosition.y * offsetScaleFactor + offset.y);
+                break;
+        }
+
+        rect.position = targetPosition;
     }
 
     public Rect GetRectForLine(int row, float lineHeight = 20, float padding = 0) {
