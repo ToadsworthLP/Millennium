@@ -30,8 +30,6 @@ public class CharacterMovementNode : BaseCutsceneNode {
             yield return new WaitForEndOfFrame();
         }
 
-        Debug.Log("end " +gameObject.name);
-
         targetVirtualGamepad.direction = Vector2.zero;
         CallOutputSlot("Next Node");
     }
