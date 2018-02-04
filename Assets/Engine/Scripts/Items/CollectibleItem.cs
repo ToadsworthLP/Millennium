@@ -22,8 +22,6 @@ public class CollectibleItem : MonoBehaviour {
             ItemPopup popup = Instantiate(itemPopup, player.gameManager.uiParent.transform).GetComponent<ItemPopup>();
             player.audioSource.PlayOneShot(collectSound);
             player.art.animator.SetBool("ItemGet", true);
-            popup.player = player;
-            popup.item = itemType;
             popup.StartPopup(itemType, player);
             Destroy(gameObject);
         }

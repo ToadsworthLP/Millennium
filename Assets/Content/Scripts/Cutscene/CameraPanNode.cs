@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class CameraPanNode : CameraNodeTools
+public class CameraPanNode : CameraBaseNode
 {
     public float stayDuration;
     public bool goBack = true;

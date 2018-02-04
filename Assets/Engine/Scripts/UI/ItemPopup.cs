@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,37 +16,70 @@ public class ItemPopup : MonoBehaviour {
     public PlayerMachine player;
 
     private ItemIconPopup popup;
+    private Action<ItemPopup> customPopupCloseHandler;
 
-    public void StartPopup(BaseItem itemType, PlayerMachine player){
+    private bool closeDelayExpired = false;
+    private bool isClosing;
+
+    private const float closeDelay = 0.3f;
+
+    private bool modifyCutsceneModeState;
+
+    public void StartPopup(BaseItem itemType, PlayerMachine player, int quantity = 1, Action<ItemPopup> customPopupCloseHandler = null, bool modifyCutsceneModeState = true){
+        this.item = itemType;
         this.player = player;
+        this.customPopupCloseHandler = customPopupCloseHandler;
+        this.modifyCutsceneModeState = modifyCutsceneModeState;
         item = itemType;
 
-        player.SetCutsceneMode(true);
+        if(modifyCutsceneModeState)
+            player.SetCutsceneMode(true);
+
         player.SetFrozenStatus(true);
 
-        if (itemType.name.StartsWith("A") || itemType.name.StartsWith("E") || itemType.name.StartsWith("I") || itemType.name.StartsWith("O") || itemType.name.StartsWith("U")) {
-            nameText.text = "You got an <color=red>" + itemType.itemName + "</color>!";
-        } else {
-            nameText.text = "You got a <color=red>" + itemType.itemName + "</color>!";
+        if (quantity > 1){
+            nameText.text = "You got "+quantity+"x <color=red>" + itemType.itemName + "</color>!";
+        } else{
+            if (itemType.name.StartsWith("A") || itemType.name.StartsWith("E") || itemType.name.StartsWith("I") || itemType.name.StartsWith("O") || itemType.name.StartsWith("U")) {
+                nameText.text = "You got an <color=red>" + itemType.itemName + "</color>!";
+            } else {
+                nameText.text = "You got a <color=red>" + itemType.itemName + "</color>!";
+            }
         }
+
 
         descText.text = itemType.description;
 
         popup = Instantiate(iconPopup, player.transform).GetComponent<ItemIconPopup>();
         animators.Add(popup.gameObject.GetComponent<Animator>());
         popup.Show(item.icon);
+        StartCoroutine(waitBeforeAllowingClose(closeDelay));
+    }
+
+    private IEnumerator waitBeforeAllowingClose(float delay){
+        yield return new WaitForSeconds(delay);
+        closeDelayExpired = true;
     }
 
     void LateUpdate() {
-        if(player.gameManager.inputManager.isInputDown[4] || player.gameManager.inputManager.isInputDown[5]){
-            foreach(Animator a in animators){
+        if((player.gameManager.inputManager.isInputDown[4] || player.gameManager.inputManager.isInputDown[5]) && closeDelayExpired && !isClosing){
+            isClosing = true;
+
+            foreach (Animator a in animators){
                 a.SetTrigger("Close");
             }
-            player.SetCutsceneMode(false);
-            player.SetFrozenStatus(false);
             player.art.animator.SetBool("ItemGet", false);
             Destroy(popup.gameObject, destructionDelay);
             Destroy(gameObject, destructionDelay);
+
+            player.SetFrozenStatus(false);
+
+            if (customPopupCloseHandler == null){
+                if(modifyCutsceneModeState)
+                    player.SetCutsceneMode(false);
+            } else{
+                customPopupCloseHandler.Invoke(this);
+            }
         }
     }
 

@@ -299,12 +299,17 @@
   <ItemGroup>
     <Compile Include="Assets\Content\Items\Healing\HealingItem.cs" />
     <Compile Include="Assets\Content\Items\Misc\PlainItem.cs" />
-    <Compile Include="Assets\Content\Scripts\Cutscene\CameraNodeTools.cs" />
+    <Compile Include="Assets\Content\Scripts\Cutscene\CameraBaseNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\CameraPanNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\CameraResetNode.cs" />
+    <Compile Include="Assets\Content\Scripts\Cutscene\ConditionBaseNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\DelayNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\DialogueNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\DialogueQuestionNode.cs" />
+    <Compile Include="Assets\Content\Scripts\Cutscene\ItemCheckNode.cs" />
+    <Compile Include="Assets\Content\Scripts\Cutscene\ItemManipulatorNode.cs" />
+    <Compile Include="Assets\Content\Scripts\Cutscene\StatCheckNode.cs" />
+    <Compile Include="Assets\Content\Scripts\Cutscene\StatManipulatorNode.cs" />
     <Compile Include="Assets\Content\Scripts\Examples\ExampleHammerable.cs" />
     <Compile Include="Assets\Content\Scripts\Examples\ExampleTrigger.cs" />
     <Compile Include="Assets\Content\Scripts\Examples\ExampleTriggeredObject.cs" />

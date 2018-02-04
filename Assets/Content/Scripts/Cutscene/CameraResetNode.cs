@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CameraResetNode : CameraNodeTools
+public class CameraResetNode : CameraBaseNode
 {
     private SmoothCameraMovement camMovementScript;
     private bool isOtherFinished;
