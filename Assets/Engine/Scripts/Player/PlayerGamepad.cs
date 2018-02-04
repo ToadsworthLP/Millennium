@@ -1,14 +1,9 @@
 ﻿using UnityEngine;
 
-public class VirtualController : MonoBehaviour {
+public class PlayerGamepad : VirtualGamepad {
 
     public bool updateInput = true;
-
-    public Vector2 direction;
     public bool didDirectionChange;
-
-    public bool jumpPressed;
-    public bool hammerPressed;
 
     private custom_inputs inputManager;
 
@@ -31,8 +26,8 @@ public class VirtualController : MonoBehaviour {
 
             direction = dir;
 
-            jumpPressed = inputManager.isInputDown[4];
-            hammerPressed = inputManager.isInputDown[5];
+            actionPressed = inputManager.isInputDown[4];
+            cancelPressed = inputManager.isInputDown[5];
         }
     }
 }

@@ -33,7 +33,7 @@ public class LoadingZone : MonoBehaviour {
         gameManager.playerMachine.disableAngledControls = true;
 
         Vector3 exitDirection = GetExitDirection(this);
-        gameManager.controller.direction = new Vector2(Mathf.Round(exitDirection.x * exitDirectionRoundingConstant) / exitDirectionRoundingConstant, Mathf.Round(exitDirection.z * exitDirectionRoundingConstant) / exitDirectionRoundingConstant);
+        gameManager.playerGamepad.direction = new Vector2(Mathf.Round(exitDirection.x * exitDirectionRoundingConstant) / exitDirectionRoundingConstant, Mathf.Round(exitDirection.z * exitDirectionRoundingConstant) / exitDirectionRoundingConstant);
         gameManager.blackOverlay.FadeIn();
 
         yield return new WaitForSeconds(loadingDelay);
@@ -43,7 +43,7 @@ public class LoadingZone : MonoBehaviour {
         gameManager.playerMachine.transform.position = destinationLoadingZone.transform.position;
 
         exitDirection = GetExitDirection(destinationLoadingZone)*-1;
-        gameManager.controller.direction = new Vector2(Mathf.Round(exitDirection.x * exitDirectionRoundingConstant) / exitDirectionRoundingConstant, Mathf.Round(exitDirection.z * exitDirectionRoundingConstant) / exitDirectionRoundingConstant);
+        gameManager.playerGamepad.direction = new Vector2(Mathf.Round(exitDirection.x * exitDirectionRoundingConstant) / exitDirectionRoundingConstant, Mathf.Round(exitDirection.z * exitDirectionRoundingConstant) / exitDirectionRoundingConstant);
         gameManager.blackOverlay.FadeOut();
     }
 

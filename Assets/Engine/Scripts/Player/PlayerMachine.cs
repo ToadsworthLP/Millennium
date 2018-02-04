@@ -49,10 +49,10 @@ public class PlayerMachine : MonoBehaviour {
         allowJumping = !status;
         allowHammering = !status;
         allowMenuOpen = !status;
-        gameManager.controller.updateInput = !status;
-        gameManager.controller.direction = Vector2.zero;
-        gameManager.controller.jumpPressed = false;
-        gameManager.controller.hammerPressed = false;
+        gameManager.playerGamepad.updateInput = !status;
+        gameManager.playerGamepad.direction = Vector2.zero;
+        gameManager.playerGamepad.actionPressed = false;
+        gameManager.playerGamepad.cancelPressed = false;
     }
 
 	void Awake() {
@@ -112,9 +112,9 @@ public class PlayerMachine : MonoBehaviour {
 
 	void DoMovement(){
         if(disableAngledControls){
-            rigidbody.velocity += new Vector3(gameManager.controller.direction.x * moveSpeed, 0, gameManager.controller.direction.y * moveSpeed);
+            rigidbody.velocity += new Vector3(gameManager.playerGamepad.direction.x * moveSpeed, 0, gameManager.playerGamepad.direction.y * moveSpeed);
         } else{
-            rigidbody.velocity += Quaternion.AngleAxis(transform.rotation.eulerAngles.y, transform.up) * new Vector3(gameManager.controller.direction.x * moveSpeed, 0, gameManager.controller.direction.y * moveSpeed);
+            rigidbody.velocity += Quaternion.AngleAxis(transform.rotation.eulerAngles.y, transform.up) * new Vector3(gameManager.playerGamepad.direction.x * moveSpeed, 0, gameManager.playerGamepad.direction.y * moveSpeed);
         }
 
         //Physically inaccurate, but feels much better. Comment the following lines out if you want a physically accurate jump instead.
@@ -125,7 +125,7 @@ public class PlayerMachine : MonoBehaviour {
 
     void DoActions(){
         if (feet.CheckGroundStatus()) {
-            if (gameManager.controller.jumpPressed) {
+            if (gameManager.playerGamepad.actionPressed) {
                 if (allowJumping && interaction == null) {
                     rigidbody.AddRelativeForce(new Vector3(rigidbody.velocity.x, jumpSpeed, rigidbody.velocity.z));
                     art.PlayJumpSound();
@@ -135,7 +135,7 @@ public class PlayerMachine : MonoBehaviour {
                 }
             }
 
-            if (gameManager.controller.hammerPressed && !hammering) {
+            if (gameManager.playerGamepad.cancelPressed && !hammering) {
                 hammer.SwingHammer();
             }
         }
@@ -145,17 +145,17 @@ public class PlayerMachine : MonoBehaviour {
         art.animator.SetFloat("normalizedSpeed", Mathf.Clamp01(rigidbody.velocity.magnitude));
         art.animator.SetBool("grounded", grounded);
 
-        if (gameManager.controller.direction.y > 0f) {
+        if (gameManager.playerGamepad.direction.y > 0f) {
             facingSide = -1;
             art.animator.SetFloat("side", facingSide);
-        } else if (gameManager.controller.direction.y < 0f || (gameManager.controller.direction.y == 0 && gameManager.controller.direction.x != 0)) {
+        } else if (gameManager.playerGamepad.direction.y < 0f || (gameManager.playerGamepad.direction.y == 0 && gameManager.playerGamepad.direction.x != 0)) {
             facingSide = 1;
             art.animator.SetFloat("side", facingSide);
         }
 
-        if (gameManager.controller.direction.x > 0f) {
+        if (gameManager.playerGamepad.direction.x > 0f) {
             art.billboarder.dir = 180;
-        } else if (gameManager.controller.direction.x < 0f) {
+        } else if (gameManager.playerGamepad.direction.x < 0f) {
             art.billboarder.dir = 0;
         }
     }

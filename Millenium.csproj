@@ -302,6 +302,7 @@
     <Compile Include="Assets\Content\Scripts\Cutscene\CameraBaseNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\CameraPanNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\CameraResetNode.cs" />
+    <Compile Include="Assets\Content\Scripts\Cutscene\CharacterMovementNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\ConditionBaseNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\DelayNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\DialogueNode.cs" />
@@ -392,12 +393,14 @@
     <Compile Include="Assets\Engine\Scripts\Misc\SmoothCameraMovement.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\StarRank.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\UIImageScroller.cs" />
+    <Compile Include="Assets\Engine\Scripts\NPCs\GenericNPCMachine.cs" />
     <Compile Include="Assets\Engine\Scripts\NPCs\NPCTalker.cs" />
     <Compile Include="Assets\Engine\Scripts\NPCs\TalkIcon.cs" />
     <Compile Include="Assets\Engine\Scripts\Player\Feet.cs" />
     <Compile Include="Assets\Engine\Scripts\Player\Hammer.cs" />
     <Compile Include="Assets\Engine\Scripts\Player\InteractionIcon.cs" />
     <Compile Include="Assets\Engine\Scripts\Player\PlayerArt.cs" />
+    <Compile Include="Assets\Engine\Scripts\Player\PlayerGamepad.cs" />
     <Compile Include="Assets\Engine\Scripts\Player\PlayerMachine.cs" />
     <Compile Include="Assets\Engine\Scripts\Triggers\CutsceneInteraction.cs" />
     <Compile Include="Assets\Engine\Scripts\Triggers\MilleniumEvent.cs" />
@@ -417,7 +420,7 @@
     <Compile Include="Assets\Engine\Scripts\Utils\GameManager.cs" />
     <Compile Include="Assets\Engine\Scripts\Utils\InteractableHelper.cs" />
     <Compile Include="Assets\Engine\Scripts\Utils\Utils.cs" />
-    <Compile Include="Assets\Engine\Scripts\Utils\VirtualController.cs" />
+    <Compile Include="Assets\Engine\Scripts\Utils\VirtualGamepad.cs" />
     <Compile Include="Assets\Engine\TextMesh Pro\Examples\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Engine\TextMesh Pro\Examples\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\Engine\TextMesh Pro\Examples\Scripts\Benchmark02.cs" />

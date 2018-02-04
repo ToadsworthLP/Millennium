@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour {
 
     [Header("Input")]
     public custom_inputs inputManager;
-    public VirtualController controller;
+    public PlayerGamepad playerGamepad;
 
     [Header("Player")]
     public MenuManager menuManager;

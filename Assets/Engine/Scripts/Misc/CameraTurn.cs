@@ -13,7 +13,7 @@ public class CameraTurn : MonoBehaviour {
     private SmoothCameraMovement camera;
     private Transform playerObject;
     private PlayerMachine player;
-    private VirtualController input;
+    private PlayerGamepad input;
     private float turnVelocity;
     private Vector3 startRotation;
 
@@ -33,7 +33,7 @@ public class CameraTurn : MonoBehaviour {
             playerObject = other.transform;
             player = playerObject.GetComponent<PlayerMachine>();
             camera = player.gameManager.mainCamera.GetComponent<SmoothCameraMovement>();
-            input = player.gameManager.controller;
+            input = player.gameManager.playerGamepad;
             startRotation = playerObject.rotation.eulerAngles;
 
             isTurning = true;
