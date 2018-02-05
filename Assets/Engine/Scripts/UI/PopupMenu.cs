@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PopupMenu : MonoBehaviour {
 
@@ -26,7 +24,7 @@ public class PopupMenu : MonoBehaviour {
             objOption.action = option.action;
             objOption.parentCanvasRenderer = canvasGroup;
             
-            if(option.highlightColor != null){
+            if(option.highlightColor != new Color()){
                 objOption.useColorHighlight = true;
                 objOption.highlightColor = option.highlightColor;
             }

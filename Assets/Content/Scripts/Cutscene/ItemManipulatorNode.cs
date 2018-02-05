@@ -1,7 +1,4 @@
 ﻿using System;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 using UnityEngine;
 
 public class ItemManipulatorNode : BaseCutsceneNode
@@ -10,11 +7,10 @@ public class ItemManipulatorNode : BaseCutsceneNode
     public ManipulationMode manipulationMode;
     public int quantity;
 
-    [HideInInspector]
+    [Space]
+    [Header("If adding items")]
     public GameObject itemGotPopupPrefab;
-    [HideInInspector]
     public GameObject uiParent;
-    [HideInInspector]
     public AudioClip collectSound;
 
     public enum ManipulationMode { ADD, REMOVE }
@@ -56,37 +52,3 @@ public class ItemManipulatorNode : BaseCutsceneNode
         CallOutputSlot("Next Node");
     }
 }
-
-#if UNITY_EDITOR
-[CustomEditor(typeof(ItemManipulatorNode))]
-public class ItemManipulatorNodeEditor : BaseCutsceneNodeEditor
-{
-
-    public ItemManipulatorNode itemManipulatorNode;
-
-    SerializedProperty itemPopupProp;
-    SerializedProperty uiParentProp;
-
-    private void OnEnable() {
-        itemManipulatorNode = (ItemManipulatorNode)target;
-
-        itemPopupProp = serializedObject.FindProperty("itemGotPopupPrefab");
-        uiParentProp = serializedObject.FindProperty("uiParent");
-    }
-
-    public override void OnInspectorGUI() {
-        base.OnInspectorGUI();
-
-        if(itemManipulatorNode.manipulationMode.Equals(ItemManipulatorNode.ManipulationMode.ADD)){
-            serializedObject.Update();
-
-            EditorGUILayout.Space();
-            EditorGUILayout.PropertyField(itemPopupProp, new GUIContent("Item Got! Popup Prefab"));
-            EditorGUILayout.PropertyField(uiParentProp, new GUIContent("UI Parent"));
-
-            serializedObject.ApplyModifiedProperties();
-        }
-    }
-
-}
-#endif

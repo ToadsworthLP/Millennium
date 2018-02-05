@@ -410,6 +410,10 @@ MonoBehaviour:
   - Next Node
   targetObject: {fileID: 529432151}
   targetVirtualGamepad: {fileID: 529432155}
+  allowOvershoot: 1
+  frozenStatusMode: 0
+  enablePathfinding: 0
+  targetObjectCollider: {fileID: 0}
 --- !u!4 &18909769
 Transform:
   m_ObjectHideFlags: 0
@@ -5200,6 +5204,10 @@ MonoBehaviour:
   - Next Node
   targetObject: {fileID: 529432151}
   targetVirtualGamepad: {fileID: 529432155}
+  allowOvershoot: 1
+  frozenStatusMode: 0
+  enablePathfinding: 0
+  targetObjectCollider: {fileID: 0}
 --- !u!4 &404289586
 Transform:
   m_ObjectHideFlags: 0
@@ -5207,7 +5215,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 404289584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.9900002, y: -0.53999996, z: -5.55}
+  m_LocalPosition: {x: -4.9900002, y: -0.53999996, z: -5.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1904659918}
@@ -6197,6 +6205,10 @@ MonoBehaviour:
   - Next Node
   targetObject: {fileID: 529432151}
   targetVirtualGamepad: {fileID: 529432155}
+  allowOvershoot: 0
+  frozenStatusMode: 1
+  enablePathfinding: 0
+  targetObjectCollider: {fileID: 0}
 --- !u!4 &502599454
 Transform:
   m_ObjectHideFlags: 0
@@ -6694,19 +6706,7 @@ GameObject:
   m_PrefabParentObject: {fileID: 1874908146835646, guid: f9cfeb4f77247054a9098219e749dd02,
     type: 2}
   m_PrefabInternal: {fileID: 529432150}
---- !u!135 &529432153
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 529432152}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &529432154
+--- !u!114 &529432153
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -12278,6 +12278,10 @@ MonoBehaviour:
   - Next Node
   targetObject: {fileID: 529432151}
   targetVirtualGamepad: {fileID: 529432155}
+  allowOvershoot: 1
+  frozenStatusMode: 2
+  enablePathfinding: 0
+  targetObjectCollider: {fileID: 0}
 --- !u!4 &685198483
 Transform:
   m_ObjectHideFlags: 0
@@ -13201,6 +13205,10 @@ MonoBehaviour:
   - Next Node
   targetObject: {fileID: 529432151}
   targetVirtualGamepad: {fileID: 529432155}
+  allowOvershoot: 1
+  frozenStatusMode: 0
+  enablePathfinding: 0
+  targetObjectCollider: {fileID: 0}
 --- !u!4 &757107138
 Transform:
   m_ObjectHideFlags: 0
@@ -18176,6 +18184,10 @@ MonoBehaviour:
   - Next Node
   targetObject: {fileID: 529432151}
   targetVirtualGamepad: {fileID: 529432155}
+  allowOvershoot: 1
+  frozenStatusMode: 0
+  enablePathfinding: 0
+  targetObjectCollider: {fileID: 0}
 --- !u!4 &1179216175
 Transform:
   m_ObjectHideFlags: 0
@@ -24209,8 +24221,8 @@ GameObject:
   - component: {fileID: 1679055210}
   - component: {fileID: 1679055211}
   - component: {fileID: 1679055213}
-  - component: {fileID: 1679055212}
   - component: {fileID: 1679055214}
+  - component: {fileID: 1679055212}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -25353,6 +25365,10 @@ MonoBehaviour:
   - Next Node
   targetObject: {fileID: 1679055210}
   targetVirtualGamepad: {fileID: 2065399132}
+  allowOvershoot: 0
+  frozenStatusMode: 0
+  enablePathfinding: 1
+  targetObjectCollider: {fileID: 1679055214}
 --- !u!4 &1818298237
 Transform:
   m_ObjectHideFlags: 0
@@ -25360,7 +25376,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1818298235}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.907}
+  m_LocalPosition: {x: 0, y: 0, z: -1.125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1904659918}
