@@ -414,6 +414,7 @@ MonoBehaviour:
   frozenStatusMode: 0
   enablePathfinding: 0
   targetObjectCollider: {fileID: 0}
+  stuckVelocity: 0
 --- !u!4 &18909769
 Transform:
   m_ObjectHideFlags: 0
@@ -5208,6 +5209,7 @@ MonoBehaviour:
   frozenStatusMode: 0
   enablePathfinding: 0
   targetObjectCollider: {fileID: 0}
+  stuckVelocity: 0
 --- !u!4 &404289586
 Transform:
   m_ObjectHideFlags: 0
@@ -6209,6 +6211,7 @@ MonoBehaviour:
   frozenStatusMode: 1
   enablePathfinding: 0
   targetObjectCollider: {fileID: 0}
+  stuckVelocity: 0
 --- !u!4 &502599454
 Transform:
   m_ObjectHideFlags: 0
@@ -6663,7 +6666,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4771131447668380, guid: f9cfeb4f77247054a9098219e749dd02, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.55
+      value: 1.215
       objectReference: {fileID: 0}
     - target: {fileID: 4771131447668380, guid: f9cfeb4f77247054a9098219e749dd02, type: 2}
       propertyPath: m_LocalPosition.z
@@ -12282,6 +12285,7 @@ MonoBehaviour:
   frozenStatusMode: 2
   enablePathfinding: 0
   targetObjectCollider: {fileID: 0}
+  stuckVelocity: 0
 --- !u!4 &685198483
 Transform:
   m_ObjectHideFlags: 0
@@ -13209,6 +13213,7 @@ MonoBehaviour:
   frozenStatusMode: 0
   enablePathfinding: 0
   targetObjectCollider: {fileID: 0}
+  stuckVelocity: 0
 --- !u!4 &757107138
 Transform:
   m_ObjectHideFlags: 0
@@ -16230,7 +16235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 341, y: 30}
+  m_AnchoredPosition: {x: 341, y: 29.99997}
   m_SizeDelta: {x: 672, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1040649485
@@ -18188,6 +18193,7 @@ MonoBehaviour:
   frozenStatusMode: 0
   enablePathfinding: 0
   targetObjectCollider: {fileID: 0}
+  stuckVelocity: 0
 --- !u!4 &1179216175
 Transform:
   m_ObjectHideFlags: 0
@@ -21599,7 +21605,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -110, y: 30}
+  m_AnchoredPosition: {x: -110, y: 29.99997}
   m_SizeDelta: {x: 700, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1395691116
@@ -25369,6 +25375,7 @@ MonoBehaviour:
   frozenStatusMode: 0
   enablePathfinding: 1
   targetObjectCollider: {fileID: 1679055214}
+  stuckVelocity: 1
 --- !u!4 &1818298237
 Transform:
   m_ObjectHideFlags: 0
@@ -25873,7 +25880,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 119, y: 30}
+  m_AnchoredPosition: {x: 119, y: 29.99997}
   m_SizeDelta: {x: 672, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1860313396

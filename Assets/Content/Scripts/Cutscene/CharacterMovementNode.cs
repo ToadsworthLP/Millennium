@@ -15,6 +15,8 @@ public class CharacterMovementNode : BaseCutsceneNode {
     [Header("If using pathfinding")]
     [Tooltip("Set this to the collider of the object you want to move to use it for raycasts. If unset, pathfinding will be done using a default raycast, which is less accurate.")]
     public Collider targetObjectCollider;
+    [Tooltip("The maximum velocity the target object can have for it to be considered stuck.")]
+    public float stuckVelocity;
 
     //Set this to the number of FixedUpdate's you want to wait before recalculating the path.
     //Lower values are more expensive, but yield smaller curves and faster reaction time when running avoiding an obstacle.
@@ -48,8 +50,7 @@ public class CharacterMovementNode : BaseCutsceneNode {
 
                 Vector3 direction3d = transform.position - targetObject.position;
 
-                if (enablePathfinding && !isFirstCalculation && targetRigidbody.velocity.magnitude < 0.05f){
-
+                if (enablePathfinding && targetRigidbody.velocity.magnitude < stuckVelocity && RaycastWithCollider(targetObject.position, direction3d, targetObjectCollider, direction3d.magnitude)) {
                     for (int i = 0; i < pathfindingDirections.Length; i++) {
                         if(!RaycastWithCollider(targetObject.position, pathfindingDirections[i], targetObjectCollider)){
 
@@ -87,24 +88,24 @@ public class CharacterMovementNode : BaseCutsceneNode {
         CallOutputSlot("Next Node");
     }
 
-    private bool RaycastWithCollider(Vector3 start, Vector3 direction, Collider baseCollider){
+    private bool RaycastWithCollider(Vector3 start, Vector3 direction, Collider baseCollider, float maxLength = 0.5f){
         if(baseCollider is BoxCollider){
             BoxCollider boxCollider = (BoxCollider)baseCollider;
-            return Physics.BoxCast(start, Vector3.Scale(boxCollider.size, new Vector3(0.5f, 0.5f, 0.5f)) - new Vector3(0.01f, 0.01f, 0.01f), direction, Quaternion.identity, 0.5f);
+            return Physics.BoxCast(start, Vector3.Scale(boxCollider.size, new Vector3(0.5f, 0.5f, 0.5f)) - new Vector3(0.01f, 0.01f, 0.01f), direction, Quaternion.identity, maxLength);
         }else if(baseCollider is SphereCollider){
             SphereCollider sphereCollider = (SphereCollider)baseCollider;
             Ray ray = new Ray(start, direction);
-            return Physics.SphereCast(ray, sphereCollider.radius - 0.01f, 0.5f);
+            return Physics.SphereCast(ray, sphereCollider.radius - 0.01f, maxLength);
         }else if(baseCollider is CapsuleCollider){
             CapsuleCollider capsuleCollider = (CapsuleCollider)baseCollider;
 
             Vector3 topSphereCenter = start + (capsuleCollider.height / 2 - capsuleCollider.radius) * capsuleCollider.transform.up;
             Vector3 bottomSphereCenter = start - (capsuleCollider.height / 2 - capsuleCollider.radius) * capsuleCollider.transform.up;
 
-            return Physics.CapsuleCast(topSphereCenter, bottomSphereCenter, capsuleCollider.radius - 0.01f, direction, 0.5f);
+            return Physics.CapsuleCast(topSphereCenter, bottomSphereCenter, capsuleCollider.radius - 0.01f, direction, maxLength);
         }
 
-        return Physics.Raycast(start, direction, 0.5f);
+        return Physics.Raycast(start, direction, maxLength);
     }
 
     private void SetFrozenStatus(Rigidbody rigidbody, bool status) {
