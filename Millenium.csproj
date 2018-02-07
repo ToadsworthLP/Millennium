@@ -312,6 +312,7 @@
     <Compile Include="Assets\Content\Scripts\Cutscene\DialogueQuestionNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\ItemCheckNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\ItemManipulatorNode.cs" />
+    <Compile Include="Assets\Content\Scripts\Cutscene\SoundEffectNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\StatCheckNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\StatManipulatorNode.cs" />
     <Compile Include="Assets\Content\Scripts\Examples\ExampleHammerable.cs" />
