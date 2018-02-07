@@ -299,6 +299,7 @@
   <ItemGroup>
     <Compile Include="Assets\Content\Items\Healing\HealingItem.cs" />
     <Compile Include="Assets\Content\Items\Misc\PlainItem.cs" />
+    <Compile Include="Assets\Content\Scripts\ChangeMusic.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\AnimatorNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\CameraBaseNode.cs" />
     <Compile Include="Assets\Content\Scripts\Cutscene\CameraPanNode.cs" />
@@ -395,6 +396,7 @@
     <Compile Include="Assets\Engine\Scripts\Misc\ItemIconPopup.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\LoadingZone.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\MusicManager.cs" />
+    <Compile Include="Assets\Engine\Scripts\Misc\MusicProfile.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\SaveBlock.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\StarRank.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\UIImageScroller.cs" />

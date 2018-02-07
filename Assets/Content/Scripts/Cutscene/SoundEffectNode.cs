@@ -26,7 +26,7 @@ public class SoundEffectNode : BaseCutsceneNode
             }
 
             if (musicVolume != 0 || waitUntilSoundIsOver)
-                StartCoroutine(waitUntilSoundHasPlayed());
+                StartCoroutine(WaitUntilSoundHasPlayed());
         }
     }
 
@@ -34,7 +34,7 @@ public class SoundEffectNode : BaseCutsceneNode
         SetOutputSlot("Next Node");
     }
 
-    private IEnumerator waitUntilSoundHasPlayed() {
+    private IEnumerator WaitUntilSoundHasPlayed() {
         yield return new WaitForSeconds(sound.length);
 
         if (musicVolume != 0)

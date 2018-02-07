@@ -4,16 +4,16 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour {
 
     private AudioSource audioSource;
-    public AudioClip musicClip;
-    public float playDelay;
-    public bool useLoops;
-    public float loopStart;
-    public float loopEnd;
+    public MusicProfile currentMusicProfile;
 
     [HideInInspector]
     public float defaultMusicVolume;
 
     private Coroutine musicFadeCoroutine;
+
+    public void ChangeBackgroundMusic(MusicProfile musicProfile, float fadeoutTime = 0) {
+        StartCoroutine(ChangeMusic(musicProfile, fadeoutTime));
+    }
 
     public void FadeMusicVolume(float duration, float targetVolume) {
         if(musicFadeCoroutine != null){
@@ -21,6 +21,15 @@ public class MusicManager : MonoBehaviour {
         }
 
         musicFadeCoroutine = StartCoroutine(FadeMusic(duration, targetVolume));
+    }
+
+    private IEnumerator ChangeMusic(MusicProfile musicProfile, float fadeoutTime) {
+        FadeMusicVolume(fadeoutTime, 0f);
+        yield return new WaitForSeconds(fadeoutTime);
+        audioSource.volume = defaultMusicVolume;
+        currentMusicProfile = musicProfile;
+
+        PlayCurrentTrack();
     }
 
     private IEnumerator FadeMusic(float duration, float targetVolume) {
@@ -36,24 +45,30 @@ public class MusicManager : MonoBehaviour {
         audioSource.volume = targetVolume; //Just for safety
     }
 
-    void Awake () {
-        audioSource = gameObject.GetComponent<AudioSource>();
-
-        audioSource.clip = musicClip;
-        audioSource.timeSamples = audioSource.clip.frequency;
+    private void PlayCurrentTrack() {
+        audioSource.clip = currentMusicProfile.musicClip;
         audioSource.timeSamples = 0;
 
-        audioSource.PlayDelayed(playDelay);
+        if(currentMusicProfile.playDelay > 0){
+            audioSource.PlayDelayed(currentMusicProfile.playDelay);
+        }else{
+            audioSource.Play();
+        }
+    }
 
+    void Awake () {
+        audioSource = gameObject.GetComponent<AudioSource>();
         defaultMusicVolume = audioSource.volume;
+
+        PlayCurrentTrack();
     }
 	
 	void Update () {
-        if (useLoops)
+        if (currentMusicProfile.useLoopPoints)
         {
-            if (audioSource.timeSamples / (float)audioSource.clip.frequency >= loopEnd)
+            if (audioSource.timeSamples / (float)audioSource.clip.frequency >= currentMusicProfile.loopEnd)
             {
-                audioSource.timeSamples = (int)(loopStart * audioSource.clip.frequency);
+                audioSource.timeSamples = (int)(currentMusicProfile.loopStart * audioSource.clip.frequency);
             }
         }
     }
