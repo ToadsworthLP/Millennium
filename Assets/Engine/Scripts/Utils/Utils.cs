@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 
 public static class Utils {
@@ -111,4 +114,80 @@ public static class Utils {
         HP, FP, SP, ATTACK, DEFENSE
     }
 
+    //Animator utilities
+    [Serializable]
+    public class AnimationModifier
+    {
+        public AnimationModifierType propertyType;
+        public string propertyName;
+
+        public int intValue;
+        public float floatValue;
+        public bool boolValue;
+
+        public enum AnimationModifierType { INT, FLOAT, BOOL, TRIGGER }
+
+        public void SetProperty(Animator animator) {
+            switch (propertyType) {
+                case AnimationModifierType.INT:
+                    animator.SetInteger(propertyName, intValue);
+                    break;
+                case AnimationModifierType.FLOAT:
+                    animator.SetFloat(propertyName, floatValue);
+                    break;
+                case AnimationModifierType.BOOL:
+                    animator.SetBool(propertyName, boolValue);
+                    break;
+                case AnimationModifierType.TRIGGER:
+                    animator.SetTrigger(propertyName);
+                    break;
+            }
+        }
+    }
+
+#if UNITY_EDITOR
+    [CustomPropertyDrawer(typeof(AnimationModifier))]
+    public class AnimationModifierDrawer : PropertyDrawer {
+
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+            EditorGUI.BeginProperty(position, label, property);
+
+            EditorGUI.PrefixLabel(position, new GUIContent("Animation Modifier"));
+
+            int indent = EditorGUI.indentLevel;
+            EditorGUI.indentLevel += 1;
+
+            EditorGUI.PropertyField(GetRectForRow(position, 1), property.FindPropertyRelative("propertyName"), new GUIContent("Property Name"));
+            EditorGUI.PropertyField(GetRectForRow(position, 2), property.FindPropertyRelative("propertyType"), new GUIContent("Property Type"));
+
+            int modifierTypeEnumIndex = property.FindPropertyRelative("propertyType").enumValueIndex;
+
+            switch (modifierTypeEnumIndex) {
+                case 0:
+                    EditorGUI.PropertyField(GetRectForRow(position, 3), property.FindPropertyRelative("intValue"), new GUIContent("Integer Value"));
+                    break;
+                case 1:
+                    EditorGUI.PropertyField(GetRectForRow(position, 3), property.FindPropertyRelative("floatValue"), new GUIContent("Float Value"));
+                    break;
+                case 2:
+                    EditorGUI.PropertyField(GetRectForRow(position, 3), property.FindPropertyRelative("boolValue"), new GUIContent("Boolean Value"));
+                    break;
+            }
+
+            EditorGUI.indentLevel = indent;
+            EditorGUI.EndProperty();
+        }
+
+        public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
+            if(property.FindPropertyRelative("propertyType").enumValueIndex < 3)
+                return 64;
+            return 48;
+        }
+
+        private Rect GetRectForRow(Rect baseRect, int row) {
+            return new Rect(baseRect.x, baseRect.y + 16 * row, baseRect.width, 15);
+        }
+
+    }
+#endif
 }

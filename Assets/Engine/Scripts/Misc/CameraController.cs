@@ -3,6 +3,8 @@ using UnityEngine;
 
 //TODO rewrite this at some point since this is an ancient script
 public class CameraController : MonoBehaviour {
+    // If the camera should be moved by the controller (doesn't affect camera shaking)
+    public bool isControllerActive = true;
     // The target we are following
     public Transform target;
     // The distance in the x-z plane to the target
@@ -28,20 +30,24 @@ public class CameraController : MonoBehaviour {
     }
 
     private void LateUpdate() {
-        // Early out if we don't have a target
-        if (!target)
-            return;
+        if(isControllerActive){
+            // Early out if we don't have a target
+            if (!target)
+                return;
 
-        // Set the position of the camera
-        transform.position = GetTargetPosition();
+            // Set the position of the camera
+            transform.position = GetTargetPosition();
 
-        if (lookAtTarget) {
-            transform.LookAt(target);
-        }else{
-            transform.rotation = GetTargetRotation();
+            if (lookAtTarget) {
+                transform.LookAt(target);
+            } else {
+                transform.rotation = GetTargetRotation();
+            }
         }
 
         currentShakeMagnitude = 0;
+
+        transform.position += constantShakePosition + cameraShakePosition;
     }
 
     public Vector3 GetTargetPosition(){
@@ -57,7 +63,7 @@ public class CameraController : MonoBehaviour {
         Vector3 targetPosition;
         targetPosition = target.position;
         targetPosition -= Vector3.forward * distance;
-        return new Vector3(targetPosition.x, currentHeight, targetPosition.z) + cameraShakePosition + constantShakePosition;
+        return new Vector3(targetPosition.x, currentHeight, targetPosition.z);
     }
 
     public Quaternion GetTargetRotation(){
@@ -74,7 +80,7 @@ public class CameraController : MonoBehaviour {
 
     public void Shake(float magnitude, float speed, float duration) {
         StopShake();
-        shakeCoroutine = StartCoroutine(CameraShake(magnitude, speed, duration, true));
+        shakeCoroutine = StartCoroutine(CameraShake(magnitude, speed, duration));
     }
 
     public void StopShake() {
@@ -82,7 +88,7 @@ public class CameraController : MonoBehaviour {
             StopCoroutine(shakeCoroutine);
     }
 
-    IEnumerator CameraShake(float magnitude, float speed, float duration, bool damp) {
+    IEnumerator CameraShake(float magnitude, float speed, float duration) {
         cameraShakePosition = Vector3.zero;
 
         Vector3 targetPosition = cameraShakePosition;

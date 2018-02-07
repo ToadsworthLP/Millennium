@@ -16,7 +16,7 @@ public class CameraPanNode : CameraBaseNode
         Transform camTransform = camera.transform;
         camMovementScript = camera.gameObject.GetComponent<CameraController>();
 
-        camMovementScript.enabled = false;
+        camMovementScript.isControllerActive = false;
 
         cameraStartPos = camTransform.position;
         cameraStartRot = camTransform.rotation;
@@ -56,7 +56,7 @@ public class CameraPanNode : CameraBaseNode
             isOtherFinished = false;
             
             if(goBack)
-                camMovementScript.enabled = true;
+                camMovementScript.isControllerActive = true;
 
             CallOutputSlot("Next Node");
         } else {

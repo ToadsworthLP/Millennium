@@ -9,7 +9,7 @@ public class CameraResetNode : CameraBaseNode
         Transform camTransform = camera.transform;
         camMovementScript = camera.gameObject.GetComponent<CameraController>();
 
-        camMovementScript.enabled = false;
+        camMovementScript.isControllerActive = false;
 
         StartCoroutine(MoveCamera(camTransform, camMovementScript.GetTargetPosition(), WaitForPanFinished));
         StartCoroutine(RotateCamera(camTransform, camMovementScript.GetTargetRotation(), WaitForPanFinished));
@@ -19,7 +19,7 @@ public class CameraResetNode : CameraBaseNode
     private void WaitForPanFinished() {
         if (isOtherFinished) {
             isOtherFinished = false;
-            camMovementScript.enabled = true;
+            camMovementScript.isControllerActive = true;
 
             CallOutputSlot("Next Node");
         } else {

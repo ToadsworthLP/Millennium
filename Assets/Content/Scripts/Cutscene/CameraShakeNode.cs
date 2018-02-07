@@ -4,12 +4,13 @@ using UnityEngine;
 public class CameraShakeNode : BaseCutsceneNode
 {
     public CameraController camera;
-    public float shakeDuration;
-    public float shakeMagnitude;
+    public float shakeDuration = 1f;
+    public float shakeSpeed = 15f;
+    public float shakeMagnitude = 0.1f;
     public bool waitForShakingFinished;
 
     public override void CallNode() {
-        camera.Shake(shakeMagnitude, 10f, shakeDuration);
+        camera.Shake(shakeMagnitude, shakeSpeed, shakeDuration);
         if (waitForShakingFinished){
             StartCoroutine(WaitUntilFinishedShaking());
         }else{
