@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -384,13 +386,14 @@
     <Compile Include="Assets\Engine\Scripts\Menu\TriggerAnimationSelectable.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\Backpack.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\Billboarder.cs" />
+    <Compile Include="Assets\Engine\Scripts\Misc\CameraShaker.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\CameraTurn.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\Coin.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\ItemIconPopup.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\LoadingZone.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\MusicManager.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\SaveBlock.cs" />
-    <Compile Include="Assets\Engine\Scripts\Misc\SmoothCameraMovement.cs" />
+    <Compile Include="Assets\Engine\Scripts\Misc\CameraController.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\StarRank.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\UIImageScroller.cs" />
     <Compile Include="Assets\Engine\Scripts\NPCs\GenericNPCMachine.cs" />

@@ -10,7 +10,7 @@ public class CameraTurn : MonoBehaviour {
     public float turnTime;
     public float playerControlDelay;
 
-    private SmoothCameraMovement camera;
+    private CameraController camera;
     private Transform playerObject;
     private PlayerMachine player;
     private PlayerGamepad input;
@@ -32,7 +32,7 @@ public class CameraTurn : MonoBehaviour {
         if(other.CompareTag("Player") && !isTurning) {
             playerObject = other.transform;
             player = playerObject.GetComponent<PlayerMachine>();
-            camera = player.gameManager.mainCamera.GetComponent<SmoothCameraMovement>();
+            camera = player.gameManager.mainCamera.GetComponent<CameraController>();
             input = player.gameManager.playerGamepad;
             startRotation = playerObject.rotation.eulerAngles;
 

@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private RenderTexture playerRenderTexture;
     private int renderTextureUses;
-    private SmoothCameraMovement cameraController;
+    private CameraController cameraController;
 
     public Backpack GetBackpack(){
         if(backpack == null){
@@ -31,9 +31,9 @@ public class GameManager : MonoBehaviour {
         return backpack;
     }
 
-    public SmoothCameraMovement GetCameraController(){
+    public CameraController GetCameraController(){
         if(cameraController == null){
-            cameraController = mainCamera.GetComponent<SmoothCameraMovement>();
+            cameraController = mainCamera.GetComponent<CameraController>();
         }
         return cameraController;
     }

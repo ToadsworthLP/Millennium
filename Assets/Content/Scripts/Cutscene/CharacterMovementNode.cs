@@ -7,7 +7,7 @@ public class CharacterMovementNode : BaseCutsceneNode {
     public VirtualGamepad targetVirtualGamepad;
 
     public bool allowOvershoot = true;
-    [Tooltip("This controls whether the target object's rigidbody will be frozen after movement, unfrozen before movement or not touched at all. ALWAYS choose NONE when moving the player!")]
+    [Tooltip("This controls whether the target object's rigidbody will be frozen after movement, unfrozen before movement, both of it, or not touched at all. ALWAYS choose NONE when moving the player!")]
     public FrozenStatusManipulationMode frozenStatusMode = FrozenStatusManipulationMode.NONE;
     public bool enablePathfinding = false;
 
@@ -24,7 +24,7 @@ public class CharacterMovementNode : BaseCutsceneNode {
 
     private static Vector3[] pathfindingDirections = {new Vector3(1, 0, 0), new Vector3(-1, 0, 0), new Vector3(0, 0, 1), new Vector3(0, 0, -1) };
 
-    public enum FrozenStatusManipulationMode{ NONE, FREEZE, UNFREEZE }
+    public enum FrozenStatusManipulationMode{ NONE, FREEZE, UNFREEZE, BOTH }
 
     public override void CallNode() {
         StartCoroutine(MoveCharacter());
@@ -41,7 +41,7 @@ public class CharacterMovementNode : BaseCutsceneNode {
         bool isFirstCalculation = true;
         int updateCounter = positionRecalculationRate;
 
-        if(frozenStatusMode == FrozenStatusManipulationMode.UNFREEZE)
+        if(frozenStatusMode == FrozenStatusManipulationMode.UNFREEZE || frozenStatusMode == FrozenStatusManipulationMode.BOTH)
             SetFrozenStatus(targetRigidbody, false);
 
         while (Vector3.Distance(new Vector3(targetObject.position.x, 0, targetObject.position.z), new Vector3(transform.position.x, 0, transform.position.z)) > 0.2f) {
@@ -82,7 +82,7 @@ public class CharacterMovementNode : BaseCutsceneNode {
         if(!allowOvershoot)
             targetRigidbody.velocity = new Vector3(0, targetRigidbody.velocity.y, 0);
 
-        if(frozenStatusMode == FrozenStatusManipulationMode.FREEZE)
+        if(frozenStatusMode == FrozenStatusManipulationMode.FREEZE || frozenStatusMode == FrozenStatusManipulationMode.BOTH)
             SetFrozenStatus(targetRigidbody, true);
 
         CallOutputSlot("Next Node");

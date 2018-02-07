@@ -2,12 +2,12 @@
 
 public class CameraResetNode : CameraBaseNode
 {
-    private SmoothCameraMovement camMovementScript;
+    private CameraController camMovementScript;
     private bool isOtherFinished;
 
     public override void CallNode() {
         Transform camTransform = camera.transform;
-        camMovementScript = camera.gameObject.GetComponent<SmoothCameraMovement>();
+        camMovementScript = camera.gameObject.GetComponent<CameraController>();
 
         camMovementScript.enabled = false;
 
