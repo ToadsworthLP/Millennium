@@ -290,10 +290,13 @@
       <HintPath>Library\UnityAssemblies\UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="TextMeshPro-1.0.55.2017.1.0b12">
-      <HintPath>Assets\Engine\TextMesh Pro\Plugins\TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
+      <HintPath>Assets\Engine\Plugins\TextMesh Pro\Plugins\TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
     </Reference>
     <Reference Include="TextMeshPro-1.0.55.2017.1.0b12-Editor">
-      <HintPath>Assets\Engine\TextMesh Pro\Plugins\Editor\TextMeshPro-1.0.55.2017.1.0b12-Editor.dll</HintPath>
+      <HintPath>Assets\Engine\Plugins\TextMesh Pro\Plugins\Editor\TextMeshPro-1.0.55.2017.1.0b12-Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets\Engine\Plugins\Json.NET\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -345,6 +348,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Content\Sound\Music\loopdata.txt" />
+    <None Include="Assets\Engine\Plugins\Json.NET\Newtonsoft.Json.xml" />
+    <None Include="Assets\Engine\Plugins\Json.NET\license.txt" />
+    <None Include="Assets\Engine\Plugins\Json.NET\readme.txt" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Fonts\Anton OFL.txt" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Fonts\Bangers - OFL.txt" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Fonts\Oswald-Bold - OFL.txt" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Engine\Plugins\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Engine\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
     <None Include="Assets\Engine\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
     <None Include="Assets\Engine\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
@@ -389,25 +414,6 @@
     <None Include="Assets\Engine\Shaders\Rainbow.shader" />
     <None Include="Assets\Engine\Shaders\ShadowSprite.shader" />
     <None Include="Assets\Engine\Shaders\Shared\ShaderTools.cginc" />
-    <None Include="Assets\Engine\TextMesh Pro\Fonts\Anton OFL.txt" />
-    <None Include="Assets\Engine\TextMesh Pro\Fonts\Bangers - OFL.txt" />
-    <None Include="Assets\Engine\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\Engine\TextMesh Pro\Fonts\Oswald-Bold - OFL.txt" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\Engine\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -30,31 +29,18 @@ public static class Utils {
         return EnumDirection.UNKNOWN;
     }
 
-    //Dictionary serialization
-    public static byte[] SerializeDict(this Dictionary<string, object> obj) {
+    //Shelf serialization - Using Json.NET because it's way faster than BinarySerializer *and* produces better results
+    public static string SerializeShelf(Dictionary<string, object> obj) {
         if (obj == null) {
             return null;
         }
 
-        using (var memoryStream = new MemoryStream()) {
-            var binaryFormatter = new BinaryFormatter();
-
-            binaryFormatter.Serialize(memoryStream, obj);
-
-            return memoryStream.ToArray();
-        }
+        return JsonConvert.SerializeObject(obj);
     }
 
-    public static Dictionary<string, object> DeSerializeDict(this byte[] arrBytes) {
-        if(arrBytes.Length > 0){
-            using (var memoryStream = new MemoryStream()) {
-                var binaryFormatter = new BinaryFormatter();
-
-                memoryStream.Write(arrBytes, 0, arrBytes.Length);
-                memoryStream.Seek(0, SeekOrigin.Begin);
-
-                return (Dictionary<string, object>)binaryFormatter.Deserialize(memoryStream);
-            }
+    public static Dictionary<string, object> DeserializeShelf(string json) {
+        if(json.Length > 0){
+            return JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
         }
         return new Dictionary<string, object>();
     }

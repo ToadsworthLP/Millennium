@@ -272,7 +272,7 @@ public class Backpack : MonoBehaviour {
             using (StreamReader file = new StreamReader(Application.persistentDataPath + "/" + savefileName)){
                 String dataString = file.ReadToEnd();
                 data = Utils.Deserialize<PlayerData>(dataString);
-                data.shelf = data.shelfSerialized.DeSerializeDict();
+                data.shelf = Utils.DeserializeShelf(data.shelfSerialized);
             }
             return true;
         } catch(Exception e){
@@ -287,7 +287,7 @@ public class Backpack : MonoBehaviour {
                 data.playtime = playtime;
                 data.currentScene = SceneManager.GetActiveScene().name;
                 data.currentPosition = FindObjectOfType<PlayerMachine>().transform.position + new Vector3(0,-0.5f,0);
-                data.shelfSerialized = data.shelf.SerializeDict();
+                data.shelfSerialized = Utils.SerializeShelf(data.shelf);
                 file.WriteLine(Utils.Serialize(data));
             }
             return true;
@@ -364,7 +364,7 @@ public class PlayerData{
     public List<BaseItem> items;
     public HammerAsset currentHammer;
     public Dictionary<string, object> shelf;
-    public byte[] shelfSerialized;
+    public string shelfSerialized;
 
     public PlayerData GetDefaults(){
         playerName = "Mario";
