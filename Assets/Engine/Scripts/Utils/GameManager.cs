@@ -44,16 +44,22 @@ public class GameManager : MonoBehaviour {
         return playerRenderTexture;
     }
 
-    public void UpdateHammer(HammerAsset hammerType){
-        playerMachine.hammer.hammer = hammerType;
-        playerMachine.hammer.hammerSpriteRenderer.sprite = hammerType.hammerSprite;
-    }
-
     //Use this to tell the script that the render texture isn't needed anymore. If it isn't needed for anything, it won't be updated.
     public void ReleaseRenderTexture(){
         renderTextureUses--;
         if(renderTextureUses <= 0){
             renderTextureParent.SetActive(false);
+        }
+    }
+
+    public void UpdateHammer(HammerAsset hammerType) {
+        playerMachine.hammer.hammer = hammerType;
+
+        if (hammerType == null || hammerType.hammerSprite == null) {
+            playerMachine.hammer.hammerSpriteRenderer.enabled = false;
+        } else {
+            playerMachine.hammer.hammerSpriteRenderer.enabled = true;
+            playerMachine.hammer.hammerSpriteRenderer.sprite = hammerType.hammerSprite;
         }
     }
 

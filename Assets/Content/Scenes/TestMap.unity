@@ -2903,7 +2903,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.14, y: 0.3, z: 0.3}
+  m_Size: {x: 0.14, y: 0.4, z: 0.4}
   m_Center: {x: -0.15, y: 0.285, z: 0}
 --- !u!212 &166060318
 SpriteRenderer:
@@ -2912,7 +2912,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 166060314}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -16760,7 +16760,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 341, y: 29.999847}
+  m_AnchoredPosition: {x: 341, y: 29.999817}
   m_SizeDelta: {x: 672, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1040649485
@@ -22418,7 +22418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -110, y: 29.999847}
+  m_AnchoredPosition: {x: -110, y: 29.999817}
   m_SizeDelta: {x: 700, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1395691116
@@ -26601,6 +26601,7 @@ MonoBehaviour:
   fpText: {fileID: 615662822}
   bpText: {fileID: 1233576065}
   advancedNumberText: {fileID: 24471693}
+  noHammerSprite: {fileID: 21300022, guid: 79110f21685b4014ebfb9f4288e3b702, type: 3}
   hammerIcon: {fileID: 63999007}
   gameManager: {fileID: 609924438}
 --- !u!95 &1836937194
@@ -26979,7 +26980,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 119, y: 29.999847}
+  m_AnchoredPosition: {x: 119, y: 29.999817}
   m_SizeDelta: {x: 672, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1860313396

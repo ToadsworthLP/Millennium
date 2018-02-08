@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Hammer : MonoBehaviour{
@@ -13,6 +12,9 @@ public class Hammer : MonoBehaviour{
     private bool alreadyHit;
 
     public void SwingHammer(){
+        if (hammer == null)
+            return;
+
         alreadyHit = false;
         playerMachine = gameManager.playerMachine;
         playerAnimator = gameManager.playerAnimator;

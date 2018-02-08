@@ -14,6 +14,7 @@ public class PlayerPage : MonoBehaviour {
     public TextMeshProUGUI bpText;
     public TextMeshProUGUI advancedNumberText;
 
+    public Sprite noHammerSprite;
     public Image hammerIcon;
 
     public GameManager gameManager;
@@ -40,7 +41,12 @@ public class PlayerPage : MonoBehaviour {
             backpack.shineSprites + Utils.NewLine() +
             playtime.Hour + " : " + playtime.Minute;
 
-        hammerIcon.sprite = backpack.currentHammer.hammerIcon;
+        if(backpack.currentHammer == null){
+            hammerIcon.sprite = noHammerSprite;
+        } else{
+            hammerIcon.sprite = backpack.currentHammer.hammerIcon;
+        }
+
         gameManager.GetPlayerRenderTexture();
     }
 

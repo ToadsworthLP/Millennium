@@ -24,6 +24,7 @@ public class Backpack : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
         if(!LoadData()){
             data = new PlayerData().GetDefaults();
+            data.currentHammer = defaultHammer;
         }
         SceneManager.sceneLoaded += SceneLoaded;
         SceneLoaded(SceneManager.GetSceneByName(data.currentScene), LoadSceneMode.Single);
@@ -38,6 +39,7 @@ public class Backpack : MonoBehaviour {
             } else{
                 gameManager.playerMachine.transform.position = data.currentPosition;
             }
+            gameManager.UpdateHammer(currentHammer);
             StartCoroutine(InitializeHUD());
         }
     }
@@ -256,6 +258,7 @@ public class Backpack : MonoBehaviour {
         }
 
         set{
+            gameManager.UpdateHammer(value);
             data.currentHammer = value;
         }
     }
@@ -329,9 +332,12 @@ public class Backpack : MonoBehaviour {
             DrawDefaultInspector();
 
             if (GUILayout.Button("Reset save data")) {
+                Backpack backpack = (Backpack)target;
+
                 try {
-                    using (StreamWriter file = new StreamWriter(Application.persistentDataPath + "/" + ((Backpack)target).savefileName)){
+                    using (StreamWriter file = new StreamWriter(Application.persistentDataPath + "/" + backpack.savefileName)){
                         PlayerData data = new PlayerData().GetDefaults();
+                        data.currentHammer = backpack.defaultHammer;
                         file.WriteLine(Utils.Serialize(data));
                     }
                 } catch (Exception e) {
