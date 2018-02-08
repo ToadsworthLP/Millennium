@@ -21,7 +21,7 @@ public class ItemPopup : MonoBehaviour {
     private bool closeDelayExpired = false;
     private bool isClosing;
 
-    private const float closeDelay = 0.3f;
+    private const float closeDelay = 0.2f;
 
     private bool modifyCutsceneModeState;
 
@@ -58,6 +58,7 @@ public class ItemPopup : MonoBehaviour {
 
     private IEnumerator waitBeforeAllowingClose(float delay){
         yield return new WaitForSeconds(delay);
+        transform.localScale = new Vector3(1, 1); //Failsafe if the animation fails to set the scale properly (which it does sometimes)
         closeDelayExpired = true;
     }
 
