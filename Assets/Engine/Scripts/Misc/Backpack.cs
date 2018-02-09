@@ -16,38 +16,57 @@ public class Backpack : MonoBehaviour {
     public Vector3 startPosition;
     public HammerAsset defaultHammer;
     public string savefileName;
+    [HideInInspector]
+    public int targetEntranceId;
 
     private PlayerData data;
     private Stopwatch deltaPlaytime;
 
     void Start() {
+        if (GameObject.FindGameObjectsWithTag("Backpack").Length > 1){
+            Destroy(gameObject);
+            return;
+        }
+
         DontDestroyOnLoad(gameObject);
         if(!LoadData()){
             data = new PlayerData().GetDefaults();
             data.currentHammer = defaultHammer;
         }
         SceneManager.sceneLoaded += SceneLoaded;
-        SceneLoaded(SceneManager.GetSceneByName(data.currentScene), LoadSceneMode.Single);
+
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        gameManager.UpdateHammer(currentHammer);
+        StartCoroutine(InitializeHUD());
+        gameManager.blackOverlay.FadeOut();
+
+        PreparePlayer();
+
         deltaPlaytime = Stopwatch.StartNew();
+
     }
 
     public void SceneLoaded(Scene scene, LoadSceneMode mode) {
-        if (SceneManager.GetSceneByName(data.currentScene).Equals(scene)) {
-            gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-            if(data.currentPosition == Vector3.zero){
-                gameManager.playerMachine.transform.position = startPosition;
-            } else{
-                gameManager.playerMachine.transform.position = data.currentPosition;
-            }
-            gameManager.UpdateHammer(currentHammer);
-            StartCoroutine(InitializeHUD());
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        gameManager.UpdateHammer(currentHammer);
+        StartCoroutine(InitializeHUD());
+
+        if(gameManager.sceneEntrances.Length-1 <= targetEntranceId){
+            gameManager.sceneEntrances[targetEntranceId].PlayerArrives();
+        }
+    }
+
+    private void PreparePlayer(){
+        if (data.currentPosition == Vector3.zero || SceneManager.GetActiveScene().name != data.currentScene) {
+            gameManager.playerMachine.transform.position = startPosition;
+        } else {
+            gameManager.playerMachine.transform.position = data.currentPosition;
         }
     }
 
     IEnumerator InitializeHUD(){
         yield return new WaitForEndOfFrame();
         gameManager.hudController.SetData(data, true);
-        gameManager.blackOverlay.FadeOut();
     }
 
     //Getters and setters

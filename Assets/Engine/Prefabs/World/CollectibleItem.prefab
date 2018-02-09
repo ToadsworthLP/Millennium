@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c209a61bdb64f4cb2862b8f0e0d87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: {fileID: 11400000, guid: 90c0c26640784904ab2232848e71b510, type: 2}
+  itemType: {fileID: 0}
   collectSound: {fileID: 0}
   art: {fileID: 212168691788413982}
   itemPopup: {fileID: 1231317681307628, guid: e7f34ecd052e2b541ac81e858840e288, type: 2}
@@ -136,6 +136,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -151,6 +152,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

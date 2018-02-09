@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    [Header("Map Data")]
+    public IntersceneLoadingZone[] sceneEntrances;
+
     [Header("Input")]
     public custom_inputs inputManager;
     public PlayerGamepad playerGamepad;

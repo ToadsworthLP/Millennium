@@ -427,12 +427,9 @@
     <Compile Include="Assets\Engine\Scripts\Misc\CameraController.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\CameraShaker.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\CameraTurn.cs" />
-    <Compile Include="Assets\Engine\Scripts\Misc\Coin.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\ItemIconPopup.cs" />
-    <Compile Include="Assets\Engine\Scripts\Misc\LoadingZone.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\MusicManager.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\MusicProfile.cs" />
-    <Compile Include="Assets\Engine\Scripts\Misc\SaveBlock.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\StarRank.cs" />
     <Compile Include="Assets\Engine\Scripts\Misc\UIImageScroller.cs" />
     <Compile Include="Assets\Engine\Scripts\NPCs\GenericNPCMachine.cs" />
@@ -464,6 +461,10 @@
     <Compile Include="Assets\Engine\Scripts\Utils\InteractableHelper.cs" />
     <Compile Include="Assets\Engine\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\Engine\Scripts\Utils\VirtualGamepad.cs" />
+    <Compile Include="Assets\Engine\Scripts\World\Coin.cs" />
+    <Compile Include="Assets\Engine\Scripts\World\IntersceneLoadingZone.cs" />
+    <Compile Include="Assets\Engine\Scripts\World\LoadingZone.cs" />
+    <Compile Include="Assets\Engine\Scripts\World\SaveBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Content\Sound\Music\loopdata.txt" />
