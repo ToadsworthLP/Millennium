@@ -289,14 +289,14 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>Library\UnityAssemblies\UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets\Engine\Plugins\Json.NET\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="TextMeshPro-1.0.55.2017.1.0b12">
       <HintPath>Assets\Engine\Plugins\TextMesh Pro\Plugins\TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
     </Reference>
     <Reference Include="TextMeshPro-1.0.55.2017.1.0b12-Editor">
       <HintPath>Assets\Engine\Plugins\TextMesh Pro\Plugins\Editor\TextMeshPro-1.0.55.2017.1.0b12-Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Assets\Engine\Plugins\Json.NET\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -459,6 +459,7 @@
     <Compile Include="Assets\Engine\Scripts\UI\SelectableHelper.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\TextWithShadow.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\Typewriter.cs" />
+    <Compile Include="Assets\Engine\Scripts\Utils\CustomAttributes.cs" />
     <Compile Include="Assets\Engine\Scripts\Utils\GameManager.cs" />
     <Compile Include="Assets\Engine\Scripts\Utils\InteractableHelper.cs" />
     <Compile Include="Assets\Engine\Scripts\Utils\Utils.cs" />

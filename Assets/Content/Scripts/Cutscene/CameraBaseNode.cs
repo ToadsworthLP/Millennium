@@ -9,12 +9,21 @@ public abstract class CameraBaseNode : BaseCutsceneNode {
     public InterpolationMode interpolationMode;
     public float panTime;
 
-    public enum InterpolationMode { LERP, SMOOTH_DAMP }
+    public enum InterpolationMode { LERP, SMOOTH_DAMP, CURVE }
+
+    [ShowIf("interpolationMode", InterpolationMode.CURVE)]
+    [Tooltip("The curve to interpolate the camera position by. It should always end with a value of 1.")]
+    public AnimationCurve customCurve;
 
     public IEnumerator MoveCamera(Transform camTransform, Vector3 targetPosition, Action nextStep) {
         var t = 0f; //Used by Lerp
         Vector3 startPosition = camTransform.position; //Used by Lerp
         Vector3 currentVelocity = new Vector3(); //Used by SmoothDamp
+
+        if(interpolationMode == InterpolationMode.CURVE && customCurve.keys[customCurve.length-1].value != 1){
+            interpolationMode = InterpolationMode.LERP;
+            Debug.LogWarning("The last keyframe of your curve didn't have a value of 1, LERP has been forced as interpolation mode instead. Please correct it!");
+        }
 
         while (camTransform.position != targetPosition) {
             switch (interpolationMode) {
@@ -28,6 +37,10 @@ public abstract class CameraBaseNode : BaseCutsceneNode {
                     } else {
                         camTransform.position = Vector3.SmoothDamp(camTransform.position, targetPosition, ref currentVelocity, panTime);
                     }
+                    break;
+                case InterpolationMode.CURVE:
+                    t += Time.deltaTime / panTime;
+                    camTransform.position = Utils.InterpolateByCurve(startPosition, targetPosition, t, customCurve);
                     break;
             }
             yield return new WaitForEndOfFrame();
@@ -59,7 +72,10 @@ public abstract class CameraBaseNode : BaseCutsceneNode {
 
                         camTransform.rotation = Quaternion.Euler(eulerAngles);
                     }
-
+                    break;
+                case InterpolationMode.CURVE:
+                    t += Time.deltaTime / panTime;
+                    camTransform.rotation = Utils.InterpolateByCurve(startRotation, targetRotation, t, customCurve);
                     break;
             }
             yield return new WaitForEndOfFrame();

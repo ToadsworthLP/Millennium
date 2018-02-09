@@ -100,6 +100,35 @@ public static class Utils {
         HP, FP, SP, ATTACK, DEFENSE
     }
 
+    //Custom interpolation utilities
+    //Interpolates between a and b by t using the given curve
+
+    //Here, the end of the sequence is determined by the last keyframe
+    public static float InterpolateByCurve(float a, float b, float t, AnimationCurve curve){
+        return Mathf.Lerp(a, b, curve.Evaluate(curve.keys[curve.length-1].time * t));
+    }
+
+    public static Vector3 InterpolateByCurve(Vector3 a, Vector3 b, float t, AnimationCurve curve) {
+        return Vector3.Lerp(a, b, curve.Evaluate(curve.keys[curve.length - 1].time * t));
+    }
+
+    public static Quaternion InterpolateByCurve(Quaternion a, Quaternion b, float t, AnimationCurve curve) {
+        return Quaternion.Lerp(a, b, curve.Evaluate(curve.keys[curve.length - 1].time * t));
+    }
+
+    //Here, the end of the sequence is always time 1, regardless of how long the curve actually is
+    public static float InterpolateByCurveAbsolute(float a, float b, float t, AnimationCurve curve) {
+        return Mathf.Lerp(a, b, curve.Evaluate(t));
+    }
+
+    public static Vector3 InterpolateByCurveAbsolute(Vector3 a, Vector3 b, float t, AnimationCurve curve) {
+        return Vector3.Lerp(a, b, curve.Evaluate(t));
+    }
+
+    public static Quaternion InterpolateByCurveAbsolute(Quaternion a, Quaternion b, float t, AnimationCurve curve) {
+        return Quaternion.Lerp(a, b, curve.Evaluate(t));
+    }
+
     //Animator utilities
     [Serializable]
     public class AnimationModifier
