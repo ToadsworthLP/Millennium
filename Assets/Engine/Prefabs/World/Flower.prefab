@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4991065568336052}
   - component: {fileID: 114777148256204968}
   - component: {fileID: 135825849258299780}
-  - component: {fileID: 135383161779835520}
   - component: {fileID: 54462614760882722}
   - component: {fileID: 95402839664016800}
   m_Layer: 0
@@ -40,7 +39,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4101934569118518}
   - component: {fileID: 212672444647612384}
-  m_Layer: 0
+  - component: {fileID: 135439373078833888}
+  m_Layer: 9
   m_Name: Art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,17 +127,17 @@ MonoBehaviour:
   modifier:
     statToModify: 1
     value: 1
---- !u!135 &135383161779835520
+--- !u!135 &135439373078833888
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1255472623882888}
+  m_GameObject: {fileID: 1473545961178648}
   m_Material: {fileID: 13400000, guid: 52baaeb214519f347a35cf0edfd262ff, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.22
+  m_Radius: 0.75
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135825849258299780
 SphereCollider:

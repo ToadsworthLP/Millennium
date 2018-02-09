@@ -17,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - PlayerModel
-  - 
-  - 
+  - RenderTexturePlayerModel
+  - NoPlayerCollision
+  - PlayerObject
   - 
   - 
   - 
