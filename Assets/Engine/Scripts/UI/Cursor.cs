@@ -37,6 +37,9 @@ public class Cursor : MonoBehaviour {
 
     private Vector3 targetPosition;
 
+    private const float cursorMovementFactor = 0.003f;
+    private const float cursorSpeedFactor = 8;
+
     void OnEnable() {
         if (optionObjects.Count > 0) {
             if(!keepSelectedIndex){
@@ -104,7 +107,7 @@ public class Cursor : MonoBehaviour {
         }
 
         if (enableIdleAnimation) {
-            float offset = Mathf.Sin(Time.fixedTime * 10) * 2;
+            float offset = Mathf.Sin(Time.fixedTime * cursorSpeedFactor) * Screen.width * cursorMovementFactor;
             targetPosition = new Vector3(options[selectedIndex].GetGrabPoint().x + offset, options[selectedIndex].GetGrabPoint().y, options[selectedIndex].GetGrabPoint().z);
         }
 
