@@ -34,7 +34,7 @@ public class PlayerMachine : MonoBehaviour {
     private bool grounded;
     private float facingSide = 1;
     private Rigidbody rigidbody;
-    private BoxCollider collider;
+    private Collider collider;
 
     public void SetFrozenStatus(bool status){
         if(status){
@@ -58,7 +58,7 @@ public class PlayerMachine : MonoBehaviour {
 	void Awake() {
 		grounded = true;
 		rigidbody = gameObject.GetComponent<Rigidbody> ();
-        collider = gameObject.GetComponent<BoxCollider>();
+        collider = gameObject.GetComponent<MeshCollider>();
     }
 		
 	void FixedUpdate() {

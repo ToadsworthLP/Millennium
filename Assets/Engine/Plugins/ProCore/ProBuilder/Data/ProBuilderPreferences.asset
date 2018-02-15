@@ -11,15 +11,25 @@ MonoBehaviour:
   m_Script: {fileID: 146836576, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
   m_Name: ProBuilderPreferences
   m_EditorClassIdentifier: 
-  m_Bool_keys: []
-  m_Int_keys: []
-  m_Float_keys: []
+  m_Bool_keys:
+  - pb_SmoothingGroupEditor::m_DrawNormals
+  - pb_SmoothingGroupEditor::m_ShowPreview
+  m_Int_keys:
+  - pb_GIWorkflowMode
+  - pbDefaultEditLevel
+  - pbDefaultSelectionMode
+  - pbHandleAlignment
+  m_Float_keys:
+  - pbEditorScroll.x
+  - pbEditorScroll.y
   m_String_keys: []
   m_Color_keys: []
   m_Material_keys: []
-  m_Bool_values: 
-  m_Int_values: 
-  m_Float_values: []
+  m_Bool_values: 0001
+  m_Int_values: 01000000010000000000000000000000
+  m_Float_values:
+  - 0
+  - 0
   m_String_values: []
   m_Color_values: []
   m_Material_values: []
