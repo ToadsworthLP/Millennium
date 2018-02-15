@@ -298,6 +298,24 @@
     <Reference Include="TextMeshPro-1.0.55.2017.1.0b12-Editor">
       <HintPath>Assets\Engine\Plugins\TextMesh Pro\Plugins\Editor\TextMeshPro-1.0.55.2017.1.0b12-Editor.dll</HintPath>
     </Reference>
+    <Reference Include="ProBuilderEditor-Unity5">
+      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Editor\ProBuilderEditor-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="Poly2Tri">
+      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Classes\ClassesLib\Poly2Tri.dll</HintPath>
+    </Reference>
+    <Reference Include="KdTreeLib">
+      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Classes\ClassesLib\KdTreeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="pb_Stl">
+      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Classes\ClassesLib\pb_Stl.dll</HintPath>
+    </Reference>
+    <Reference Include="ProBuilderCore-Unity5">
+      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Classes\ProBuilderCore-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="ProBuilderMeshOps-Unity5">
+      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Classes\ProBuilderMeshOps-Unity5.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Content\Items\Healing\HealingItem.cs" />
@@ -323,6 +341,12 @@
     <Compile Include="Assets\Content\Scripts\Examples\ExampleTrigger.cs" />
     <Compile Include="Assets\Content\Scripts\Examples\ExampleTriggeredObject.cs" />
     <Compile Include="Assets\Engine\Custom Input Manager v1.4\Scripts\custom_inputs.cs" />
+    <Compile Include="Assets\Engine\Plugins\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
+    <Compile Include="Assets\Engine\Plugins\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
+    <Compile Include="Assets\Engine\Plugins\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
+    <Compile Include="Assets\Engine\Plugins\ProCore\ProBuilder\API Examples\Procedural Mesh\ExtrudeRandomEdges.cs" />
+    <Compile Include="Assets\Engine\Plugins\ProCore\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
+    <Compile Include="Assets\Engine\Plugins\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
     <Compile Include="Assets\Engine\Plugins\TextMesh Pro\Examples\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Engine\Plugins\TextMesh Pro\Examples\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\Engine\Plugins\TextMesh Pro\Examples\Scripts\Benchmark02.cs" />
@@ -471,6 +495,28 @@
     <None Include="Assets\Engine\Plugins\Json.NET\Newtonsoft.Json.xml" />
     <None Include="Assets\Engine\Plugins\Json.NET\license.txt" />
     <None Include="Assets\Engine\Plugins\Json.NET\readme.txt" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\About\ThirdPartyLicenses.txt" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\About\changelog.txt" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\About\pc_AboutEntry_ProBuilder.txt" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\DiffuseTextureBlend.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\DiffuseVertexColor.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_FaceHighlight.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_FacePicker.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_HideVertices.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_NormalPreview.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_ReferenceUnlit.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_ScrollHighlight.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_SelectionPicker.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_SmoothingPreview.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_StandardVertexColor.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_UnlitSolidColor.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_UnlitVertexColor.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_VertexPicker.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\Shader\pb_VertexShader.shader" />
+    <None Include="Assets\Engine\Plugins\ProCore\ProBuilder\readme.txt" />
     <None Include="Assets\Engine\Plugins\TextMesh Pro\Fonts\Anton OFL.txt" />
     <None Include="Assets\Engine\Plugins\TextMesh Pro\Fonts\Bangers - OFL.txt" />
     <None Include="Assets\Engine\Plugins\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
