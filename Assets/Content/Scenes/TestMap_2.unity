@@ -968,6 +968,12 @@ Prefab:
       propertyPath: sceneEntrances.Array.data[0]
       value: 
       objectReference: {fileID: 2038704477}
+    - target: {fileID: 114457376032888808, guid: c3e442d8bcfc1d3479c6ee1170b28502,
+        type: 2}
+      propertyPath: currentMusicProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d8ba3f83d0209348a3fcaaf4a204dbf,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3e442d8bcfc1d3479c6ee1170b28502, type: 2}
   m_IsPrefabParent: 0
