@@ -39,12 +39,11 @@ public class NodeBasedEditor : EditorWindow
     }
 
     private void OnEnable() {
-        headerStyle = EditorGUIUtility.GetBuiltinSkin(EditorSkin.Inspector).box;
-        headerStyle.border = new RectOffset(12, 12, 12, 12);
+        headerStyle = new GUIStyle();
+        headerStyle = EditorStyles.helpBox;
 
         nodeStyle = new GUIStyle();
-        nodeStyle = EditorGUIUtility.GetBuiltinSkin(EditorSkin.Inspector).box;
-        nodeStyle.border = new RectOffset(12, 12, 12, 12);
+        nodeStyle = EditorStyles.helpBox;
 
         inPointStyle = new GUIStyle();
         inPointStyle.normal.background = EditorGUIUtility.Load("builtin skins/darkskin/images/btn left.png") as Texture2D;
@@ -99,16 +98,16 @@ public class NodeBasedEditor : EditorWindow
             Vector2 targetPosition;
             switch (projectionPlane) {
                 case ProjectionPlaneType.XY:
-                    targetPosition = new Vector2(actualNode.transform.localPosition.x * offsetScaleFactor, actualNode.transform.localPosition.y * offsetScaleFactor);
+                    targetPosition = new Vector2(actualNode.transform.localPosition.x * -offsetScaleFactor, actualNode.transform.localPosition.y * offsetScaleFactor);
                     break;
                 case ProjectionPlaneType.XZ:
                     targetPosition = new Vector2(actualNode.transform.localPosition.x * offsetScaleFactor, actualNode.transform.localPosition.z * offsetScaleFactor);
                     break;
                 case ProjectionPlaneType.YZ:
-                    targetPosition = new Vector2(actualNode.transform.localPosition.y * offsetScaleFactor, actualNode.transform.localPosition.z * offsetScaleFactor);
+                    targetPosition = new Vector2(actualNode.transform.localPosition.z * offsetScaleFactor, actualNode.transform.localPosition.y * offsetScaleFactor);
                     break;
                 default:
-                    targetPosition = new Vector2(actualNode.transform.localPosition.x * offsetScaleFactor, actualNode.transform.localPosition.y * offsetScaleFactor);
+                    targetPosition = new Vector2(actualNode.transform.localPosition.x * -offsetScaleFactor, actualNode.transform.localPosition.y * offsetScaleFactor);
                     break;
             }
 
@@ -312,7 +311,10 @@ public class NodeBasedEditor : EditorWindow
 
     private void OnClickAddNode(Vector2 mousePosition, Type type, Dictionary<string, object> data = null) {
         //Actually adding it to the scene
-        BaseCutsceneNode actualNode = new GameObject().AddComponent(type).GetComponent<BaseCutsceneNode>();
+        GameObject actualObject = new GameObject();
+        Undo.RegisterCreatedObjectUndo(actualObject, "create cutscene node");
+        BaseCutsceneNode actualNode = Undo.AddComponent(actualObject, type).GetComponent<BaseCutsceneNode>();
+        
         actualNode.cutsceneManager = cutsceneManager;
         actualNode.transform.SetParent(cutsceneManager.transform);
         actualNode.transform.position = cutsceneManager.transform.position;
@@ -372,7 +374,7 @@ public class NodeBasedEditor : EditorWindow
         }
 
         if(node.actualNode != null){
-            DestroyImmediate(node.actualNode.gameObject);
+            Undo.DestroyObjectImmediate(node.actualNode.gameObject);
         }
 
         nodes.Remove(node.actualNode);
@@ -383,6 +385,7 @@ public class NodeBasedEditor : EditorWindow
         connection.outPoint.connection = null;
         connections.Remove(connection);
 
+        Undo.RecordObject(selectedOutPoint.node.actualNode.gameObject, "remove node connections");
         selectedOutPoint.node.actualNode.outputNodes[selectedOutPoint.id-1] = null;
     }
 
@@ -397,6 +400,7 @@ public class NodeBasedEditor : EditorWindow
             selectedOutPoint.connection = conn;
             connections.Add(conn);
 
+            Undo.RecordObject(selectedOutPoint.node.actualNode.gameObject, "create node connection");
             selectedOutPoint.node.actualNode.outputNodes[selectedOutPoint.id-1] = selectedInPoint.node.actualNode;
         }
     }

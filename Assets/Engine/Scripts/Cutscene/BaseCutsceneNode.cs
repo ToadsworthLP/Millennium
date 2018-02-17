@@ -125,8 +125,10 @@ public class BaseCutsceneNodeEditor : Editor
         }else{
             EditorGUILayout.BeginHorizontal();
             GUILayout.Label("Options");
-            if (GUILayout.Button("Set as start node"))
+            if (GUILayout.Button("Set as start node") && node.cutsceneManager.startNode != node){
+                Undo.RecordObject(node, "set start node");
                 node.cutsceneManager.startNode = node;
+            }
             if (GUILayout.Button("Select cutscene manager"))
                 Selection.SetActiveObjectWithContext(node.cutsceneManager.gameObject, null);
             EditorGUILayout.EndHorizontal();

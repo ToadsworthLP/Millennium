@@ -89,10 +89,16 @@ public class EditorNode
             //Draw the header
             GUI.Box(new Rect(rect.x, rect.y - 20, rect.width, 20), "", headerStyle);
 
+            //Visually mark the start node
+            string headerText = actualNode.name;
+            if (actualNode.cutsceneManager.startNode == actualNode)
+                headerText = "[S] " + headerText;
+
+            //Draw the header text
             if (Selection.activeGameObject == actualNode.gameObject) {
-                GUI.Label(new Rect(rect.x + 5, rect.y - 15, rect.width - 10, 20), actualNode.name, EditorStyles.boldLabel);
+                GUI.Label(new Rect(rect.x + 5, rect.y - 17, rect.width - 10, 20), headerText, EditorStyles.boldLabel);
             } else {
-                GUI.Label(new Rect(rect.x + 5, rect.y - 15, rect.width - 10, 20), actualNode.name, EditorStyles.wordWrappedLabel);
+                GUI.Label(new Rect(rect.x + 5, rect.y - 17, rect.width - 10, 20), headerText, EditorStyles.wordWrappedLabel);
             }
 
             //Remove button
@@ -171,12 +177,14 @@ public class EditorNode
     }
 
     private void MoveActualNode() {
+        Undo.RecordObject(actualNode.transform, "moving cutscene node");
+
         float offsetScaleFactor = NodeBasedEditor.offsetScaleFactor;
         Vector2 offset = editor.GetOffset();
 
         switch (editor.projectionPlane) {
             case NodeBasedEditor.ProjectionPlaneType.XY:
-                actualNode.transform.localPosition = new Vector3((rect.position.x - offset.x) / offsetScaleFactor , (rect.position.y - offset.y) / offsetScaleFactor, actualNode.transform.localPosition.z);
+                actualNode.transform.localPosition = new Vector3((rect.position.x - offset.x) / -offsetScaleFactor , (rect.position.y - offset.y) / offsetScaleFactor, actualNode.transform.localPosition.z);
                 break;
             case NodeBasedEditor.ProjectionPlaneType.XZ:
                 actualNode.transform.localPosition = new Vector3((rect.position.x - offset.x) / offsetScaleFactor, actualNode.transform.localPosition.y, (rect.position.y - offset.y) / offsetScaleFactor);
@@ -185,7 +193,7 @@ public class EditorNode
                 actualNode.transform.localPosition = new Vector3(actualNode.transform.localPosition.x, (rect.position.y - offset.y) / offsetScaleFactor, (rect.position.x - offset.x) / offsetScaleFactor);
                 break;
             default:
-                actualNode.transform.localPosition = new Vector3((rect.position.x - offset.x) / offsetScaleFactor, (rect.position.y - offset.y) / offsetScaleFactor, actualNode.transform.localPosition.z);
+                actualNode.transform.localPosition = new Vector3((rect.position.x - offset.x) / -offsetScaleFactor, (rect.position.y - offset.y) / offsetScaleFactor, actualNode.transform.localPosition.z);
                 break;
         }
     }
@@ -197,16 +205,16 @@ public class EditorNode
 
         switch (editor.projectionPlane) {
             case NodeBasedEditor.ProjectionPlaneType.XY:
-                targetPosition = new Vector2(actualNode.transform.localPosition.x * offsetScaleFactor + offset.x, actualNode.transform.localPosition.y * offsetScaleFactor + offset.y);
+                targetPosition = new Vector2(actualNode.transform.localPosition.x * -offsetScaleFactor + offset.x, actualNode.transform.localPosition.y * offsetScaleFactor + offset.y);
                 break;
             case NodeBasedEditor.ProjectionPlaneType.XZ:
-                targetPosition = new Vector2(actualNode.transform.localPosition.x * offsetScaleFactor + offset.x, actualNode.transform.localPosition.y * offsetScaleFactor + offset.y);
+                targetPosition = new Vector2(actualNode.transform.localPosition.x * offsetScaleFactor + offset.x, actualNode.transform.localPosition.z * offsetScaleFactor + offset.y);
                 break;
             case NodeBasedEditor.ProjectionPlaneType.YZ:
-                targetPosition = new Vector2(actualNode.transform.localPosition.x * offsetScaleFactor + offset.x, actualNode.transform.localPosition.y * offsetScaleFactor + offset.y);
+                targetPosition = new Vector2(actualNode.transform.localPosition.z * offsetScaleFactor + offset.x, actualNode.transform.localPosition.y * offsetScaleFactor + offset.y);
                 break;
             default:
-                targetPosition = new Vector2(actualNode.transform.localPosition.x * offsetScaleFactor + offset.x, actualNode.transform.localPosition.y * offsetScaleFactor + offset.y);
+                targetPosition = new Vector2(actualNode.transform.localPosition.x * -offsetScaleFactor + offset.x, actualNode.transform.localPosition.y * offsetScaleFactor + offset.y);
                 break;
         }
 

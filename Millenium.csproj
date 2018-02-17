@@ -292,17 +292,11 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Assets\Engine\Plugins\Json.NET\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="TextMeshPro-1.0.55.2017.1.0b12">
-      <HintPath>Assets\Engine\Plugins\TextMesh Pro\Plugins\TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
+    <Reference Include="ProBuilderCore-Unity5">
+      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Classes\ProBuilderCore-Unity5.dll</HintPath>
     </Reference>
-    <Reference Include="TextMeshPro-1.0.55.2017.1.0b12-Editor">
-      <HintPath>Assets\Engine\Plugins\TextMesh Pro\Plugins\Editor\TextMeshPro-1.0.55.2017.1.0b12-Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="ProBuilderEditor-Unity5">
-      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Editor\ProBuilderEditor-Unity5.dll</HintPath>
-    </Reference>
-    <Reference Include="Poly2Tri">
-      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Classes\ClassesLib\Poly2Tri.dll</HintPath>
+    <Reference Include="ProBuilderMeshOps-Unity5">
+      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Classes\ProBuilderMeshOps-Unity5.dll</HintPath>
     </Reference>
     <Reference Include="KdTreeLib">
       <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Classes\ClassesLib\KdTreeLib.dll</HintPath>
@@ -310,11 +304,17 @@
     <Reference Include="pb_Stl">
       <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Classes\ClassesLib\pb_Stl.dll</HintPath>
     </Reference>
-    <Reference Include="ProBuilderCore-Unity5">
-      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Classes\ProBuilderCore-Unity5.dll</HintPath>
+    <Reference Include="Poly2Tri">
+      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Classes\ClassesLib\Poly2Tri.dll</HintPath>
     </Reference>
-    <Reference Include="ProBuilderMeshOps-Unity5">
-      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Classes\ProBuilderMeshOps-Unity5.dll</HintPath>
+    <Reference Include="ProBuilderEditor-Unity5">
+      <HintPath>Assets\Engine\Plugins\ProCore\ProBuilder\Editor\ProBuilderEditor-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="TextMeshPro-1.0.55.2017.1.0b12">
+      <HintPath>Assets\Engine\Plugins\TextMesh Pro\Plugins\TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
+    </Reference>
+    <Reference Include="TextMeshPro-1.0.55.2017.1.0b12-Editor">
+      <HintPath>Assets\Engine\Plugins\TextMesh Pro\Plugins\Editor\TextMeshPro-1.0.55.2017.1.0b12-Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
