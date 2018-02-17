@@ -5925,7 +5925,7 @@ MonoBehaviour:
   - {fileID: 932031491}
   - {fileID: 1867533104}
   - {fileID: 1160474914}
-  startNode: {fileID: 790857663}
+  startNode: {fileID: 1748575903}
   isPlaying: 0
   OnCutsceneFinished:
     m_PersistentCalls:
@@ -6633,7 +6633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1320258628
 Transform:
   m_ObjectHideFlags: 0
