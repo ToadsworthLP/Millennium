@@ -1086,7 +1086,6 @@ GameObject:
   - component: {fileID: 65167405462887384}
   - component: {fileID: 23381508533229312}
   - component: {fileID: 114785910542032214}
-  - component: {fileID: 135430362645113300}
   m_Layer: 10
   m_Name: Feet
   m_TagString: Untagged
@@ -9971,9 +9970,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8d27366b054654bb484db9ba386ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereCastRadius: 0.18
-  groundCheckDistance: 0.1
-  yOffset: 0.27
+  sphereCastRadius: 0.177
+  groundCheckDistance: 0.125
+  offset: {x: -0.004, y: 0.27, z: -0.003}
 --- !u!114 &114786085549494358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11132,18 +11131,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1136740510735492}
   m_Enabled: 1
---- !u!135 &135430362645113300
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1344148768507348}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0.00000011920929, y: 2.2, z: 0}
 --- !u!136 &136022935361580506
 CapsuleCollider:
   m_ObjectHideFlags: 1
