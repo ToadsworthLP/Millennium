@@ -13,6 +13,6 @@ The demo may be outdated, it's currently on commit #90785a8.
 My goal with this project is to provide a relatively easy-to-use and modern alternative to programs like Star Rod. It is still fairly early in development, but it's here if you want to check it out anyways, just be aware that there can and will be changes that may break your code if it's interacting with mine!
 
 If you need help with anything just open an issue or @ me at Twitter (@Toadsworth1507).
-I also hang out on many Discord servers like the Paper Mario Fan Community discord or the Mario RPG Central if you prefer that.
+I also have a discord server where you can discuss about Millenium: https://discord.gg/GK3uMuB
 
 Also, I obviously don't own/am affiliated with Super Mario, Paper Mario, Nintendo, Intelligent Systems, Reggie and his memes or anything else which isn't my code.
