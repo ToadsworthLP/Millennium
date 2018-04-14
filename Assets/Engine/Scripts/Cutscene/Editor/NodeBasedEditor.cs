@@ -326,6 +326,7 @@ public class NodeBasedEditor : EditorWindow
         node.PrepareConnections(inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint);
 
         nodes.Add(actualNode, node);
+        node.SyncEditorNodePosition();
     }
 
     private void OnClickInPoint(EditorConnectionPoint inPoint) {
@@ -385,7 +386,6 @@ public class NodeBasedEditor : EditorWindow
         connection.outPoint.connection = null;
         connections.Remove(connection);
 
-        Undo.RecordObject(selectedOutPoint.node.actualNode.gameObject, "remove node connections");
         selectedOutPoint.node.actualNode.outputNodes[selectedOutPoint.id-1] = null;
     }
 

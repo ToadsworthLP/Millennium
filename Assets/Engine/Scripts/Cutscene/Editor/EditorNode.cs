@@ -221,6 +221,11 @@ public class EditorNode
         rect.position = targetPosition;
     }
 
+    public void SyncEditorNodePosition(){
+        MoveEditorNode();
+        MoveActualNode();
+    }
+
     public Rect GetRectForLine(int row, float lineHeight = 20, float padding = 0) {
         return new Rect(rect.x + padding, rect.y + row * (lineHeight + padding), rect.width - padding, lineHeight);
     }

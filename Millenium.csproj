@@ -434,6 +434,7 @@
     <Compile Include="Assets\Engine\Scripts\Items\HammerAsset.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\HealingCollectible.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\ItemManager.cs" />
+    <Compile Include="Assets\Engine\Scripts\Menu\BPDotDisplay.cs" />
     <Compile Include="Assets\Engine\Scripts\Menu\DescriptionSelectable.cs" />
     <Compile Include="Assets\Engine\Scripts\Menu\GearPage.cs" />
     <Compile Include="Assets\Engine\Scripts\Menu\ItemEntry.cs" />
