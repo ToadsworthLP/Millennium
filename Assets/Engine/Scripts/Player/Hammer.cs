@@ -25,6 +25,11 @@ public class Hammer : MonoBehaviour{
         playerMachine.allowMovement = false;
     }
 
+    public void UpdateHammer(HammerAsset hammer){
+        this.hammer = hammer;
+        hammerSpriteRenderer.sprite = hammer.hammerSprite;
+    }
+
     void OnTriggerEnter(Collider other) {
         if(!other.CompareTag("Player") && gameObject.activeSelf && !other.isTrigger && !alreadyHit){
             StartCoroutine(HammerHit(other.gameObject));

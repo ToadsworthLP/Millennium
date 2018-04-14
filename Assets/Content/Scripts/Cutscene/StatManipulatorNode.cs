@@ -12,28 +12,28 @@ public class StatManipulatorNode : BaseCutsceneNode {
 
         switch (statToModify) {
             case Stat.HP:
-                backpack.hp += quantity;
+                backpack.legacyHP += quantity;
                 break;
             case Stat.FP:
-                backpack.fp += quantity;
+                backpack.legacyFP += quantity;
                 break;
             case Stat.BP:
-                backpack.bp += quantity;
+                backpack.legacyBP += quantity;
                 break;
             case Stat.COINS:
-                backpack.coins += quantity;
+                backpack.legacyCoins += quantity;
                 break;
             case Stat.STAR_PIECES:
-                backpack.starPieces += quantity;
+                backpack.legacyStarPieces += quantity;
                 break;
             case Stat.SHINE_SPRITES:
-                backpack.shineSprites += quantity;
+                backpack.legacyShineSprites += quantity;
                 break;
             case Stat.LEVEL:
-                backpack.level += quantity;
+                backpack.legacyLevel += quantity;
                 break;
             case Stat.STAR_POINTS:
-                backpack.starPoints += quantity;
+                backpack.legacyStarPoints += quantity;
                 break;
         }
 

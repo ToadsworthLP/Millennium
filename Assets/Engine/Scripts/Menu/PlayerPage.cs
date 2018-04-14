@@ -25,17 +25,17 @@ public class PlayerPage : MonoBehaviour {
     }
 
     void OnEnable() {
-        DateTime playtime = backpack.playtime;
+        DateTime playtime = backpack.GetPlaytime();
 
         playerNameText.text = backpack.playerName;
         levelText.text = "Lvl.  " + backpack.level;
         rankText.text = backpack.starRank.GetName();
 
-        hpText.text = backpack.hp + " / " + backpack.maxHp;
-        fpText.text = backpack.fp + " / " + backpack.maxFp;
-        bpText.text = backpack.bp.ToString();
+        hpText.text = backpack.HP + " / " + backpack.maxHP;
+        fpText.text = backpack.FP + " / " + backpack.maxFP;
+        bpText.text = backpack.BP.ToString();
 
-        advancedNumberText.text = backpack.starPoints + Utils.NewLine() +
+        advancedNumberText.text = backpack.legacyStarPoints + Utils.NewLine() +
             backpack.coins + Utils.NewLine() +
             backpack.starPieces + Utils.NewLine() +
             backpack.shineSprites + Utils.NewLine() +

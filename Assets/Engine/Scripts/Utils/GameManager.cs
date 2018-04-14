@@ -15,12 +15,12 @@ public class GameManager : MonoBehaviour {
     public PlayerMachine playerMachine;
     public Animator playerAnimator;
     private Backpack backpack;
+    private SaveManager saveManager;
 
     [Header("Rendering & UI")]
     public GameObject mainCamera;
     public GameObject renderTextureParent;
     public RectTransform uiParent;
-    public HUDController hudController;
     public FadeUIImage blackOverlay;
     [SerializeField]
     private RenderTexture playerRenderTexture;
@@ -32,6 +32,13 @@ public class GameManager : MonoBehaviour {
             backpack = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>();
         }
         return backpack;
+    }
+
+    public SaveManager GetSaveManager() {
+        if (saveManager == null) {
+            saveManager = GameObject.FindGameObjectWithTag("Backpack").GetComponent<SaveManager>();
+        }
+        return saveManager;
     }
 
     public CameraController GetCameraController(){
@@ -55,15 +62,12 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Deprecated. Will be removed soon.
+    /// </summary>
+    /// <param name="hammerType"></param>
     public void UpdateHammer(HammerAsset hammerType) {
-        playerMachine.hammer.hammer = hammerType;
-
-        if (hammerType == null || hammerType.hammerSprite == null) {
-            playerMachine.hammer.hammerSpriteRenderer.enabled = false;
-        } else {
-            playerMachine.hammer.hammerSpriteRenderer.enabled = true;
-            playerMachine.hammer.hammerSpriteRenderer.sprite = hammerType.hammerSprite;
-        }
+        playerMachine.hammer.UpdateHammer(hammerType);
     }
 
     public T GetShelfData<T>(string key, T defaultValue){

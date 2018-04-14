@@ -34,15 +34,15 @@ public class HealingCollectible : MonoBehaviour {
         if (other.CompareTag("Player")) {
             switch(modifier.statToModify){
                 case Utils.StatType.HP:
-                    backpack.hp += modifier.value;
+                    backpack.legacyHP += modifier.value;
                     break;
 
                 case Utils.StatType.FP:
-                    backpack.fp += modifier.value;
+                    backpack.legacyFP += modifier.value;
                     break;
 
                 case Utils.StatType.SP:
-                    backpack.sp += modifier.value;
+                    backpack.legacySP += modifier.value;
                     break;
             }
             other.gameObject.GetComponent<PlayerMachine>().audioSource.PlayOneShot(collectSound);

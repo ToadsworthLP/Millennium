@@ -38,28 +38,28 @@
 
         switch (stat) {
             case Stat.HP:
-                return backpack.hp;
+                return backpack.legacyHP;
                 break;
             case Stat.FP:
-                return backpack.fp;
+                return backpack.legacyFP;
                 break;
             case Stat.BP:
-                return backpack.bp;
+                return backpack.legacyBP;
                 break;
             case Stat.COINS:
-                return backpack.coins;
+                return backpack.legacyCoins;
                 break;
             case Stat.STAR_PIECES:
-                return backpack.starPieces;
+                return backpack.legacyStarPieces;
                 break;
             case Stat.SHINE_SPRITES:
-                return backpack.shineSprites;
+                return backpack.legacyShineSprites;
                 break;
             case Stat.LEVEL:
-                return backpack.level;
+                return backpack.legacyLevel;
                 break;
             case Stat.STAR_POINTS:
-                return backpack.starPoints;
+                return backpack.legacyStarPoints;
                 break;
         }
 

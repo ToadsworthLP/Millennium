@@ -424,6 +424,11 @@
     <Compile Include="Assets\Engine\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\Engine\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\Engine\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+    <Compile Include="Assets\Engine\Scripts\Containers\BaseVariableContainer.cs" />
+    <Compile Include="Assets\Engine\Scripts\Containers\BaseVariableReference.cs" />
+    <Compile Include="Assets\Engine\Scripts\Containers\IntContainer.cs" />
+    <Compile Include="Assets\Engine\Scripts\Containers\ItemListContainer.cs" />
+    <Compile Include="Assets\Engine\Scripts\Containers\StringContainer.cs" />
     <Compile Include="Assets\Engine\Scripts\Cutscene\BaseCutsceneNode.cs" />
     <Compile Include="Assets\Engine\Scripts\Cutscene\CutsceneManager.cs" />
     <Compile Include="Assets\Engine\Scripts\Interfaces\IHammerable.cs" />
@@ -472,8 +477,7 @@
     <Compile Include="Assets\Engine\Scripts\UI\Cursor.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\FadeUIImage.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\FancyNumberHandler.cs" />
-    <Compile Include="Assets\Engine\Scripts\UI\HUDController.cs" />
-    <Compile Include="Assets\Engine\Scripts\UI\HUDElementHelper.cs" />
+    <Compile Include="Assets\Engine\Scripts\UI\FancyNumberHUD.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\ImageToNumber.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\ItemPopup.cs" />
     <Compile Include="Assets\Engine\Scripts\UI\PopupMenu.cs" />
@@ -484,6 +488,7 @@
     <Compile Include="Assets\Engine\Scripts\Utils\CustomAttributes.cs" />
     <Compile Include="Assets\Engine\Scripts\Utils\GameManager.cs" />
     <Compile Include="Assets\Engine\Scripts\Utils\InteractableHelper.cs" />
+    <Compile Include="Assets\Engine\Scripts\Utils\SaveManager.cs" />
     <Compile Include="Assets\Engine\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\Engine\Scripts\Utils\VirtualGamepad.cs" />
     <Compile Include="Assets\Engine\Scripts\World\Coin.cs" />

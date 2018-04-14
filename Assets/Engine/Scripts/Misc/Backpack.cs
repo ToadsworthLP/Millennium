@@ -1,46 +1,70 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Backpack : MonoBehaviour {
 
     private GameManager gameManager;
+    public SaveManager saveManager;
     public string startSceneName;
     public Vector3 startPosition;
-    public HammerAsset defaultHammer;
-    public string savefileName;
     [HideInInspector]
     public int targetEntranceId;
 
-    private PlayerData data;
+    [Header("Container References")]
+    public StringReference playerName;
+    public IntReference HP;
+    public IntReference maxHP;
+    public IntReference FP;
+    public IntReference maxFP;
+    public IntReference SP;
+    public IntReference maxSP;
+    public IntReference BP;
+    public IntReference starPoints;
+    public IntReference level;
+    public IntReference coins;
+    public IntReference shineSprites;
+    public IntReference starPieces;
+    public ItemListReference inventory;
+
     private Stopwatch deltaPlaytime;
 
-    void Start() {
+    private void Start() {
         if (GameObject.FindGameObjectsWithTag("Backpack").Length > 1){
             Destroy(gameObject);
             return;
         }
 
         DontDestroyOnLoad(gameObject);
-        if(!LoadData()){
-            data = new PlayerData().GetDefaults();
-            data.currentHammer = defaultHammer;
-        }
+
+        SaveManager.SaveData data = saveManager.LoadGame();
+        HP.Value = data.hp;
+        maxHP.Value = data.maxHp;
+        FP.Value = data.fp;
+        maxFP.Value = data.maxFp;
+        SP.Value = data.sp;
+        maxSP.Value = data.maxSp;
+        BP.Value = data.bp;
+        starPoints.Value = data.starPoints;
+        level.Value = data.level;
+        coins.Value = data.coins;
+        shineSprites.Value = data.shineSprites;
+        starPieces.Value = data.starPieces;
+        inventory.Value = data.items;
+        playtime = data.playtime;
+        shelf = data.shelf;
+
         SceneManager.sceneLoaded += SceneLoaded;
 
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         gameManager.UpdateHammer(currentHammer);
-        StartCoroutine(InitializeHUD());
         gameManager.blackOverlay.FadeOut();
 
-        PreparePlayer();
+        PreparePlayer(data);
 
         deltaPlaytime = Stopwatch.StartNew();
 
@@ -49,199 +73,188 @@ public class Backpack : MonoBehaviour {
     public void SceneLoaded(Scene scene, LoadSceneMode mode) {
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         gameManager.UpdateHammer(currentHammer);
-        StartCoroutine(InitializeHUD());
 
         if(gameManager.sceneEntrances.Length-1 <= targetEntranceId){
             gameManager.sceneEntrances[targetEntranceId].PlayerArrives();
         }
     }
 
-    private void PreparePlayer(){
+    private void PreparePlayer(SaveManager.SaveData data){
         if (data.currentPosition == Vector3.zero || SceneManager.GetActiveScene().name != data.currentScene) {
             gameManager.playerMachine.transform.position = startPosition;
         } else {
             gameManager.playerMachine.transform.position = data.currentPosition;
         }
-    }
 
-    IEnumerator InitializeHUD(){
-        yield return new WaitForEndOfFrame();
-        gameManager.hudController.SetData(data, true);
+        gameManager.playerMachine.hammer.UpdateHammer(data.currentHammer);
     }
 
     //Getters and setters
-    public string playerName
+    public string legacyPlayerName
     {
         get {
-            return data.playerName;
+            return playerName.Value;
         }
 
         set {
-            data.playerName = value;
+            playerName.Value = value;
         }
     }
-    public int hp
+    public int legacyHP
     {
         get {
-            return data.hp;
+            return HP.Value;
         }
 
         set {
-            data.hp = Mathf.Clamp(value, 0, maxHp);
-            gameManager.hudController.SetHP(data.hp);
+            HP.Value = value;
         }
     }
-    public int maxHp
+    public int legacyMaxHP
     {
         get {
-            return data.maxHp;
+            return maxHP;
         }
 
         set {
-            data.maxHp = Mathf.Clamp(value, 0, 99);
-            gameManager.hudController.SetMaxHP(data.maxHp);
+            maxHP.Value = value;
         }
     }
-    public int fp
+    public int legacyFP
     {
         get {
-            return data.fp;
+            return FP;
         }
 
         set {
-            data.fp = Mathf.Clamp(value, 0, maxFp);
-            gameManager.hudController.SetFP(data.fp);
+            FP.Value = value;
         }
     }
-    public int maxFp
+    public int legacyMaxFP
     {
         get {
-            return data.maxFp;
+            return maxFP;
         }
 
         set {
-            data.maxFp = Mathf.Clamp(value, 0, 99);
-            gameManager.hudController.SetMaxFP(data.maxFp);
+            maxFP.Value = value;
         }
     }
-    public int sp
+    public int legacySP
     {
         get {
-            return data.sp;
+            return SP;
         }
 
         set {
-            data.sp = Mathf.Clamp(value, 0, maxSp);
+            maxSP.Value = value;
         }
     }
-    public int maxSp
+    public int legacyMaxSP
     {
         get {
-            return data.maxSp;
+            return maxSP;
         }
 
         set {
-            data.maxSp = Mathf.Clamp(value, 0, 99);
+            maxSP.Value = value;
         }
     }
-    public int coins
+    public int legacyCoins
     {
         get {
-            return data.coins;
+            return coins;
         }
 
         set {
-            data.coins = Mathf.Clamp(value, 0, 999);
-            gameManager.hudController.SetCoins(data.coins);
+            coins.Value = value;
         }
     }
-    public int starPoints
+    public int legacyStarPoints
     {
         get {
-            return data.starPoints;
+            return starPoints;
         }
 
         set {
-            data.starPoints = Mathf.Clamp(value, 0, 99);
-            gameManager.hudController.SetStarPoints(data.starPoints);
+            starPoints.Value = value;
         }
     }
-    public int level
+    public int legacyLevel
     {
         get {
-            return data.level;
+            return level;
         }
 
         set {
-            data.level = Mathf.Clamp(value, 0, 99);
+            level.Value = value;
         }
     }
-    public int bp
+    public int legacyBP
     {
         get {
-            return data.bp;
+            return BP;
         }
 
         set {
-            data.bp = Mathf.Clamp(value, 0, 99);
+            BP.Value = value;
         }
     }
-    public int shineSprites
+    public int legacyShineSprites
     {
         get {
-            return data.shineSprites;
+            return shineSprites;
         }
 
         set {
-            data.shineSprites = Mathf.Clamp(value, 0, 99);
+            shineSprites.Value = value;
         }
     }
-    public int starPieces
+    public int legacyStarPieces
     {
         get {
-            return data.starPieces;
+            return starPieces;
         }
 
         set {
-            data.starPieces = Mathf.Clamp(value, 0, 99);
+            starPieces.Value = value;
         }
     }
     public StarRank starRank
     {
         get {
-            if(data.level < 10){
+            if(level < 10){
                 return StarRank.RISING_STAR;
-            }else if (data.level < 20){
+            }else if (level < 20){
                 return StarRank.B_LIST_STAR;
-            } else if (data.level < 30) {
+            } else if (level < 30) {
                 return StarRank.A_LIST_STAR;
             } else{
                 return StarRank.SUPERSTAR;
             }
         }
     }
-    public DateTime playtime
-    {
-        get {
-            deltaPlaytime.Stop();
-            data.playtime = data.playtime.AddTicks(deltaPlaytime.ElapsedTicks);
-            deltaPlaytime.Reset();
-            deltaPlaytime.Start();
-            return data.playtime;
-        }
+
+    private DateTime playtime;
+    public DateTime GetPlaytime(){
+        deltaPlaytime.Stop();
+        playtime = playtime.AddTicks(deltaPlaytime.ElapsedTicks);
+        deltaPlaytime.Reset();
+        deltaPlaytime.Start();
+        return playtime;
     }
 
     public List<BaseItem> items
     {
         get {
-            return data.items;
+            return inventory.Value;
         }
     }
     public List<BaseItem> normalItems
     {
         get {
-            if(items != null && items.Count > 0){
-                return items.FindAll(IsNormal);
+            if(inventory.Value != null && inventory.Value.Count > 0){
+                return inventory.Value.FindAll(IsNormal);
             }else{
                 return new List<BaseItem>();
             }
@@ -250,8 +263,8 @@ public class Backpack : MonoBehaviour {
     public List<BaseItem> importantItems
     {
         get {
-            if (items != null && items.Count > 0) {
-                return items.FindAll(IsImportant);
+            if (inventory.Value != null && inventory.Value.Count > 0) {
+                return inventory.Value.FindAll(IsImportant);
             } else {
                 return new List<BaseItem>();
             }
@@ -260,8 +273,8 @@ public class Backpack : MonoBehaviour {
     public List<BaseItem> badgeItems
     {
         get {
-            if (items != null && items.Count > 0) {
-                return items.FindAll(IsBadge);
+            if (inventory.Value != null && inventory.Value.Count > 0) {
+                return inventory.Value.FindAll(IsBadge);
             } else {
                 return new List<BaseItem>();
             }
@@ -269,55 +282,22 @@ public class Backpack : MonoBehaviour {
     }
     public HammerAsset currentHammer{
         get{
-            if(data.currentHammer == null){
-                return defaultHammer;
+            HammerAsset currentHammer = gameManager.playerMachine.hammer.hammer;
+            if(currentHammer == null){
+                return saveManager.defaultHammer;
             }else{
-                return data.currentHammer;
+                return currentHammer;
             }
         }
 
         set{
-            gameManager.UpdateHammer(value);
-            data.currentHammer = value;
+            Hammer hammer = gameManager.playerMachine.hammer;
+            hammer.UpdateHammer(value);
         }
     }
 
     public List<StatusEffect> statusEffects;
-
-    public Dictionary<string, object> shelf{
-        get{ return data.shelf; }
-    }
-
-    //Save system stuff
-    public bool LoadData() {
-        try{
-            using (StreamReader file = new StreamReader(Application.persistentDataPath + "/" + savefileName)){
-                String dataString = file.ReadToEnd();
-                data = Utils.Deserialize<PlayerData>(dataString);
-                data.shelf = Utils.DeserializeShelf(data.shelfSerialized);
-            }
-            return true;
-        } catch(Exception e){
-            print("Failed to load data! " + e.ToString());
-            return false;
-        }
-    }
-
-    public bool SaveData(){
-        try{
-            using (StreamWriter file = new StreamWriter(Application.persistentDataPath + "/" + savefileName)){
-                data.playtime = playtime;
-                data.currentScene = SceneManager.GetActiveScene().name;
-                data.currentPosition = FindObjectOfType<PlayerMachine>().transform.position + new Vector3(0,-0.5f,0);
-                data.shelfSerialized = Utils.SerializeShelf(data.shelf);
-                file.WriteLine(Utils.Serialize(data));
-            }
-            return true;
-        }catch(Exception e){
-            print("Failed to save data! " + e.ToString());
-            return false;
-        }
-    }
+    public Dictionary<string, object> shelf;
 
     //Sorting funtions
     private static bool IsImportant(BaseItem item) {
@@ -343,74 +323,6 @@ public class Backpack : MonoBehaviour {
         }
     }
 
-#if UNITY_EDITOR
-    [CustomEditor(typeof(Backpack))]
-    public class BackpackEditor : Editor
-    {
-        public override void OnInspectorGUI() {
-            DrawDefaultInspector();
-
-            if (GUILayout.Button("Reset save data")) {
-                Backpack backpack = (Backpack)target;
-
-                try {
-                    using (StreamWriter file = new StreamWriter(Application.persistentDataPath + "/" + backpack.savefileName)){
-                        PlayerData data = new PlayerData().GetDefaults();
-                        data.currentHammer = backpack.defaultHammer;
-                        file.WriteLine(Utils.Serialize(data));
-                    }
-                } catch (Exception e) {
-                    print("Failed to reset data! " + e.ToString());
-                }
-            }
-        }
-    }
-#endif
-
-}
-
-public class PlayerData{
-    public string playerName;
-    public int maxHp;
-    public int hp;
-    public int maxFp;
-    public int fp;
-    public int maxSp;
-    public int sp;
-    public int coins;
-    public int starPoints;
-    public int level;
-    public int bp;
-    public int shineSprites;
-    public int starPieces;
-    public DateTime playtime;
-    public string currentScene;
-    public Vector3 currentPosition;
-    public List<BaseItem> items;
-    public HammerAsset currentHammer;
-    public Dictionary<string, object> shelf;
-    public string shelfSerialized;
-
-    public PlayerData GetDefaults(){
-        playerName = "Mario";
-        maxHp = 10;
-        hp = 10;
-        maxFp = 5;
-        fp = 5;
-        coins = 0;
-        starPoints = 0;
-        level = 1;
-        bp = 3;
-        shineSprites = 0;
-        starPieces = 0;
-        playtime = new DateTime(0);
-        currentScene = "TestMap";
-        currentPosition = Vector3.zero;
-        items = new List<BaseItem>();
-        currentHammer = null;
-        shelf = new Dictionary<string, object>();
-        return this;
-    }
 }
 
 [Serializable]

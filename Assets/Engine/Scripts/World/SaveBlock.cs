@@ -28,9 +28,9 @@ public class SaveBlock : MonoBehaviour
     public Color noHighlightColor;
 
     private GameManager gameManager;
+    private SaveManager saveManager;
     private RectTransform uiParent;
     private PlayerMachine player;
-    private Backpack backpack;
     private GameObject currentBubble;
     private Animator animator;
 
@@ -40,7 +40,7 @@ public class SaveBlock : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         uiParent = gameManager.uiParent;
         player = gameManager.playerMachine;
-        backpack = gameManager.GetBackpack();
+        saveManager = gameManager.GetSaveManager();
         animator = gameObject.GetComponent<Animator>();
     }
 
@@ -62,7 +62,7 @@ public class SaveBlock : MonoBehaviour
     }
 
     private void YesSelected(PopupMenuOption option){
-        bool success = backpack.SaveData();
+        bool success = saveManager.SaveGame();
         GameObject bubble = Instantiate(speechBubble, uiParent);
         Typewriter writer = bubble.GetComponent<Typewriter>();
         writer.OnBubbleClosed += ResultBubbleClose;
