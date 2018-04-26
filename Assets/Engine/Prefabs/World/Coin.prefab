@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 4031374581751058}
   - component: {fileID: 114253057369093900}
   - component: {fileID: 135825876232142480}
+  - component: {fileID: 114602608636922100}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -149,8 +150,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1255766298687186}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.81, y: 1.0383881, z: 0.155}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.167, y: 1.0383881, z: -0.121}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4337567990255012}
@@ -484,10 +485,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382f5669675d54d4cb109b38fde338aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectSound: {fileID: 8300000, guid: e90151f65d734904b9547dcb29836647, type: 3}
-  art: {fileID: 4337567990255012}
+  target: {fileID: 4337567990255012}
   spinSpeed: 200
+--- !u!114 &114602608636922100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1255766298687186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7226219453d1214c981f73163ab1f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetContainer:
+    useLocalValue: 0
+    localValue: 0
+    containerReference: {fileID: 11400000, guid: 7c98aa09621c10449ad37cc606363bb4,
+      type: 2}
   value: 1
+  collectSound: {fileID: 8300000, guid: e90151f65d734904b9547dcb29836647, type: 3}
+  destroyAfterCollected: 1
 --- !u!135 &135825876232142480
 SphereCollider:
   m_ObjectHideFlags: 1

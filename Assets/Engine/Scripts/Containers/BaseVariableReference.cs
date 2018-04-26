@@ -42,6 +42,12 @@ public abstract class BaseVariableReference<VariableType, ContainerType> : Untyp
         containerReference.OnValueUpdated.RemoveAllListeners();
     }
 
+    public void ForceUpdate() {
+        if(!useLocalValue && containerReference.OnValueUpdated != null){
+            containerReference.OnValueUpdated.Invoke();
+        }
+    }
+
     public static implicit operator VariableType(BaseVariableReference<VariableType, ContainerType> variable) {
         return variable.Value;
     }

@@ -7,8 +7,7 @@ public class FancyNumberHUD : MonoBehaviour {
     public Animator animator;
     public Utils.AnimationModifier animationModifier;
 
-    private void Awake () {
-        Debug.Log(value);
+    private void Start () {
         value.AddUpdateListener(UpdateDisplay);
 	}
 	

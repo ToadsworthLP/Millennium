@@ -68,6 +68,7 @@ public class Backpack : MonoBehaviour {
 
         deltaPlaytime = Stopwatch.StartNew();
 
+        StartCoroutine(AfterFirstFrame());
     }
 
     public void SceneLoaded(Scene scene, LoadSceneMode mode) {
@@ -77,6 +78,8 @@ public class Backpack : MonoBehaviour {
         if(gameManager.sceneEntrances.Length-1 <= targetEntranceId){
             gameManager.sceneEntrances[targetEntranceId].PlayerArrives();
         }
+
+        StartCoroutine(AfterFirstFrame());
     }
 
     private void PreparePlayer(SaveManager.SaveData data){
@@ -87,6 +90,26 @@ public class Backpack : MonoBehaviour {
         }
 
         gameManager.playerMachine.hammer.UpdateHammer(data.currentHammer);
+    }
+
+    private IEnumerator AfterFirstFrame() {
+        yield return new WaitForEndOfFrame();
+
+        //Manually calls update on all relevant containers to fix problem where update listeners are
+        //called before they are registered
+
+        HP.ForceUpdate();
+        maxHP.ForceUpdate();
+        FP.ForceUpdate();
+        maxFP.ForceUpdate();
+        SP.ForceUpdate();
+        maxSP.ForceUpdate();
+        BP.ForceUpdate();
+        starPoints.ForceUpdate();
+        level.ForceUpdate();
+        coins.ForceUpdate();
+        shineSprites.ForceUpdate();
+        starPieces.ForceUpdate();
     }
 
     //Getters and setters

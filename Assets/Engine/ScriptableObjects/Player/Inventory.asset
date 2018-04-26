@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   serializedValue: []
+  OnValueUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

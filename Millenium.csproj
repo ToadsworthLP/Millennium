@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -437,7 +439,7 @@
     <Compile Include="Assets\Engine\Scripts\Items\BaseItem.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\CollectibleItem.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\HammerAsset.cs" />
-    <Compile Include="Assets\Engine\Scripts\Items\HealingCollectible.cs" />
+    <Compile Include="Assets\Engine\Scripts\Items\BlinkingSprite.cs" />
     <Compile Include="Assets\Engine\Scripts\Items\ItemManager.cs" />
     <Compile Include="Assets\Engine\Scripts\Menu\BPDotDisplay.cs" />
     <Compile Include="Assets\Engine\Scripts\Menu\DescriptionSelectable.cs" />
@@ -491,7 +493,8 @@
     <Compile Include="Assets\Engine\Scripts\Utils\SaveManager.cs" />
     <Compile Include="Assets\Engine\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\Engine\Scripts\Utils\VirtualGamepad.cs" />
-    <Compile Include="Assets\Engine\Scripts\World\Coin.cs" />
+    <Compile Include="Assets\Engine\Scripts\World\SpinningTransform.cs" />
+    <Compile Include="Assets\Engine\Scripts\World\GenericCollectible.cs" />
     <Compile Include="Assets\Engine\Scripts\World\IntersceneLoadingZone.cs" />
     <Compile Include="Assets\Engine\Scripts\World\LoadingZone.cs" />
     <Compile Include="Assets\Engine\Scripts\World\SaveBlock.cs" />

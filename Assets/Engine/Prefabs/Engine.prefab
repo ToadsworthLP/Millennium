@@ -483,6 +483,8 @@ GameObject:
   - component: {fileID: 224355526678019002}
   - component: {fileID: 222616901616018694}
   - component: {fileID: 95158566618111530}
+  - component: {fileID: 114338160548878180}
+  - component: {fileID: 114083095056848604}
   m_Layer: 0
   m_Name: HealthHUD
   m_TagString: Untagged
@@ -1652,6 +1654,8 @@ GameObject:
   - component: {fileID: 224230373654615560}
   - component: {fileID: 222636450714143638}
   - component: {fileID: 95328043616625890}
+  - component: {fileID: 114939811261346496}
+  - component: {fileID: 114371105886248760}
   m_Layer: 0
   m_Name: FlowerHUD
   m_TagString: Untagged
@@ -2200,6 +2204,8 @@ GameObject:
   - component: {fileID: 224423803684476216}
   - component: {fileID: 222417775227417946}
   - component: {fileID: 95454630866080000}
+  - component: {fileID: 114489717766933586}
+  - component: {fileID: 114841655653445478}
   m_Layer: 0
   m_Name: CollectibleHUD
   m_TagString: Untagged
@@ -3232,7 +3238,6 @@ GameObject:
   - component: {fileID: 223096692118912680}
   - component: {fileID: 114437312234605082}
   - component: {fileID: 114962646261808854}
-  - component: {fileID: 114206397538137614}
   m_Layer: 0
   m_Name: UI
   m_TagString: UIParent
@@ -5270,6 +5275,30 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &114083095056848604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188590442236734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7135f9e3cfd40914d965eba401cca5cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value:
+    useLocalValue: 0
+    localValue: 0
+    containerReference: {fileID: 11400000, guid: fcaf6ed76265254468010d5c06fe3155,
+      type: 2}
+  numberHandler: {fileID: 114209938058570798}
+  animator: {fileID: 95158566618111530}
+  animationModifier:
+    propertyType: 3
+    propertyName: Updated
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
 --- !u!114 &114087984664810104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5874,23 +5903,6 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 79110f21685b4014ebfb9f4288e3b702, type: 3}
   - {fileID: 21300016, guid: 79110f21685b4014ebfb9f4288e3b702, type: 3}
   - {fileID: 21300018, guid: 79110f21685b4014ebfb9f4288e3b702, type: 3}
---- !u!114 &114206397538137614
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1964684115276024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee3065c32cea23e44ba3db9c54b76ccc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: {fileID: 114209938058570798}
-  fp: {fileID: 114353472908164494}
-  maxHp: {fileID: 114159469245682940}
-  maxFp: {fileID: 114291732160449984}
-  coins: {fileID: 114898508941902292}
-  starPoints: {fileID: 114989159404733566}
 --- !u!114 &114209938058570798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6431,6 +6443,30 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &114338160548878180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188590442236734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7135f9e3cfd40914d965eba401cca5cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value:
+    useLocalValue: 0
+    localValue: 0
+    containerReference: {fileID: 11400000, guid: 85425671d6f5fa44aad1b38c5326926a,
+      type: 2}
+  numberHandler: {fileID: 114159469245682940}
+  animator: {fileID: 95158566618111530}
+  animationModifier:
+    propertyType: 3
+    propertyName: Updated
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
 --- !u!114 &114341662649391676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6861,6 +6897,30 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114371105886248760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1476210736817596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7135f9e3cfd40914d965eba401cca5cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value:
+    useLocalValue: 0
+    localValue: 0
+    containerReference: {fileID: 11400000, guid: b8b638db99e3a5344a42f3355466c1a7,
+      type: 2}
+  numberHandler: {fileID: 114291732160449984}
+  animator: {fileID: 95328043616625890}
+  animationModifier:
+    propertyType: 3
+    propertyName: Updated
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
 --- !u!114 &114374705079925408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7774,6 +7834,30 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 79110f21685b4014ebfb9f4288e3b702, type: 3}
   - {fileID: 21300016, guid: 79110f21685b4014ebfb9f4288e3b702, type: 3}
   - {fileID: 21300018, guid: 79110f21685b4014ebfb9f4288e3b702, type: 3}
+--- !u!114 &114489717766933586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660051667144664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7135f9e3cfd40914d965eba401cca5cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value:
+    useLocalValue: 0
+    localValue: 0
+    containerReference: {fileID: 11400000, guid: 7c98aa09621c10449ad37cc606363bb4,
+      type: 2}
+  numberHandler: {fileID: 114898508941902292}
+  animator: {fileID: 95454630866080000}
+  animationModifier:
+    propertyType: 3
+    propertyName: CoinsUpdated
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
 --- !u!114 &114493827868641338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8137,7 +8221,6 @@ MonoBehaviour:
   mainCamera: {fileID: 1136740510735492}
   renderTextureParent: {fileID: 1949742896591814}
   uiParent: {fileID: 224770611865801670}
-  hudController: {fileID: 114206397538137614}
   blackOverlay: {fileID: 114716414487834012}
   playerRenderTexture: {fileID: 8400000, guid: c7d284ad5230b9e46b1978faa388170d, type: 2}
 --- !u!114 &114540194593983156
@@ -10324,6 +10407,30 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114841655653445478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660051667144664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7135f9e3cfd40914d965eba401cca5cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value:
+    useLocalValue: 0
+    localValue: 0
+    containerReference: {fileID: 11400000, guid: 4dc1ab0da2a94f747a55e1ae95a58070,
+      type: 2}
+  numberHandler: {fileID: 114989159404733566}
+  animator: {fileID: 95454630866080000}
+  animationModifier:
+    propertyType: 3
+    propertyName: StarPointsUpdated
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
 --- !u!114 &114850417507082624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10860,6 +10967,30 @@ MonoBehaviour:
   itemListManager: {fileID: 114985140508956862}
   itemType: 1
   canvasRenderer: {fileID: 222886172674736972}
+--- !u!114 &114939811261346496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1476210736817596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7135f9e3cfd40914d965eba401cca5cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value:
+    useLocalValue: 0
+    localValue: 0
+    containerReference: {fileID: 11400000, guid: a26613b7926e2d7439828f504b329100,
+      type: 2}
+  numberHandler: {fileID: 114353472908164494}
+  animator: {fileID: 95328043616625890}
+  animationModifier:
+    propertyType: 3
+    propertyName: Updated
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
 --- !u!114 &114961311119279912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14967,7 +15098,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1430592007352106}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

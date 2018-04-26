@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 135150139251118482}
   - component: {fileID: 54537059169180576}
   - component: {fileID: 95875212582564254}
+  - component: {fileID: 114490797923315074}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -106,6 +107,25 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114490797923315074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1182334390618310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7226219453d1214c981f73163ab1f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetContainer:
+    useLocalValue: 0
+    localValue: 0
+    containerReference: {fileID: 11400000, guid: fcaf6ed76265254468010d5c06fe3155,
+      type: 2}
+  value: 1
+  collectSound: {fileID: 8300000, guid: 6c898efa9b4fa3f41b2ba4c57d23d618, type: 3}
+  destroyAfterCollected: 1
 --- !u!114 &114998900770309496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,16 +137,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f175497e67fb9844583d3d70482ef6a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectSound: {fileID: 8300000, guid: 6c898efa9b4fa3f41b2ba4c57d23d618, type: 3}
   blinkSprites:
   - {fileID: 21300002, guid: 26f0403d40d4a054e96c9666a3d2a3e6, type: 3}
   - {fileID: 21300004, guid: 26f0403d40d4a054e96c9666a3d2a3e6, type: 3}
   - {fileID: 21300002, guid: 26f0403d40d4a054e96c9666a3d2a3e6, type: 3}
   blinkAnimationLength: 0.15
   art: {fileID: 212116119171562588}
-  modifier:
-    statToModify: 0
-    value: 1
 --- !u!135 &135150139251118482
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 135825849258299780}
   - component: {fileID: 54462614760882722}
   - component: {fileID: 95402839664016800}
+  - component: {fileID: 114996344328332834}
   m_Layer: 0
   m_Name: Flower
   m_TagString: Untagged
@@ -117,16 +118,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f175497e67fb9844583d3d70482ef6a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectSound: {fileID: 8300000, guid: 6c898efa9b4fa3f41b2ba4c57d23d618, type: 3}
   blinkSprites:
   - {fileID: 21300002, guid: 0c551e7f2aa857f458c7f0a71713d2c7, type: 3}
   - {fileID: 21300004, guid: 0c551e7f2aa857f458c7f0a71713d2c7, type: 3}
   - {fileID: 21300002, guid: 0c551e7f2aa857f458c7f0a71713d2c7, type: 3}
   blinkAnimationLength: 0.15
   art: {fileID: 212672444647612384}
-  modifier:
-    statToModify: 1
-    value: 1
+--- !u!114 &114996344328332834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1255472623882888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7226219453d1214c981f73163ab1f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetContainer:
+    useLocalValue: 0
+    localValue: 0
+    containerReference: {fileID: 11400000, guid: a26613b7926e2d7439828f504b329100,
+      type: 2}
+  value: 1
+  collectSound: {fileID: 8300000, guid: 6c898efa9b4fa3f41b2ba4c57d23d618, type: 3}
+  destroyAfterCollected: 1
 --- !u!135 &135439373078833888
 SphereCollider:
   m_ObjectHideFlags: 1
