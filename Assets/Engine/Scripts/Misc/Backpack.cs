@@ -11,7 +11,6 @@ public class Backpack : MonoBehaviour {
     private GameManager gameManager;
     public SaveManager saveManager;
     public string startSceneName;
-    public Vector3 startPosition;
     [HideInInspector]
     public int targetEntranceId;
 
@@ -84,7 +83,7 @@ public class Backpack : MonoBehaviour {
 
     private void PreparePlayer(SaveManager.SaveData data){
         if (data.currentPosition == Vector3.zero || SceneManager.GetActiveScene().name != data.currentScene) {
-            gameManager.playerMachine.transform.position = startPosition;
+            gameManager.playerMachine.transform.position = transform.position;
         } else {
             gameManager.playerMachine.transform.position = data.currentPosition;
         }
