@@ -4,6 +4,11 @@
     <assembly>
       <name>UnityEngine.VehiclesModule</name>
     </assembly>
+    <member name="A:UnityEngine.VehiclesModule">
+      <summary>
+        <para>The Vehicles module implements vehicle physics simulation through the WheelCollider component.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.WheelCollider">
       <summary>
         <para>A special collider for vehicle wheels.</para>

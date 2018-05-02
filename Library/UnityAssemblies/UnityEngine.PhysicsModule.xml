@@ -1695,6 +1695,59 @@ Note that IgnoreLayerCollision will reset the trigger state of affected collider
         <para>Queries use the global Physics.queriesHitTriggers setting.</para>
       </summary>
     </member>
+    <member name="T:UnityEngine.RaycastCommand">
+      <summary>
+        <para>Struct used to set up a raycast command to be performed asynchronously during a job.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.RaycastCommand.direction">
+      <summary>
+        <para>The direction of the ray.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.RaycastCommand.distance">
+      <summary>
+        <para>The maximum distance the ray should check for collisions.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.RaycastCommand.from">
+      <summary>
+        <para>The starting point of the ray in world coordinates.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.RaycastCommand.layerMask">
+      <summary>
+        <para>A LayerMask that is used to selectively ignore Colliders when casting a ray.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.RaycastCommand.maxHits">
+      <summary>
+        <para>The maximum number of Colliders the ray can hit.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.RaycastCommand.#ctor(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,System.Int32,System.Int32)">
+      <summary>
+        <para>Create a RaycastCommand.</para>
+      </summary>
+      <param name="from">The starting point of the ray in world coordinates.</param>
+      <param name="direction">The direction of the ray.</param>
+      <param name="distance">The maximum distance the ray should check for collisions.</param>
+      <param name="layerMask">A LayerMask that is used to selectively ignore Colliders when casting a ray.</param>
+      <param name="maxHits">The maximum number of Colliders the ray can hit.</param>
+    </member>
+    <member name="M:UnityEngine.RaycastCommand.ScheduleBatch(Unity.Collections.NativeArray`1&lt;UnityEngine.RaycastCommand&gt;,Unity.Collections.NativeArray`1&lt;UnityEngine.RaycastHit&gt;,System.Int32,Unity.Jobs.JobHandle)">
+      <summary>
+        <para>Schedule a batch of raycasts which are performed in a job.</para>
+      </summary>
+      <param name="commands">A NativeArray of the RaycastCommands to perform.</param>
+      <param name="commands">A NativeArray of the RaycastHits where the results of the commands are stored.</param>
+      <param name="minCommandsPerJob">The minimum number of jobs which should be performed in a single job.</param>
+      <param name="dependsOn">A JobHandle of a job which must be completed before the raycast starts.</param>
+      <param name="results"></param>
+      <returns>
+        <para>The JobHandle of the job which will perform the raycasts.</para>
+      </returns>
+    </member>
     <member name="T:UnityEngine.RaycastHit">
       <summary>
         <para>Structure used to get information back from a raycast.</para>
@@ -2326,6 +2379,11 @@ Note that IgnoreLayerCollision will reset the trigger state of affected collider
     <member name="P:UnityEngine.SpringJoint.tolerance">
       <summary>
         <para>The maximum allowed error between the current spring length and the length defined by minDistance and maxDistance.</para>
+      </summary>
+    </member>
+    <member name="A:UnityEngine.PhysicsModule">
+      <summary>
+        <para>The Physics module implements 3D physics in Unity.</para>
       </summary>
     </member>
     <member name="T:UnityEngine.WheelFrictionCurve">

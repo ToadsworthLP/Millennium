@@ -772,5 +772,10 @@ Rotation of the tree on X-Z plane (in radians).</para>
         <para>Retrieves the actual GameObect used by the tree.</para>
       </summary>
     </member>
+    <member name="A:UnityEngine.TerrainModule">
+      <summary>
+        <para>The Terrain module implements Unity's Terrain rendering engine available through the Terrain component.</para>
+      </summary>
+    </member>
   </members>
 </doc>

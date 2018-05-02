@@ -22,5 +22,10 @@
       </summary>
       <param name="superSize">Factor by which to increase resolution.</param>
     </member>
+    <member name="A:UnityEngine.ScreenCaptureModule">
+      <summary>
+        <para>The ScreenCapture module provides functionality to take screen shots using the ScreenCapture class.</para>
+      </summary>
+    </member>
   </members>
 </doc>

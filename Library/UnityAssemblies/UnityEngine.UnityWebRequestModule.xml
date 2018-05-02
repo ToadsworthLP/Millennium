@@ -4,6 +4,25 @@
     <assembly>
       <name>UnityEngine.UnityWebRequestModule</name>
     </assembly>
+    <member name="T:UnityEngine.Networking.CertificateHandler">
+      <summary>
+        <para>Responsible for rejecting or accepting certificates received on https requests.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Networking.CertificateHandler.Dispose">
+      <summary>
+        <para>Signals that this [CertificateHandler] is no longer being used, and should clean up any resources it is using.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Networking.CertificateHandler.ValidateCertificate(System.Byte[])">
+      <summary>
+        <para>Callback, invoked for each leaf certificate sent by the remote server.</para>
+      </summary>
+      <param name="certificateData">Certificate data in PEM or DER format. If certificate data contains multiple certificates, the first one is the leaf certificate.</param>
+      <returns>
+        <para>true if the certificate should be accepted, false if not.</para>
+      </returns>
+    </member>
     <member name="T:UnityEngine.Networking.DownloadHandler">
       <summary>
         <para>Manage and process HTTP response body data received from a remote server.</para>
@@ -72,64 +91,6 @@
       <param name="dataLength">The number of bytes in data which are new.</param>
       <returns>
         <para>True if the download should continue, false to abort.</para>
-      </returns>
-    </member>
-    <member name="T:UnityEngine.Networking.DownloadHandlerAssetBundle">
-      <summary>
-        <para>A DownloadHandler subclass specialized for downloading AssetBundles.</para>
-      </summary>
-    </member>
-    <member name="P:UnityEngine.Networking.DownloadHandlerAssetBundle.assetBundle">
-      <summary>
-        <para>Returns the downloaded AssetBundle, or null. (Read Only)</para>
-      </summary>
-    </member>
-    <member name="M:UnityEngine.Networking.DownloadHandlerAssetBundle.#ctor(System.String,System.UInt32)">
-      <summary>
-        <para>Standard constructor for non-cached asset bundles.</para>
-      </summary>
-      <param name="url">The nominal (pre-redirect) URL at which the asset bundle is located.</param>
-      <param name="crc">A checksum to compare to the downloaded data for integrity checking, or zero to skip integrity checking.</param>
-    </member>
-    <member name="M:UnityEngine.Networking.DownloadHandlerAssetBundle.#ctor(System.String,System.UInt32,System.UInt32)">
-      <summary>
-        <para>Simple versioned constructor. Caches downloaded asset bundles.</para>
-      </summary>
-      <param name="url">The nominal (pre-redirect) URL at which the asset bundle is located.</param>
-      <param name="crc">A checksum to compare to the downloaded data for integrity checking, or zero to skip integrity checking.</param>
-      <param name="version">Current version number of the asset bundle at url. Increment to redownload.</param>
-    </member>
-    <member name="M:UnityEngine.Networking.DownloadHandlerAssetBundle.#ctor(System.String,UnityEngine.Hash128,System.UInt32)">
-      <summary>
-        <para>Versioned constructor. Caches downloaded asset bundles.</para>
-      </summary>
-      <param name="url">The nominal (pre-redirect) URL at which the asset bundle is located.</param>
-      <param name="crc">A checksum to compare to the downloaded data for integrity checking, or zero to skip integrity checking.</param>
-      <param name="hash">A hash object defining the version of the asset bundle.</param>
-    </member>
-    <member name="M:UnityEngine.Networking.DownloadHandlerAssetBundle.GetContent(UnityEngine.Networking.UnityWebRequest)">
-      <summary>
-        <para>Returns the downloaded AssetBundle, or null.</para>
-      </summary>
-      <param name="www">A finished UnityWebRequest object with DownloadHandlerAssetBundle attached.</param>
-      <returns>
-        <para>The same as DownloadHandlerAssetBundle.assetBundle</para>
-      </returns>
-    </member>
-    <member name="M:UnityEngine.Networking.DownloadHandlerAssetBundle.GetData">
-      <summary>
-        <para>Not implemented. Throws &lt;a href="http:msdn.microsoft.comen-uslibrarysystem.notsupportedexception"&gt;NotSupportedException&lt;a&gt;.</para>
-      </summary>
-      <returns>
-        <para>Not implemented.</para>
-      </returns>
-    </member>
-    <member name="M:UnityEngine.Networking.DownloadHandlerAssetBundle.GetText">
-      <summary>
-        <para>Not implemented. Throws &lt;a href="http:msdn.microsoft.comen-uslibrarysystem.notsupportedexception"&gt;NotSupportedException&lt;a&gt;.</para>
-      </summary>
-      <returns>
-        <para>Not implemented.</para>
       </returns>
     </member>
     <member name="T:UnityEngine.Networking.DownloadHandlerBuffer">
@@ -404,9 +365,19 @@
         <para>The UnityWebRequest object is used to communicate with web servers.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Networking.UnityWebRequest.certificateHandler">
+      <summary>
+        <para>Holds a reference to a CertificateHandler object, which manages certificate validation for this UnityWebRequest.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.Networking.UnityWebRequest.chunkedTransfer">
       <summary>
         <para>Indicates whether the UnityWebRequest system should employ the HTTP/1.1 chunked-transfer encoding method.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Networking.UnityWebRequest.disposeCertificateHandlerOnDispose">
+      <summary>
+        <para>If true, any CertificateHandler attached to this UnityWebRequest will have CertificateHandler.Dispose called automatically when UnityWebRequest.Dispose is called.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Networking.UnityWebRequest.disposeDownloadHandlerOnDispose">
@@ -524,6 +495,11 @@
         <para>Returns a floating-point value between 0.0 and 1.0, indicating the progress of uploading body data to the server.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Networking.UnityWebRequest.uri">
+      <summary>
+        <para>Defines the target URI for the UnityWebRequest to communicate with.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.Networking.UnityWebRequest.url">
       <summary>
         <para>Defines the target URL for the UnityWebRequest to communicate with.</para>
@@ -598,63 +574,43 @@
     </member>
     <member name="M:UnityEngine.Networking.UnityWebRequest.GetAssetBundle(System.String,System.UInt32)">
       <summary>
-        <para>Creates a UnityWebRequest optimized for downloading a Unity Asset Bundle via HTTP GET.</para>
+        <para>Deprecated. Replaced by UnityWebRequestAssetBundle.GetAssetBundle.</para>
       </summary>
-      <param name="uri">The URI of the asset bundle to download.</param>
-      <param name="crc">If nonzero, this number will be compared to the checksum of the downloaded asset bundle data. If the CRCs do not match, an error will be logged and the asset bundle will not be loaded. If set to zero, CRC checking will be skipped.</param>
-      <param name="version">An integer version number, which will be compared to the cached version of the asset bundle to download. Increment this number to force Unity to redownload a cached asset bundle.
-
-Analogous to the version parameter for WWW.LoadFromCacheOrDownload.</param>
-      <param name="hash">A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.</param>
-      <param name="cachedAssetBundle">A structure used to download a given version of AssetBundle to a customized cache path.</param>
-      <returns>
-        <para>A UnityWebRequest configured to downloading a Unity Asset Bundle.</para>
-      </returns>
+      <param name="uri"></param>
+      <param name="crc"></param>
+      <param name="version"></param>
+      <param name="hash"></param>
+      <param name="cachedAssetBundle"></param>
     </member>
     <member name="M:UnityEngine.Networking.UnityWebRequest.GetAssetBundle(System.String,System.UInt32,System.UInt32)">
       <summary>
-        <para>Creates a UnityWebRequest optimized for downloading a Unity Asset Bundle via HTTP GET.</para>
+        <para>Deprecated. Replaced by UnityWebRequestAssetBundle.GetAssetBundle.</para>
       </summary>
-      <param name="uri">The URI of the asset bundle to download.</param>
-      <param name="crc">If nonzero, this number will be compared to the checksum of the downloaded asset bundle data. If the CRCs do not match, an error will be logged and the asset bundle will not be loaded. If set to zero, CRC checking will be skipped.</param>
-      <param name="version">An integer version number, which will be compared to the cached version of the asset bundle to download. Increment this number to force Unity to redownload a cached asset bundle.
-
-Analogous to the version parameter for WWW.LoadFromCacheOrDownload.</param>
-      <param name="hash">A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.</param>
-      <param name="cachedAssetBundle">A structure used to download a given version of AssetBundle to a customized cache path.</param>
-      <returns>
-        <para>A UnityWebRequest configured to downloading a Unity Asset Bundle.</para>
-      </returns>
+      <param name="uri"></param>
+      <param name="crc"></param>
+      <param name="version"></param>
+      <param name="hash"></param>
+      <param name="cachedAssetBundle"></param>
     </member>
     <member name="M:UnityEngine.Networking.UnityWebRequest.GetAssetBundle(System.String,UnityEngine.Hash128,System.UInt32)">
       <summary>
-        <para>Creates a UnityWebRequest optimized for downloading a Unity Asset Bundle via HTTP GET.</para>
+        <para>Deprecated. Replaced by UnityWebRequestAssetBundle.GetAssetBundle.</para>
       </summary>
-      <param name="uri">The URI of the asset bundle to download.</param>
-      <param name="crc">If nonzero, this number will be compared to the checksum of the downloaded asset bundle data. If the CRCs do not match, an error will be logged and the asset bundle will not be loaded. If set to zero, CRC checking will be skipped.</param>
-      <param name="version">An integer version number, which will be compared to the cached version of the asset bundle to download. Increment this number to force Unity to redownload a cached asset bundle.
-
-Analogous to the version parameter for WWW.LoadFromCacheOrDownload.</param>
-      <param name="hash">A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.</param>
-      <param name="cachedAssetBundle">A structure used to download a given version of AssetBundle to a customized cache path.</param>
-      <returns>
-        <para>A UnityWebRequest configured to downloading a Unity Asset Bundle.</para>
-      </returns>
+      <param name="uri"></param>
+      <param name="crc"></param>
+      <param name="version"></param>
+      <param name="hash"></param>
+      <param name="cachedAssetBundle"></param>
     </member>
     <member name="M:UnityEngine.Networking.UnityWebRequest.GetAssetBundle(System.String,UnityEngine.CachedAssetBundle,System.UInt32)">
       <summary>
-        <para>Creates a UnityWebRequest optimized for downloading a Unity Asset Bundle via HTTP GET.</para>
+        <para>Deprecated. Replaced by UnityWebRequestAssetBundle.GetAssetBundle.</para>
       </summary>
-      <param name="uri">The URI of the asset bundle to download.</param>
-      <param name="crc">If nonzero, this number will be compared to the checksum of the downloaded asset bundle data. If the CRCs do not match, an error will be logged and the asset bundle will not be loaded. If set to zero, CRC checking will be skipped.</param>
-      <param name="version">An integer version number, which will be compared to the cached version of the asset bundle to download. Increment this number to force Unity to redownload a cached asset bundle.
-
-Analogous to the version parameter for WWW.LoadFromCacheOrDownload.</param>
-      <param name="hash">A version hash. If this hash does not match the hash for the cached version of this asset bundle, the asset bundle will be redownloaded.</param>
-      <param name="cachedAssetBundle">A structure used to download a given version of AssetBundle to a customized cache path.</param>
-      <returns>
-        <para>A UnityWebRequest configured to downloading a Unity Asset Bundle.</para>
-      </returns>
+      <param name="uri"></param>
+      <param name="crc"></param>
+      <param name="version"></param>
+      <param name="hash"></param>
+      <param name="cachedAssetBundle"></param>
     </member>
     <member name="M:UnityEngine.Networking.UnityWebRequest.GetAudioClip(System.String,UnityEngine.AudioType)">
       <summary>
@@ -691,7 +647,7 @@ Analogous to the version parameter for WWW.LoadFromCacheOrDownload.</param>
     </member>
     <member name="M:UnityEngine.Networking.UnityWebRequest.GetTexture(System.String)">
       <summary>
-        <para>Create a UnityWebRequest intended to download an image via HTTP GET and create a Texture based on the retrieved data.</para>
+        <para>Creates a UnityWebRequest intended to download an image via HTTP GET and create a Texture based on the retrieved data.</para>
       </summary>
       <param name="uri">The URI of the image to download.</param>
       <param name="nonReadable">If true, the texture's raw data will not be accessible to script. This can conserve memory. Default: false.</param>
@@ -701,7 +657,7 @@ Analogous to the version parameter for WWW.LoadFromCacheOrDownload.</param>
     </member>
     <member name="M:UnityEngine.Networking.UnityWebRequest.GetTexture(System.String,System.Boolean)">
       <summary>
-        <para>Create a UnityWebRequest intended to download an image via HTTP GET and create a Texture based on the retrieved data.</para>
+        <para>Creates a UnityWebRequest intended to download an image via HTTP GET and create a Texture based on the retrieved data.</para>
       </summary>
       <param name="uri">The URI of the image to download.</param>
       <param name="nonReadable">If true, the texture's raw data will not be accessible to script. This can conserve memory. Default: false.</param>
@@ -720,7 +676,7 @@ Analogous to the version parameter for WWW.LoadFromCacheOrDownload.</param>
     </member>
     <member name="M:UnityEngine.Networking.UnityWebRequest.Post(System.String,System.String)">
       <summary>
-        <para>Create a UnityWebRequest configured to send form data to a server via HTTP POST.</para>
+        <para>Creates a UnityWebRequest configured to send form data to a server via HTTP POST.</para>
       </summary>
       <param name="uri">The target URI to which form data will be transmitted.</param>
       <param name="postData">Form body data. Will be URLEncoded prior to transmission.</param>
@@ -772,7 +728,7 @@ Analogous to the version parameter for WWW.LoadFromCacheOrDownload.</param>
     </member>
     <member name="M:UnityEngine.Networking.UnityWebRequest.Put(System.String,System.Byte[])">
       <summary>
-        <para>Create a UnityWebRequest configured to upload raw data to a remote server via HTTP PUT.</para>
+        <para>Creates a UnityWebRequest configured to upload raw data to a remote server via HTTP PUT.</para>
       </summary>
       <param name="uri">The URI to which the data will be sent.</param>
       <param name="bodyData">The data to transmit to the remote server.
@@ -784,7 +740,7 @@ If a string, the string will be converted to raw bytes via &lt;a href="http:msdn
     </member>
     <member name="M:UnityEngine.Networking.UnityWebRequest.Put(System.String,System.String)">
       <summary>
-        <para>Create a UnityWebRequest configured to upload raw data to a remote server via HTTP PUT.</para>
+        <para>Creates a UnityWebRequest configured to upload raw data to a remote server via HTTP PUT.</para>
       </summary>
       <param name="uri">The URI to which the data will be sent.</param>
       <param name="bodyData">The data to transmit to the remote server.
@@ -890,6 +846,17 @@ You can yield until it continues, register an event handler with AsyncOperation.
         <para>Signals that this [UploadHandler] is no longer being used, and should clean up any resources it is using.</para>
       </summary>
     </member>
+    <member name="T:UnityEngine.Networking.UploadHandlerFile">
+      <summary>
+        <para>A specialized UploadHandler that reads data from a given file and sends raw bytes to the server as the request body.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Networking.UploadHandlerFile.#ctor(System.String)">
+      <summary>
+        <para>Create a new upload handler to send data from the given file to the server.</para>
+      </summary>
+      <param name="filePath">A file containing data to send.</param>
+    </member>
     <member name="T:UnityEngine.Networking.UploadHandlerRaw">
       <summary>
         <para>A general-purpose UploadHandler subclass, using a native-code memory buffer.</para>
@@ -900,6 +867,11 @@ You can yield until it continues, register an event handler with AsyncOperation.
         <para>General constructor. Contents of the input argument are copied into a native buffer.</para>
       </summary>
       <param name="data">Raw data to transmit to the remote server.</param>
+    </member>
+    <member name="A:UnityEngine.UnityWebRequestModule">
+      <summary>
+        <para>The UnityWebRequest module lets you communicate with http services.</para>
+      </summary>
     </member>
     <member name="T:UnityEngine.WWWForm">
       <summary>

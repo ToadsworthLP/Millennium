@@ -11,7 +11,7 @@
     </member>
     <member name="P:UnityEngine.CharacterInfo.advance">
       <summary>
-        <para>The horizontal distance from the origin of this character to the origin of the next character.</para>
+        <para>The horizontal distance, rounded to the nearest integer, from the origin of this character to the origin of the next character.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.CharacterInfo.bearing">
@@ -807,6 +807,11 @@
     <member name="F:UnityEngine.UIVertex.uv3">
       <summary>
         <para>The forth texture coordinate set of the mesh, if present.</para>
+      </summary>
+    </member>
+    <member name="A:UnityEngine.TextRenderingModule">
+      <summary>
+        <para>The TextRendering module provides access to Unity's text rendering system.</para>
       </summary>
     </member>
     <member name="T:UnityEngine.VerticalWrapMode">

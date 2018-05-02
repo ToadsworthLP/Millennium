@@ -4,6 +4,11 @@
     <assembly>
       <name>UnityEngine.UnityWebRequestWWWModule</name>
     </assembly>
+    <member name="A:UnityEngine.UnityWebRequestWWWModule">
+      <summary>
+        <para>The UnityWebRequestWWW module implements the legacy WWW lets you communicate with http services.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.WWW">
       <summary>
         <para>Simple access to web pages.</para>
@@ -242,7 +247,7 @@ The latter will disable seeking on the clip (with .time and/or .timeSamples).</p
       <param name="hash">Hash128 which is used as the version of the AssetBundle.</param>
       <param name="cachedBundle">A structure used to download a given version of AssetBundle to a customized cache path.
 
-Analogous to the cachedAssetBundle parameter for UnityWebRequest.GetAssetBundle.&lt;/param&gt;</param>
+Analogous to the cachedAssetBundle parameter for UnityWebRequestAssetBundle.GetAssetBundle.&lt;/param&gt;</param>
       <param name="crc">An optional CRC-32 Checksum of the uncompressed contents. If this is non-zero, then the content will be compared against the checksum before loading it, and give an error if it does not match. You can use this to avoid data corruption from bad downloads or users tampering with the cached files on disk. If the CRC does not match, Unity will try to redownload the data, and if the CRC on the server does not match it will fail with an error. Look at the error string returned to see the correct CRC value to use for an AssetBundle.</param>
       <returns>
         <para>A WWW instance, which can be used to access the data once the load/download operation is completed.</para>
@@ -257,7 +262,7 @@ Analogous to the cachedAssetBundle parameter for UnityWebRequest.GetAssetBundle.
       <param name="hash">Hash128 which is used as the version of the AssetBundle.</param>
       <param name="cachedBundle">A structure used to download a given version of AssetBundle to a customized cache path.
 
-Analogous to the cachedAssetBundle parameter for UnityWebRequest.GetAssetBundle.&lt;/param&gt;</param>
+Analogous to the cachedAssetBundle parameter for UnityWebRequestAssetBundle.GetAssetBundle.&lt;/param&gt;</param>
       <param name="crc">An optional CRC-32 Checksum of the uncompressed contents. If this is non-zero, then the content will be compared against the checksum before loading it, and give an error if it does not match. You can use this to avoid data corruption from bad downloads or users tampering with the cached files on disk. If the CRC does not match, Unity will try to redownload the data, and if the CRC on the server does not match it will fail with an error. Look at the error string returned to see the correct CRC value to use for an AssetBundle.</param>
       <returns>
         <para>A WWW instance, which can be used to access the data once the load/download operation is completed.</para>
@@ -272,7 +277,7 @@ Analogous to the cachedAssetBundle parameter for UnityWebRequest.GetAssetBundle.
       <param name="hash">Hash128 which is used as the version of the AssetBundle.</param>
       <param name="cachedBundle">A structure used to download a given version of AssetBundle to a customized cache path.
 
-Analogous to the cachedAssetBundle parameter for UnityWebRequest.GetAssetBundle.&lt;/param&gt;</param>
+Analogous to the cachedAssetBundle parameter for UnityWebRequestAssetBundle.GetAssetBundle.&lt;/param&gt;</param>
       <param name="crc">An optional CRC-32 Checksum of the uncompressed contents. If this is non-zero, then the content will be compared against the checksum before loading it, and give an error if it does not match. You can use this to avoid data corruption from bad downloads or users tampering with the cached files on disk. If the CRC does not match, Unity will try to redownload the data, and if the CRC on the server does not match it will fail with an error. Look at the error string returned to see the correct CRC value to use for an AssetBundle.</param>
       <returns>
         <para>A WWW instance, which can be used to access the data once the load/download operation is completed.</para>
@@ -287,7 +292,7 @@ Analogous to the cachedAssetBundle parameter for UnityWebRequest.GetAssetBundle.
       <param name="hash">Hash128 which is used as the version of the AssetBundle.</param>
       <param name="cachedBundle">A structure used to download a given version of AssetBundle to a customized cache path.
 
-Analogous to the cachedAssetBundle parameter for UnityWebRequest.GetAssetBundle.&lt;/param&gt;</param>
+Analogous to the cachedAssetBundle parameter for UnityWebRequestAssetBundle.GetAssetBundle.&lt;/param&gt;</param>
       <param name="crc">An optional CRC-32 Checksum of the uncompressed contents. If this is non-zero, then the content will be compared against the checksum before loading it, and give an error if it does not match. You can use this to avoid data corruption from bad downloads or users tampering with the cached files on disk. If the CRC does not match, Unity will try to redownload the data, and if the CRC on the server does not match it will fail with an error. Look at the error string returned to see the correct CRC value to use for an AssetBundle.</param>
       <returns>
         <para>A WWW instance, which can be used to access the data once the load/download operation is completed.</para>

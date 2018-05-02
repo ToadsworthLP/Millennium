@@ -5,7 +5,13 @@ public class SpinningTransform : MonoBehaviour {
     public Transform target;
     public float spinSpeed;
 
-    void Update () {
-        target.rotation *= Quaternion.AngleAxis(spinSpeed * Time.deltaTime, transform.up);
+    private Vector3 upwards;
+
+    private void Start() {
+        upwards = transform.up;
+    }
+
+    private void Update() {
+        target.rotation *= Quaternion.AngleAxis(spinSpeed * Time.deltaTime, upwards);
     }
 }

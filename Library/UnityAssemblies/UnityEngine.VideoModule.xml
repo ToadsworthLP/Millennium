@@ -20,6 +20,26 @@
         <para>A VideoClipPlayable linked to the PlayableGraph.</para>
       </returns>
     </member>
+    <member name="T:UnityEngine.Experimental.Video.VideoPlayerExtensions">
+      <summary>
+        <para>Extension methods for the Video.VideoPlayer class.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.Video.VideoPlayerExtensions.GetAudioSampleProvider(UnityEngine.Video.VideoPlayer,System.UInt16)">
+      <summary>
+        <para>Return the Experimental.Audio.AudioSampleProvider for the specified track, used to receive audio samples during playback.</para>
+      </summary>
+      <param name="vp">The "this" pointer for the extension method.</param>
+      <param name="trackIndex">The audio track index for which the sample provider is queried.</param>
+      <returns>
+        <para>The sample provider for the specified track.</para>
+      </returns>
+    </member>
+    <member name="A:UnityEngine.VideoModule">
+      <summary>
+        <para>The Video module lets you play back video files in your content.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.Video.Video3DLayout">
       <summary>
         <para>Types of 3D content layout within a video.</para>
@@ -78,6 +98,11 @@
     <member name="T:UnityEngine.Video.VideoAudioOutputMode">
       <summary>
         <para>Places where the audio embedded in a video can be sent.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoAudioOutputMode.APIOnly">
+      <summary>
+        <para>Send the embedded audio to the associated AudioSampleProvider.</para>
       </summary>
     </member>
     <member name="F:UnityEngine.Video.VideoAudioOutputMode.AudioSource">
@@ -353,7 +378,7 @@ The actual number of audio tracks cannot be known in advance when playing URLs, 
     </member>
     <member name="P:UnityEngine.Video.VideoPlayer.targetCamera">
       <summary>
-        <para>Camera component to draw to when Video.VideoPlayer.renderMode is set to either Video.VideoTarget.CameraFarPlane or Video.VideoTarget.CameraNearPlane.</para>
+        <para>Camera component to draw to when Video.VideoPlayer.renderMode is set to either Video.VideoRenderMode.CameraFarPlane or Video.VideoRenderMode.CameraNearPlane.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Video.VideoPlayer.targetCamera3DLayout">

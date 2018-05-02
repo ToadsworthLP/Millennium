@@ -47,5 +47,10 @@
         <para>Returns true if the data can be loaded, false otherwise.</para>
       </returns>
     </member>
+    <member name="A:UnityEngine.ImageConversionModule">
+      <summary>
+        <para>The ImageConversion module implements the ImageConversion class which provides helper methods to convert images from and to PNG, JPEG or EXR formats.</para>
+      </summary>
+    </member>
   </members>
 </doc>

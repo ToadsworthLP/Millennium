@@ -4,6 +4,31 @@
     <assembly>
       <name>UnityEngine.UIElementsModule</name>
     </assembly>
+    <member name="T:UnityEngine.Experimental.UIElements.ContextualMenu.MenuAction.StatusFlags">
+      <summary>
+        <para>Status of the menu item.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Experimental.UIElements.ContextualMenu.MenuAction.StatusFlags.Checked">
+      <summary>
+        <para>The item is displayed with a checkmark.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Experimental.UIElements.ContextualMenu.MenuAction.StatusFlags.Disabled">
+      <summary>
+        <para>The item is disabled and is not be selectable by the user.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Experimental.UIElements.ContextualMenu.MenuAction.StatusFlags.Hidden">
+      <summary>
+        <para>The item is not displayed.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Experimental.UIElements.ContextualMenu.MenuAction.StatusFlags.Normal">
+      <summary>
+        <para>The item is displayed normally.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.Experimental.UIElements.AttachToPanelEvent">
       <summary>
         <para>Event sent after an element is added to an element that is a descendent of a panel.</para>
@@ -12,6 +37,16 @@
     <member name="M:UnityEngine.Experimental.UIElements.AttachToPanelEvent.#ctor">
       <summary>
         <para>Constructor. Avoid newing events. Instead, use GetPooled() to get an event from a pool of reusable events.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.BaseTextElement">
+      <summary>
+        <para>Abstract base class for VisualElement containing text.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.BaseTextElement.text">
+      <summary>
+        <para>The text associated with the element.</para>
       </summary>
     </member>
     <member name="T:UnityEngine.Experimental.UIElements.BlurEvent">
@@ -50,11 +85,6 @@
       <returns>
         <para>True if object has event handlers for the capture phase.</para>
       </returns>
-    </member>
-    <member name="M:UnityEngine.Experimental.UIElements.CallbackEventHandler.OnLostCapture">
-      <summary>
-        <para>Called when the element loses the capture. Will be removed in a future version.</para>
-      </summary>
     </member>
     <member name="M:UnityEngine.Experimental.UIElements.CallbackEventHandler.RegisterCallback(UnityEngine.Experimental.UIElements.EventCallback`1&lt;TEventType&gt;,UnityEngine.Experimental.UIElements.Capture)">
       <summary>
@@ -101,6 +131,41 @@
         <para>The event handler should be executed during the target and bubble up phases.</para>
       </summary>
     </member>
+    <member name="T:UnityEngine.Experimental.UIElements.ChangeEvent`1">
+      <summary>
+        <para>Sends an event when a value from a field changes.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.ChangeEvent_1.newValue">
+      <summary>
+        <para>The new value.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.ChangeEvent_1.previousValue">
+      <summary>
+        <para>The value before the change occured.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ChangeEvent_1.#ctor">
+      <summary>
+        <para>Constructor.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ChangeEvent_1.GetPooled(T,T)">
+      <summary>
+        <para>Gets an event from the event pool and initializes it with the given values. Use this function instead of newing events. Events obtained from this function should be released back to the pool using ReleaseEvent().</para>
+      </summary>
+      <param name="previousValue"></param>
+      <param name="newValue"></param>
+      <returns>
+        <para>An event.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ChangeEvent_1.Init">
+      <summary>
+        <para>Sets the event to its initial state.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.Experimental.UIElements.ChangeType">
       <summary>
         <para>Enum which describes the various types of changes that can occur on a VisualElement.</para>
@@ -121,9 +186,175 @@
         <para>Persistence key or parent has changed on some child of the current VisualElement.</para>
       </summary>
     </member>
+    <member name="T:UnityEngine.Experimental.UIElements.ContextualMenu">
+      <summary>
+        <para>A contextual menu.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenu.AppendAction(System.String,System.Action`1&lt;UnityEngine.Experimental.UIElements.EventBase&gt;,System.Func`2&lt;UnityEngine.Experimental.UIElements.EventBase,UnityEngine.Experimental.UIElements.ContextualMenu/MenuAction/StatusFlags&gt;)">
+      <summary>
+        <para>Add an item that will execute an action in the contextual menu. The item is added at the end of the current item list.</para>
+      </summary>
+      <param name="actionName">Name of the item. This name will be displayed in the contextual menu.</param>
+      <param name="action">Callback to execute when the user selects this item in the menu.</param>
+      <param name="actionStatusCallback">Callback to execute to determine the status of the item.</param>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenu.AppendSeparator">
+      <summary>
+        <para>Add a separator line in the menu. The separator is added at the end of the current item list.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenu.#ctor">
+      <summary>
+        <para>Constructor.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenu.InsertAction(System.String,System.Action`1&lt;UnityEngine.Experimental.UIElements.EventBase&gt;,System.Func`2&lt;UnityEngine.Experimental.UIElements.EventBase,UnityEngine.Experimental.UIElements.ContextualMenu/MenuAction/StatusFlags&gt;,System.Int32)">
+      <summary>
+        <para>Add an item that will execute an action in the contextual menu. The item is added at the end of the specified index in the list.</para>
+      </summary>
+      <param name="actionName">Name of the item. This name will be displayed in the contextual menu.</param>
+      <param name="action">Callback to execute when the user selects this item in the menu.</param>
+      <param name="actionStatusCallback">Callback to execute to determine the status of the item.</param>
+      <param name="atIndex">Index where the item should be inserted.</param>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenu.InsertSeparator(System.Int32)">
+      <summary>
+        <para>Add a separator line in the menu. The separator is added at the end of the specified index in the list.</para>
+      </summary>
+      <param name="atIndex">Index where the separator should be inserted.</param>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.ContextualMenu.MenuAction">
+      <summary>
+        <para>A menu action item.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Experimental.UIElements.ContextualMenu.MenuAction.name">
+      <summary>
+        <para>The name of the item.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.ContextualMenu.MenuAction.status">
+      <summary>
+        <para>The status of the item.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenu.MenuAction.AlwaysDisabled(UnityEngine.Experimental.UIElements.EventBase)">
+      <summary>
+        <para>Status callback that always returns StatusFlags.Disabled.</para>
+      </summary>
+      <param name="e">The event that triggered the display of the context menu.</param>
+      <returns>
+        <para>Always return StatusFlags.Disabled.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenu.MenuAction.AlwaysEnabled(UnityEngine.Experimental.UIElements.EventBase)">
+      <summary>
+        <para>Status callback that always returns StatusFlags.Enabled.</para>
+      </summary>
+      <param name="e">The event that triggered the display of the context menu.</param>
+      <returns>
+        <para>Always return StatusFlags.Enabled.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenu.MenuAction.#ctor(System.String,System.Action`1&lt;UnityEngine.Experimental.UIElements.EventBase&gt;,System.Func`2&lt;UnityEngine.Experimental.UIElements.EventBase,UnityEngine.Experimental.UIElements.ContextualMenu/MenuAction/StatusFlags&gt;)">
+      <summary>
+        <para>Constructor.</para>
+      </summary>
+      <param name="actionName"></param>
+      <param name="actionCallback"></param>
+      <param name="actionStatusCallback"></param>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenu.MenuAction.Execute(UnityEngine.Experimental.UIElements.EventBase)">
+      <summary>
+        <para>Execute the callback associated with this item.</para>
+      </summary>
+      <param name="e">The event that triggered the display of the context menu.</param>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenu.MenuAction.UpdateActionStatus(UnityEngine.Experimental.UIElements.EventBase)">
+      <summary>
+        <para>Update the status flag of this item by calling the item status callback.</para>
+      </summary>
+      <param name="e">The event that triggered the display of the context menu.</param>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.ContextualMenu.MenuItem">
+      <summary>
+        <para>An item in a contextual menu.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenu.MenuItems">
+      <summary>
+        <para>Get the list of menu items.</para>
+      </summary>
+      <returns>
+        <para>The list of items in the menu.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenu.PrepareForDisplay(UnityEngine.Experimental.UIElements.EventBase)">
+      <summary>
+        <para>Update the status of all items by calling their status callback and remove the separators in excess. This is called just before displaying the menu.</para>
+      </summary>
+      <param name="e"></param>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.ContextualMenu.Separator">
+      <summary>
+        <para>A separator menu item.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenu.Separator.#ctor">
+      <summary>
+        <para>Constructor.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.ContextualMenuPopulateEvent">
+      <summary>
+        <para>An event sent when a contextual menu needs to be filled with menu item.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.ContextualMenuPopulateEvent.menu">
+      <summary>
+        <para>The menu to populate.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenuPopulateEvent.#ctor">
+      <summary>
+        <para>Constructor.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenuPopulateEvent.GetPooled(UnityEngine.Experimental.UIElements.EventBase,UnityEngine.Experimental.UIElements.ContextualMenu,UnityEngine.Experimental.UIElements.IEventHandler)">
+      <summary>
+        <para>Retrieves an event from the event pool. Use this method to retrieve a mouse event and initialize the event, instead of creating a new mouse event.</para>
+      </summary>
+      <param name="triggerEvent">The event that triggered the display of the contextual menu.</param>
+      <param name="menu">The menu to populate.</param>
+      <param name="target">The element that triggered the display of the contextual menu.</param>
+      <returns>
+        <para>The event.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ContextualMenuPopulateEvent.Init">
+      <summary>
+        <para>Reset the event members to their initial value.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.Experimental.UIElements.CreationContext">
       <summary>
         <para>This class is used during UXML template instantiation.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.CursorStyle">
+      <summary>
+        <para>Script interface for VisualElement cursor style property IStyle.cursor.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.CursorStyle.hotspot">
+      <summary>
+        <para>The offset from the top left of the texture to use as the target point (must be within the bounds of the cursor).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.CursorStyle.texture">
+      <summary>
+        <para>The texture to use for the cursor style. To use a texture as a cursor, import the texture with "Read/Write enabled" in the texture importer (or using the "Cursor" defaults).</para>
       </summary>
     </member>
     <member name="T:UnityEngine.Experimental.UIElements.DetachFromPanelEvent">
@@ -161,6 +392,11 @@
         <para>Return whether the event is currently being dispatched to visual element. An event can not be redispatched while being dispatched. If you need to recursively redispatch an event, you should use a copy.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Experimental.UIElements.EventBase.flags">
+      <summary>
+        <para>Flags for the event.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.Experimental.UIElements.EventBase.imguiEvent">
       <summary>
         <para>The IMGUIEvent at the source of this event. This can be null as not all events are generated by IMGUI.</para>
@@ -181,6 +417,11 @@
         <para>Return true if StopPropagation() has been called for this event.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Experimental.UIElements.EventBase.originalMousePosition">
+      <summary>
+        <para>The original mouse position of the IMGUI event, before it is transformed to the local element coordinates. </para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.Experimental.UIElements.EventBase.propagationPhase">
       <summary>
         <para>The current propagation phase.</para>
@@ -194,6 +435,11 @@
     <member name="P:UnityEngine.Experimental.UIElements.EventBase.timestamp">
       <summary>
         <para>The time at which the event was created.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.EventBase.Dispose">
+      <summary>
+        <para>Implementation of IDisposable.</para>
       </summary>
     </member>
     <member name="T:UnityEngine.Experimental.UIElements.EventBase.EventFlags">
@@ -219,6 +465,11 @@
     <member name="F:UnityEngine.Experimental.UIElements.EventBase.EventFlags.None">
       <summary>
         <para>Empty value.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Experimental.UIElements.EventBase.EventFlags.Pooled">
+      <summary>
+        <para>Event has been instanciated from the event pool.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.Experimental.UIElements.EventBase.GetEventTypeId">
@@ -260,6 +511,11 @@
     <member name="T:UnityEngine.Experimental.UIElements.EventBase`1">
       <summary>
         <para>Generic base class for events, implementing event pooling and automatic registration to the event type system.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.EventBase_1.Dispose">
+      <summary>
+        <para>Implementation of IDispose.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.Experimental.UIElements.EventBase_1.GetEventTypeId">
@@ -441,14 +697,14 @@
         <para>Reset the event members to their initial value.</para>
       </summary>
     </member>
+    <member name="?:UnityEngine.Experimental.UIElements.IChangeEvent">
+      <summary>
+        <para>Base interface for ChangeEvent.</para>
+      </summary>
+    </member>
     <member name="?:UnityEngine.Experimental.UIElements.IEventDispatcher">
       <summary>
         <para>Interface for event dispatchers.</para>
-      </summary>
-    </member>
-    <member name="P:UnityEngine.Experimental.UIElements.IEventDispatcher.capture">
-      <summary>
-        <para>The element capturing the mouse, if any.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.Experimental.UIElements.IEventDispatcher.DispatchEvent(UnityEngine.Experimental.UIElements.EventBase,UnityEngine.Experimental.UIElements.IPanel)">
@@ -457,23 +713,6 @@
       </summary>
       <param name="evt">The event to dispatch.</param>
       <param name="panel">The panel where the event will be dispatched.</param>
-    </member>
-    <member name="M:UnityEngine.Experimental.UIElements.IEventDispatcher.ReleaseCapture(UnityEngine.Experimental.UIElements.IEventHandler)">
-      <summary>
-        <para>Release the capture.</para>
-      </summary>
-      <param name="handler"></param>
-    </member>
-    <member name="M:UnityEngine.Experimental.UIElements.IEventDispatcher.RemoveCapture">
-      <summary>
-        <para>Release capture and notify capturing element.</para>
-      </summary>
-    </member>
-    <member name="M:UnityEngine.Experimental.UIElements.IEventDispatcher.TakeCapture(UnityEngine.Experimental.UIElements.IEventHandler)">
-      <summary>
-        <para>Take the capture.</para>
-      </summary>
-      <param name="handler">The element that takes the capture.</param>
     </member>
     <member name="?:UnityEngine.Experimental.UIElements.IEventHandler">
       <summary>
@@ -501,11 +740,6 @@
       <returns>
         <para>True if object has event handlers for the capture phase.</para>
       </returns>
-    </member>
-    <member name="M:UnityEngine.Experimental.UIElements.IEventHandler.OnLostCapture">
-      <summary>
-        <para>Callback executed when the event handler loses the capture.</para>
-      </summary>
     </member>
     <member name="?:UnityEngine.Experimental.UIElements.IFocusEvent">
       <summary>
@@ -581,6 +815,26 @@
         <para>Return true if the Shift key is pressed.</para>
       </summary>
     </member>
+    <member name="T:UnityEngine.Experimental.UIElements.Image">
+      <summary>
+        <para>A VisualElement representing a source texture.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.Image.image">
+      <summary>
+        <para>The source texture of the Image element.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.Image.sourceRect">
+      <summary>
+        <para>The source rectangle inside the texture relative to the top left corner.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.Image.uv">
+      <summary>
+        <para>The base texture coordinates of the Image relative to the bottom left corner.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.Experimental.UIElements.IMGUIEvent">
       <summary>
         <para>Class used to dispatch IMGUI event types that have no equivalent in UIElements events.</para>
@@ -603,6 +857,11 @@
     <member name="M:UnityEngine.Experimental.UIElements.IMGUIEvent.Init">
       <summary>
         <para>Reset the event members to their initial value.</para>
+      </summary>
+    </member>
+    <member name="?:UnityEngine.Experimental.UIElements.IMouseCaptureEvent">
+      <summary>
+        <para>Interface for mouse capture events.</para>
       </summary>
     </member>
     <member name="?:UnityEngine.Experimental.UIElements.IMouseEvent">
@@ -658,6 +917,63 @@
     <member name="P:UnityEngine.Experimental.UIElements.IMouseEvent.shiftKey">
       <summary>
         <para>Return true if the Shift key is pressed.</para>
+      </summary>
+    </member>
+    <member name="?:UnityEngine.Experimental.UIElements.INotifyValueChanged_1">
+      <summary>
+        <para>Interface for controls that hold a value and can notify when it is changed by user input.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.INotifyValueChanged_1.value">
+      <summary>
+        <para>The Value held by the control.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.INotifyValueChanged_1.OnValueChanged(UnityEngine.Experimental.UIElements.EventCallback`1&lt;UnityEngine.Experimental.UIElements.ChangeEvent`1&lt;T&gt;&gt;)">
+      <summary>
+        <para>Registers this callback to receive ChangeEvent&lt;T&gt; when value was changed by user input.</para>
+      </summary>
+      <param name="callback"></param>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.INotifyValueChanged_1.SetValueAndNotify(T)">
+      <summary>
+        <para>Set the value and, if different, notifies registers callbacks with a ChangeEvent&lt;T&gt;</para>
+      </summary>
+      <param name="newValue">The new value to be set.</param>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.InputEvent">
+      <summary>
+        <para>Sends an event when text from a TextField changes.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.InputEvent.newData">
+      <summary>
+        <para>The new text.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.InputEvent.previousData">
+      <summary>
+        <para>The text before the change occured.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.InputEvent.#ctor">
+      <summary>
+        <para>Constructor.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.InputEvent.GetPooled(System.String,System.String)">
+      <summary>
+        <para>Gets an event from the event pool and initializes it with the given values. Use this function instead of newing events. Events obtained from this function should be released back to the pool using ReleaseEvent().</para>
+      </summary>
+      <param name="newData">The new text.</param>
+      <param name="previousData">The text before the change occured.</param>
+      <returns>
+        <para>An event.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.InputEvent.Init">
+      <summary>
+        <para>Sets the event to its initial state.</para>
       </summary>
     </member>
     <member name="?:UnityEngine.Experimental.UIElements.IPanel">
@@ -831,14 +1147,34 @@
         <para>Space reserved for the top edge of the border during the layout phase.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Experimental.UIElements.IStyle.cursor">
+      <summary>
+        <para>Mouse cursor to display when the mouse pointer is over an element.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.Experimental.UIElements.IStyle.flex">
       <summary>
         <para>Ration of this element in its parent during the layout phase.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Experimental.UIElements.IStyle.flexBasis">
+      <summary>
+        <para>Initial main size of a flex item, on the main flex axis. The final layout mught be smaller or larger, according to the flex shrinking and growing determined by the flex property.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.Experimental.UIElements.IStyle.flexDirection">
       <summary>
         <para>Direction of the main axis to layout children in a container.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.IStyle.flexGrow">
+      <summary>
+        <para>Specifies how much the item will grow relative to the rest of the flexible items inside the same container.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.IStyle.flexShrink">
+      <summary>
+        <para>Specifies how the item will shrink relative to the rest of the flexible items inside the same container.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Experimental.UIElements.IStyle.flexWrap">
@@ -1307,6 +1643,114 @@
         <para>Constructor. Avoid newing events. Instead, use GetPooled() to get an event from a pool of reusable events.</para>
       </summary>
     </member>
+    <member name="T:UnityEngine.Experimental.UIElements.ManipulatorActivationFilter">
+      <summary>
+        <para>Used by manipulators to match events against their requirements.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Experimental.UIElements.ManipulatorActivationFilter.button">
+      <summary>
+        <para>The button that activates the manipulation.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Experimental.UIElements.ManipulatorActivationFilter.clickCount">
+      <summary>
+        <para>Number of mouse clicks required to activate the manipulator.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Experimental.UIElements.ManipulatorActivationFilter.modifiers">
+      <summary>
+        <para>Any modifier keys (ie. ctrl, alt, ...) that are needed to activate the manipulation.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ManipulatorActivationFilter.Matches(UnityEngine.Experimental.UIElements.IMouseEvent)">
+      <summary>
+        <para>Returns true if the current mouse event satisfies the activation requirements.</para>
+      </summary>
+      <param name="e">The mouse event.</param>
+      <returns>
+        <para>True if the event matches the requirements.</para>
+      </returns>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.MouseCaptureController">
+      <summary>
+        <para>Class that manages capturing mouse events.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.MouseCaptureController.HasMouseCapture(UnityEngine.Experimental.UIElements.IEventHandler)">
+      <summary>
+        <para>Checks if the event handler is capturing the mouse.</para>
+      </summary>
+      <param name="handler">Event handler to check.</param>
+      <returns>
+        <para>True if the handler captures the mouse.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.MouseCaptureController.IsMouseCaptureTaken">
+      <summary>
+        <para>Checks if there is a handler assigned to capturing the mouse.</para>
+      </summary>
+      <returns>
+        <para>Returns true if a handler is assigned to capture the mouse, false otherwise.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.MouseCaptureController.ReleaseMouseCapture(UnityEngine.Experimental.UIElements.IEventHandler)">
+      <summary>
+        <para>Stops an event handler from capturing the mouse.</para>
+      </summary>
+      <param name="handler">The event handler to stop capturing the mouse. If this handler is not assigned to capturing the mouse, nothing happens.</param>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.MouseCaptureController.ReleaseMouseCapture">
+      <summary>
+        <para>Stops an event handler from capturing the mouse.</para>
+      </summary>
+      <param name="handler">The event handler to stop capturing the mouse. If this handler is not assigned to capturing the mouse, nothing happens.</param>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.MouseCaptureController.TakeMouseCapture(UnityEngine.Experimental.UIElements.IEventHandler)">
+      <summary>
+        <para>Assigns an event handler to capture the mouse.</para>
+      </summary>
+      <param name="handler">The event handler to capture the mouse.</param>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.MouseCaptureEvent">
+      <summary>
+        <para>Event sent after a handler starts capturing the mouse.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.MouseCaptureEvent.#ctor">
+      <summary>
+        <para>Constructor.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.MouseCaptureEventBase`1">
+      <summary>
+        <para>Event sent when the handler capturing the mouse changes.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.MouseCaptureEventBase_1.GetPooled(UnityEngine.Experimental.UIElements.IEventHandler)">
+      <summary>
+        <para>Retrieves an event from the event pool. Use this method to retrieve a mouse event and initialize the event, instead of creating a new mouse event.</para>
+      </summary>
+      <param name="target">The handler taking or releasing the mouse capture.</param>
+      <returns>
+        <para>A IMouseCaptureEvent.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.MouseCaptureEventBase_1.Init">
+      <summary>
+        <para>Reset the event members to their initial value.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.MouseCaptureOutEvent">
+      <summary>
+        <para>Event sent before a handler stops capturing the mouse.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.MouseCaptureOutEvent.#ctor">
+      <summary>
+        <para>Constructor.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.Experimental.UIElements.MouseDownEvent">
       <summary>
         <para>Mouse down event.</para>
@@ -1319,7 +1763,7 @@
     </member>
     <member name="T:UnityEngine.Experimental.UIElements.MouseEnterEvent">
       <summary>
-        <para>Event sent when the mouse pointer enters an element or one of its descendent elements. Capturable, does not bubbles, non-cancellable.</para>
+        <para>Event sent when the mouse pointer enters an element or one of its descendent elements. The event is cancellable, non-capturable, and does not bubble.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.Experimental.UIElements.MouseEnterEvent.#ctor">
@@ -1329,7 +1773,22 @@
     </member>
     <member name="M:UnityEngine.Experimental.UIElements.MouseEnterEvent.Init">
       <summary>
-        <para>Reset the event members to their initial value.</para>
+        <para>Resets the event members to their initial value.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.MouseEnterWindowEvent">
+      <summary>
+        <para>Event sent when the mouse pointer enters a window. Cancellable, non-capturable, does not bubbles.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.MouseEnterWindowEvent.#ctor">
+      <summary>
+        <para>Constructor. Avoid newing events. Instead, use GetPooled() to get an event from a pool of reusable events.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.MouseEnterWindowEvent.Init">
+      <summary>
+        <para>Resets the event members to their initial value.</para>
       </summary>
     </member>
     <member name="T:UnityEngine.Experimental.UIElements.MouseEventBase`1">
@@ -1419,7 +1878,7 @@
     </member>
     <member name="T:UnityEngine.Experimental.UIElements.MouseLeaveEvent">
       <summary>
-        <para>Event sent when the mouse pointer exits an element and all its descendent elements. Capturable, does not bubbles, non-cancellable.</para>
+        <para>Event sent when the mouse pointer exits an element and all its descendent elements. The event is cancellable, non-capturable, and does not bubble.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.Experimental.UIElements.MouseLeaveEvent.#ctor">
@@ -1428,6 +1887,21 @@
       </summary>
     </member>
     <member name="M:UnityEngine.Experimental.UIElements.MouseLeaveEvent.Init">
+      <summary>
+        <para>Resets the event members to their initial value.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.MouseLeaveWindowEvent">
+      <summary>
+        <para>Event sent when the mouse pointer exits a window. Cancellable, non-capturable, does not bubbles.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.MouseLeaveWindowEvent.#ctor">
+      <summary>
+        <para>Constructor. Avoid newing events. Instead, use GetPooled() to get an event from a pool of reusable events.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.MouseLeaveWindowEvent.Init">
       <summary>
         <para>Reset the event members to their initial value.</para>
       </summary>
@@ -1482,16 +1956,28 @@
         <para>True if the layout of the element has changed.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Experimental.UIElements.PostLayoutEvent.newRect">
+      <summary>
+        <para>The new dimensions of the element.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.PostLayoutEvent.oldRect">
+      <summary>
+        <para>The old dimensions of the element.</para>
+      </summary>
+    </member>
     <member name="M:UnityEngine.Experimental.UIElements.PostLayoutEvent.#ctor">
       <summary>
         <para>Constructor. Avoid newing events. Instead, use GetPooled() to get an event from a pool of reusable events.</para>
       </summary>
     </member>
-    <member name="M:UnityEngine.Experimental.UIElements.PostLayoutEvent.GetPooled(System.Boolean)">
+    <member name="M:UnityEngine.Experimental.UIElements.PostLayoutEvent.GetPooled(System.Boolean,UnityEngine.Rect,UnityEngine.Rect)">
       <summary>
-        <para>Get an event from the event pool and initialize it with the given values. Use this function instead of newing events. Events obtained from this function should be released back to the pool using ReleaseEvent().</para>
+        <para>Gets an event from the event pool and initializes the event with the specified values. Use this method instead of creating a new event. An event obtained with this method should be released back to the pool using ReleaseEvent().</para>
       </summary>
       <param name="hasNewLayout">Whether the target layout changed.</param>
+      <param name="oldRect">The old dimensions of the element.</param>
+      <param name="newRect">The new dimensions of the element.</param>
       <returns>
         <para>An event.</para>
       </returns>
@@ -1530,6 +2016,12 @@
       <summary>
         <para>The event is not being propagated.</para>
       </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.ScrollView.ScrollTo(UnityEngine.Experimental.UIElements.VisualElement)">
+      <summary>
+        <para>Scroll to a specific child element.</para>
+      </summary>
+      <param name="child">The child to scroll to.</param>
     </member>
     <member name="M:UnityEngine.Experimental.UIElements.Slider.OnPersistentDataReady">
       <summary>
@@ -1742,34 +2234,9 @@
         <para>A textfield is a rectangular area where the user can edit a string.</para>
       </summary>
     </member>
-    <member name="P:UnityEngine.Experimental.UIElements.TextField.cursorColor">
-      <summary>
-        <para>The color of the cursor.</para>
-      </summary>
-    </member>
-    <member name="P:UnityEngine.Experimental.UIElements.TextField.doubleClickSelectsWord">
-      <summary>
-        <para>Set this to true to allow double-clicks to select the word under the mouse and false if otherwise.</para>
-      </summary>
-    </member>
-    <member name="P:UnityEngine.Experimental.UIElements.TextField.hasFocus">
-      <summary>
-        <para>Returns true if the textfield has the focus and false if otherwise.</para>
-      </summary>
-    </member>
     <member name="P:UnityEngine.Experimental.UIElements.TextField.isPasswordField">
       <summary>
         <para>Set this to true to mask the characters and false if otherwise.</para>
-      </summary>
-    </member>
-    <member name="P:UnityEngine.Experimental.UIElements.TextField.maskChar">
-      <summary>
-        <para>The character used for masking in a password field.</para>
-      </summary>
-    </member>
-    <member name="P:UnityEngine.Experimental.UIElements.TextField.maxLength">
-      <summary>
-        <para>The maximum number of characters this textfield can hold. If 0, there is no limit.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Experimental.UIElements.TextField.multiline">
@@ -1777,14 +2244,9 @@
         <para>Set this to true to allow multiple lines in the textfield and false if otherwise.</para>
       </summary>
     </member>
-    <member name="P:UnityEngine.Experimental.UIElements.TextField.selectionColor">
+    <member name="P:UnityEngine.Experimental.UIElements.TextField.value">
       <summary>
-        <para>The color of the text selection.</para>
-      </summary>
-    </member>
-    <member name="P:UnityEngine.Experimental.UIElements.TextField.tripleClickSelectsLine">
-      <summary>
-        <para>Set this to true to allow triple-clicks to select the line under the mouse and false if otherwise.</para>
+        <para>The string currently being exposed by the field.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.Experimental.UIElements.TextField.#ctor">
@@ -1810,15 +2272,81 @@
         <para>Called when the persistent data is accessible and/or when the data or persistence key have changed (VisualElement is properly parented).</para>
       </summary>
     </member>
-    <member name="F:UnityEngine.Experimental.UIElements.TextField.OnTextChanged">
+    <member name="M:UnityEngine.Experimental.UIElements.TextField.OnValueChanged(UnityEngine.Experimental.UIElements.EventCallback`1&lt;UnityEngine.Experimental.UIElements.ChangeEvent`1&lt;System.String&gt;&gt;)">
       <summary>
-        <para>Action that is called whenever the text changes in the textfield.</para>
+        <para>Registers this callback to receive ChangeEvent&lt;string&gt; when value was changed by user input.</para>
+      </summary>
+      <param name="callback">Callback to be notified when value was changed by user input.</param>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.TextField.SetValueAndNotify(System.String)">
+      <summary>
+        <para>Set the value and, if different, notifies registers callbacks with a ChangeEvent&lt;string&gt;</para>
+      </summary>
+      <param name="newValue">The new value to be set.</param>
+    </member>
+    <member name="T:UnityEngine.Experimental.UIElements.TextInputFieldBase">
+      <summary>
+        <para>Abstract base class used for all text-based fields.</para>
       </summary>
     </member>
-    <member name="F:UnityEngine.Experimental.UIElements.TextField.OnTextChangeValidated">
+    <member name="P:UnityEngine.Experimental.UIElements.TextInputFieldBase.cursorColor">
       <summary>
-        <para>Action that is called when the user validates the text in the textfield.</para>
+        <para>Color of the cursor.</para>
       </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.TextInputFieldBase.doubleClickSelectsWord">
+      <summary>
+        <para>Controls whether double clicking selects the word under the mouse pointer or not.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.TextInputFieldBase.isPasswordField">
+      <summary>
+        <para>Returns true if the field is used to edit a password.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.TextInputFieldBase.maskChar">
+      <summary>
+        <para>The character used for masking in a password field.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.TextInputFieldBase.maxLength">
+      <summary>
+        <para>Maximum number of characters for the field.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.TextInputFieldBase.selectionColor">
+      <summary>
+        <para>Background color of selected text.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Experimental.UIElements.TextInputFieldBase.tripleClickSelectsLine">
+      <summary>
+        <para>Controls whether triple clicking selects the entire line under the mouse pointer or not.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.TextInputFieldBase.BuildContextualMenu(UnityEngine.Experimental.UIElements.ContextualMenuPopulateEvent)">
+      <summary>
+        <para>Add menu items to the text field contextual menu.</para>
+      </summary>
+      <param name="evt">The event holding the menu to populate.</param>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.TextInputFieldBase.#ctor(System.Int32,System.Char)">
+      <summary>
+        <para>Constructor.</para>
+      </summary>
+      <param name="maxLength">Maximum number of characters for the field.</param>
+      <param name="maskChar">The character used for masking in a password field.</param>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.TextInputFieldBase.SelectAll">
+      <summary>
+        <para>Selects all the text.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.TextInputFieldBase.UpdateText(System.String)">
+      <summary>
+        <para>Changes the value of the field and sends an input event.</para>
+      </summary>
+      <param name="value">The new text to set.</param>
     </member>
     <member name="M:UnityEngine.Experimental.UIElements.Toggle.OnToggle(System.Action)">
       <summary>
@@ -2313,6 +2841,11 @@
         <para>True if at least one of the checked ChangeTypes have been marked dirty.</para>
       </returns>
     </member>
+    <member name="M:UnityEngine.Experimental.UIElements.VisualElement.BringToFront">
+      <summary>
+        <para>Brings this element to the end of its parent children list. The element will be visually in front of any overlapping sibling elements.</para>
+      </summary>
+    </member>
     <member name="M:UnityEngine.Experimental.UIElements.VisualElement.Children">
       <summary>
         <para>Returns the elements from its contentContainer</para>
@@ -2359,6 +2892,12 @@
       <summary>
         <para>Searchs up the hierachy of this VisualElement and retrieves stored userData, if any is found.</para>
       </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.VisualElement.FindCommonAncestor(UnityEngine.Experimental.UIElements.VisualElement)">
+      <summary>
+        <para>Finds the lowest commont ancestor between two VisualElements inside the VisualTree hierarchy</para>
+      </summary>
+      <param name="other"></param>
     </member>
     <member name="M:UnityEngine.Experimental.UIElements.VisualElement.GetEnumerator">
       <summary>
@@ -2519,6 +3058,18 @@
       <param name="key">The key for the current VisualElement to be used with the persistence store on the EditorWindow.</param>
       <param name="obj">Object to overwrite.</param>
     </member>
+    <member name="M:UnityEngine.Experimental.UIElements.VisualElement.PlaceBehind(UnityEngine.Experimental.UIElements.VisualElement)">
+      <summary>
+        <para>Places this element right before the sibling element in their parent children list. If the element and the sibling position overlap, the element will be visually behind of its sibling.</para>
+      </summary>
+      <param name="sibling">The sibling element.</param>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.VisualElement.PlaceInFront(UnityEngine.Experimental.UIElements.VisualElement)">
+      <summary>
+        <para>Places this element right after the sibling element in their parent children list. If the element and the sibling position overlap, the element will be visually in front of its sibling.</para>
+      </summary>
+      <param name="sibling">The sibling element.</param>
+    </member>
     <member name="M:UnityEngine.Experimental.UIElements.VisualElement.Remove(UnityEngine.Experimental.UIElements.VisualElement)">
       <summary>
         <para>Removes this child from the hierarchy</para>
@@ -2545,6 +3096,11 @@
     <member name="M:UnityEngine.Experimental.UIElements.VisualElement.SavePersistentData">
       <summary>
         <para>Write persistence data to file.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.VisualElement.SendToBack">
+      <summary>
+        <para>Sends this element to the beginning of its parent children list. The element will be visually behind any overlapping sibling elements.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.Experimental.UIElements.VisualElement.SetEnabled(System.Boolean)">
@@ -2583,6 +3139,12 @@
       </summary>
       <param name="ele">VisualElement associated to the manipulator.</param>
       <param name="manipulator">Manipulator to be removed from the VisualElement.</param>
+    </member>
+    <member name="M:UnityEngine.Experimental.UIElements.VisualElementExtensions.StretchToParentWidth(UnityEngine.Experimental.UIElements.VisualElement)">
+      <summary>
+        <para>The given VisualElement's left and right edges will be aligned with the corresponding edges of the parent element.</para>
+      </summary>
+      <param name="elem"></param>
     </member>
     <member name="T:UnityEngine.Experimental.UIElements.VisualElementFocusChangeDirection">
       <summary>

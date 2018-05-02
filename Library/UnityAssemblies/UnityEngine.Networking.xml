@@ -418,7 +418,7 @@
     </member>
     <member name="F:UnityEngine.Networking.MsgType.Disconnect">
       <summary>
-        <para>Internal networking system message for communicating a disconnect has occurred,.</para>
+        <para>Internal networking system message for communicating a disconnect has occurred.</para>
       </summary>
     </member>
     <member name="F:UnityEngine.Networking.MsgType.Error">
@@ -3484,6 +3484,14 @@ All of the player objects in the game are disabled when the host is lost. Then, 
       <param name="msg">Message struct to send.</param>
       <param name="msgType">Message type.</param>
     </member>
+    <member name="M:UnityEngine.Networking.NetworkServer.SendToClient(System.Int32,System.Int16,UnityEngine.Networking.MessageBase)">
+      <summary>
+        <para>Send a message to the client which owns the given connection ID.</para>
+      </summary>
+      <param name="connectionId">Client connection ID.</param>
+      <param name="msg">Message struct to send.</param>
+      <param name="msgType">Message type.</param>
+    </member>
     <member name="M:UnityEngine.Networking.NetworkServer.SendToClientOfPlayer">
       <summary>
         <para>Send a message to the client which owns the given player object instance.</para>
@@ -4847,7 +4855,7 @@ All of the player objects in the game are disabled when the host is lost. Then, 
     </member>
     <member name="T:UnityEngine.Networking.SyncEventAttribute">
       <summary>
-        <para>This is an attribute that can be put on events in NetworkBehaviour classes to allow them to be invoked on client when the event is called on the sserver.</para>
+        <para>This is an attribute that can be put on events in NetworkBehaviour classes to allow them to be invoked on client when the event is called on the server.</para>
       </summary>
     </member>
     <member name="F:UnityEngine.Networking.SyncEventAttribute.channel">

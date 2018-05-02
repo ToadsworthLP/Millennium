@@ -99,6 +99,11 @@
         <para>Script interface for particle systems (Shuriken).</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.ParticleSystem.automaticCullingEnabled">
+      <summary>
+        <para>Does this system support Automatic Culling?</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.ParticleSystem.collision">
       <summary>
         <para>Access the particle system collision module.</para>
@@ -161,22 +166,22 @@
     </member>
     <member name="P:UnityEngine.ParticleSystem.isEmitting">
       <summary>
-        <para>Is the particle system currently emitting particles? A particle system may stop emitting when its emission module has finished, it has been paused or if the system has been stopped using ParticleSystem.Stop|Stop with the ParticleSystemStopBehavior.StopEmitting|StopEmitting flag. Resume emitting by calling ParticleSystem.Play|Play.</para>
+        <para>Is the Particle System currently emitting particles? A Particle System may stop emitting when its emission module has finished, it has been paused or if the system has been stopped using ParticleSystem.Stop|Stop with the ParticleSystemStopBehavior.StopEmitting|StopEmitting flag. Resume emitting by calling ParticleSystem.Play|Play.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.ParticleSystem.isPaused">
       <summary>
-        <para>Is the particle system paused right now ?</para>
+        <para>Is the Particle System paused right now?</para>
       </summary>
     </member>
     <member name="P:UnityEngine.ParticleSystem.isPlaying">
       <summary>
-        <para>Is the particle system playing right now ?</para>
+        <para>Is the Particle System playing right now?</para>
       </summary>
     </member>
     <member name="P:UnityEngine.ParticleSystem.isStopped">
       <summary>
-        <para>Is the particle system stopped right now ?</para>
+        <para>Is the Particle System stopped right now?</para>
       </summary>
     </member>
     <member name="P:UnityEngine.ParticleSystem.lights">
@@ -1027,7 +1032,7 @@
     </member>
     <member name="M:UnityEngine.ParticleSystem.IsAlive(System.Boolean)">
       <summary>
-        <para>Does the system have any live particles (or will produce more)?</para>
+        <para>Does the system contain any live particles? (or will produce more).</para>
       </summary>
       <param name="withChildren">Check all child particle systems as well.</param>
       <returns>
@@ -1202,6 +1207,11 @@
     <member name="P:UnityEngine.ParticleSystem.MainModule.emitterVelocityMode">
       <summary>
         <para>Control how the Particle System calculates its velocity, when moving in the world.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.MainModule.flipRotation">
+      <summary>
+        <para>Cause some particles to spin in  the opposite direction.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.ParticleSystem.MainModule.gravityModifier">
@@ -2131,6 +2141,41 @@ The Noise Module allows you to apply turbulence to the movement of your particle
         <para>Spherizes the starting direction of particles.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.ParticleSystem.ShapeModule.texture">
+      <summary>
+        <para>Selects a texture to be used for tinting particle start colors.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.ShapeModule.textureAlphaAffectsParticles">
+      <summary>
+        <para>When enabled, the alpha channel of the texture is applied to the particle alpha when spawned.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.ShapeModule.textureBilinearFiltering">
+      <summary>
+        <para>When enabled, 4 neighboring samples are taken from the texture, and combined to give the final particle value.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.ShapeModule.textureClipChannel">
+      <summary>
+        <para>Selected which channel of the texture to be used for dicarding particles.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.ShapeModule.textureClipThreshold">
+      <summary>
+        <para>Discards particles when they are spawned on an area of the texture with a value lower than this threshold.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.ShapeModule.textureColorAffectsParticles">
+      <summary>
+        <para>When enabled, the RGB channels of the texture are applied to the particle color when spawned.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.ShapeModule.textureUVChannel">
+      <summary>
+        <para>When using a Mesh as a source shape type, this option controls which UV channel on the Mesh is used for reading the source texture.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.ParticleSystem.ShapeModule.useMeshColors">
       <summary>
         <para>Modulate the particle colors with the vertex colors, or the material color if no vertex colors exist.</para>
@@ -2650,6 +2695,28 @@ The Noise Module allows you to apply turbulence to the movement of your particle
       <param name="index">Which collider to set.</param>
       <param name="collider">The collider to associate with this trigger.</param>
     </member>
+    <member name="M:UnityEngine.ParticleSystem.TriggerSubEmitter(System.Int32)">
+      <summary>
+        <para>Triggers the specified sub emitter on all particles of the Particle System.</para>
+      </summary>
+      <param name="subEmitterIndex">Index of the sub emitter to trigger.</param>
+    </member>
+    <member name="M:UnityEngine.ParticleSystem.TriggerSubEmitter(System.Int32,UnityEngine.ParticleSystem/Particle&amp;)">
+      <summary>
+        <para>Triggers the specified sub emitter on the specified particle(s) of the Particle System.</para>
+      </summary>
+      <param name="subEmitterIndex">Index of the sub emitter to trigger.</param>
+      <param name="particle">Triggers the sub emtter on a single particle.</param>
+      <param name="particles">Triggers the sub emtter on a list of particles.</param>
+    </member>
+    <member name="M:UnityEngine.ParticleSystem.TriggerSubEmitter(System.Int32,System.Collections.Generic.List`1&lt;UnityEngine.ParticleSystem/Particle&gt;)">
+      <summary>
+        <para>Triggers the specified sub emitter on the specified particle(s) of the Particle System.</para>
+      </summary>
+      <param name="subEmitterIndex">Index of the sub emitter to trigger.</param>
+      <param name="particle">Triggers the sub emtter on a single particle.</param>
+      <param name="particles">Triggers the sub emtter on a list of particles.</param>
+    </member>
     <member name="T:UnityEngine.ParticleSystem.VelocityOverLifetimeModule">
       <summary>
         <para>Script interface for the Velocity Over Lifetime module.</para>
@@ -2658,6 +2725,76 @@ The Noise Module allows you to apply turbulence to the movement of your particle
     <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.enabled">
       <summary>
         <para>Enable/disable the Velocity Over Lifetime module.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.orbitalOffsetX">
+      <summary>
+        <para>Specify a custom center of rotation for the orbital and radial velocities.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.orbitalOffsetXMultiplier">
+      <summary>
+        <para>This method is more efficient than accessing the whole curve, if you only want to change the overall offset multiplier.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.orbitalOffsetY">
+      <summary>
+        <para>Specify a custom center of rotation for the orbital and radial velocities.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.orbitalOffsetYMultiplier">
+      <summary>
+        <para>This method is more efficient than accessing the whole curve, if you only want to change the overall offset multiplier.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.orbitalOffsetZ">
+      <summary>
+        <para>Specify a custom center of rotation for the orbital and radial velocities.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.orbitalOffsetZMultiplier">
+      <summary>
+        <para>This method is more efficient than accessing the whole curve, if you only want to change the overall offset multiplier.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.orbitalX">
+      <summary>
+        <para>Curve to control particle speed based on lifetime, around the X axis.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.orbitalXMultiplier">
+      <summary>
+        <para>X axis speed multiplier.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.orbitalY">
+      <summary>
+        <para>Curve to control particle speed based on lifetime, around the Y axis.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.orbitalYMultiplier">
+      <summary>
+        <para>Y axis speed multiplier.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.orbitalZ">
+      <summary>
+        <para>Curve to control particle speed based on lifetime, around the Z axis.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.orbitalZMultiplier">
+      <summary>
+        <para>Z axis speed multiplier.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.radial">
+      <summary>
+        <para>Curve to control particle speed based on lifetime, away from a cetner position.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.radialMultiplier">
+      <summary>
+        <para>Radial speed multiplier.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.ParticleSystem.VelocityOverLifetimeModule.space">
@@ -3000,6 +3137,11 @@ The Noise Module allows you to apply turbulence to the movement of your particle
         <para>How much are the particles stretched depending on the Camera's speed.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.ParticleSystemRenderer.enableGPUInstancing">
+      <summary>
+        <para>Enables GPU Instancing on platforms where it is supported.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.ParticleSystemRenderer.lengthScale">
       <summary>
         <para>How much are the particles stretched in their direction of motion.</para>
@@ -3243,6 +3385,31 @@ The position stream is always enabled, and any attempts to remove it will be ign
         <para>Generate points randomly. (Default)</para>
       </summary>
     </member>
+    <member name="T:UnityEngine.ParticleSystemShapeTextureChannel">
+      <summary>
+        <para>The texture channel (Shuriken).</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.ParticleSystemShapeTextureChannel.Alpha">
+      <summary>
+        <para>The alpha channel.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.ParticleSystemShapeTextureChannel.Blue">
+      <summary>
+        <para>The blue channel.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.ParticleSystemShapeTextureChannel.Green">
+      <summary>
+        <para>The green channel.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.ParticleSystemShapeTextureChannel.Red">
+      <summary>
+        <para>The red channel.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.ParticleSystemShapeType">
       <summary>
         <para>The emission shape (Shuriken).</para>
@@ -3318,6 +3485,11 @@ The position stream is always enabled, and any attempts to remove it will be ign
         <para>Emit from a mesh renderer.</para>
       </summary>
     </member>
+    <member name="F:UnityEngine.ParticleSystemShapeType.Rectangle">
+      <summary>
+        <para>Emit from a rectangle.</para>
+      </summary>
+    </member>
     <member name="F:UnityEngine.ParticleSystemShapeType.SingleSidedEdge">
       <summary>
         <para>Emit from an edge.</para>
@@ -3390,7 +3562,7 @@ The position stream is always enabled, and any attempts to remove it will be ign
     </member>
     <member name="F:UnityEngine.ParticleSystemStopAction.Callback">
       <summary>
-        <para>Call OnPaticleSystemStopped on the ParticleSystem script.</para>
+        <para>Call OnParticleSystemStopped on the ParticleSystem script.</para>
       </summary>
     </member>
     <member name="F:UnityEngine.ParticleSystemStopAction.Destroy">
@@ -3476,6 +3648,16 @@ The position stream is always enabled, and any attempts to remove it will be ign
     <member name="F:UnityEngine.ParticleSystemSubEmitterType.Death">
       <summary>
         <para>Spawns new particles when particles from the parent system die.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.ParticleSystemSubEmitterType.Manual">
+      <summary>
+        <para>Spawns new particles when triggered from script using ParticleSystem.TriggerSubEmitter.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.ParticleSystemSubEmitterType.Trigger">
+      <summary>
+        <para>Spawns new particles when particles from the parent system pass conditions in the Trigger Module.</para>
       </summary>
     </member>
     <member name="T:UnityEngine.ParticleSystemTrailMode">
@@ -3882,6 +4064,11 @@ To get the current particle age, simply multiply X by Y.</para>
     <member name="F:UnityEngine.Rendering.UVChannelFlags.UV3">
       <summary>
         <para>Fourth UV channel.</para>
+      </summary>
+    </member>
+    <member name="A:UnityEngine.ParticleSystemModule">
+      <summary>
+        <para>The ParticleSystem module implements Unity's particle system.</para>
       </summary>
     </member>
   </members>

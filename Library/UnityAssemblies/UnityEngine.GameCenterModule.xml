@@ -495,5 +495,10 @@
         <para>The user is playing a game.</para>
       </summary>
     </member>
+    <member name="A:UnityEngine.GameCenterModule">
+      <summary>
+        <para>The GameCenter module provides APIs to use Apple's GameCenter service.</para>
+      </summary>
+    </member>
   </members>
 </doc>

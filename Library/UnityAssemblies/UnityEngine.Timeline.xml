@@ -84,6 +84,11 @@
         <para>The animation clip.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Timeline.AnimationPlayableAsset.eulerAngles">
+      <summary>
+        <para>The euler angle representation of the root motion rotation offset of the clip.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.Timeline.AnimationPlayableAsset.matchTargetFields">
       <summary>
         <para>Specify which fields should be matched when aligning offsets.</para>
@@ -129,6 +134,11 @@
         <para>Specifies an AvatarMask to be applied.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Timeline.AnimationTrack.eulerAngles">
+      <summary>
+        <para>The euler angle representation of the root motion rotation offset of the entire track.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.Timeline.AnimationTrack.inClipMode">
       <summary>
         <para>Specifies whether the Animation Track has clips, or is in infinite mode.</para>
@@ -137,6 +147,11 @@
     <member name="P:UnityEngine.Timeline.AnimationTrack.matchTargetFields">
       <summary>
         <para>Specifies which fields to match when aligning root motion offsets of clips.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Timeline.AnimationTrack.openClipOffsetEulerAngles">
+      <summary>
+        <para>The euler angle representation of the root motion rotation offset of the track when in infinite mode.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Timeline.AnimationTrack.openClipOffsetPosition">
@@ -166,6 +181,15 @@
       <param name="clip">Source animation clip of the resulting TimelineClip.</param>
       <returns>
         <para>A new TimelineClip which has an AnimationPlayableAsset asset attached.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Timeline.AnimationTrack.CreateRecordableClip(System.String)">
+      <summary>
+        <para>Creates a TimelineClip, AnimationPlayableAsset and an AnimationClip. Use this clip to record in a timeline.</para>
+      </summary>
+      <param name="animClipName">The name of the animation clip to create.</param>
+      <returns>
+        <para>Returns a new TimelineClip with an AnimationPlayableAsset asset attached.</para>
       </returns>
     </member>
     <member name="T:UnityEngine.Timeline.AudioPlayableAsset">
@@ -751,6 +775,16 @@
         <para>The list of clips owned by the track.</para>
       </returns>
     </member>
+    <member name="M:UnityEngine.Timeline.TrackAsset.OnAfterTrackDeserialize">
+      <summary>
+        <para>Override this method to receive a callback after Unity deserializes your track.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Timeline.TrackAsset.OnBeforeTrackSerialize">
+      <summary>
+        <para>Override this method to receive a callback before Unity serializes your track.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.Timeline.TrackAssetExtensions">
       <summary>
         <para>Extension methods for Track Assets.</para>
@@ -779,8 +813,22 @@
     </member>
     <member name="T:UnityEngine.Timeline.TrackClipTypeAttribute">
       <summary>
-        <para>Specifies the type of PlayableAsset or ScriptPlayables that this track can create clips representing.</para>
+        <para>Specifies the type of PlayableAsset  that this track can create clips representing.</para>
       </summary>
+    </member>
+    <member name="M:UnityEngine.Timeline.TrackClipTypeAttribute.#ctor(System.Type)">
+      <summary>
+        <para>Specifies the type of PlayableAsset  that this track can create clips representing.</para>
+      </summary>
+      <param name="clipClass">The type of the clip class to associate with this track. Must derive from  PlayableAsset.</param>
+      <param name="allowAutoCreate">Whether to allow automatic creation of these types. Default value is true.</param>
+    </member>
+    <member name="M:UnityEngine.Timeline.TrackClipTypeAttribute.#ctor(System.Type,System.Boolean)">
+      <summary>
+        <para>Specifies the type of PlayableAsset  that this track can create clips representing.</para>
+      </summary>
+      <param name="clipClass">The type of the clip class to associate with this track. Must derive from  PlayableAsset.</param>
+      <param name="allowAutoCreate">Whether to allow automatic creation of these types. Default value is true.</param>
     </member>
     <member name="T:UnityEngine.Timeline.TrackColorAttribute">
       <summary>

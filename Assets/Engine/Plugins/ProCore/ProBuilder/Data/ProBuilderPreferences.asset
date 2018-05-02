@@ -8,31 +8,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 146836576, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
+  m_Script: {fileID: 0}
   m_Name: ProBuilderPreferences
   m_EditorClassIdentifier: 
   m_Bool_keys:
-  - pb_SmoothingGroupEditor::m_DrawNormals
-  - pb_SmoothingGroupEditor::m_ShowPreview
   - pbIconGUI
   m_Int_keys:
-  - pb_GIWorkflowMode
-  - pbDefaultEditLevel
-  - pbDefaultSelectionMode
   - pbHandleAlignment
   m_Float_keys:
   - pbEditorScroll.x
   - pbEditorScroll.y
-  m_String_keys:
-  - pbCurrentMaterialPalette
+  m_String_keys: []
   m_Color_keys: []
   m_Material_keys: []
-  m_Bool_values: 000101
-  m_Int_values: 01000000000000000100000000000000
+  m_Bool_values: 
+  m_Int_values: 00000000
   m_Float_values:
   - 0
   - 0
-  m_String_values:
-  - Assets/Engine/Plugins/ProCore/ProBuilder/Data/Default Material Palette.asset
+  m_String_values: []
   m_Color_values: []
   m_Material_values: []

@@ -4,6 +4,11 @@
     <assembly>
       <name>UnityEngine.VRModule</name>
     </assembly>
+    <member name="A:UnityEngine.VRModule">
+      <summary>
+        <para>The VR module implements support for virtual reality devices in Unity.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.XR.InputTracking">
       <summary>
         <para>A collection of methods and properties for interacting with the XR tracking system.</para>
@@ -131,6 +136,31 @@
       </summary>
       <param name="activated">True to enable or false to disable Low Latent Frame Presentation.</param>
     </member>
+    <member name="T:UnityEngine.XR.WSA.HolographicSettings.HolographicReprojectionMode">
+      <summary>
+        <para>Represents the kind of reprojection an app is requesting to stabilize its holographic rendering relative to the user's head motion.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.XR.WSA.HolographicSettings.HolographicReprojectionMode.Disabled">
+      <summary>
+        <para>The image should not be stabilized for the user's head motion, instead remaining fixed in the display. This is generally discouraged, as it is only comfortable for users when used sparingly, such as when the only visible content is a small cursor.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.XR.WSA.HolographicSettings.HolographicReprojectionMode.OrientationOnly">
+      <summary>
+        <para>The image should be stabilized only for changes to the user's head orientation, ignoring positional changes. This is best for body-locked content that should tag along with the user as they walk around, such as 360-degree video.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.XR.WSA.HolographicSettings.HolographicReprojectionMode.PositionAndOrientation">
+      <summary>
+        <para>The image should be stabilized for changes to both the user's head position and orientation. This is best for world-locked content that should remain physically stationary as the user walks around.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.XR.WSA.HolographicSettings.IsContentProtectionEnabled">
+      <summary>
+        <para>Whether the app is displaying protected content.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.XR.WSA.HolographicSettings.IsDisplayOpaque">
       <summary>
         <para>This method returns whether or not the display associated with the main camera reports as opaque.</para>
@@ -139,6 +169,11 @@
     <member name="P:UnityEngine.XR.WSA.HolographicSettings.IsLatentFramePresentation">
       <summary>
         <para>Returns true if Holographic rendering is currently running with Latent Frame Presentation.  Default value is false.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.XR.WSA.HolographicSettings.ReprojectionMode">
+      <summary>
+        <para>The kind of reprojection the app is requesting to stabilize its holographic rendering relative to the user's head motion.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame(UnityEngine.Vector3)">
@@ -1931,7 +1966,7 @@
         <para>Indicates whether or not the operation was successful.</para>
       </summary>
     </member>
-    <member name="M:UnityEngine.XR.WSA.WebCam.PhotoCapture.StartPhotoModeAsync">
+    <member name="M:UnityEngine.XR.WSA.WebCam.PhotoCapture.StartPhotoModeAsync(UnityEngine.XR.WSA.WebCam.CameraParameters,UnityEngine.XR.WSA.WebCam.PhotoCapture/OnPhotoModeStartedCallback)">
       <summary>
         <para>Asynchronously starts photo mode.</para>
       </summary>

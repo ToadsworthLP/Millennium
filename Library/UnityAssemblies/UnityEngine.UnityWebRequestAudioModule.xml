@@ -94,5 +94,10 @@
         <para>A UnityWebRequest properly configured to download a movie clip and convert it to a MovieTexture.</para>
       </returns>
     </member>
+    <member name="A:UnityEngine.UnityWebRequestAudioModule">
+      <summary>
+        <para>The UnityWebRequestAudio module provides the DownloadHandlerAudioClip class to use UnityWebRequest to download AudioClips.</para>
+      </summary>
+    </member>
   </members>
 </doc>

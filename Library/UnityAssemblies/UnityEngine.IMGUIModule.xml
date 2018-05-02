@@ -190,6 +190,21 @@
         <para>Types of UnityGUI input and processing events.</para>
       </summary>
     </member>
+    <member name="F:UnityEngine.EventType.mouseDown">
+      <summary>
+        <para>An event that is called when the mouse is clicked.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.EventType.mouseDrag">
+      <summary>
+        <para>An event that is called when the mouse is clicked and dragged.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.EventType.mouseUp">
+      <summary>
+        <para>An event that is called when the mouse is no longer being clicked.</para>
+      </summary>
+    </member>
     <member name="F:UnityEngine.EventType.ContextClick">
       <summary>
         <para>User has right-clicked (or control-clicked on the mac).</para>
@@ -283,6 +298,11 @@
     <member name="F:UnityEngine.EventType.ValidateCommand">
       <summary>
         <para>Validates a special command (e.g. copy &amp; paste).</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.ExitGUIException">
+      <summary>
+        <para>An exception that will prevent all subsequent immediate mode GUI functions from evaluating for the remainder of the GUI loop.</para>
       </summary>
     </member>
     <member name="T:UnityEngine.FocusType">
@@ -4434,7 +4454,12 @@ GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.</param>
     </member>
     <member name="P:UnityEngine.GUIUtility.systemCopyBuffer">
       <summary>
-        <para>Get access to the system-wide pasteboard.</para>
+        <para>Get access to the system-wide clipboard.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.GUIUtility.ExitGUI">
+      <summary>
+        <para>Puts the GUI in a state that will prevent all subsequent immediate mode GUI functions from evaluating for the remainder of the GUI loop by throwing an ExitGUIException.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.GUIUtility.GetControlID(UnityEngine.FocusType)">
@@ -4581,6 +4606,11 @@ GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.</param>
     <member name="F:UnityEngine.TextClipping.Overflow">
       <summary>
         <para>Text flows freely outside the element.</para>
+      </summary>
+    </member>
+    <member name="A:UnityEngine.IMGUIModule">
+      <summary>
+        <para>The IMGUI module provides Unity's immediate mode GUI solution for creating in-game and editor user interfaces.</para>
       </summary>
     </member>
   </members>

@@ -149,6 +149,11 @@
         <para>The world space transform of the game object used for calculating the UVs of the fill texture.</para>
       </summary>
     </member>
+    <member name="T:UnityEngine.Experimental.U2D.SpriteShapeRenderer">
+      <summary>
+        <para>Renders SpriteShapes defined through the SpriteShapeUtility.GenerateSpriteShape API.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.Experimental.U2D.SpriteShapeUtility">
       <summary>
         <para>A static class that helps tessellate a SpriteShape mesh.</para>
@@ -164,7 +169,19 @@
       <param name="metaData">Additional data about the shape's control point. This is useful during tessellation of the shape.</param>
       <param name="sprites">The list of Sprites that could be used for the edges.</param>
       <param name="corners">The list of Sprites that could be used for the corners.</param>
-      <param name="angleRange">A paramters that determins how to tessellate each of the edge.</param>
+      <param name="angleRange">A parameter that determins how to tessellate each of the edge.</param>
+    </member>
+    <member name="M:UnityEngine.Experimental.U2D.SpriteShapeUtility.GenerateSpriteShape(UnityEngine.Experimental.U2D.SpriteShapeRenderer,UnityEngine.Experimental.U2D.SpriteShapeParameters,UnityEngine.Experimental.U2D.ShapeControlPoint[],UnityEngine.Experimental.U2D.SpriteShapeMetaData[],UnityEngine.Experimental.U2D.AngleRangeInfo[],UnityEngine.Sprite[],UnityEngine.Sprite[])">
+      <summary>
+        <para>Generate a mesh based on input parameters.</para>
+      </summary>
+      <param name="renderer">SpriteShapeRenderer to which the generated geometry is fed to.</param>
+      <param name="shapeParams">Input parameters for the SpriteShape tessellator.</param>
+      <param name="points">A list of control points that describes the shape.</param>
+      <param name="metaData">Additional data about the shape's control point. This is useful during tessellation of the shape.</param>
+      <param name="sprites">The list of Sprites that could be used for the edges.</param>
+      <param name="corners">The list of Sprites that could be used for the corners.</param>
+      <param name="angleRange">A parameter that determins how to tessellate each of the edge.</param>
     </member>
   </members>
 </doc>

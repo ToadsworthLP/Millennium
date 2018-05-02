@@ -67,5 +67,10 @@
         <para>A UnityWebRequest properly configured to download an image and convert it to a Texture.</para>
       </returns>
     </member>
+    <member name="A:UnityEngine.UnityWebRequestTextureModule">
+      <summary>
+        <para>The UnityWebRequestAudio module provides the DownloadHandlerTexture class to use UnityWebRequest to download Textures.</para>
+      </summary>
+    </member>
   </members>
 </doc>

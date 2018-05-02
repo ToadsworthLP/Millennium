@@ -532,5 +532,10 @@ See Also: CanvasRenderer.SetMaterialCount, CanvasRenderer.SetTexture.</para>
         <para>Render using any Camera in the scene that can render the layer.</para>
       </summary>
     </member>
+    <member name="A:UnityEngine.UIModule">
+      <summary>
+        <para>The UI module implements basic components required for Unity's UI system</para>
+      </summary>
+    </member>
   </members>
 </doc>

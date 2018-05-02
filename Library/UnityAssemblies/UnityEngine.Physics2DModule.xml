@@ -1272,6 +1272,11 @@
         <para>Acceleration due to gravity.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Physics2D.jobOptions">
+      <summary>
+        <para>A set of options that control how physics operates when using the job system to multithread the physics simulation.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.Physics2D.linearSleepTolerance">
       <summary>
         <para>A rigid-body cannot sleep if its linear velocity is above this tolerance.</para>
@@ -2198,6 +2203,96 @@
         <para>Synchronizes.</para>
       </summary>
     </member>
+    <member name="T:UnityEngine.PhysicsJobOptions2D">
+      <summary>
+        <para>A set of options that control how physics operates when using the job system to multithread the physics simulation.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.clearBodyForcesPerJob">
+      <summary>
+        <para>Controls the minimum number of bodies to be cleared in each simulation job.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.clearFlagsPerJob">
+      <summary>
+        <para>Controls the minimum number of flags to be cleared in each simulation job.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.collideContactsPerJob">
+      <summary>
+        <para>Controls the minimum number of contacts to collide in each simulation job.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.findNearestContactsPerJob">
+      <summary>
+        <para>Controls the minimum number of nearest contacts to find in each simulation job.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.interpolationPosesPerJob">
+      <summary>
+        <para>Controls the minimum number of Rigidbody2D being interpolated in each simulation job.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.islandSolverBodiesPerJob">
+      <summary>
+        <para>Controls the minimum number of bodies to solve in each simulation job when performing island solving.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.islandSolverBodyCostScale">
+      <summary>
+        <para>Scales the cost of each body during discrete island solving.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.islandSolverContactCostScale">
+      <summary>
+        <para>Scales the cost of each contact during discrete island solving.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.islandSolverContactsPerJob">
+      <summary>
+        <para>Controls the minimum number of contacts to solve in each simulation job when performing island solving.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.islandSolverCostThreshold">
+      <summary>
+        <para>The minimum threshold cost of all bodies, contacts and joints in an island during discrete island solving.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.islandSolverJointCostScale">
+      <summary>
+        <para>Scales the cost of each joint during discrete island solving.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.newContactsPerJob">
+      <summary>
+        <para>Controls the minimum number of new contacts to find in each simulation job.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.syncContinuousFixturesPerJob">
+      <summary>
+        <para>Controls the minimum number of fixtures to synchronize in the broadphase during continuous island solving in each simulation job.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.syncDiscreteFixturesPerJob">
+      <summary>
+        <para>Controls the minimum number of fixtures to synchronize in the broadphase during discrete island solving in each simulation job.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.updateTriggerContactsPerJob">
+      <summary>
+        <para>Controls the minimum number of trigger contacts to update in each simulation job.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.useConsistencySorting">
+      <summary>
+        <para>Should physics simulation sort multi-threaded results to maintain processing order consistency?</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.PhysicsJobOptions2D.useMultithreading">
+      <summary>
+        <para>Should physics simulation use multithreading?</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.PhysicsMaterial2D">
       <summary>
         <para>Asset type that defines the surface properties of a Collider2D.</para>
@@ -2534,7 +2629,7 @@
     </member>
     <member name="P:UnityEngine.Rigidbody2D.mass">
       <summary>
-        <para>Mass of the rigidbody.</para>
+        <para>Mass of the Rigidbody.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Rigidbody2D.position">
@@ -3063,6 +3158,11 @@
     <member name="P:UnityEngine.TargetJoint2D.target">
       <summary>
         <para>The world-space position that the joint will attempt to move the body to.</para>
+      </summary>
+    </member>
+    <member name="A:UnityEngine.Physics2DModule">
+      <summary>
+        <para>The Physics2d module implements 2D physics in Unity.</para>
       </summary>
     </member>
     <member name="T:UnityEngine.WheelJoint2D">

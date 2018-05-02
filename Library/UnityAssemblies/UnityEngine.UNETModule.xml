@@ -9,6 +9,11 @@
         <para>Defines parameters of channels.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Networking.ChannelQOS.BelongsToSharedOrderChannel">
+      <summary>
+        <para>Returns true if the channel belongs to a shared group.</para>
+      </summary>
+    </member>
     <member name="M:UnityEngine.Networking.ChannelQOS.#ctor(UnityEngine.Networking.QosType)">
       <summary>
         <para>UnderlyingModel.MemDoc.MemDocModel.</para>
@@ -164,10 +169,25 @@ Under fragmented quality of service modes, the original message is split into fr
         <para>Channel QoS.</para>
       </returns>
     </member>
+    <member name="M:UnityEngine.Networking.ConnectionConfig.GetSharedOrderChannels(System.Byte)">
+      <summary>
+        <para>Return IList&lt;byte&gt; of channel IDs which belong to the group.</para>
+      </summary>
+      <param name="idx">Group id.</param>
+      <returns>
+        <para>List of channel IDs belonging to the group.</para>
+      </returns>
+    </member>
     <member name="P:UnityEngine.Networking.ConnectionConfig.InitialBandwidth">
       <summary>
-        <para>Gets or sets the bandwidth in bytes per second that can be used by Unity Multiplayer. No traffic over this limit is allowed. Unity Multiplayer may internally reduce the bandwidth it uses due to flow control. The default value is 1500MB/sec (1,536,000 bytes per second). The default value is intentionally a large number to allow all traffic to pass without delay.</para>
+        <para>Gets or sets the bandwidth in bytes per second that can be used by Unity Multiplayer. No traffic over this limit is allowed. Unity Multiplayer may internally reduce the bandwidth it uses due to flow control. The default value is 1.5MB/sec (1,536,000 bytes per second). The default value is intentionally a large number to allow all traffic to pass without delay.</para>
       </summary>
+    </member>
+    <member name="M:UnityEngine.Networking.ConnectionConfig.MakeChannelsSharedOrder(System.Collections.Generic.List`1&lt;System.Byte&gt;)">
+      <summary>
+        <para>Allows you to combine multiple channels into a single group, so those channels share a common receiving order.</para>
+      </summary>
+      <param name="channelIndices">The list of channel indices which should be grouped together. The list can include both reliable and unreliable channels.</param>
     </member>
     <member name="P:UnityEngine.Networking.ConnectionConfig.MaxCombinedReliableMessageCount">
       <summary>
@@ -258,6 +278,11 @@ It does not make a lot of sense to wait for acknowledgement forever. This parame
         <para>Gets or sets the delay in milliseconds after a call to Send() before packets are sent. During this time, new messages may be combined in queued packets. Default value: 10ms.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Networking.ConnectionConfig.SharedOrderChannelCount">
+      <summary>
+        <para>(Read Only) The number of shared order groups in current configuration.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.Networking.ConnectionConfig.SSLCAFilePath">
       <summary>
         <para>Defines the path to the file containing the certification authority (CA) certificate for WebSocket via SSL communication.</para>
@@ -321,6 +346,11 @@ WebSocket message fragments are called "frames". A WebSocket host has a buffer t
         <para>Defines global paramters for network library.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Networking.GlobalConfig.ConnectionReadyForSend">
+      <summary>
+        <para>Defines the callback delegate which you can use to get a notification when a connection is ready to send data.</para>
+      </summary>
+    </member>
     <member name="M:UnityEngine.Networking.GlobalConfig.#ctor">
       <summary>
         <para>Create new global config object.</para>
@@ -354,6 +384,13 @@ WebSocket message fragments are called "frames". A WebSocket host has a buffer t
     <member name="P:UnityEngine.Networking.GlobalConfig.MinTimerTimeout">
       <summary>
         <para>Defines the minimum timeout in milliseconds recognised by the system. The default value is 1 ms.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Networking.GlobalConfig.NetworkEventAvailable">
+      <summary>
+        <para>Defines the callback delegate which you can use to get a notification when the host (defined by hostID) has a network event. The callback is called for all event types except Networking.NetworkEventType.Nothing.
+
+See Also: Networking.NetworkEventType</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Networking.GlobalConfig.ReactorMaximumReceivedMessages">
@@ -1007,6 +1044,15 @@ DisconnectNetworkHost can only be called by the group owner on the relay server.
         <para>Current round trip time in ms.</para>
       </returns>
     </member>
+    <member name="M:UnityEngine.Networking.NetworkTransport.GetHostPort(System.Int32)">
+      <summary>
+        <para>Returns the port number assigned to the host.</para>
+      </summary>
+      <param name="hostId">Host ID.</param>
+      <returns>
+        <para>The UDP port number, or -1 if an error occurred.</para>
+      </returns>
+    </member>
     <member name="M:UnityEngine.Networking.NetworkTransport.GetIncomingMessageQueueSize(System.Int32,System.Byte&amp;)">
       <summary>
         <para>Returns the number of received messages waiting in the queue for processing.</para>
@@ -1318,6 +1364,18 @@ DisconnectNetworkHost can only be called by the group owner on the relay server.
         <para>Deprecated.</para>
       </summary>
     </member>
+    <member name="M:UnityEngine.Networking.NetworkTransport.NotifyWhenConnectionReadyForSend(System.Int32,System.Int32,System.Int32,System.Byte&amp;)">
+      <summary>
+        <para>This method allows you to specify that notifications callbacks should be called when Unity's networking can send more messages than defined in notificationLevel.</para>
+      </summary>
+      <param name="hostId">Host ID.</param>
+      <param name="connectionId">Connection ID.</param>
+      <param name="notificationLevel">Defines how many free slots in the incoming queue should be available before [GlobalConfig.ConnectionReadyForSend] callback is triggered.</param>
+      <param name="error">Error code.</param>
+      <returns>
+        <para>Result, if false error will show error code.</para>
+      </returns>
+    </member>
     <member name="M:UnityEngine.Networking.NetworkTransport.QueueMessageForSending(System.Int32,System.Int32,System.Int32,System.Byte[],System.Int32,System.Byte&amp;)">
       <summary>
         <para>Function is queueing but not sending messages.</para>
@@ -1419,13 +1477,14 @@ Can only be called by the relay group owner.</para>
       <param name="subversion">Subversion part of the credentials associated with this broadcast.</param>
       <param name="error">Error (can be cast to Networking.NetworkError for more information).</param>
     </member>
-    <member name="M:UnityEngine.Networking.NetworkTransport.SetPacketStat">
+    <member name="M:UnityEngine.Networking.NetworkTransport.SetPacketStat(System.Int32,System.Int32,System.Int32,System.Int32)">
       <summary>
         <para>Used to inform the profiler of network packet statistics.</para>
       </summary>
       <param name="packetStatId">The ID of the message being reported.</param>
-      <param name="numMsgs">Number of message being reported.</param>
+      <param name="numMsgs">Number of messages being reported.</param>
       <param name="numBytes">Number of bytes used by reported messages.</param>
+      <param name="direction">Whether the packet is outgoing (-1) or incoming (0).</param>
     </member>
     <member name="M:UnityEngine.Networking.NetworkTransport.Shutdown">
       <summary>

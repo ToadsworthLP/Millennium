@@ -55,5 +55,10 @@
         <para>The object's data in JSON format.</para>
       </returns>
     </member>
+    <member name="A:UnityEngine.JSONSerializeModule">
+      <summary>
+        <para>The JSONSerialize module provides the JsonUtility class which lets you serialize Unity Objects to JSON format.</para>
+      </summary>
+    </member>
   </members>
 </doc>

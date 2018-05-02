@@ -481,6 +481,144 @@
         <para>The weight of the animation clip.</para>
       </summary>
     </member>
+    <member name="T:UnityEngine.Animations.AimConstraint">
+      <summary>
+        <para>Constrains the orientation of an object relative to the position of one or more source objects, such that the object is facing the average position of the sources.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.AimConstraint.aimVector">
+      <summary>
+        <para>The axis towards which the constrained object orients.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.AimConstraint.constraintActive">
+      <summary>
+        <para>Activates or deactivates the constraint.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.AimConstraint.locked">
+      <summary>
+        <para>Locks the offset and rotation at rest.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.AimConstraint.rotationAtRest">
+      <summary>
+        <para>The rotation used when the sources have a total weight of 0.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.AimConstraint.rotationAxis">
+      <summary>
+        <para>The axes affected by the AimConstraint.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.AimConstraint.rotationOffset">
+      <summary>
+        <para>Represents an offset from the constrained orientation.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.AimConstraint.sourceCount">
+      <summary>
+        <para>The number of sources set on the component (read-only).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.AimConstraint.upVector">
+      <summary>
+        <para>The up vector.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.AimConstraint.weight">
+      <summary>
+        <para>The weight of the constraint component.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.AimConstraint.worldUpObject">
+      <summary>
+        <para>The world up object, used to calculate the world up vector when the world up Type is AimConstraint.WorldUpType.ObjectUp or AimConstraint.WorldUpType.ObjectRotationUp.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.AimConstraint.worldUpType">
+      <summary>
+        <para>The type of the world up vector.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.AimConstraint.worldUpVector">
+      <summary>
+        <para>The world up Vector used when the world up type is AimConstraint.WorldUpType.Vector or AimConstraint.WorldUpType.ObjectRotationUp.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Animations.AimConstraint.AddSource(UnityEngine.Animations.ConstraintSource)">
+      <summary>
+        <para>Adds a constraint source.</para>
+      </summary>
+      <param name="source">The source object and its weight.</param>
+      <returns>
+        <para>Returns the index of the added source.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.AimConstraint.GetSource(System.Int32)">
+      <summary>
+        <para>Gets a constraint source by index.</para>
+      </summary>
+      <param name="index">The index of the source.</param>
+      <returns>
+        <para>The source object and its weight.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.AimConstraint.GetSources(System.Collections.Generic.List`1&lt;UnityEngine.Animations.ConstraintSource&gt;)">
+      <summary>
+        <para>Gets the list of sources.</para>
+      </summary>
+      <param name="sources">The list of sources to be filled by the component.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.AimConstraint.RemoveSource(System.Int32)">
+      <summary>
+        <para>Removes a source from the component.</para>
+      </summary>
+      <param name="index">The index of the source to remove.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.AimConstraint.SetSource(System.Int32,UnityEngine.Animations.ConstraintSource)">
+      <summary>
+        <para>Sets a source at a specified index.</para>
+      </summary>
+      <param name="index">The index of the source to set.</param>
+      <param name="source">The source object and its weight.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.AimConstraint.SetSources(System.Collections.Generic.List`1&lt;UnityEngine.Animations.ConstraintSource&gt;)">
+      <summary>
+        <para>Sets the list of sources on the component.</para>
+      </summary>
+      <param name="sources">The list of sources to set.</param>
+    </member>
+    <member name="T:UnityEngine.Animations.AimConstraint.WorldUpType">
+      <summary>
+        <para>Specifies how the world up vector used by the aim constraint is defined.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Animations.AimConstraint.WorldUpType.None">
+      <summary>
+        <para>Neither defines nor uses a world up vector.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Animations.AimConstraint.WorldUpType.ObjectRotationUp">
+      <summary>
+        <para>Uses and defines the world up vector as relative to the local space of the object.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Animations.AimConstraint.WorldUpType.ObjectUp">
+      <summary>
+        <para>Uses and defines the world up vector as a vector from the constrained object, in the direction of the up object.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Animations.AimConstraint.WorldUpType.SceneUp">
+      <summary>
+        <para>Uses and defines the world up vector as the Unity scene up vector (the Y axis).</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Animations.AimConstraint.WorldUpType.Vector">
+      <summary>
+        <para>Uses and defines the world up vector as a vector specified by the user.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.Animations.AnimationClipPlayable">
       <summary>
         <para>A Playable that controls an AnimationClip.</para>
@@ -506,11 +644,22 @@
         <para>Returns the state of the ApplyFootIK flag.</para>
       </summary>
     </member>
+    <member name="M:UnityEngine.Animations.AnimationClipPlayable.GetApplyPlayableIK">
+      <summary>
+        <para>Returns the state of the ApplyPlayableIK flag.</para>
+      </summary>
+    </member>
     <member name="M:UnityEngine.Animations.AnimationClipPlayable.SetApplyFootIK(System.Boolean)">
       <summary>
         <para>Sets the value of the ApplyFootIK flag.</para>
       </summary>
       <param name="value">The new value of the ApplyFootIK flag.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.AnimationClipPlayable.SetApplyPlayableIK(System.Boolean)">
+      <summary>
+        <para>Requests OnAnimatorIK to be called on the animated GameObject.</para>
+      </summary>
+      <param name="value"></param>
     </member>
     <member name="T:UnityEngine.Animations.AnimationLayerMixerPlayable">
       <summary>
@@ -620,6 +769,493 @@
       <summary>
         <para>Returns an invalid AnimatorControllerPlayable.</para>
       </summary>
+    </member>
+    <member name="T:UnityEngine.Animations.Axis">
+      <summary>
+        <para>Represents the axes used in 3D space.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Animations.Axis.None">
+      <summary>
+        <para>Represents the case when no axis is specified.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Animations.Axis.X">
+      <summary>
+        <para>Represents the X axis.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Animations.Axis.Y">
+      <summary>
+        <para>Represents the Y axis.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Animations.Axis.Z">
+      <summary>
+        <para>Represents the Z axis.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Animations.ConstraintSource">
+      <summary>
+        <para>Represents a source for the constraint.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ConstraintSource.sourceTransform">
+      <summary>
+        <para>The transform component of the source object.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ConstraintSource.weight">
+      <summary>
+        <para>The weight of the source in the evaluation of the constraint.</para>
+      </summary>
+    </member>
+    <member name="?:UnityEngine.Animations.IConstraint">
+      <summary>
+        <para>The common interface for constraint components.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.IConstraint.constraintActive">
+      <summary>
+        <para>Activate or deactivate the constraint.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.IConstraint.locked">
+      <summary>
+        <para>Lock or unlock the offset and position at rest.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.IConstraint.sourceCount">
+      <summary>
+        <para>Gets the number of sources currently set on the component.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.IConstraint.weight">
+      <summary>
+        <para>The weight of the constraint component.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Animations.IConstraint.AddSource(UnityEngine.Animations.ConstraintSource)">
+      <summary>
+        <para>Add a constraint source.</para>
+      </summary>
+      <param name="source">The source object and its weight.</param>
+      <returns>
+        <para>Returns the index of the added source.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.IConstraint.GetSource(System.Int32)">
+      <summary>
+        <para>Gets a constraint source by index.</para>
+      </summary>
+      <param name="index">The index of the source.</param>
+      <returns>
+        <para>The source object and its weight.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.IConstraint.GetSources(System.Collections.Generic.List`1&lt;UnityEngine.Animations.ConstraintSource&gt;)">
+      <summary>
+        <para>Gets the list of sources.</para>
+      </summary>
+      <param name="sources">The list of sources to be filled by the component.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.IConstraint.RemoveSource(System.Int32)">
+      <summary>
+        <para>Removes a source from the component.</para>
+      </summary>
+      <param name="index">The index of the source to remove.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.IConstraint.SetSource(System.Int32,UnityEngine.Animations.ConstraintSource)">
+      <summary>
+        <para>Sets a source at a specified index.</para>
+      </summary>
+      <param name="index">The index of the source to set.</param>
+      <param name="source">The source object and its weight.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.IConstraint.SetSources(System.Collections.Generic.List`1&lt;UnityEngine.Animations.ConstraintSource&gt;)">
+      <summary>
+        <para>Sets the list of sources on the component.</para>
+      </summary>
+      <param name="sources">The list of sources to set.</param>
+    </member>
+    <member name="T:UnityEngine.Animations.ParentConstraint">
+      <summary>
+        <para>Constrains the orientation and translation of an object to one or more source objects. The constrained object behaves as if it is in the hierarchy of the sources.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ParentConstraint.constraintActive">
+      <summary>
+        <para>Activates or deactivates the constraint.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ParentConstraint.locked">
+      <summary>
+        <para>Locks the offsets and position (translation and rotation) at rest.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ParentConstraint.rotationAtRest">
+      <summary>
+        <para>The rotation used when the sources have a total weight of 0.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ParentConstraint.rotationAxis">
+      <summary>
+        <para>The rotation axes affected by the ParentConstraint.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ParentConstraint.rotationOffsets">
+      <summary>
+        <para>The rotation offsets from the constrained orientation.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ParentConstraint.sourceCount">
+      <summary>
+        <para>The number of sources set on the component (read-only).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ParentConstraint.translationAtRest">
+      <summary>
+        <para>The position of the object in local space, used when the sources have a total weight of 0.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ParentConstraint.translationAxis">
+      <summary>
+        <para>The translation axes affected by the ParentConstraint.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ParentConstraint.translationOffsets">
+      <summary>
+        <para>The translation offsets from the constrained orientation.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ParentConstraint.weight">
+      <summary>
+        <para>The weight of the constraint component.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Animations.ParentConstraint.AddSource(UnityEngine.Animations.ConstraintSource)">
+      <summary>
+        <para>Adds a constraint source.</para>
+      </summary>
+      <param name="source">The source object and its weight.</param>
+      <returns>
+        <para>Returns the index of the added source.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.ParentConstraint.GetRotationOffset(System.Int32)">
+      <summary>
+        <para>Gets the rotation offset associated with a source by index.</para>
+      </summary>
+      <param name="index">The index of the constraint source.</param>
+      <returns>
+        <para>The rotation offset, as Euler angles.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.ParentConstraint.GetSource(System.Int32)">
+      <summary>
+        <para>Gets a constraint source by index.</para>
+      </summary>
+      <param name="index">The index of the source.</param>
+      <returns>
+        <para>The source object and its weight.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.ParentConstraint.GetSources(System.Collections.Generic.List`1&lt;UnityEngine.Animations.ConstraintSource&gt;)">
+      <summary>
+        <para>Gets the list of sources.</para>
+      </summary>
+      <param name="sources">The list of sources filled by the component.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.ParentConstraint.GetTranslationOffset(System.Int32)">
+      <summary>
+        <para>Gets the rotation offset associated with a source by index.</para>
+      </summary>
+      <param name="index">The index of the constraint source.</param>
+      <returns>
+        <para>The translation offset.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.ParentConstraint.RemoveSource(System.Int32)">
+      <summary>
+        <para>Removes a source from the component.</para>
+      </summary>
+      <param name="index">The index of the source to remove.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.ParentConstraint.SetRotationOffset(System.Int32,UnityEngine.Vector3)">
+      <summary>
+        <para>Sets the rotation offset associated with a source by index.</para>
+      </summary>
+      <param name="index">The index of the constraint source.</param>
+      <param name="value">The new rotation offset.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.ParentConstraint.SetSource(System.Int32,UnityEngine.Animations.ConstraintSource)">
+      <summary>
+        <para>Sets a source at a specified index.</para>
+      </summary>
+      <param name="index">The index of the source to set.</param>
+      <param name="source">The source object and its weight.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.ParentConstraint.SetSources(System.Collections.Generic.List`1&lt;UnityEngine.Animations.ConstraintSource&gt;)">
+      <summary>
+        <para>Sets the list of sources on the component.</para>
+      </summary>
+      <param name="sources">The list of sources to set.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.ParentConstraint.SetTranslationOffset(System.Int32,UnityEngine.Vector3)">
+      <summary>
+        <para>Sets the translation offset associated with a source by index.</para>
+      </summary>
+      <param name="index">The index of the constraint source.</param>
+      <param name="value">The new translation offset.</param>
+    </member>
+    <member name="T:UnityEngine.Animations.PositionConstraint">
+      <summary>
+        <para>Constrains the position of an object relative to the position of one or more source objects.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.PositionConstraint.constraintActive">
+      <summary>
+        <para>Activates or deactivates the constraint.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.PositionConstraint.locked">
+      <summary>
+        <para>Locks the offset and position at rest.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.PositionConstraint.sourceCount">
+      <summary>
+        <para>The number of sources set on the component (read-only).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.PositionConstraint.translationAtRest">
+      <summary>
+        <para>The translation used when the sources have a total weight of 0.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.PositionConstraint.translationAxis">
+      <summary>
+        <para>The axes affected by the PositionConstraint.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.PositionConstraint.translationOffset">
+      <summary>
+        <para>The offset from the constrained position.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.PositionConstraint.weight">
+      <summary>
+        <para>The weight of the constraint component.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Animations.PositionConstraint.AddSource(UnityEngine.Animations.ConstraintSource)">
+      <summary>
+        <para>Adds a constraint source.</para>
+      </summary>
+      <param name="source">The source object and its weight.</param>
+      <returns>
+        <para>Returns the index of the added source.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.PositionConstraint.GetSource(System.Int32)">
+      <summary>
+        <para>Gets a constraint source by index.</para>
+      </summary>
+      <param name="index">The index of the source.</param>
+      <returns>
+        <para>The source object and its weight.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.PositionConstraint.GetSources(System.Collections.Generic.List`1&lt;UnityEngine.Animations.ConstraintSource&gt;)">
+      <summary>
+        <para>Gets the list of sources.</para>
+      </summary>
+      <param name="sources">The list of sources to be filled by the component.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.PositionConstraint.RemoveSource(System.Int32)">
+      <summary>
+        <para>Removes a source from the component.</para>
+      </summary>
+      <param name="index">The index of the source to remove.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.PositionConstraint.SetSource(System.Int32,UnityEngine.Animations.ConstraintSource)">
+      <summary>
+        <para>Sets a source at a specified index.</para>
+      </summary>
+      <param name="index">The index of the source to set.</param>
+      <param name="source">The source object and its weight.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.PositionConstraint.SetSources(System.Collections.Generic.List`1&lt;UnityEngine.Animations.ConstraintSource&gt;)">
+      <summary>
+        <para>Sets the list of sources on the component.</para>
+      </summary>
+      <param name="sources">The list of sources to set.</param>
+    </member>
+    <member name="T:UnityEngine.Animations.RotationConstraint">
+      <summary>
+        <para>Constrains the rotation of an object relative to the rotation of one or more source objects.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.RotationConstraint.constraintActive">
+      <summary>
+        <para>Activates or deactivates the constraint.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.RotationConstraint.locked">
+      <summary>
+        <para>Locks the offset and rotation at rest.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.RotationConstraint.rotationAtRest">
+      <summary>
+        <para>The rotation used when the sources have a total weight of 0.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.RotationConstraint.rotationAxis">
+      <summary>
+        <para>The axes affected by the RotationConstraint.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.RotationConstraint.rotationOffset">
+      <summary>
+        <para>The offset from the constrained rotation.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.RotationConstraint.sourceCount">
+      <summary>
+        <para>The number of sources set on the component (read-only).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.RotationConstraint.weight">
+      <summary>
+        <para>The weight of the constraint component.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Animations.RotationConstraint.AddSource(UnityEngine.Animations.ConstraintSource)">
+      <summary>
+        <para>Adds a constraint source.</para>
+      </summary>
+      <param name="source">The source object and its weight.</param>
+      <returns>
+        <para>Returns the index of the added source.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.RotationConstraint.GetSource(System.Int32)">
+      <summary>
+        <para>Gets a constraint source by index.</para>
+      </summary>
+      <param name="index">The index of the source.</param>
+      <returns>
+        <para>The source object and its weight.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.RotationConstraint.GetSources(System.Collections.Generic.List`1&lt;UnityEngine.Animations.ConstraintSource&gt;)">
+      <summary>
+        <para>Gets the list of sources.</para>
+      </summary>
+      <param name="sources">The list of sources to be filled by the component.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.RotationConstraint.RemoveSource(System.Int32)">
+      <summary>
+        <para>Removes a source from the component.</para>
+      </summary>
+      <param name="index">The index of the source to remove.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.RotationConstraint.SetSource(System.Int32,UnityEngine.Animations.ConstraintSource)">
+      <summary>
+        <para>Sets a source at a specified index.</para>
+      </summary>
+      <param name="index">The index of the source to set.</param>
+      <param name="source">The source object and its weight.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.RotationConstraint.SetSources(System.Collections.Generic.List`1&lt;UnityEngine.Animations.ConstraintSource&gt;)">
+      <summary>
+        <para>Sets the list of sources on the component.</para>
+      </summary>
+      <param name="sources">The list of sources to set.</param>
+    </member>
+    <member name="T:UnityEngine.Animations.ScaleConstraint">
+      <summary>
+        <para>Constrains the scale of an object relative to the scale of one or more source objects.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ScaleConstraint.constraintActive">
+      <summary>
+        <para>Activates or deactivates the constraint.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ScaleConstraint.locked">
+      <summary>
+        <para>Locks the offset and scale at rest.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ScaleConstraint.scaleAtRest">
+      <summary>
+        <para>The scale used when the sources have a total weight of 0.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ScaleConstraint.scaleOffset">
+      <summary>
+        <para>The offset from the constrained scale.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ScaleConstraint.scalingAxis">
+      <summary>
+        <para>The axes affected by the ScaleConstraint.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ScaleConstraint.sourceCount">
+      <summary>
+        <para>The number of sources set on the component (read-only).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Animations.ScaleConstraint.weight">
+      <summary>
+        <para>The weight of the constraint component.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Animations.ScaleConstraint.AddSource(UnityEngine.Animations.ConstraintSource)">
+      <summary>
+        <para>Adds a constraint source.</para>
+      </summary>
+      <param name="source">The source object and its weight.</param>
+      <returns>
+        <para>Returns the index of the added source.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.ScaleConstraint.GetSource(System.Int32)">
+      <summary>
+        <para>Gets a constraint source by index.</para>
+      </summary>
+      <param name="index">The index of the source.</param>
+      <returns>
+        <para>The source object and its weight.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Animations.ScaleConstraint.GetSources(System.Collections.Generic.List`1&lt;UnityEngine.Animations.ConstraintSource&gt;)">
+      <summary>
+        <para>Gets the list of sources.</para>
+      </summary>
+      <param name="sources">The list of sources to be filled by the component.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.ScaleConstraint.RemoveSource(System.Int32)">
+      <summary>
+        <para>Removes a source from the component.</para>
+      </summary>
+      <param name="index">The index of the source to remove.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.ScaleConstraint.SetSource(System.Int32,UnityEngine.Animations.ConstraintSource)">
+      <summary>
+        <para>Sets a source at a specified index.</para>
+      </summary>
+      <param name="index">The index of the source to set.</param>
+      <param name="source">The source object and its weight.</param>
+    </member>
+    <member name="M:UnityEngine.Animations.ScaleConstraint.SetSources(System.Collections.Generic.List`1&lt;UnityEngine.Animations.ConstraintSource&gt;)">
+      <summary>
+        <para>Sets the list of sources on the component.</para>
+      </summary>
+      <param name="sources">The list of sources to set.</param>
     </member>
     <member name="T:UnityEngine.AnimationState">
       <summary>
@@ -756,6 +1392,11 @@
         <para>Blends pivot point between body center of mass and feet pivot. At 0%, the blending point is body center of mass. At 100%, the blending point is feet pivot.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Animator.fireEvents">
+      <summary>
+        <para>Sets whether the Animator sends events of type AnimationEvent.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.Animator.gravityWeight">
       <summary>
         <para>The current gravity weight based on current animations that are played.</para>
@@ -801,9 +1442,14 @@
         <para>Returns true if the current rig is optimizable with AnimatorUtility.OptimizeTransformHierarchy.</para>
       </summary>
     </member>
+    <member name="P:UnityEngine.Animator.keepAnimatorControllerStateOnDisable">
+      <summary>
+        <para>Controls the behaviour of the Animator component when a GameObject is disabled.</para>
+      </summary>
+    </member>
     <member name="P:UnityEngine.Animator.layerCount">
       <summary>
-        <para>See IAnimatorControllerPlayable.layerCount.</para>
+        <para>Returns the number of layers in the controller.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Animator.layersAffectMassCenter">
@@ -823,12 +1469,12 @@
     </member>
     <member name="P:UnityEngine.Animator.parameterCount">
       <summary>
-        <para>See IAnimatorControllerPlayable.parameterCount.</para>
+        <para>Returns the number of parameters in the controller.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Animator.parameters">
       <summary>
-        <para>Read only acces to the AnimatorControllerParameters used by the animator.</para>
+        <para>The AnimatorControllerParameter list used by the animator. (Read Only)</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Animator.pivotPosition">
@@ -898,12 +1544,12 @@
     </member>
     <member name="P:UnityEngine.Animator.targetPosition">
       <summary>
-        <para>Returns the position of the target specified by SetTarget(AvatarTarget targetIndex, float targetNormalizedTime)).</para>
+        <para>Returns the position of the target specified by SetTarget.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Animator.targetRotation">
       <summary>
-        <para>Returns the rotation of the target specified by SetTarget(AvatarTarget targetIndex, float targetNormalizedTime)).</para>
+        <para>Returns the rotation of the target specified by SetTarget.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Animator.updateMode">
@@ -967,13 +1613,16 @@
     </member>
     <member name="M:UnityEngine.Animator.GetAnimatorTransitionInfo(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetAnimatorTransitionInfo.</para>
+        <para>Returns an AnimatorTransitionInfo with the informations on the current transition.</para>
       </summary>
-      <param name="layerIndex"></param>
+      <param name="layerIndex">The layer's index.</param>
+      <returns>
+        <para>An AnimatorTransitionInfo with the informations on the current transition.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetBehaviour">
       <summary>
-        <para>Return the first StateMachineBehaviour that match type T or derived from T. Return null if none are found.</para>
+        <para>Returns the first StateMachineBehaviour that matches type T or is derived from T. Returns null if none are found.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.Animator.GetBehaviours">
@@ -983,23 +1632,29 @@
     </member>
     <member name="M:UnityEngine.Animator.GetBoneTransform(UnityEngine.HumanBodyBones)">
       <summary>
-        <para>Returns transform mapped to this human bone id.</para>
+        <para>Returns Transform mapped to this human bone id.</para>
       </summary>
       <param name="humanBoneId">The human bone that is queried, see enum HumanBodyBones for a list of possible values.</param>
     </member>
     <member name="M:UnityEngine.Animator.GetBool(System.String)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetBool.</para>
+        <para>Returns the value of the given boolean parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <returns>
+        <para>The value of the parameter.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetBool(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetBool.</para>
+        <para>Returns the value of the given boolean parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <returns>
+        <para>The value of the parameter.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetCurrentAnimationClipState(System.Int32)">
       <summary>
@@ -1009,42 +1664,57 @@
     </member>
     <member name="M:UnityEngine.Animator.GetCurrentAnimatorClipInfo(System.Int32)">
       <summary>
-        <para>Access the current Animation clip’s information from the Animator.</para>
+        <para>Returns an array of all the AnimatorClipInfo in the current state of the given layer.</para>
       </summary>
-      <param name="layerIndex"></param>
+      <param name="layerIndex">The layer index.</param>
+      <returns>
+        <para>An array of all the AnimatorClipInfo in the current state.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetCurrentAnimatorClipInfo(System.Int32,System.Collections.Generic.List`1&lt;UnityEngine.AnimatorClipInfo&gt;)">
       <summary>
-        <para>Get a list of AnimatorClipInfo from the Animator.</para>
+        <para>Fills clips with the list of all the AnimatorClipInfo in the current state of the given layer.</para>
       </summary>
-      <param name="layerIndex"></param>
-      <param name="clips"></param>
+      <param name="layerIndex">The layer index.</param>
+      <param name="clips">The list of AnimatorClipInfo to fill.</param>
     </member>
     <member name="M:UnityEngine.Animator.GetCurrentAnimatorClipInfoCount(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetCurrentAnimatorClipInfoCount.</para>
+        <para>Returns the number of AnimatorClipInfo in the current state.</para>
       </summary>
-      <param name="layerIndex"></param>
+      <param name="layerIndex">The layer index.</param>
+      <returns>
+        <para>The number of AnimatorClipInfo in the current state.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetCurrentAnimatorStateInfo(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetCurrentAnimatorStateInfo.</para>
+        <para>Returns an AnimatorStateInfo with the information on the current state.</para>
       </summary>
-      <param name="layerIndex"></param>
+      <param name="layerIndex">The layer index.</param>
+      <returns>
+        <para>An AnimatorStateInfo with the information on the current state.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetFloat(System.String)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetFloat.</para>
+        <para>Returns the value of the given float parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <returns>
+        <para>The value of the parameter.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetFloat(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetFloat.</para>
+        <para>Returns the value of the given float parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <returns>
+        <para>The value of the parameter.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetIKHintPosition(UnityEngine.AvatarIKHint)">
       <summary>
@@ -1093,35 +1763,50 @@
     </member>
     <member name="M:UnityEngine.Animator.GetInteger(System.String)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetInteger.</para>
+        <para>Returns the value of the given integer parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <returns>
+        <para>The value of the parameter.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetInteger(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetInteger.</para>
+        <para>Returns the value of the given integer parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <returns>
+        <para>The value of the parameter.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetLayerIndex(System.String)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetLayerIndex.</para>
+        <para>Returns the index of the layer with the given name.</para>
       </summary>
-      <param name="layerName"></param>
+      <param name="layerName">The layer name.</param>
+      <returns>
+        <para>The layer index.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetLayerName(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetLayerName.</para>
+        <para>Returns the layer name.</para>
       </summary>
-      <param name="layerIndex"></param>
+      <param name="layerIndex">The layer index.</param>
+      <returns>
+        <para>The layer name.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetLayerWeight(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetLayerWeight.</para>
+        <para>Returns the weight of the layer at the specified index.</para>
       </summary>
-      <param name="layerIndex"></param>
+      <param name="layerIndex">The layer index.</param>
+      <returns>
+        <para>The layer weight.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetNextAnimationClipState(System.Int32)">
       <summary>
@@ -1131,32 +1816,41 @@
     </member>
     <member name="M:UnityEngine.Animator.GetNextAnimatorClipInfo(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetNextAnimatorClipInfo.</para>
+        <para>Returns an array of all the AnimatorClipInfo in the next state of the given layer.</para>
       </summary>
-      <param name="layerIndex"></param>
+      <param name="layerIndex">The layer index.</param>
+      <returns>
+        <para>An array of all the AnimatorClipInfo in the next state.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetNextAnimatorClipInfo(System.Int32,System.Collections.Generic.List`1&lt;UnityEngine.AnimatorClipInfo&gt;)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetNextAnimatorClipInfo.</para>
+        <para>Fills clips with the list of all the AnimatorClipInfo in the next state of the given layer.</para>
       </summary>
-      <param name="layerIndex"></param>
-      <param name="clips"></param>
+      <param name="layerIndex">The layer index.</param>
+      <param name="clips">The list of AnimatorClipInfo to fill.</param>
     </member>
     <member name="M:UnityEngine.Animator.GetNextAnimatorClipInfoCount(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetNextAnimatorClipInfoCount.</para>
+        <para>Returns the number of AnimatorClipInfo in the next state.</para>
       </summary>
-      <param name="layerIndex"></param>
+      <param name="layerIndex">The layer index.</param>
+      <returns>
+        <para>The number of AnimatorClipInfo in the next state.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetNextAnimatorStateInfo(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.GetNextAnimatorStateInfo.</para>
+        <para>Returns an AnimatorStateInfo with the information on the next state.</para>
       </summary>
-      <param name="layerIndex"></param>
+      <param name="layerIndex">The layer index.</param>
+      <returns>
+        <para>An AnimatorStateInfo with the information on the next state.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.GetParameter(System.Int32)">
       <summary>
-        <para>See AnimatorController.GetParameter.</para>
+        <para>See AnimatorController.parameters.</para>
       </summary>
       <param name="index"></param>
     </member>
@@ -1186,12 +1880,15 @@
     </member>
     <member name="M:UnityEngine.Animator.HasState(System.Int32,System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.HasState.</para>
+        <para>Returns true if the state exists in this layer, false otherwise.</para>
       </summary>
-      <param name="layerIndex"></param>
-      <param name="stateID"></param>
+      <param name="layerIndex">The layer index.</param>
+      <param name="stateID">The state ID.</param>
+      <returns>
+        <para>True if the state exists in this layer, false otherwise.</para>
+      </returns>
     </member>
-    <member name="M:UnityEngine.Animator.InterruptMatchTarget()">
+    <member name="M:UnityEngine.Animator.InterruptMatchTarget">
       <summary>
         <para>Interrupts the automatic target matching.</para>
       </summary>
@@ -1211,23 +1908,32 @@
     </member>
     <member name="M:UnityEngine.Animator.IsInTransition(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.IsInTransition.</para>
+        <para>Returns true if there is a transition on the given layer, false otherwise.</para>
       </summary>
-      <param name="layerIndex"></param>
+      <param name="layerIndex">The layer index.</param>
+      <returns>
+        <para>True if there is a transition on the given layer, false otherwise.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.IsParameterControlledByCurve(System.String)">
       <summary>
-        <para>See IAnimatorControllerPlayable.IsParameterControlledByCurve.</para>
+        <para>Returns true if the parameter is controlled by a curve, false otherwise.</para>
       </summary>
-      <param name="name"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <returns>
+        <para>True if the parameter is controlled by a curve, false otherwise.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.IsParameterControlledByCurve(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.IsParameterControlledByCurve.</para>
+        <para>Returns true if the parameter is controlled by a curve, false otherwise.</para>
       </summary>
-      <param name="name"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <returns>
+        <para>True if the parameter is controlled by a curve, false otherwise.</para>
+      </returns>
     </member>
     <member name="M:UnityEngine.Animator.MatchTarget(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.AvatarTarget,UnityEngine.MatchTargetWeightMask,System.Single,System.Single)">
       <summary>
@@ -1242,39 +1948,39 @@
     </member>
     <member name="M:UnityEngine.Animator.Play(System.String,System.Int32,System.Single)">
       <summary>
-        <para>See IAnimatorControllerPlayable.Play.</para>
+        <para>Plays a state.</para>
       </summary>
-      <param name="stateName"></param>
-      <param name="layer"></param>
-      <param name="normalizedTime"></param>
-      <param name="stateNameHash"></param>
+      <param name="stateName">The state name.</param>
+      <param name="stateNameHash">The state hash name. If statNameHash is 0, it changes the current state time.</param>
+      <param name="layer">The layer index. If layer is -1, it plays the first state with the given state name or hash.</param>
+      <param name="normalizedTime">The time offset (in percentage).</param>
     </member>
     <member name="M:UnityEngine.Animator.Play(System.Int32,System.Int32,System.Single)">
       <summary>
-        <para>See IAnimatorControllerPlayable.Play.</para>
+        <para>Plays a state.</para>
       </summary>
-      <param name="stateName"></param>
-      <param name="layer"></param>
-      <param name="normalizedTime"></param>
-      <param name="stateNameHash"></param>
+      <param name="stateName">The state name.</param>
+      <param name="stateNameHash">The state hash name. If statNameHash is 0, it changes the current state time.</param>
+      <param name="layer">The layer index. If layer is -1, it plays the first state with the given state name or hash.</param>
+      <param name="normalizedTime">The time offset (in percentage).</param>
     </member>
     <member name="M:UnityEngine.Animator.PlayInFixedTime(System.String,System.Int32,System.Single)">
       <summary>
-        <para>See IAnimatorControllerPlayable.PlayInFixedTime.</para>
+        <para>Plays a state.</para>
       </summary>
-      <param name="stateName"></param>
-      <param name="layer"></param>
-      <param name="fixedTime"></param>
-      <param name="stateNameHash"></param>
+      <param name="stateName">The state name.</param>
+      <param name="stateNameHash">The state hash name. If statNameHash is 0, it changes the current state time.</param>
+      <param name="layer">The layer index. If layer is -1, it plays the first state with the given state name or hash.</param>
+      <param name="fixedTime">The time offset (in seconds).</param>
     </member>
     <member name="M:UnityEngine.Animator.PlayInFixedTime(System.Int32,System.Int32,System.Single)">
       <summary>
-        <para>See IAnimatorControllerPlayable.PlayInFixedTime.</para>
+        <para>Plays a state.</para>
       </summary>
-      <param name="stateName"></param>
-      <param name="layer"></param>
-      <param name="fixedTime"></param>
-      <param name="stateNameHash"></param>
+      <param name="stateName">The state name.</param>
+      <param name="stateNameHash">The state hash name. If statNameHash is 0, it changes the current state time.</param>
+      <param name="layer">The layer index. If layer is -1, it plays the first state with the given state name or hash.</param>
+      <param name="fixedTime">The time offset (in seconds).</param>
     </member>
     <member name="M:UnityEngine.Animator.Rebind">
       <summary>
@@ -1283,17 +1989,17 @@
     </member>
     <member name="M:UnityEngine.Animator.ResetTrigger(System.String)">
       <summary>
-        <para>See IAnimatorControllerPlayable.ResetTrigger.</para>
+        <para>Resets the value of the given trigger parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
     </member>
     <member name="M:UnityEngine.Animator.ResetTrigger(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.ResetTrigger.</para>
+        <para>Resets the value of the given trigger parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
     </member>
     <member name="M:UnityEngine.Animator.SetBoneLocalRotation(UnityEngine.HumanBodyBones,UnityEngine.Quaternion)">
       <summary>
@@ -1304,59 +2010,59 @@
     </member>
     <member name="M:UnityEngine.Animator.SetBool(System.String,System.Boolean)">
       <summary>
-        <para>Sets an Animator bool parameter.</para>
+        <para>Sets the value of the given boolean parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="value"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <param name="value">The new parameter value.</param>
     </member>
     <member name="M:UnityEngine.Animator.SetBool(System.Int32,System.Boolean)">
       <summary>
-        <para>Sets an Animator bool parameter.</para>
+        <para>Sets the value of the given boolean parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="value"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <param name="value">The new parameter value.</param>
     </member>
     <member name="M:UnityEngine.Animator.SetFloat(System.String,System.Single)">
       <summary>
         <para>Send float values to the Animator to affect transitions.</para>
       </summary>
-      <param name="name"></param>
-      <param name="value"></param>
-      <param name="dampTime"></param>
-      <param name="deltaTime"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <param name="value">The new parameter value.</param>
+      <param name="dampTime">The damper total time.</param>
+      <param name="deltaTime">The delta time to give to the damper.</param>
     </member>
     <member name="M:UnityEngine.Animator.SetFloat(System.String,System.Single,System.Single,System.Single)">
       <summary>
         <para>Send float values to the Animator to affect transitions.</para>
       </summary>
-      <param name="name"></param>
-      <param name="value"></param>
-      <param name="dampTime"></param>
-      <param name="deltaTime"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <param name="value">The new parameter value.</param>
+      <param name="dampTime">The damper total time.</param>
+      <param name="deltaTime">The delta time to give to the damper.</param>
     </member>
     <member name="M:UnityEngine.Animator.SetFloat(System.Int32,System.Single)">
       <summary>
         <para>Send float values to the Animator to affect transitions.</para>
       </summary>
-      <param name="name"></param>
-      <param name="value"></param>
-      <param name="dampTime"></param>
-      <param name="deltaTime"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <param name="value">The new parameter value.</param>
+      <param name="dampTime">The damper total time.</param>
+      <param name="deltaTime">The delta time to give to the damper.</param>
     </member>
     <member name="M:UnityEngine.Animator.SetFloat(System.Int32,System.Single,System.Single,System.Single)">
       <summary>
         <para>Send float values to the Animator to affect transitions.</para>
       </summary>
-      <param name="name"></param>
-      <param name="value"></param>
-      <param name="dampTime"></param>
-      <param name="deltaTime"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <param name="value">The new parameter value.</param>
+      <param name="dampTime">The damper total time.</param>
+      <param name="deltaTime">The delta time to give to the damper.</param>
     </member>
     <member name="M:UnityEngine.Animator.SetIKHintPosition(UnityEngine.AvatarIKHint,UnityEngine.Vector3)">
       <summary>
@@ -1402,26 +2108,26 @@
     </member>
     <member name="M:UnityEngine.Animator.SetInteger(System.String,System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.SetInteger.</para>
+        <para>Sets the value of the given integer parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="value"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <param name="value">The new parameter value.</param>
     </member>
     <member name="M:UnityEngine.Animator.SetInteger(System.Int32,System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.SetInteger.</para>
+        <para>Sets the value of the given integer parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="value"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
+      <param name="value">The new parameter value.</param>
     </member>
     <member name="M:UnityEngine.Animator.SetLayerWeight(System.Int32,System.Single)">
       <summary>
-        <para>See IAnimatorControllerPlayable.SetLayerWeight.</para>
+        <para>Sets the weight of the layer at the given index.</para>
       </summary>
-      <param name="layerIndex"></param>
-      <param name="weight"></param>
+      <param name="layerIndex">The layer index.</param>
+      <param name="weight">The new layer weight.</param>
     </member>
     <member name="M:UnityEngine.Animator.SetLookAtPosition(UnityEngine.Vector3)">
       <summary>
@@ -1502,17 +2208,17 @@
     </member>
     <member name="M:UnityEngine.Animator.SetTrigger(System.String)">
       <summary>
-        <para>See IAnimatorControllerPlayable.SetTrigger.</para>
+        <para>Sets the value of the given trigger parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
     </member>
     <member name="M:UnityEngine.Animator.SetTrigger(System.Int32)">
       <summary>
-        <para>See IAnimatorControllerPlayable.SetTrigger.</para>
+        <para>Sets the value of the given trigger parameter.</para>
       </summary>
-      <param name="name"></param>
-      <param name="id"></param>
+      <param name="name">The parameter name.</param>
+      <param name="id">The parameter ID.</param>
     </member>
     <member name="M:UnityEngine.Animator.SetVector(System.String,UnityEngine.Vector3)">
       <summary>
@@ -1761,7 +2467,7 @@
     </member>
     <member name="P:UnityEngine.AnimatorStateInfo.shortNameHash">
       <summary>
-        <para>The hash is generated using Animator::StringToHash. The string to pass doest not include the parent layer's name.</para>
+        <para>The hash is generated using Animator.StringToHash. The hash does not include the name of the parent layer.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.AnimatorStateInfo.speed">
@@ -1798,7 +2504,7 @@
     </member>
     <member name="P:UnityEngine.AnimatorTransitionInfo.anyState">
       <summary>
-        <para>Returns true if the transition is from an AnyState node, or from Animator.CrossFade().</para>
+        <para>Returns true if the transition is from an AnyState node, or from Animator.CrossFade.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.AnimatorTransitionInfo.duration">
@@ -1970,7 +2676,12 @@
     </member>
     <member name="T:UnityEngine.AvatarMask">
       <summary>
-        <para>AvatarMask are used to mask out humanoid body parts and transforms.</para>
+        <para>AvatarMask is used to mask out humanoid body parts and transforms.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AvatarMask.humanoidBodyPartCount">
+      <summary>
+        <para>The number of humanoid body parts.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.AvatarMask.transformCount">
@@ -2513,7 +3224,7 @@
     </member>
     <member name="P:UnityEngine.HumanDescription.upperArmTwist">
       <summary>
-        <para>Defines how the lower arm's roll/twisting is distributed between the shoulder and elbow joints.</para>
+        <para>Defines how the upper arm's roll/twisting is distributed between the shoulder and elbow joints.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.HumanDescription.upperLegTwist">
@@ -2667,7 +3378,7 @@
     </member>
     <member name="T:UnityEngine.MatchTargetWeightMask">
       <summary>
-        <para>To specify position and rotation weight mask for Animator::MatchTarget.</para>
+        <para>Use this struct to specify the position and rotation weight mask for Animator.MatchTarget.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.MatchTargetWeightMask.positionXYZWeight">
@@ -2781,7 +3492,7 @@
     </member>
     <member name="T:UnityEngine.RuntimeAnimatorController">
       <summary>
-        <para>Runtime representation of the AnimatorController. It can be used to change the Animator's controller during runtime.</para>
+        <para>The runtime representation of the AnimatorController. Use this representation to change the Animator Controller during runtime.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.RuntimeAnimatorController.animationClips">
@@ -2861,6 +3572,11 @@
     <member name="M:UnityEngine.StateMachineBehaviour.OnStateUpdate">
       <summary>
         <para>Called at each Update frame except for the first and last frame.</para>
+      </summary>
+    </member>
+    <member name="A:UnityEngine.AnimationModule">
+      <summary>
+        <para>The Animation module implements Unity's animation system.</para>
       </summary>
     </member>
   </members>

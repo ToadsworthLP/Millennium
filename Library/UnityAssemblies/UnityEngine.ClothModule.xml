@@ -221,5 +221,10 @@
       <param name="a">The first SphereCollider of a ClothSphereColliderPair.</param>
       <param name="b">The second SphereCollider of a ClothSphereColliderPair.</param>
     </member>
+    <member name="A:UnityEngine.ClothModule">
+      <summary>
+        <para>The Cloth module implements cloth physics simulation through the Cloth component.</para>
+      </summary>
+    </member>
   </members>
 </doc>
