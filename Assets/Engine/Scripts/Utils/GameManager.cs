@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour {
     public PlayerMachine playerMachine;
     public Animator playerAnimator;
     private Backpack backpack;
-    private SaveManager saveManager;
 
     [Header("Rendering & UI")]
     public GameObject mainCamera;
@@ -32,13 +31,6 @@ public class GameManager : MonoBehaviour {
             backpack = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>();
         }
         return backpack;
-    }
-
-    public SaveManager GetSaveManager() {
-        if (saveManager == null) {
-            saveManager = GameObject.FindGameObjectWithTag("Backpack").GetComponent<SaveManager>();
-        }
-        return saveManager;
     }
 
     public CameraController GetCameraController(){
@@ -61,34 +53,4 @@ public class GameManager : MonoBehaviour {
             renderTextureParent.SetActive(false);
         }
     }
-
-    /// <summary>
-    /// Deprecated. Will be removed soon.
-    /// </summary>
-    /// <param name="hammerType"></param>
-    public void UpdateHammer(HammerAsset hammerType) {
-        playerMachine.hammer.UpdateHammer(hammerType);
-    }
-
-    public T GetShelfData<T>(string key, T defaultValue){
-        object data;
-        if(GetBackpack().shelf.TryGetValue(key, out data)){
-            try {
-                return (T)data;
-            } catch (Exception e) {
-                Debug.LogError("Failed to cast entry " + key + " to requested type: " + e.Message + e.StackTrace);
-            }
-        };
-        return defaultValue;
-    }
-
-    public void SetShelfData(string key, object value) {
-        object val;
-        if (backpack.shelf.TryGetValue(key, out val)) {
-            backpack.shelf[key] = value;
-        } else {
-            backpack.shelf.Add(key, value);
-        }
-    }
-
 }

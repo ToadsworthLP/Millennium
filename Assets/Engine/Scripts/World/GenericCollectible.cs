@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SavePort.Types;
+using UnityEngine;
 
 public class GenericCollectible : MonoBehaviour {
 

@@ -1,4 +1,6 @@
-﻿public class IntContainerManipulatorNode : ContainerManipulatorBaseNode<int, IntContainer> {
+﻿using SavePort.Types;
+
+public class IntContainerManipulatorNode : ContainerManipulatorBaseNode<int, IntContainer> {
 
     public Operator action;
     public enum Operator{ SET, ADD }

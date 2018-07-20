@@ -3,22 +3,21 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b61a9587577d307459a9f23b90577368, type: 3}
+  m_Script: {fileID: 11500000, guid: f2ef212a208daff43aff6786d41b77af, type: 3}
   m_Name: PlayerHP
   m_EditorClassIdentifier: 
-  serializedValue: 6
-  hasBoundaries: 1
+  serializedValue: 10
+  validateInput: 1
   minValue:
-    useLocalValue: 1
-    localValue: 0
-    containerReference: {fileID: 0}
+    localMode: 1
+    container: {fileID: 0}
+    localData: 0
   maxValue:
-    useLocalValue: 0
-    localValue: 99
-    containerReference: {fileID: 11400000, guid: 85425671d6f5fa44aad1b38c5326926a,
-      type: 2}
+    localMode: 0
+    container: {fileID: 11400000, guid: 38db89edcfe0d4843883152baba75a4d, type: 2}
+    localData: 0

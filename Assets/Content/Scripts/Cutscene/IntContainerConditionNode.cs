@@ -1,4 +1,6 @@
-﻿public class IntContainerConditionNode : ContainerConditionBaseNode<int, IntContainer> {
+﻿using SavePort.Types;
+
+public class IntContainerConditionNode : ContainerConditionBaseNode<int, IntContainer> {
 
     public enum Operator { GREATER, EQUALS, LESS }
     public Operator operatorToCheckWith;

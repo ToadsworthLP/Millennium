@@ -1,15 +1,24 @@
-﻿using System.Collections;
+﻿using SavePort.Types;
+using System.Collections;
 using UnityEngine;
 
 public class Hammer : MonoBehaviour{
 
-    public HammerAsset hammer;
+    public HammerAssetReference hammer;
     public GameManager gameManager;
     public SpriteRenderer hammerSpriteRenderer;
     private PlayerMachine playerMachine;
     private Animator playerAnimator;
 
     private bool alreadyHit;
+
+    public void Start() {
+        hammer.AddUpdateListener(UpdateHammer);
+    }
+
+    public void OnDestroy() {
+        hammer.RemoveUpdateListener(UpdateHammer);
+    }
 
     public void SwingHammer(){
         if (hammer == null)
@@ -25,9 +34,8 @@ public class Hammer : MonoBehaviour{
         playerMachine.allowMovement = false;
     }
 
-    public void UpdateHammer(HammerAsset hammer){
-        this.hammer = hammer;
-        hammerSpriteRenderer.sprite = hammer.hammerSprite;
+    public void UpdateHammer(){
+        hammerSpriteRenderer.sprite = hammer.Value.hammerSprite;
     }
 
     void OnTriggerEnter(Collider other) {

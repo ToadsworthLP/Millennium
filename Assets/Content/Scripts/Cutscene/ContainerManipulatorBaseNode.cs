@@ -1,4 +1,6 @@
-﻿public abstract class ContainerManipulatorBaseNode<VariableType, ContainerType> : BaseCutsceneNode where ContainerType : BaseVariableContainer<VariableType>
+﻿using SavePort;
+
+public abstract class ContainerManipulatorBaseNode<VariableType, ContainerType> : BaseCutsceneNode where ContainerType : BaseDataContainer<VariableType>
 {
 
     public ContainerType container;

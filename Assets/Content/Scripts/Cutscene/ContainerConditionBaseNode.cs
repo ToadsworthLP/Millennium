@@ -1,4 +1,6 @@
-﻿public abstract class ContainerConditionBaseNode<VariableType, ContainerType> : ConditionBaseNode where ContainerType : BaseVariableContainer<VariableType>
+﻿using SavePort;
+
+public abstract class ContainerConditionBaseNode<VariableType, ContainerType> : ConditionBaseNode where ContainerType : BaseDataContainer<VariableType>
 {
 
     public ContainerType container;

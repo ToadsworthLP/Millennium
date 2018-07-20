@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using SavePort.Saving;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,7 +29,6 @@ public class SaveBlock : MonoBehaviour
     public Color noHighlightColor;
 
     private GameManager gameManager;
-    private SaveManager saveManager;
     private RectTransform uiParent;
     private PlayerMachine player;
     private GameObject currentBubble;
@@ -40,7 +40,6 @@ public class SaveBlock : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         uiParent = gameManager.uiParent;
         player = gameManager.playerMachine;
-        saveManager = gameManager.GetSaveManager();
         animator = gameObject.GetComponent<Animator>();
     }
 
@@ -62,7 +61,9 @@ public class SaveBlock : MonoBehaviour
     }
 
     private void YesSelected(PopupMenuOption option){
-        bool success = saveManager.SaveGame();
+        gameManager.GetBackpack().playerSpawnPosition.Value = player.transform.position + new Vector3(0, 0.1f , 0);
+
+        bool success = SaveManager.SaveContainers("save.spdat");
         GameObject bubble = Instantiate(speechBubble, uiParent);
         Typewriter writer = bubble.GetComponent<Typewriter>();
         writer.OnBubbleClosed += ResultBubbleClose;
@@ -81,7 +82,6 @@ public class SaveBlock : MonoBehaviour
     }
 
     private void ResultBubbleClose() {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMachine>();
         player.SetCutsceneMode(false);
         player.SetFrozenStatus(false);
         StartCoroutine(WaitBeforeEnablingJump());

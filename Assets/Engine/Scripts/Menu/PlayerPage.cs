@@ -41,10 +41,10 @@ public class PlayerPage : MonoBehaviour {
             backpack.shineSprites + Utils.NewLine() +
             playtime.Hour + " : " + playtime.Minute;
 
-        if(backpack.currentHammer == null){
+        if(backpack.hammer == null){
             hammerIcon.sprite = noHammerSprite;
         } else{
-            hammerIcon.sprite = backpack.currentHammer.hammerIcon;
+            hammerIcon.sprite = backpack.hammer.Value.hammerIcon;
         }
 
         gameManager.GetPlayerRenderTexture();

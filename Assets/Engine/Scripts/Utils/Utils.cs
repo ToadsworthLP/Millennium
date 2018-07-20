@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 #if UNITY_EDITOR
@@ -27,22 +26,6 @@ public static class Utils {
             return EnumDirection.UP;
         }
         return EnumDirection.UNKNOWN;
-    }
-
-    //Shelf serialization - Using Json.NET because it's way faster than BinarySerializer *and* produces better results
-    public static string SerializeShelf(Dictionary<string, object> obj) {
-        if (obj == null) {
-            return null;
-        }
-
-        return JsonConvert.SerializeObject(obj);
-    }
-
-    public static Dictionary<string, object> DeserializeShelf(string json) {
-        if(json.Length > 0){
-            return JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
-        }
-        return new Dictionary<string, object>();
     }
 
     //Utility methods

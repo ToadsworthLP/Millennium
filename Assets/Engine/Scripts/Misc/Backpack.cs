@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using SavePort.Saving;
+using SavePort.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,6 @@ using UnityEngine.SceneManagement;
 public class Backpack : MonoBehaviour {
 
     private GameManager gameManager;
-    public SaveManager saveManager;
     public string startSceneName;
     [HideInInspector]
     public int targetEntranceId;
@@ -20,15 +20,18 @@ public class Backpack : MonoBehaviour {
     public IntReference maxHP;
     public IntReference FP;
     public IntReference maxFP;
-    public IntReference SP;
-    public IntReference maxSP;
+    public FloatReference SP;
+    public FloatReference maxSP;
     public IntReference BP;
     public IntReference starPoints;
     public IntReference level;
     public IntReference coins;
     public IntReference shineSprites;
     public IntReference starPieces;
-    public ItemListReference inventory;
+    public BaseItemListReference inventory;
+    public HammerAssetReference hammer;
+    public Vector3Reference playerSpawnPosition;
+    public StringReference playerSpawnScene;
 
     private Stopwatch deltaPlaytime;
 
@@ -40,75 +43,32 @@ public class Backpack : MonoBehaviour {
 
         DontDestroyOnLoad(gameObject);
 
-        SaveManager.SaveData data = saveManager.LoadGame();
-        HP.Value = data.hp;
-        maxHP.Value = data.maxHp;
-        FP.Value = data.fp;
-        maxFP.Value = data.maxFp;
-        SP.Value = data.sp;
-        maxSP.Value = data.maxSp;
-        BP.Value = data.bp;
-        starPoints.Value = data.starPoints;
-        level.Value = data.level;
-        coins.Value = data.coins;
-        shineSprites.Value = data.shineSprites;
-        starPieces.Value = data.starPieces;
-        inventory.Value = data.items;
-        playtime = data.playtime;
-        shelf = data.shelf;
+        SaveManager.LoadContainers("save.spdat");
 
         SceneManager.sceneLoaded += SceneLoaded;
 
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        gameManager.UpdateHammer(currentHammer);
         gameManager.blackOverlay.FadeOut();
 
-        PreparePlayer(data);
+        PreparePlayer();
 
         deltaPlaytime = Stopwatch.StartNew();
-
-        StartCoroutine(AfterFirstFrame());
     }
 
     public void SceneLoaded(Scene scene, LoadSceneMode mode) {
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        gameManager.UpdateHammer(currentHammer);
 
         if(gameManager.sceneEntrances.Length-1 <= targetEntranceId){
             gameManager.sceneEntrances[targetEntranceId].PlayerArrives();
         }
-
-        StartCoroutine(AfterFirstFrame());
     }
 
-    private void PreparePlayer(SaveManager.SaveData data){
-        if (data.currentPosition == Vector3.zero || SceneManager.GetActiveScene().name != data.currentScene) {
+    private void PreparePlayer(){
+        if (playerSpawnPosition == Vector3.zero || SceneManager.GetActiveScene().name != playerSpawnScene) {
             gameManager.playerMachine.transform.position = transform.position;
         } else {
-            gameManager.playerMachine.transform.position = data.currentPosition;
+            gameManager.playerMachine.transform.position = playerSpawnPosition;
         }
-
-        gameManager.playerMachine.hammer.UpdateHammer(data.currentHammer);
-    }
-
-    private IEnumerator AfterFirstFrame() {
-        yield return new WaitForEndOfFrame();
-
-        //Manually calls update on all relevant containers to fix problem where update listeners are
-        //called before they are registered
-
-        HP.ForceUpdate();
-        maxHP.ForceUpdate();
-        FP.ForceUpdate();
-        maxFP.ForceUpdate();
-        SP.ForceUpdate();
-        maxSP.ForceUpdate();
-        BP.ForceUpdate();
-        starPoints.ForceUpdate();
-        level.ForceUpdate();
-        coins.ForceUpdate();
-        shineSprites.ForceUpdate();
-        starPieces.ForceUpdate();
     }
 
     //Getters and setters
@@ -162,7 +122,7 @@ public class Backpack : MonoBehaviour {
             maxFP.Value = value;
         }
     }
-    public int legacySP
+    public float legacySP
     {
         get {
             return SP;
@@ -172,7 +132,7 @@ public class Backpack : MonoBehaviour {
             maxSP.Value = value;
         }
     }
-    public int legacyMaxSP
+    public float legacyMaxSP
     {
         get {
             return maxSP;
@@ -300,21 +260,6 @@ public class Backpack : MonoBehaviour {
             } else {
                 return new List<BaseItem>();
             }
-        }
-    }
-    public HammerAsset currentHammer{
-        get{
-            HammerAsset currentHammer = gameManager.playerMachine.hammer.hammer;
-            if(currentHammer == null){
-                return saveManager.defaultHammer;
-            }else{
-                return currentHammer;
-            }
-        }
-
-        set{
-            Hammer hammer = gameManager.playerMachine.hammer;
-            hammer.UpdateHammer(value);
         }
     }
 

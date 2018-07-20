@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SavePort.Types;
+using UnityEngine;
 
 public class FancyNumberHUD : MonoBehaviour {
 
@@ -10,8 +11,12 @@ public class FancyNumberHUD : MonoBehaviour {
     private void Start () {
         value.AddUpdateListener(UpdateDisplay);
 	}
-	
-	public void UpdateDisplay(){
+
+    private void OnDestroy() {
+        value.RemoveUpdateListener(UpdateDisplay);
+    }
+
+    public void UpdateDisplay(){
         numberHandler.UpdateValue(value);
         animationModifier.SetProperty(animator);
     }

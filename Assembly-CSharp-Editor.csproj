@@ -95,12 +95,17 @@
     <Compile Include="Assets\Engine\PostProcessing\Editor\Utils\EditorResources.cs" />
     <Compile Include="Assets\Engine\PostProcessing\Editor\Utils\FxStyles.cs" />
     <Compile Include="Assets\Engine\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
-    <Compile Include="Assets\Engine\Scripts\Containers\Editor\VariableReferencePropertyDrawer.cs" />
     <Compile Include="Assets\Engine\Scripts\Cutscene\Editor\CutsceneManagerEditor.cs" />
     <Compile Include="Assets\Engine\Scripts\Cutscene\Editor\EditorConnection.cs" />
     <Compile Include="Assets\Engine\Scripts\Cutscene\Editor\EditorConnectionPoint.cs" />
     <Compile Include="Assets\Engine\Scripts\Cutscene\Editor\EditorNode.cs" />
     <Compile Include="Assets\Engine\Scripts\Cutscene\Editor\NodeBasedEditor.cs" />
+    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Editor\DataContainerInspector.cs" />
+    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Editor\DataReferencePropertyDrawer.cs" />
+    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Editor\ReorderableArrayInspector.cs" />
+    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Editor\SavePortEditorUtils.cs" />
+    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Editor\SavePortMenuItems.cs" />
+    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Editor\SerializedPropExtension.cs" />
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
       <HintPath>D:/Unity Projects/Millenium/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
@@ -365,12 +370,6 @@
     <Reference Include="UnityEditor.OSXStandalone.Extensions">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.0f2/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>D:/Unity Projects/Millenium/Assets/Engine/Plugins/Json.NET/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>C:/Users/manue/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/manue/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
@@ -401,9 +400,6 @@
     <Reference Include="ProBuilderEditor">
       <HintPath>C:/Users/manue/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.probuilder@3.0.6/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/manue/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.3/UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>C:/Users/manue/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
@@ -412,6 +408,9 @@
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="OdinSerializer">
+      <HintPath>D:/Unity Projects/Millenium/Assets/Plugins/Sirenix/Odin Serializer/EditorOnly/OdinSerializer.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.0f2/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>

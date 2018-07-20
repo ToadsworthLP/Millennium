@@ -1,23 +1,18 @@
-﻿using UnityEngine;
+﻿using SavePort.Types;
+using UnityEngine;
 
 public class ExampleTriggeredObject : MonoBehaviour {
 
-    public bool isPersistent;
-    public string shelfKey;
-    private GameManager gameManager;
-
-    void Start() {
-        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        if (isPersistent){
-            gameObject.SetActive(gameManager.GetShelfData<bool>(shelfKey, false));
-        }
-    }
+    //public bool isPersistent;
+    //public string shelfKey;
+    //public ShelfContainer shelf;
+    public IntContainer playerCoins;
 
     [SerializeField]
     public void Trigger(GameObject sender, object args) {
         print("Trigger activated with message " + args.ToString());
-        gameManager.GetBackpack().legacyCoins += 10;
-        if(isPersistent)gameManager.SetShelfData(shelfKey, !gameObject.activeInHierarchy);
+        playerCoins.Value += 10;
+        //if(isPersistent)shelf.SetShelfData(shelfKey, !gameObject.activeInHierarchy);
         gameObject.SetActive(!gameObject.activeInHierarchy);
     }
 
