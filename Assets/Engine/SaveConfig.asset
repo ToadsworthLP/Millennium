@@ -16,8 +16,6 @@ MonoBehaviour:
     container: {fileID: 11400000, guid: 9a12dc4810edf56459929c6fd75a9368, type: 2}
   - ID: PlayerHammer
     container: {fileID: 11400000, guid: 0d4f5fe0187b27847b5108b7cbac8e93, type: 2}
-  - ID: PlayerInventory
-    container: {fileID: 11400000, guid: 270187555457bd346ab5d104c99cf5b9, type: 2}
   - ID: PlayerMaxHP
     container: {fileID: 11400000, guid: 38db89edcfe0d4843883152baba75a4d, type: 2}
   - ID: PlayerMaxFP
@@ -46,5 +44,9 @@ MonoBehaviour:
     container: {fileID: 11400000, guid: d7e2387b991fe7446afeecba303e9542, type: 2}
   - ID: PlayerSpawnScene
     container: {fileID: 11400000, guid: 1c865cb19affa6e40a0200daa700c3f2, type: 2}
+  - ID: PlayerInventory
+    container: {fileID: 11400000, guid: 270187555457bd346ab5d104c99cf5b9, type: 2}
+  - ID: PlayTime
+    container: {fileID: 11400000, guid: a9d002d5fde737b49b5f97e1c51baad5, type: 2}
   - ID: Shelf
-    container: {fileID: 11400000, guid: 74e7d26be93488a49b3f2b73dd826322, type: 2}
+    container: {fileID: 11400000, guid: e1d6ca33dc66c084d8c80095e6fb330a, type: 2}

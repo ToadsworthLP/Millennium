@@ -1,4 +1,4 @@
-﻿using OdinSerializer;
+﻿using SavePort.Internal.OdinSerializer;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,6 +34,11 @@ namespace SavePort.Saving {
             try {
                 using (BinaryWriter writer = new BinaryWriter(File.Open(Application.persistentDataPath + "/" + fileName, FileMode.OpenOrCreate))) {
                     Dictionary<string, object> dataDict = new Dictionary<string, object>();
+
+                    if(configuration.GetContainerEntries() == null) {
+                        Debug.LogWarning("Attempted to save containers of an empty configuration file! Aborting!");
+                        return false;
+                    }
 
                     foreach (ContainerTableEntry entry in configuration.GetContainerEntries()) {
                         dataDict.Add(entry.ID, entry.container.UntypedValue);

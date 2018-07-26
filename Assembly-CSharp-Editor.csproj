@@ -102,10 +102,8 @@
     <Compile Include="Assets\Engine\Scripts\Cutscene\Editor\NodeBasedEditor.cs" />
     <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Editor\DataContainerInspector.cs" />
     <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Editor\DataReferencePropertyDrawer.cs" />
-    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Editor\ReorderableArrayInspector.cs" />
     <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Editor\SavePortEditorUtils.cs" />
     <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Editor\SavePortMenuItems.cs" />
-    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Editor\SerializedPropExtension.cs" />
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
       <HintPath>D:/Unity Projects/Millenium/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
@@ -410,7 +408,7 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="OdinSerializer">
-      <HintPath>D:/Unity Projects/Millenium/Assets/Plugins/Sirenix/Odin Serializer/EditorOnly/OdinSerializer.dll</HintPath>
+      <HintPath>D:/Unity Projects/Millenium/Assets/Engine/Scripts/SavePort/Plugins/Sirenix/Odin Serializer/EditorOnly/OdinSerializer.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.0f2/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>

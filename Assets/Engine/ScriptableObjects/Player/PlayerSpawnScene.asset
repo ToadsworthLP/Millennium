@@ -11,7 +11,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e73c47f464240c4b9f20cb2159fa1c6, type: 3}
   m_Name: PlayerSpawnScene
   m_EditorClassIdentifier: 
-  serializedValue: TestMap
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: serializedValue
+      Entry: 1
+      Data: TestMap
+  editorValue: TestMap
   validateInput: 0
   maxLength:
     localMode: 0

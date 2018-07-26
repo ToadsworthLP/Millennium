@@ -11,7 +11,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e73c47f464240c4b9f20cb2159fa1c6, type: 3}
   m_Name: PlayerName
   m_EditorClassIdentifier: 
-  serializedValue: Mario
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: serializedValue
+      Entry: 1
+      Data: Mario
+  editorValue: Mario
   validateInput: 1
   maxLength:
     localMode: 1

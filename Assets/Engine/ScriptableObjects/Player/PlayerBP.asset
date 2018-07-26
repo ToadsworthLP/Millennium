@@ -11,7 +11,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ef212a208daff43aff6786d41b77af, type: 3}
   m_Name: PlayerBP
   m_EditorClassIdentifier: 
-  serializedValue: 3
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: serializedValue
+      Entry: 3
+      Data: 0
+  editorValue: 0
   validateInput: 1
   minValue:
     localMode: 1

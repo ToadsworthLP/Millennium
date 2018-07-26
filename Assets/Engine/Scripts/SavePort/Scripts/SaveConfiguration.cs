@@ -1,5 +1,4 @@
-﻿using SubjectNerd.Utilities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace SavePort.Saving {
@@ -8,8 +7,7 @@ namespace SavePort.Saving {
     public class SaveConfiguration : ScriptableObject {
 
         [SerializeField]
-        [Reorderable]
-        private List<ContainerTableEntry> containerEntries = new List<ContainerTableEntry>();
+        private List<ContainerTableEntry> containerEntries;
 
         public List<ContainerTableEntry> GetContainerEntries() {
             return containerEntries;

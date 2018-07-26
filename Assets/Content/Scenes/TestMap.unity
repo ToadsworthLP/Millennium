@@ -1022,6 +1022,9 @@ MonoBehaviour:
     localMode: 0
     container: {fileID: 11400000, guid: 1c865cb19affa6e40a0200daa700c3f2, type: 2}
     localData: 
+  playtime:
+    localMode: 0
+    container: {fileID: 11400000, guid: a9d002d5fde737b49b5f97e1c51baad5, type: 2}
   statusEffects: 
 --- !u!4 &151959844
 Transform:
@@ -8014,8 +8017,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPersistent: 1
-  shelfKey: exampleTriggeredWallEnabled
-  shelf: {fileID: 11400000, guid: 74e7d26be93488a49b3f2b73dd826322, type: 2}
+  shelfKey: isPersistentBlockEnabled
+  shelf: {fileID: 11400000, guid: e1d6ca33dc66c084d8c80095e6fb330a, type: 2}
   playerCoins: {fileID: 11400000, guid: 9a12dc4810edf56459929c6fd75a9368, type: 2}
 --- !u!1 &1488390700
 GameObject:

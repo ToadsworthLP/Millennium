@@ -1,7 +1,7 @@
-﻿using SavePort.Saving;
+﻿using Millennium.Containers;
+using SavePort.Saving;
 using SavePort.Types;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
@@ -28,10 +28,11 @@ public class Backpack : MonoBehaviour {
     public IntReference coins;
     public IntReference shineSprites;
     public IntReference starPieces;
-    public BaseItemListReference inventory;
+    public ItemListReference inventory;
     public HammerAssetReference hammer;
     public Vector3Reference playerSpawnPosition;
     public StringReference playerSpawnScene;
+    public DateTimeReference playtime;
 
     private Stopwatch deltaPlaytime;
 
@@ -217,10 +218,9 @@ public class Backpack : MonoBehaviour {
         }
     }
 
-    private DateTime playtime;
     public DateTime GetPlaytime(){
         deltaPlaytime.Stop();
-        playtime = playtime.AddTicks(deltaPlaytime.ElapsedTicks);
+        playtime.Value = playtime.Value.AddTicks(deltaPlaytime.ElapsedTicks);
         deltaPlaytime.Reset();
         deltaPlaytime.Start();
         return playtime;

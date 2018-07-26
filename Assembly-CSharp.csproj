@@ -133,6 +133,9 @@
     <Compile Include="Assets\Engine\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\Engine\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\Engine\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+    <Compile Include="Assets\Engine\Scripts\Containers\HammerAssetContainer.cs" />
+    <Compile Include="Assets\Engine\Scripts\Containers\ItemListContainer.cs" />
+    <Compile Include="Assets\Engine\Scripts\Containers\ShelfContainer.cs" />
     <Compile Include="Assets\Engine\Scripts\Cutscene\BaseCutsceneNode.cs" />
     <Compile Include="Assets\Engine\Scripts\Cutscene\CutsceneManager.cs" />
     <Compile Include="Assets\Engine\Scripts\Interfaces\IHammerable.cs" />
@@ -175,17 +178,16 @@
     <Compile Include="Assets\Engine\Scripts\Player\PlayerArt.cs" />
     <Compile Include="Assets\Engine\Scripts\Player\PlayerGamepad.cs" />
     <Compile Include="Assets\Engine\Scripts\Player\PlayerMachine.cs" />
+    <Compile Include="Assets\Engine\Scripts\SavePort\Plugins\Sirenix\Odin Serializer\OdinBuildAutomation.cs" />
     <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\BaseDataContainer.cs" />
     <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\BaseDataReference.cs" />
-    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Container Types\BaseItemListContainer.cs" />
+    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Container Types\DateTimeContainer.cs" />
     <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Container Types\FloatContainer.cs" />
-    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Container Types\HammerAssetContainer.cs" />
+    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Container Types\GenericDictionaryContainer.cs" />
+    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Container Types\GenericListContainer.cs" />
     <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Container Types\IntContainer.cs" />
-    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Container Types\ShelfContainer.cs" />
     <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Container Types\StringContainer.cs" />
     <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\Container Types\Vector3Container.cs" />
-    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\EditScriptableAttribute.cs" />
-    <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\ReorderableArrayAttribute.cs" />
     <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\SaveConfiguration.cs" />
     <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\SaveManager.cs" />
     <Compile Include="Assets\Engine\Scripts\SavePort\Scripts\SavePortInitializer.cs" />
@@ -213,6 +215,7 @@
     <Compile Include="Assets\Engine\Scripts\World\LoadingZone.cs" />
     <Compile Include="Assets\Engine\Scripts\World\SaveBlock.cs" />
     <Compile Include="Assets\Engine\Scripts\World\SpinningTransform.cs" />
+    <None Include="Assets\Engine\Scripts\SavePort\Plugins\Sirenix\Odin Serializer\EditorOnly\OdinSerializer.xml" />
     <None Include="Assets\Engine\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\Engine\Shaders\Shared\ShaderTools.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
@@ -246,6 +249,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Engine\PostProcessing\Editor Resources\UI\Trackball.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\Engine\Scripts\SavePort\Plugins\Sirenix\Odin Serializer\License.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Engine\Shaders\Rainbow.shader" />
     <None Include="Assets\Engine\PostProcessing\Resources\Shaders\Bloom.cginc" />
@@ -263,12 +267,14 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Engine\PostProcessing\Resources\Shaders\Bloom.shader" />
+    <None Include="Assets\Engine\Scripts\SavePort\Plugins\Sirenix\Odin Serializer\AOT\link.xml" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\Engine\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
     <None Include="Assets\Engine\PostProcessing\Resources\Shaders\EyeAdaptation.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\Engine\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
+    <None Include="Assets\Engine\Scripts\SavePort\Plugins\Sirenix\Odin Serializer\Version.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\Engine\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
@@ -506,7 +512,7 @@
       <HintPath>C:/Users/manue/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="OdinSerializer">
-      <HintPath>D:/Unity Projects/Millenium/Assets/Plugins/Sirenix/Odin Serializer/EditorOnly/OdinSerializer.dll</HintPath>
+      <HintPath>D:/Unity Projects/Millenium/Assets/Engine/Scripts/SavePort/Plugins/Sirenix/Odin Serializer/EditorOnly/OdinSerializer.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.0f2/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
