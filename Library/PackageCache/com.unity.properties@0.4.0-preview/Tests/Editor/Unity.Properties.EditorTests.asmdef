@@ -1,0 +1,13 @@
+{
+    "name": "Unity.Properties.EditorTests",
+    "references": [
+        "Unity.Properties"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

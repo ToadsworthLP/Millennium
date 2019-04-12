@@ -1,18 +1,18 @@
-# Millenium -  If Paper Mario: The Thousand Year Door and Unity had a child
+#Millennium - now with 100% less typos in the title!
 
-This is a engine/game framework/whatever you like to call it I'm making for fun and to make it easier for other people to create Paper Mario: TTYD-based fangames.
-I didn't really document anything, but many of the function and variable names should be pretty self-explanatory. At least that's what I hope.
+Welcome to the cutting-edge branch of Millennium! If you'd like to take a look at something more usable, switch to the *Legacy* branch. However, note that the *Legacy* branch of the project is basically a pile of trash held together by metaphorical duct tape. Use at your own risk.
 
-To use/contribute, fork this project and clone your fork to anywhere on your computer. Next open Unity, click "Add" and choose the folder you cloned Millenium in. Give it some time to load and you're good to go!
+*Millennium* is a project dedictated to recreating the gameplay of the Paper Mario game series. The focus of this project lies on replication of mechanics found in *Paper Mario: The Thousand-Year Door*, which was developed by Intelligent Systems and released on the *Nintendo GameCube* in 2004. The goal of *Millennium* is to give the community a more flexible alternative to Paper Mario hacking tools when making a game based on Paper Mario.
 
-If you just want a demonstration of the current features, you can download a prebuilt demo here:
-https://drive.google.com/uc?id=1QNNku8-PuI_wQtyf56w3xpjGVeIWoXXA
-The demo may be outdated, it's currently on commit #90785a8.
-(Controls aren't set by default at the moment though, you'll have to press the [ESC] key and click "Reset to defaults", then press [ESC] again. This will be improved in the future as part of the settings menu)
+*Millennium* is using the *Unity* Engine and is written in C#, so some coding experience is recommended, though this will not be a requirement forever. More updates to follow once most of the gameplay is in place. A recent graphics card is also recommended as this project is using the *Unity High Definition Render Pipeline* to enable a graphical fidelity far beyond what the GameCube could render.
 
-My goal with this project is to provide a relatively easy-to-use and modern alternative to programs like Star Rod. It is still fairly early in development, but it's here if you want to check it out anyways, just be aware that there can and will be changes that may break your code if it's interacting with mine!
+As all of this is still in a very early state in development, I currently DO NOT recommend using this to make a game. Breaking changes may and will occur at any time!
 
-If you need help with anything just open an issue or @ me at Twitter (@ToadsworthLP).
-I also have a discord server where you can discuss about Millenium: https://discord.gg/GK3uMuB
+To contribute to *Millennium*, fork this repo and clone your fork to your computer. Next, open the Unity Hub, press the *Add* button, navigate to the *Millennium* folder you just cloned to your computer and select the folder. As of March 12th 2019, Unity 2019.1.0f1 or newer is required to open the project.
 
-Also, I obviously don't own/am affiliated with Super Mario, Paper Mario, Nintendo, Intelligent Systems, Reggie and his memes or anything else which isn't my code.
+If you need help, open a GitHub issue here, tweet me at @ToadsworthLP or ping me on my Discord server. There, you'll also get more frequent updates on what's happening behind the scenes and other stuff I'm working on. Join here: https://discord.gg/GK3uMuB
+
+A playable demo will be added to this page later. However, a precompiled binary is available for download on the main page of the *Legacy* branch if you reálly want to check it out!
+
+
+*Neither I nor the project are affiliated with or endorsed by Nintendo or Intelligent Systems in any way. This is just a fan project! Mario, Paper Mario and all the other IPs referenced in this project DO NOT belong to me. All the code contained in this project, however, was written by me or a contributor to this project, unless stated otherwise.*

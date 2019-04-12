@@ -1,0 +1,45 @@
+﻿#if !UNITY_ZEROPLAYER
+using NUnit.Framework;
+using Unity.Jobs;
+
+namespace Unity.Entities.Tests
+{
+    class IJobProcessComponentInjection : ECSTestsFixture
+    {
+        [DisableAutoCreation]
+        class TestSystem : JobComponentSystem
+        {
+            private struct Process1 : IJobForEach<EcsTestData>
+            {
+                public void Execute(ref EcsTestData value)
+                {
+                    value.value = 7;
+                }
+            }
+
+            public struct Process2 : IJobForEach<EcsTestData, EcsTestData2>
+            {
+                public void Execute(ref EcsTestData src, ref EcsTestData2 dst)
+                {
+                    dst.value1 = src.value;
+                }
+            }
+
+            protected override JobHandle OnUpdate(JobHandle inputDeps)
+            {
+                inputDeps = new Process1().Schedule(this, inputDeps);
+                inputDeps = new Process2().Schedule(this, inputDeps);
+                return inputDeps;
+            }
+        }
+        
+        [Test]
+        public void NestedIJobForEachAreInjectedDuringOnCreate()
+        {
+            m_Manager.CreateEntity(typeof(EcsTestData), typeof(EcsTestData2));
+            var system = World.GetOrCreateSystem<TestSystem>();
+            Assert.AreEqual(2, system.EntityQueries.Length);
+        }
+    }
+}
+#endif

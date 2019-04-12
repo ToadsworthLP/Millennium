@@ -1,0 +1,16 @@
+{
+    "category": "AssetStore/Unity", 
+    "displayName": "Jobs", 
+    "name": "com.unity.jobs", 
+    "unity": "2019.1", 
+    "version": "0.0.7-preview.10", 
+    "dependencies": {
+        "com.unity.collections": "0.0.9-preview.17", 
+        "com.unity.mathematics": "1.0.0-preview.1"
+    }, 
+    "keywords": [
+        "ads", 
+        "unity"
+    ], 
+    "description": "Additional C# jobs types. IJobParallelForBatch and IJobParallelForFilter"
+}

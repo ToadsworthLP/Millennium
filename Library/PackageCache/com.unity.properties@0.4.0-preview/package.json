@@ -1,0 +1,10 @@
+{
+	"name": "com.unity.properties",
+	"displayName":"Property API",
+	"version": "0.4.0-preview",
+	"unity": "2018.1",
+	"description": "Interfaces and utilities to describe and visit data containers.",
+	"keywords": ["properties", "property"],
+	"dependencies": {
+	}
+}

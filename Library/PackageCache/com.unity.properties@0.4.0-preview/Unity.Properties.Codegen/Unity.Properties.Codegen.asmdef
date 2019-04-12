@@ -1,0 +1,16 @@
+{
+    "name": "Unity.Properties.Codegen",
+    "references": [
+        "Unity.Properties"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

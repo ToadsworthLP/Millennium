@@ -3,11 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ground
-  - InputManager
-  - UIParent
-  - Backpack
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -17,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - RenderTexturePlayerModel
-  - NoPlayerCollision
-  - PlayerObject
+  - PostProcessing
+  - 
+  - 
   - 
   - 
   - 
@@ -44,7 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Player
-    uniqueID: 3537971819
     locked: 0
