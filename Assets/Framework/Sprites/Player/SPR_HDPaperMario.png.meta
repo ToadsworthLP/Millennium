@@ -1,0 +1,937 @@
+fileFormatVersion: 2
+guid: 72f12faa5c64a8d4bbd2183c1e5f966c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: MarioStillF
+  - first:
+      213: 21300002
+    second: MarioMidWalkF
+  - first:
+      213: 21300004
+    second: MarioThink
+  - first:
+      213: 21300006
+    second: MarioJumpF
+  - first:
+      213: 21300008
+    second: MarioHammer
+  - first:
+      213: 21300010
+    second: MarioStandB
+  - first:
+      213: 21300012
+    second: MarioMidWalkB
+  - first:
+      213: 21300014
+    second: MarioJumpB
+  - first:
+      213: 21300016
+    second: MarioHammerDown
+  - first:
+      213: 21300018
+    second: SPR_CHAR_Mario_ArmLB
+  - first:
+      213: 21300020
+    second: SPR_CHAR_Mario_
+  - first:
+      213: 21300022
+    second: SPR_CHAR_Mario_Arm_Think
+  - first:
+      213: 21300024
+    second: Paper Mario Sprites_12
+  - first:
+      213: 21300026
+    second: SPR_CHAR_Mario_ArmF
+  - first:
+      213: 21300028
+    second: MarioHeadB
+  - first:
+      213: 21300030
+    second: MarioHeadFB
+  - first:
+      213: 21300032
+    second: MarioHeadFB
+  - first:
+      213: 21300034
+    second: MarioMouthopen
+  - first:
+      213: 21300036
+    second: SPR_CHAR_Mario_HandFF
+  - first:
+      213: 21300038
+    second: SPR_CHAR_Mario_HandO
+  - first:
+      213: 21300040
+    second: SPR_CHAR_Mario_HandH
+  - first:
+      213: 21300042
+    second: SPR_CHAR_Mario_HandFFB
+  - first:
+      213: 21300044
+    second: SPR_CHAR_Mario_HandFB
+  - first:
+      213: 21300046
+    second: MarioFootUp
+  - first:
+      213: 21300048
+    second: MarioKO
+  - first:
+      213: 21300050
+    second: MarioBodyB
+  - first:
+      213: 21300052
+    second: MarioBodyF
+  - first:
+      213: 21300054
+    second: SPR_CHAR_Mario_EyeC
+  - first:
+      213: 21300056
+    second: SPR_CHAR_Mario_Eye
+  - first:
+      213: 21300058
+    second: SPR_CHAR_Mario_EyeAngB
+  - first:
+      213: 21300060
+    second: SPR_CHAR_Mario_EyeAngF
+  - first:
+      213: 21300062
+    second: Paper Mario Sprites_31
+  - first:
+      213: 21300064
+    second: SPR_CHAR_Mario_EyeF
+  - first:
+      213: 21300066
+    second: MarioFootDown
+  - first:
+      213: 21300068
+    second: Paper Mario Sprites_37
+  - first:
+      213: 21300070
+    second: PaperMarioLogo
+  - first:
+      213: 21300072
+    second: MarioHeadF
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 16
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MarioStillF
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2508
+        width: 512
+        height: 885
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a7f7e2b5e6a18647bc7190cf05972e4
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioMidWalkF
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 2593
+        width: 589
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68938a0b68fc3124bb995f362167c774
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioThink
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 2508
+        width: 559
+        height: 851
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b48e592abe16f42a0ec75628c06673
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioJumpF
+      rect:
+        serializedVersion: 2
+        x: 1914
+        y: 2593
+        width: 616
+        height: 800
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36bf28e03889dff40be105a20cde318c
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioHammer
+      rect:
+        serializedVersion: 2
+        x: 2748
+        y: 2659
+        width: 465
+        height: 677
+      alignment: 9
+      pivot: {x: 0.50657606, y: 0.2470595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc834dcc0b15a1f43858ff4dd04f96d2
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioStandB
+      rect:
+        serializedVersion: 2
+        x: 3349
+        y: 2509
+        width: 531
+        height: 902
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d14ed8b2d63e514abd250a50e9a78d5
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioMidWalkB
+      rect:
+        serializedVersion: 2
+        x: 3992
+        y: 2572
+        width: 538
+        height: 839
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 224bd6f38ecc2494ca5748fb2bb3ba2d
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioJumpB
+      rect:
+        serializedVersion: 2
+        x: 4705
+        y: 2578
+        width: 571
+        height: 835
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b301c94513bbfc24481712dcf810bc95
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioHammerDown
+      rect:
+        serializedVersion: 2
+        x: 5364
+        y: 2509
+        width: 823
+        height: 896
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d06d4931bb1286429b4db90f3fc9495
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_ArmLB
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 1962
+        width: 211
+        height: 359
+      alignment: 9
+      pivot: {x: 0.24221295, y: 0.88635695}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73c33286474ecf14eacd36f7f552ce49
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 1968
+        width: 205
+        height: 377
+      alignment: 9
+      pivot: {x: 0.43366686, y: 0.08880567}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468edaf4be842284cba8adb1326d6423
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_Arm_Think
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 2098
+        width: 263
+        height: 247
+      alignment: 9
+      pivot: {x: 0.11738732, y: 0.33483836}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe97235d7c92d054e8dd79f7197e6a53
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paper Mario Sprites_12
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 1980
+        width: 314
+        height: 380
+      alignment: 9
+      pivot: {x: 0.10157961, y: 0.070581056}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b280a3cd7a55ce34d9c27e3fe1923e78
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_ArmF
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 2264
+        width: 166
+        height: 169
+      alignment: 9
+      pivot: {x: 0.17233093, y: 0.80575943}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6a1e6e148a274d43aa8ce07cbd10b30
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioHeadB
+      rect:
+        serializedVersion: 2
+        x: 3349
+        y: 1892
+        width: 531
+        height: 499
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3941444886ff5d4d917bb15bed8f546
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioHeadFB
+      rect:
+        serializedVersion: 2
+        x: 3992
+        y: 1892
+        width: 514
+        height: 483
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0f8d2c053f7b8f468c50bb2abff4ebc
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioHeadF
+      rect:
+        serializedVersion: 2
+        x: 4621
+        y: 1892
+        width: 513
+        height: 480
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5f4e51dd4189d44ab7089316b9aa45a
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioMouthopen
+      rect:
+        serializedVersion: 2
+        x: 5270
+        y: 1868
+        width: 520
+        height: 526
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e5eebe2163086849a8c7f1308289971
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_HandFF
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 2007
+        width: 220
+        height: 229
+      alignment: 9
+      pivot: {x: 0.47527575, y: 0.8087814}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7db1e1d1faa96408d43510df99cbd2
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_HandO
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1995
+        width: 184
+        height: 269
+      alignment: 9
+      pivot: {x: 0.5295616, y: 0.85385776}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04e1acfb1aa17944e9d79e1eb77d8323
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_HandH
+      rect:
+        serializedVersion: 2
+        x: 1757
+        y: 2010
+        width: 234
+        height: 242
+      alignment: 9
+      pivot: {x: 0.662714, y: 0.8371471}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cae8e4032cd9eb4397dfb844ec74bc7
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_HandFFB
+      rect:
+        serializedVersion: 2
+        x: 2044
+        y: 2007
+        width: 217
+        height: 227
+      alignment: 9
+      pivot: {x: 0.6002642, y: 0.8234831}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a3f2b20dc7bc34db20b165f6175f51
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_HandFB
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 2010
+        width: 205
+        height: 214
+      alignment: 9
+      pivot: {x: 0.6193991, y: 0.83042496}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956d419fa02df1e4d96a79388d5d5957
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioFootUp
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 1482
+        width: 202
+        height: 250
+      alignment: 9
+      pivot: {x: 0.79755354, y: 0.4248677}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cafebe54a8a40d43ba43f851a6156d5
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioKO
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 1427
+        width: 837
+        height: 498
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ac0b14ca685a884ba20500091ea1834
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioBodyB
+      rect:
+        serializedVersion: 2
+        x: 3409
+        y: 1445
+        width: 326
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5df2a6f07ca6334b8ca516f754c4000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioBodyF
+      rect:
+        serializedVersion: 2
+        x: 4044
+        y: 1421
+        width: 338
+        height: 305
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 495d24b1ff154c34cacc8aa3fa479a7e
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_EyeC
+      rect:
+        serializedVersion: 2
+        x: 4738
+        y: 1688
+        width: 79
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5579176d9112a464ca3313e4f5ec1c91
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_Eye
+      rect:
+        serializedVersion: 2
+        x: 4859
+        y: 1669
+        width: 37
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad2cb0462889bcf4ba6a931cec9d7afe
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_EyeAngB
+      rect:
+        serializedVersion: 2
+        x: 4935
+        y: 1669
+        width: 81
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2652323e635982343a4792988be0587d
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_EyeAngF
+      rect:
+        serializedVersion: 2
+        x: 5041
+        y: 1666
+        width: 87
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2cd93b0d3a24f5428dc32d1ee1b84fa
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paper Mario Sprites_31
+      rect:
+        serializedVersion: 2
+        x: 5158
+        y: 1678
+        width: 118
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b6eb309db43e0449ba01e8a6751fbc
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_CHAR_Mario_EyeF
+      rect:
+        serializedVersion: 2
+        x: 5315
+        y: 1672
+        width: 98
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a369530baf85be43a15b9c52eb7c2d5
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioFootDown
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1485
+        width: 223
+        height: 178
+      alignment: 9
+      pivot: {x: 0.65, y: 0.85}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed22f4b14088e72489dc0620fe0f425f
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 94932b728ae68c54f93e31833e169850
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,4 +8,6 @@ Logs/
 Build/
 Temp/
 [Oo]bj/
+Assets/Private/
+TTYDHD Textures/
 .vs/
