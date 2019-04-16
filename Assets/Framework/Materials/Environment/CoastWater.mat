@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
+  m_Name: CoastWater
   m_Shader: {fileID: -6465566751694194690, guid: a7856af7b8f37154f8be71c5100aabd5,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _BLENDMODE_ADD _BLENDMODE_PRESERVE_SPECULAR_LIGHTING
@@ -57,6 +57,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissiveColorMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamTexture:
+        m_Texture: {fileID: 2800000, guid: c1959ccb23bb986439cfc916d42ce601, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HeightMap:
@@ -129,8 +133,8 @@ Material:
     - _Cutoff: 0.5
     - _DepthMultiplier: 1
     - _DepthOffsetEnable: 0
-    - _DepthOpacityFalloff: 0.19
-    - _DepthOpacityMultiplier: 0.83
+    - _DepthOpacityFalloff: 0.35
+    - _DepthOpacityMultiplier: 0.68
     - _DepthRange: 0.2
     - _DetailAlbedoScale: 1
     - _DetailNormalScale: 1
@@ -169,7 +173,7 @@ Material:
     - _EnableSpecularOcclusion: 0
     - _EnableWind: 0
     - _EnergyConservingSpecularColor: 1
-    - _FoamAnimationSpeed: 2
+    - _FoamAnimationSpeed: 0.2
     - _FoamStrength: 1
     - _FoamWidth: 0.09
     - _HdrpVersion: 2
@@ -198,10 +202,14 @@ Material:
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
     - _ReceivesSSR: 1
+    - _RefractionFalloff: 0.087
     - _RefractionModel: 0
+    - _Refraction_Strength: 1
     - _SSRefractionProjectionModel: 0
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
+    - _ShoreFoamAnimationSpeed: 1.5
+    - _ShoreFoamStrength: 1
     - _Smoothness: 0.95
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -252,10 +260,14 @@ Material:
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
+    - _FoamColor: {r: 0.1999822, g: 0.27057368, b: 0.3962264, a: 1}
+    - _FoamTextureTiling: {r: 0.4, g: 0.4, b: 0, a: 0}
     - _FoamWidthMinMax: {r: 0.12, g: 0.14, b: 0, a: 0}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _ShallowColor: {r: 0.3794055, g: 0.5780521, b: 0.9245283, a: 1}
+    - _ShoreFoamWidthBoundaries: {r: 0.12, g: 0.08, b: 0, a: 0}
+    - _ShoreFoamWidthMinMax: {r: 0.1, g: 0.13, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
