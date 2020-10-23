@@ -33,3 +33,9 @@ Library/UnityAssemblies/UnityEditor.UI.dll
 Library/UnityAssemblies/UnityEditor.TreeEditor.dll
 Library/UnityAssemblies/UnityEditor.Networking.dll
 .vs/
+
+Library/
+
+obj/
+
+Logs/

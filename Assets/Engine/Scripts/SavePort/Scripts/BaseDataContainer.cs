@@ -1,4 +1,4 @@
-﻿using SavePort.Internal.OdinSerializer;
+﻿using Millennium.Internal.OdinSerializer;
 using System;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -56,7 +56,7 @@ namespace SavePort {
 #if UNITY_EDITOR
         //This is displayed in the inspector to allow editing the stored data if DataType has an associated PropertyDrawer.
         //If not, it's hidden. When modified, it's value it passed to serializedValue, where it's serialized by Odin.
-        [SerializeField, OdinNonSerialize, Tooltip("The actual value saved to the container asset.")]
+        [SerializeField, Tooltip("The actual value saved to the container asset.")]
         protected DataType editorValue;
 #endif
 

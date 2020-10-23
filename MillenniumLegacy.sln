@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{547C3B01-05E6-2B86-639D-8230C9C3B08C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Millennium.Internal.OdinSerializer", "Millennium.Internal.OdinSerializer.csproj", "{C51E6F90-FFD8-5B41-82F1-3A52124D87E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{2CB0A961-C793-4199-9FA4-817EFDE6193B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{547C3B01-05E6-2B86-639D-8230C9C3B08C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{547C3B01-05E6-2B86-639D-8230C9C3B08C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{547C3B01-05E6-2B86-639D-8230C9C3B08C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{547C3B01-05E6-2B86-639D-8230C9C3B08C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C51E6F90-FFD8-5B41-82F1-3A52124D87E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C51E6F90-FFD8-5B41-82F1-3A52124D87E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C51E6F90-FFD8-5B41-82F1-3A52124D87E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C51E6F90-FFD8-5B41-82F1-3A52124D87E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CB0A961-C793-4199-9FA4-817EFDE6193B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB0A961-C793-4199-9FA4-817EFDE6193B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB0A961-C793-4199-9FA4-817EFDE6193B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB0A961-C793-4199-9FA4-817EFDE6193B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

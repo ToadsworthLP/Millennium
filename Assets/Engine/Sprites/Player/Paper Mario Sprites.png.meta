@@ -1,47 +1,120 @@
 fileFormatVersion: 2
 guid: 72f12faa5c64a8d4bbd2183c1e5f966c
-timeCreated: 1486182507
-licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: MarioStillF
-    21300002: MarioMidWalkF
-    21300004: MarioThink
-    21300006: MarioJumpF
-    21300008: MarioHammer
-    21300010: MarioStandB
-    21300012: MarioMidWalkB
-    21300014: MarioJumpB
-    21300016: MarioHammerDown
-    21300018: SPR_CHAR_Mario_ArmLB
-    21300020: SPR_CHAR_Mario_
-    21300022: SPR_CHAR_Mario_Arm_Think
-    21300024: Paper Mario Sprites_12
-    21300026: SPR_CHAR_Mario_ArmF
-    21300028: MarioHeadB
-    21300030: MarioHeadFB
-    21300032: MarioHeadFB
-    21300034: MarioMouthopen
-    21300036: SPR_CHAR_Mario_HandFF
-    21300038: SPR_CHAR_Mario_HandO
-    21300040: SPR_CHAR_Mario_HandH
-    21300042: SPR_CHAR_Mario_HandFFB
-    21300044: SPR_CHAR_Mario_HandFB
-    21300046: MarioFootUp
-    21300048: MarioKO
-    21300050: MarioBodyB
-    21300052: MarioBodyF
-    21300054: SPR_CHAR_Mario_EyeC
-    21300056: SPR_CHAR_Mario_Eye
-    21300058: SPR_CHAR_Mario_EyeAngB
-    21300060: SPR_CHAR_Mario_EyeAngF
-    21300062: Paper Mario Sprites_31
-    21300064: SPR_CHAR_Mario_EyeF
-    21300066: MarioFootDown
-    21300068: Paper Mario Sprites_37
-    21300070: PaperMarioLogo
-    21300072: MarioHeadF
-  serializedVersion: 4
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: MarioStillF
+  - first:
+      213: 21300002
+    second: MarioMidWalkF
+  - first:
+      213: 21300004
+    second: MarioThink
+  - first:
+      213: 21300006
+    second: MarioJumpF
+  - first:
+      213: 21300008
+    second: MarioHammer
+  - first:
+      213: 21300010
+    second: MarioStandB
+  - first:
+      213: 21300012
+    second: MarioMidWalkB
+  - first:
+      213: 21300014
+    second: MarioJumpB
+  - first:
+      213: 21300016
+    second: MarioHammerDown
+  - first:
+      213: 21300018
+    second: SPR_CHAR_Mario_ArmLB
+  - first:
+      213: 21300020
+    second: SPR_CHAR_Mario_
+  - first:
+      213: 21300022
+    second: SPR_CHAR_Mario_Arm_Think
+  - first:
+      213: 21300024
+    second: Paper Mario Sprites_12
+  - first:
+      213: 21300026
+    second: SPR_CHAR_Mario_ArmF
+  - first:
+      213: 21300028
+    second: MarioHeadB
+  - first:
+      213: 21300030
+    second: MarioHeadFB
+  - first:
+      213: 21300032
+    second: MarioHeadFB
+  - first:
+      213: 21300034
+    second: MarioMouthopen
+  - first:
+      213: 21300036
+    second: SPR_CHAR_Mario_HandFF
+  - first:
+      213: 21300038
+    second: SPR_CHAR_Mario_HandO
+  - first:
+      213: 21300040
+    second: SPR_CHAR_Mario_HandH
+  - first:
+      213: 21300042
+    second: SPR_CHAR_Mario_HandFFB
+  - first:
+      213: 21300044
+    second: SPR_CHAR_Mario_HandFB
+  - first:
+      213: 21300046
+    second: MarioFootUp
+  - first:
+      213: 21300048
+    second: MarioKO
+  - first:
+      213: 21300050
+    second: MarioBodyB
+  - first:
+      213: 21300052
+    second: MarioBodyF
+  - first:
+      213: 21300054
+    second: SPR_CHAR_Mario_EyeC
+  - first:
+      213: 21300056
+    second: SPR_CHAR_Mario_Eye
+  - first:
+      213: 21300058
+    second: SPR_CHAR_Mario_EyeAngB
+  - first:
+      213: 21300060
+    second: SPR_CHAR_Mario_EyeAngF
+  - first:
+      213: 21300062
+    second: Paper Mario Sprites_31
+  - first:
+      213: 21300064
+    second: SPR_CHAR_Mario_EyeF
+  - first:
+      213: 21300066
+    second: MarioFootDown
+  - first:
+      213: 21300068
+    second: Paper Mario Sprites_37
+  - first:
+      213: 21300070
+    second: PaperMarioLogo
+  - first:
+      213: 21300072
+    second: MarioHeadF
+  externalObjects: {}
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -59,6 +132,9 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -69,7 +145,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 2
     aniso: 16
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -81,25 +157,35 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 1000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -117,6 +203,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioMidWalkF
       rect:
@@ -131,6 +224,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioThink
       rect:
@@ -145,6 +245,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioJumpF
       rect:
@@ -159,6 +266,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioHammer
       rect:
@@ -173,6 +287,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioStandB
       rect:
@@ -187,6 +308,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioMidWalkB
       rect:
@@ -201,6 +329,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioJumpB
       rect:
@@ -215,6 +350,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioHammerDown
       rect:
@@ -229,6 +371,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_ArmLB
       rect:
@@ -243,6 +392,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_
       rect:
@@ -257,6 +413,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_Arm_Think
       rect:
@@ -271,6 +434,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Paper Mario Sprites_12
       rect:
@@ -285,6 +455,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_ArmF
       rect:
@@ -299,6 +476,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioHeadB
       rect:
@@ -313,6 +497,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioHeadFB
       rect:
@@ -327,6 +518,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioHeadF
       rect:
@@ -341,6 +539,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 86305410000000000800000000000000
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioMouthopen
       rect:
@@ -355,6 +560,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_HandFF
       rect:
@@ -369,6 +581,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_HandO
       rect:
@@ -383,6 +602,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_HandH
       rect:
@@ -397,6 +623,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_HandFFB
       rect:
@@ -411,6 +644,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_HandFB
       rect:
@@ -425,6 +665,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioFootUp
       rect:
@@ -439,6 +686,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioKO
       rect:
@@ -453,6 +707,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioBodyB
       rect:
@@ -467,6 +728,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioBodyF
       rect:
@@ -481,6 +749,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_EyeC
       rect:
@@ -495,6 +770,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_Eye
       rect:
@@ -509,6 +791,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 85305410000000000800000000000000
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_EyeAngB
       rect:
@@ -523,6 +812,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a5305410000000000800000000000000
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_EyeAngF
       rect:
@@ -537,6 +833,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c5305410000000000800000000000000
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Paper Mario Sprites_31
       rect:
@@ -551,6 +854,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e5305410000000000800000000000000
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: SPR_CHAR_Mario_EyeF
       rect:
@@ -565,6 +875,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 06305410000000000800000000000000
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: MarioFootDown
       rect:
@@ -579,6 +896,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 26305410000000000800000000000000
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PaperMarioLogo
       rect:
@@ -593,9 +917,26 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 66305410000000000800000000000000
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
