@@ -28,7 +28,8 @@ public class GameManager : MonoBehaviour {
 
     public Backpack GetBackpack(){
         if(backpack == null){
-            backpack = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>();
+            //backpack = GameObject.FindGameObjectWithTag("Backpack").GetComponent<Backpack>();
+            backpack = Backpack.instance;
         }
         return backpack;
     }

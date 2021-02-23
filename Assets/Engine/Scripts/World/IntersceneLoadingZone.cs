@@ -42,6 +42,7 @@ public class IntersceneLoadingZone : MonoBehaviour {
         Vector3 exitDirection = GetExitDirection(this);
         gameManager.playerGamepad.direction = new Vector2(Mathf.Round(exitDirection.x * exitDirectionRoundingConstant) / exitDirectionRoundingConstant, Mathf.Round(exitDirection.z * exitDirectionRoundingConstant) / exitDirectionRoundingConstant);
         gameManager.blackOverlay.FadeIn();
+        gameManager.GetBackpack().targetEntranceId = destinationLoadingZoneIndex;
 
         gameManager.mainCamera.GetComponent<MusicManager>().FadeMusicVolume(0.2f, 0);
 

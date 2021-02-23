@@ -10,7 +10,7 @@ public class FancyNumberHUD : MonoBehaviour {
 
     private void Start () {
         value.AddUpdateListener(UpdateDisplay);
-	}
+    }
 
     private void OnDestroy() {
         value.RemoveUpdateListener(UpdateDisplay);

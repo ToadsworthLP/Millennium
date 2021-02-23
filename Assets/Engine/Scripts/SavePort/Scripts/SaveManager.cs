@@ -30,6 +30,12 @@ namespace SavePort.Saving {
             }
         }
 
+        public static void ForceAllContainerUpdateEvents() {
+            foreach (ContainerTableEntry entry in configuration.GetContainerEntries()) {
+                entry.container.ForceUpdate();
+            }
+        }
+
         public static bool SaveContainers(string fileName) {
             try {
                 using (BinaryWriter writer = new BinaryWriter(File.Open(Application.persistentDataPath + "/" + fileName, FileMode.OpenOrCreate))) {
@@ -111,12 +117,12 @@ namespace SavePort.Saving {
                     }
                 }
                 return true;
-            }
+        }
             catch (Exception e) {
                 Debug.LogError("Failed to load data! " + e.ToString() + e.StackTrace);
                 return false;
             }
-        }
+}
 
     }
 

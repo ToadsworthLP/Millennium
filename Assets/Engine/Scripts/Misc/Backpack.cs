@@ -2,12 +2,15 @@
 using SavePort.Saving;
 using SavePort.Types;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Backpack : MonoBehaviour {
+
+    public static Backpack instance;
 
     private GameManager gameManager;
     public string startSceneName;
@@ -37,7 +40,11 @@ public class Backpack : MonoBehaviour {
     private Stopwatch deltaPlaytime;
 
     private void Start() {
-        if (GameObject.FindGameObjectsWithTag("Backpack").Length > 1){
+        if(instance == null)
+        {
+            instance = this;
+        } else
+        {
             Destroy(gameObject);
             return;
         }
@@ -58,8 +65,10 @@ public class Backpack : MonoBehaviour {
 
     public void SceneLoaded(Scene scene, LoadSceneMode mode) {
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        StartCoroutine(DelayedContainerForcedUpdate());
 
-        if(gameManager.sceneEntrances.Length-1 <= targetEntranceId){
+        if(targetEntranceId < gameManager.sceneEntrances.Length)
+        {
             gameManager.sceneEntrances[targetEntranceId].PlayerArrives();
         }
     }
@@ -70,6 +79,12 @@ public class Backpack : MonoBehaviour {
         } else {
             gameManager.playerMachine.transform.position = playerSpawnPosition;
         }
+    }
+
+    IEnumerator DelayedContainerForcedUpdate()
+    {
+        yield return new WaitForEndOfFrame();
+        SaveManager.ForceAllContainerUpdateEvents();
     }
 
     //Getters and setters
